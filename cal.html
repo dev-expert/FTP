@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+body {
+  border-color:black;
+  background-color: skyblue;
+  text-align: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body>
+<form>
+<label for="input1">Input1:</label>
+<input type="text" id="input1"><br>
+<label for="input2">Input2:</label>
+<input type="text" id="input2"><br>
+
+Output:<input type="text" id="result" ><br>
+<input type="button" onclick="Add()" value="Add">
+<input type="button" onclick="Subtract()" value="Subtract">
+<input type="button" onclick="Multiply()" value="Multiply">
+<input type="button" onclick="Divide()" value="Divide">
+
+
+</form>
+<script>
+
+function Add()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+  var c=a+b;
+  document.getElementById("result").value=c;
+}
+function Subtract()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+var c=a-b;
+
+document.getElementById("result").value=c;
+}
+function Multiply()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+var c=a*b;
+document.getElementById("result").value=c;
+}
+ 
+function Divide()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+var c=a/b;
+document.getElementById("result").value=c;
+}
+
+</script>
+</body>
