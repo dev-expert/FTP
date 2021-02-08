@@ -1,0 +1,25 @@
+body{
+    background-color:crimson;
+    padding: 200px;
+    text-align: center;
+    border: solid blue;
+    border-width: 3px;
+    overflow:hidden;
+    display:block;
+    font-family: 'Times New Roman', Times, serif;
+}
+.colour{
+    background-color:blanchedalmond;
+    padding: 20px;
+    border: solid black;
+    border-width: 10px;
+    overflow:hidden;
+    display:block;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.style
+{
+    border: solid black;
+    border-width: 5px;
+}
