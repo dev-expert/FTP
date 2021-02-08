@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Urls</title>
+</head>
+
+<body>
+    <div class="conatiner">
+        <div class="row">
+
+            <input type="text" id="url">
+            <button type="submit" onclick="addurl()">Add Url</button>
+        </div>
+        <div>
+            <ol id="fetch">
+
+
+            </ol>
+        </div>
+
+    </div>
+    <script>
+        var url = [];
+        var ol = document.getElementById("fetch");
+        var list = document.querySelector("ol");
+        function addurl() {
+            var value = document.getElementById("url").value;
+            var res = value.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+            if (res == null)
+                alert("Invalid Url")
+            else
+                enrollurl(value, geturl);
+        }
+        function enrollurl(e, callback) {
+            url.push(e);
+            callback();
+
+        }
+        function geturl() {
+            let str = "";
+            url.forEach(element => {
+
+                str += `  <li id="list">${element}<button type="button" onclick="deleteUrl('${element}') "class="delete-btn">Delete</button></li>
+               `
+            });
+            document.getElementById("fetch").innerHTML = str;
+            console.log(url);
+
+        }
+        function deleteUrl(e) {
+            // if(e.target.classList.contains("delete-btn")){
+            //     return;
+            // }
+
+            debugger;
+            url.splice(url.indexOf(e), 1);
+            getUrl();
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
