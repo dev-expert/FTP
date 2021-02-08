@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label>Enter 1st Number:</label><br>
+    <input type="number" id = "fname" ><br>
+    <label>Enter 2nd Number:</label><br>
+    <input type="number" id = "sname" ><br>
+    
+    <button onclick="fun(1)">Find Sum</button>
+    <button onclick="fun(2)">Find Sub</button>
+    <button onclick="fun(3)">Find Mul</button>
+    <button onclick="fun(4)">Find Div</button>
+    <br><br>
+
+
+    <label>Result : </label><br>
+    <input type="number" id = result><br>
+
+    <button onclick="fun(0)">Clear Input Field</button>
+
+    <script>
+        
+        function fun(i)
+        {
+            var a = document.getElementById("fname").value;
+            var b = document.getElementById("sname").value;
+        
+        if(!a || !b)
+        {
+            if(!a && !b)
+            alert("Both number are null");
+
+            else if(!a)
+            alert("1st number is null");
+            else if(!b)
+            alert("2nd number is null");
+            
+        }
+
+        switch(i)
+        {
+            case 1:
+            document.getElementById("result").value = parseInt(a) +parseInt(b);
+            break;
+
+            case 2:
+                if(b>a)
+                alert("A is less then B");
+                else
+                document.getElementById("result").value = parseInt(a) - parseInt(b);
+            break;
+
+            case 3:
+            document.getElementById("result").value = parseInt(a) * parseInt(b);
+            break;
+
+            case 4:
+            document.getElementById("result").value = parseInt(a) / parseInt(b);
+            break;
+
+            case 0:
+            document.getElementById("fname").value = "";
+            document.getElementById("sname").value = "";
+            document.getElementById("result").value = "";
+            break;
+        }
+        }
+
+    </script>
+
+</body>
+</html>
