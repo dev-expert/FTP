@@ -7,9 +7,6 @@ ul{
     padding: 0;
     overflow: hidden;
   }
-  li {
-    float: left;
-  }
   
   li a {
     display: block;
@@ -79,7 +76,7 @@ ul{
     border-width: 3px;
     border-color: brown;
     height: 50px;
-    width: 150px;
+    width: 50px;
     border-radius: 10px;
     background-color: bisque;
 }
@@ -87,7 +84,7 @@ ul{
     border-width: 3px;
     border-color: red;
     height: 50px;
-    width: 150px;
+    width: 50px;
     border-radius: 10px;
     background-color: bisque;
 }

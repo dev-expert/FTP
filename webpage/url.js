@@ -41,6 +41,7 @@ function addurl()
     console.log(val);
     arr.push(val);
     showurl();
+    document.getElementById("url").value="";
     }
   }
   else
@@ -53,7 +54,7 @@ function showurl()
 {
   let str="";
   arr.forEach(element => {
-    str+=`<li><input type="checkbox" name="tickurl" value="${element}">
+    str+=`<li style="margin-top:10px;"><input type="checkbox" name="tickurl" value="${element}">
     ${element}<button onclick="dellistitem('${element}')">Delete URL</button><br>`;
     console.log(element);
   });
