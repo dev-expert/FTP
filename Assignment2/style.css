@@ -1,0 +1,31 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+header{
+    background-color: orange;
+    height: 100px;
+    text-align: center;
+}
+
+.sidebar{
+    background-color: blue;
+    height: 600px;
+    width : 300px;
+    float :left;
+    text-align: center;
+}
+.article{
+    background-color:green;
+    height: 600px;
+    
+}
+footer{
+    background-color: brown;
+    height: 50px;
+    text-align: center;
+}
+.container{
+    border: 1px solid black;
+   text-align: center;
+}
