@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header1" >
+           <h1> It is a header</h1>
+        </div>
+       
+    </header>
+    <section>
+        <div class="section1">
+            <h1>It is a section</h1>
+            
+        </div>
+
+        <div class="section2">
+        
+            <div class="container">
+
+                Enter a link : <input type="email" id="email">
+                <button onclick="lists()" class="button">Add to list</button><br><br>
+        
+                <ul id="myList">
+                </ul>
+        
+            </div>
+            <!-- <input type="text"  id="url" onclick="myFunction()" >
+            
+            <button type="button" class="button">Insert</button>
+            <br>
+            <br>
+             -->
+            <button type="button" class="buttton1" id="del" onclick="del()" >Delete</button>
+        <style>
+            .button {
+                background-color: white;
+                border: none;
+                color: black;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 12px;
+              }
+            
+              .button1{
+                  text-align: center;
+              }
+            </style>
+            <script>
+            function isValidURL(str) {
+                var pattern = new RegExp('^((https?:)?\\/\\/)?' + // protocol
+                    '(?:\\S+(?::\\S*)?@)?' + // authentication
+                    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                    '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locater
+                if (!pattern.test(str)) {
+                    alert("Enter valid URL")
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        
+        function lists()
+        {
+        var link = document.getElementById("email").value;
+            if(isValidURL(link)){
+           
+                // console.log(link);
+                // //document.getElementById("res").value = link;
+                // if (document.getElementById("res").value !== link)
+                //     document.getElementById("res").value = link;
+        
+                var node = document.createElement("LI");
+                var textnode = document.createTextNode(link);
+                node.appendChild(textnode);
+                document.getElementById("myList").appendChild(node);
+        
+            }
+            else
+            {
+                alert("It is invalid url");
+            }
+        
+        }
+        
+        
+        function del()
+        {
+            var lik = document.getElementById("myList");
+            lik.removeChild(lik.childNodes[0]);
+        
+        }
+    </script>
+
+        </div>
+        <div class="section3">
+            
+            <img src="download.jpg" alt="">
+        </div>
+    </section>
+    <footer >
+        <div class="footer1">
+            
+         <h1>It is a footer</h1>
+        </div>
+        
+    </footer>
+</body>
+</html>
