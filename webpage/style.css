@@ -1,14 +1,12 @@
 body{
     margin: 0%;
 }
-ul {
+ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: black;
   }
-  
   li {
     float: left;
   }
@@ -29,9 +27,10 @@ ul {
     background-color: darkgrey;
   }
 .sidebar{
+    background-image: url("joker1.jpg");
+    padding: 4% 0 4% 4%;
     height: 100vh;
-    width: 180px;
-    background-color: #333;
+    width: 400px;
 }
 .footer{
     padding: 30px;
@@ -42,4 +41,58 @@ ul {
     background-color:black;
     color: white;
     text-align: center;
+}
+#url{
+    padding: 10px;
+    border-width: 3px;
+    border-color: brown;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+#url:hover{
+    padding: 10px;
+    border-width: 3px;
+    border-color: red;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+#myBtn{
+    border-width: 3px;
+    border-color: brown;
+    height: 40px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn:hover{
+    border-width: 3px;
+    border-color: red;
+    height: 40px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+.urlsection{
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5%;
+    background-color: cornsilk;
+    align-items: center;
+}
+.urldev{
+    background-color: cornsilk;
+    padding: 5px;
+    float:initial;
+}
+button{
+    border-width: 3px;
+    border-color: brown;
+    border-radius: 10px;
+    background-color: bisque;
+    padding: 8px;
+    margin-left: 10px;
 }

@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul>
+    <ul style="background-color: black;">
         <li><img src="joker.jpg" style="height: 7%; margin-top: 6%; margin-left: 20%;">
         <li style="float:right"><a href="#school">School</a></li>
         <li style="float:right"><a href="#College">College</a></li>
@@ -12,10 +12,20 @@
         <li style="float:right"><a class="active" href="#Home">Home</a></li>
       </ul>    
     <div class="sidebar">
-        sidebaar
+        <div>
+                <div class="urlsection">
+                <input type="text" placeholder="https://example.com" id="url">
+                <button onclick="addurl()" id="myBtn">+</button>
+                <ul id="list"></ul>
+                </div>
+        </div>
+    </div>
+    <div>
+        <img src="">
     </div>
     <div class="footer">
         footer
     </div>
+    <script src="url.js"></script>
 </body>
 </html>
