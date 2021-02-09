@@ -2,7 +2,8 @@
     padding: 10px;
     border-width: 3px;
     border-color: brown;
-    height: 40px;
+    width: 250px;
+    height: 50px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
 }
@@ -10,7 +11,7 @@
     padding: 10px;
     border-width: 3px;
     border-color: red;
-    height: 40px;
+    height: 50px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
 }
@@ -18,7 +19,7 @@
 #myBtn{
     border-width: 3px;
     border-color: brown;
-    height: 40px;
+    height: 50px;
     width: 50px;
     border-radius: 10px;
     background-color: bisque;
@@ -26,7 +27,23 @@
 #myBtn:hover{
     border-width: 3px;
     border-color: red;
-    height: 40px;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn1{
+    border-width: 3px;
+    border-color: brown;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn1:hover{
+    border-width: 3px;
+    border-color: red;
+    height: 50px;
     width: 50px;
     border-radius: 10px;
     background-color: bisque;
@@ -36,10 +53,13 @@
     width: fit-content;
     padding: 5%;
     background-color: cornsilk;
-    margin-top: 8%;
-    margin-left: 30%;
     align-items: center;
 }
-li{
-    padding: 5px;
+button{
+    border-width: 3px;
+    border-color: brown;
+    border-radius: 10px;
+    background-color: bisque;
+    padding: 8px;
+    margin-left: 10px;
 }
