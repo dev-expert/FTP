@@ -1,4 +1,4 @@
-var arr=[];
+let arr=[];
 var ul = document.getElementById("list");
 var input = document.getElementById("url");
 input.addEventListener("keyup", function(event) {
@@ -74,18 +74,16 @@ function selectcheckbox(name){
   return drr;
 }
 //DELETE USING CHECKBOX INPUT DATA
-  var drr1=[];
-  const cbtn = document.querySelector(`#myBtn1`);
-  cbtn.addEventListener(`click`,(event)=>{
-  drr1=selectcheckbox(`tickurl`);
-  console.log(drr1.values);
+function deletemultipleurl(drr1){
   for(i=0;i<drr1.length;i++)
   {
-    if(drr1[i]==arr[i])
-    {
-      arr.splice(arr.indexOf(arr[i]), 1);
+    for(j=0;j<arr.length;j++){
+      if(drr1[i]===arr[j])
+      {
+        arr.splice(arr.indexOf(drr1[i]), 1);
+      }
     }
   }
   showurl();
-  });
+}
 // END (DELETE USING CHECKBOX INPUT DATA)
