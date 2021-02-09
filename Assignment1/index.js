@@ -5,7 +5,7 @@ var url = [];
 function addUrl() {
     var value = document.getElementById("url").value;
     var res = value.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-    if (res == null) 
+    if (res == null)
         alert("Invalid Url")
     else {
         for (i = 0; i < url.length; ++i) {
@@ -26,8 +26,12 @@ function getUrl() {
     let str = "";
     url.forEach(element => {
 
-        str += `<li id="list">${element}<button type="button" onclick="deleteOnebyOne('${element}') "class="delete-btn">Delete</button>
-                <input type="checkbox" id="chk" onclick="checkBox('${element}')"> </li> `
+        str +=  `
+        <tr>
+        <td>${element}</td>
+        <td><button type="button" onclick="deleteOnebyOne('${element}') "class="delete-btn">Delete</button></td>
+        <td> <input type="checkbox" id="chk" onclick="checkBox('${element}')"></td>
+      </tr>`
     });
     document.getElementById("fetch").innerHTML = str;
     console.log(url);// rough work
@@ -47,7 +51,7 @@ function deleteUrl() {
 }
 function deleteOnebyOne(e) {
     url.splice(url.indexOf(e), 1);
-    getUrl(); 
+    getUrl();
 }//this function is for if you want to delete one by one row
 function checkBox(e) {
     console.log(e);

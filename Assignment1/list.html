@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adding Urls</title>
     <script src="index.js"></script>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+        </style>
 </head>
 
 <body>
@@ -14,13 +19,23 @@
         <div class="row">
 
             <input type="text" id="url">
-            <button type="submit" onclick="addurl()">Add Url</button>
+            <button type="submit" onclick="addUrl()">Add Url</button>
+            
+            <button type="button" onclick="deleteUrl()">Delete</button>
         </div>
         <div>
-            <ol id="fetch">
+            <table style="width:100%" >
+                <thead>
+                  <th>Urls</th>
+                  <th>Delete Urls</th> 
+                  <th>delete Url </th>
+                </thead>
+                <tbody id="fetch">
 
+                </tbody>
+                
+              </table>
 
-            </ol>
         </div>
 
     </div>
