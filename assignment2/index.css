@@ -1,0 +1,93 @@
+
+body{
+    background-color: lavender;
+}
+.mainDiv ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:hotpink;
+  }
+  
+  .mainDiv li {
+    float: left;
+  }
+  
+  .mainDiv li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .mainDiv li a:hover {
+    background-color: #111;
+  }
+  
+   #leftbox li a {
+        display: block;
+        color: black;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      #leftbox ul{
+        list-style-type: none;
+        padding-left: 0%;
+        margin: 0%;
+    }
+   
+    #leftbox li a:hover {
+        background-color:hotpink;
+      }
+ 
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color:hotpink;
+        color: white;
+        text-align: center;
+     }
+     #leftbox { 
+        float:left;  
+        background:yellow; 
+        width: 15%; 
+        height: 700px;
+    } 
+    #middlebox{ 
+        float:left;  
+        width:25%; 
+        height: 280px;
+        overflow: hidden;
+    } 
+    #middlebox img{
+        width: 100%;
+        height: 100%;
+    }
+    #rightbox{ 
+        float:left; 
+        width:25%; 
+        overflow: hidden;
+        margin-left: 30px;
+    } 
+    #rightbox img{
+        width: 100%;
+        height: 100%;
+    }
+    .imgdiv{
+        height: 250px;
+        width: 100px;}
+    .imgdiv img{
+        width: 100%;
+        height: 100%;
+    }
+    .navdiv{
+        float: left;
+        width: 75%;
+    }
+    table, th, td {
+        border: 1px solid black;
+      }

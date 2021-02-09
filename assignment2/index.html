@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="mainDiv">
+
+            <ul>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="#news">Menu</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </div>
+    
+    <section>
+
+        <div id = "leftbox"> 
+         <div>
+            <ul>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="#news">Menu</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+            </div>
+        </div>  
+          
+        <div id = "middlebox"> 
+            <div >
+                <div class="conatiner">
+                    <div class="row">
+            
+                        <input type="text" id="url">
+                        <button type="submit" onclick="addUrl()">Add Url</button>
+                        <button type="button" onclick="deleteUrl()">Delete</button>
+                    </div>
+                    <div>
+                        <table style="width:100%" >
+                            <thead>
+                              <th>Urls</th>
+                              <th>Delete Urls</th> 
+                              <th>delete Url </th>
+                            </thead>
+                            <tbody id="fetch">
+            
+                            </tbody>
+                            
+                          </table>
+            
+                       
+                    </div>
+            
+                </div>
+            </div>
+        </div> 
+          
+        <div id = "rightbox"> 
+            <div>
+
+                <img src="desktop.jpg" alt="">
+            </div>
+        </div> 
+    </div> 
+
+
+    </section>
+    <footer>
+        <div class="footer">
+            <p>Hey I am the footer Thats Why I am here!</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
