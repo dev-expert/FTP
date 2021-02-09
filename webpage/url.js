@@ -1,4 +1,5 @@
 var arr=[];
+var drr=[];
 var ul = document.getElementById("list");
 var input = document.getElementById("url");
 input.addEventListener("keyup", function(event) {
@@ -65,5 +66,14 @@ function dellistitem(d)
   showurl();
 }
 function selectcheckbox(u){
-  var c=document.getElementById("urlcheck");
+  var c=document.querySelectorAll("#urlcheck")
+  if (c.length === 0) {
+    // there are no checked checkboxes
+    console.log('no checkboxes checked');
+  } else {
+    // there are some checked checkboxes
+    drr.push(u);
+    console.log(c.length + ' checkboxes checked');
+    console.log(drr);
+}
 }
