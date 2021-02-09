@@ -1,32 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="urlsection">
     <input type="text" placeholder="https://example.com" id="url">
-    <button onclick="addurl()">Add URL</button>
+    <button onclick="addurl()" id="myBtn">+</button>
     <ul id="list"></ul>
-    <script>
-        function addurl()
-        {
-            var ul = document.getElementById("list");
-            var li = document.createElement("li");
-            var val=document.getElementById("url").value;
-            li.setAttribute('id',val.value);
-            li.appendChild(document.createTextNode(val));
-            var button = document.createElement("button");
-            button.innerHTML = "Delete URL";
-            li.appendChild(button);
-            ul.appendChild(li);
-            button.onclick=function()
-            {
-              ul.removeChild(li);
-            };
-        }
-        </script>
+    </div>
+    <script src="url.js"></script>
 </body>
 </html>
