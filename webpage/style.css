@@ -22,7 +22,6 @@ ul{
   li a:hover:not(.active) {
     background-color: darkgrey;
   }
-  
   .active {
     background-color: darkgrey;
   }
@@ -30,7 +29,7 @@ ul{
     background-image: url("joker1.jpg");
     padding: 4% 0 4% 4%;
     height: 100vh;
-    width: 400px;
+    width: 600px;
 }
 .footer{
     padding: 30px;
@@ -47,7 +46,7 @@ ul{
     border-width: 3px;
     border-color: brown;
     width: 250px;
-    height: 40px;
+    height: 50px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
 }
@@ -55,7 +54,7 @@ ul{
     padding: 10px;
     border-width: 3px;
     border-color: red;
-    height: 40px;
+    height: 50px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
 }
@@ -63,7 +62,7 @@ ul{
 #myBtn{
     border-width: 3px;
     border-color: brown;
-    height: 40px;
+    height: 50px;
     width: 50px;
     border-radius: 10px;
     background-color: bisque;
@@ -71,8 +70,24 @@ ul{
 #myBtn:hover{
     border-width: 3px;
     border-color: red;
-    height: 40px;
+    height: 50px;
     width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn1{
+    border-width: 3px;
+    border-color: brown;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn1:hover{
+    border-width: 3px;
+    border-color: red;
+    height: 50px;
+    width: 150px;
     border-radius: 10px;
     background-color: bisque;
 }
@@ -82,11 +97,6 @@ ul{
     padding: 5%;
     background-color: cornsilk;
     align-items: center;
-}
-.urldev{
-    background-color: cornsilk;
-    padding: 5px;
-    float:initial;
 }
 button{
     border-width: 3px;

@@ -1,5 +1,4 @@
 var arr=[];
-var drr=[];
 var ul = document.getElementById("list");
 var input = document.getElementById("url");
 input.addEventListener("keyup", function(event) {
@@ -54,7 +53,7 @@ function showurl()
 {
   let str="";
   arr.forEach(element => {
-    str+=`<li><input type="checkbox" id="urlcheck" onclick="selectcheckbox('${element}')">
+    str+=`<li><input type="checkbox" name="tickurl" value="${element}">
     ${element}<button onclick="dellistitem('${element}')">Delete URL</button><br>`;
     console.log(element);
   });
@@ -65,15 +64,28 @@ function dellistitem(d)
   arr.splice(arr.indexOf(d), 1);
   showurl();
 }
-function selectcheckbox(u){
-  var c=document.querySelectorAll("#urlcheck")
-  if (c.length === 0) {
-    // there are no checked checkboxes
-    console.log('no checkboxes checked');
-  } else {
-    // there are some checked checkboxes
-    drr.push(u);
-    console.log(c.length + ' checkboxes checked');
-    console.log(drr);
+function selectcheckbox(name){
+  const c=document.querySelectorAll(`input[name="${name}"]:checked`);
+  let drr=[];
+  c.forEach((c)=>{
+    drr.push(c.value);
+    console.log(c.value);
+  });
+  return drr;
 }
-}
+//DELETE USING CHECKBOX INPUT DATA
+  var drr1=[];
+  const cbtn = document.querySelector(`#myBtn1`);
+  cbtn.addEventListener(`click`,(event)=>{
+  drr1=selectcheckbox(`tickurl`);
+  console.log(drr1.values);
+  for(i=0;i<drr1.length;i++)
+  {
+    if(drr1[i]==arr[i])
+    {
+      arr.splice(arr.indexOf(arr[i]), 1);
+    }
+  }
+  showurl();
+  });
+// END (DELETE USING CHECKBOX INPUT DATA)
