@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=prompt("Enter no of elements:")
+let a=[];
+for(i=0;i<n;i++){
+    a[i]=prompt("Enter elements");
+}
+for(i=0;i<n;i++){
+    count=2;
+    for(j=0;j<n;j++){
+        if(a[i]==a[j])
+        count--;
+    }
+    if(count==1)
+document.write(a[i]);
+}
+    </script>
+</body>
+</html>
