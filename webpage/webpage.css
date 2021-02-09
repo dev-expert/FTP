@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+}
+
+
+
+
+.header1{
+    background-color: white;
+    
+
+    font-size: 35px;
+    color: white;
+}
+
+.Section1{
+    float: left;
+    width: 25%;
+    height: auto;
+    
+    margin: 0%;
+    
+    background-color:white;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(112, 235, 122);
+    color: white;
+    text-align: center;
+ }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(130, 219, 138);
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: rgb(142, 206, 171);
+  }
+
+.sidebar{
+    font-style: unset;
+    float: left;
+    width: 15%;
+    height: auto;
+    background-color: rgb(173, 219, 179);
+}
+
+.inputT{
+    
+    margin: 0%;
+    padding: 0%;
+}
+
