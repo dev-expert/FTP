@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n =prompt("Enter the length of Array")
+        var arr=new Array;
+        var positive=0,negative=0,zero=0;
+        for(i=0;i<n;i++)
+        {
+            arr[i]=prompt("Enter element:"); 
+        }
+        document.write("Given Array is: ",arr,"<br>");
+        for(i=0; i<n; i++)
+        {    
+            if(arr[i]>0) positive++;
+            else if(arr[i]==0) zero++;
+            else negative++;
+        }
+        document.write("Positive number: ",(positive/n).toFixed(6),"<br>");
+        document.write("Negative number: ",(negative/n).toFixed(6),"<br>");
+        document.write("Zeros: ",(zero/n).toFixed(6),"<br>");
+    </script>
+</body>
+</html>
