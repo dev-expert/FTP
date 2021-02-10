@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
 
+    <style>
+
+        body {
+            margin: 10%;
+            min-width: 250px;
+        }
+    </style>
+
+
     <script>
 
 
@@ -38,8 +47,9 @@
 
             var li = document.createElement("li");
             var inputValue = document.getElementById("url").value;
-            
             li.appendChild(document.createTextNode(inputValue));
+
+            var cb = document.createElement("input");
 
 
             if (inputValue === '') {
@@ -53,7 +63,9 @@
                     array[flag] = document.getElementById("url").value;
                     alert(array[flag]);
                     flag++;
+                    
                     document.getElementById("result").appendChild(li);
+                    //document.getElementById("result").appendChild(cb);
                 }
 
                 else{
@@ -69,6 +81,7 @@
             span.className = "close";
             span.appendChild(txt);
             li.appendChild(span);
+            li.appendChild(input)
          
             for (var i = 0; i < close.length; i++) {
                 close[i].onclick = function() {
@@ -82,14 +95,12 @@
 </head>
 <body>
     <div class="input">
-        <h2 style="margin:5px">My To Do List</h2>
+        <h2 id="heading">My To Do List</h2>
         <input type="url" placeholder="Input URL" id="url">
         <button type="button" id="btn" onclick="chief()">Add To List</button>
     </div>
 
     <div class="output">
-        <p id="text">List</p>
-
         <div id="result">
             <ul>
             </ul>
