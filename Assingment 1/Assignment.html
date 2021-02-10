@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align:center;
+            padding: 10px;
+          }
+          </style>
+          <script src="js.js"></script>
+    </head>
+    <body>
+            <input type="text" id="input1" name="input1">
+            <button id="btn1" onclick="check();">Submit</button><br><br>
+            <button id="btn2" onclick="DeleteMultiple();">Delete</button>
+            
+            <table style="width:50%" id="myTable">
+                <tr>
+                    <td>CheckBox</td>
+                    <td>URL</td>
+                    <td>Delete</td>
+                </tr>
+
+            
+            </table>
+<script>
+    var input = document.getElementById("input1");
+    input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("btn1").click();
+    }
+});
+</script>
+    </body>
+</html>
