@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n =prompt("Enter the length of Array")
+        var arr=new Array;
+        for(i=0;i<n;i++)
+        {
+            arr[i]=prompt("Enter"+i+1+"element:"); 
+        }
+        document.write(arr,"<br>");
+        for(i=0; i<n; i++)
+        {
+        count=0;
+        for(j=0; j<n+1; j++)
+        {
+            if (i!=j)
+            {
+		       if(arr[i]==arr[j])
+              {
+                 count++;
+               }
+             }
+        }
+       if(count==0)
+        {
+          document.write(arr[i]);
+        }
+        }
+    </script>
+</body>
+</html>
