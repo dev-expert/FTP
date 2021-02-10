@@ -16,10 +16,8 @@ else
 x = pos/l;
 y = neg / l;
 z = zero / l;
-var d = x.toFixed(6);
-var e = y.toFixed(6);
-var f = z.toFixed(6);
-document.write( "Ratio of Positive numbers is  : "+ d + "<br></br>")
-document.write("Ratio of Negative numbers is : " + e+ "<br></br>")
-document.write("Ratio of Zeroes is: " + f)
+
+document.write( "Ratio of Positive numbers is  : "+ x.toFixed(6) + "<br></br>")
+document.write("Ratio of Negative numbers is : " +y.toFixed(6)+ "<br></br>")
+document.write("Ratio of Zeroes is: " + z.toFixed(6))
 </script>
