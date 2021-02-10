@@ -1,0 +1,35 @@
+Prog.Assign10feb
+
+#include<bits/stdc++.h>
+using namespace std;
+void PNZ(int arr[],int len)
+{
+    float pc=0;
+    float nc=0;
+    float zc=0;
+for(int i=0;i<len;i++)
+{
+    if(arr[i]>0)
+    {
+        pc++;
+    }
+    else if(arr[i]<0)
+    {
+        nc++;
+    }
+    else if (arr[i]==0)
+    {
+        zc++;
+    }
+}
+cout<<fixed<<setprecision (6)<<(pc/len);
+cout<<fixed<<setprecision (6)<<(nc/len);
+cout<<fixed<<setprecision (6)<<(zc/len);
+cout<<endl;
+}
+int main()
+{
+    int a1[]={1,1,0,-1,-1};
+    int len=sizeof(a1)/sizeof(a1[0]);
+    PNZ(a1,len);
+}
