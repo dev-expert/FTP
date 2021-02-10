@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dummy Webpage</title>
+
+    <script>
+        function wrong(){
+            alert("Wrong Answer");
+        }
+
+        function wrong2(){
+            alert("Wrong Answer");
+        }
+
+        function correct(){
+            alert("Correct Answer");
+        }
+    </script>
+
+
+</head>
+<body>
+    <header>
+        <h1 style="padding: 2%;" >Let's Play quiz</h1>
+    </header>
+
+    <section class="main">
+        <div class="sidebar">
+            <div id="answer">
+                <h3>Hint :-<br></h3> He was an Italian astronomer, physicist and engineer, sometimes described as a polymath, from Pisa. He has been called the "father of observational astronomy", the "father of modern physics", the "father of the scientific method", and the "father of modern science". <br><br>
+                Born: 15 February 1564, Pisa, Italy<br><br>
+                Died: 8 January 1642, Arcetri<br><br>
+                Discovered: Ganymede, Europa, Io, Callisto, Rings of Saturn<br><br>
+                Known for: Analytical dynamics, Heliocentrism, Kinematics, Observational astronomy<br><br>
+            </div>
+        </div>
+
+        <div class="mainpage">
+            <div id="question">
+                <h2>Who is known as Father of Physics?</h2>
+            </div>
+
+            <div id="image">
+                <table border="0" style="text-align: center;">
+                    <tr>
+                        <td style="padding: 10px;" ><img id="one" onclick="wrong()" src="einstein.jpg" alt="First"></td>
+                        <td style="padding: 10px;" ><img id="two" onclick="wrong()" src="newton.jpg" alt="Second"></td>
+                        <td style="padding: 10px;" ><img id="three" onclick="correct()" src="galilio.jpg" alt="Third"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Albert Einstein</td>
+                        <td>Sir Issac Newton</td>
+                        <td>Galileo Galilei</td>
+                    </tr>
+                </table>
+                
+            </div>
+        </div >
+    </section>
+
+    <footer>
+        <p style="text-align: center; padding: 4vh;">©anmol1616jha</p>
+    </footer>
+
+
+
+</body>
+</html>
