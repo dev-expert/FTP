@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: white;
+            width: 100%;
+            color: lightgray;
+        }
+        
+        .header-head {
+            color: lightgreen;
+        }
+        
+        .header-btn {
+            margin-top: 15px;
+            float: right;
+            border-radius: 4px;
+            background-color: lightgreen;
+        }
+        
+        a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            background-color: lightslategray;
+        }
+        
+        .sidenav {
+            width: 230px;
+            height: 80vh;
+            background-color: gray;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            justify-content: space-evenly;
+            text-decoration: none;
+            color: #333;
+            float: left;
+        }
+        
+        .container {
+            background-color: blanchedalmond;
+            height: 80vh;
+            width: 1306px;
+            float: right;
+            overflow: auto;
+        }
+        
+        .item1 {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            padding: 10px;
+            margin: 10px;
+            position: absolute;
+        }
+        
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .item2 {
+            height: 50%;
+            margin: 10px;
+            padding: 10px;
+            padding-inline-start: 653px;
+            position: absolute;
+        }
+        
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            height: 80px;
+            width: 100%;
+            background-color: darkslategrey;
+        }
+        
+        .foot {
+            display: flex;
+            margin: 30px;
+            justify-content: center;
+            justify-content: space-around;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>W3Schools<span class="header-head">.com </span><button class="header-btn">LOG IN</button></h1>
+
+    </header>
+    <div class="navbar">
+
+        <a href="#HTML">HTML</a>
+        <a href="#CSS">CSS</a>
+        <a href="#JAVASCRIPT">JAVASCRIPT</a>
+        <a href="#c#">c#</a>
+        <a href="#SQL">SQL</a>
+        <a href="#PYTHON">PYTHON</a>
+        <a href="#HOW TO">HOW TO</a>
+        <div class="dropdown">
+            <button class="navbar-btn">MORE 
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+    </div>
+    <div class="section1">
+        <div class="sidenav">
+            <a href="#HTML">HTML</a>
+            <a href="#CSS">CSS</a>
+            <a href="#JAVASCRIPT">JAVASCRIPT</a>
+            <a href="#c#">c#</a>
+            <a href="#SQL">SQL</a>
+            <a href="#PYTHON">PYTHON</a>
+            <a href="#HOW TO">HOW TO</a>
+        </div>
+        <div class="container">
+            <div class="item1">
+                <img src="omer-rana-ikCQLiMTokw-unsplash.jpg" alt="no">
+            </div>
+            <div class="item2">
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="style.css">
+                    <title>Notepad</title>
+                </head>
+
+                <body>
+                    <div class="container">
+
+                        Enter a link : <input type="url" id="email">
+                        <button class="btn" onclick="lists()">Add to list</button><br><br>
+
+                        <ol id="myList">
+
+                        </ol>
+
+                    </div>
+                    <script>
+                        var listcopy = [];
+                        var len = 0;
+                        var flag = 0;
+
+                        function lists() {
+
+                            var link = document.getElementById("email").value;
+                            var len = listcopy.length;
+                            console.log(len);
+
+                            const protocol = link.match(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)\.[a-z]{2,5}(:[0-9]{1,5})?(\/.)?$/gm)
+                            console.log(protocol);
+                            if (protocol != null) {
+
+                                for (i = 0; i <= len; i++) {
+                                    if (listcopy[i] === link) {
+                                        flag = 1;
+                                        break;
+                                    }
+                                }
+                                if (flag != 1) {
+                                    var node = document.createElement("LI");
+
+                                    var textnode = document.createTextNode(link);
+                                    var button = document.createElement("button");
+                                    button.innerHTML = 'delete';
+                                    button.className = 'btn';
+                                    node.appendChild(textnode);
+                                    node.appendChild(button);
+                                    document.getElementById("myList").appendChild(node);
+                                    var ulist = document.getElementById("myList");
+                                    listcopy.push(link);
+                                    console.log(listcopy);
+
+                                    button.addEventListener("click", function() {
+                                        var ulist = document.getElementById("myList");
+                                        ulist.removeChild(node);
+                                    });
+                                } else
+                                    alert('Link inserted already present in the list');
+                            } else
+                                alert('enter valid link');
+
+                            flag = 0;
+
+                        }
+                    </script>
+                </body>
+
+                </html>
+            </div>
+        </div>
+    </div>
+
+    <section></section>
+    <footer>
+        <div class="foot">
+            <a href="#HTML">EXERCISE</a>
+            <a href="#CSS">CSS SNIPITS</a>
+            <a href="#JAVASCRIPT">JS OBJECTS</a>
+            <a href="#c#">HACKERRANK</a>
+
+        </div>
+    </footer>
+</body>
+
+</html>
