@@ -22,11 +22,18 @@ ul{
   .active {
     background-color: darkgrey;
   }
+
+.container{
+    display: flex;
+}
 .sidebar{
     background-image: url("joker1.jpg");
-    padding: 4% 0 4% 4%;
+    padding: 1%;
     height: 100vh;
-    width: 600px;
+    min-width: 400px;
+}
+.mainarea{
+    background-image: url("joker2.jpg"); 
 }
 .footer{
     padding: 30px;
@@ -102,4 +109,16 @@ button{
     background-color: bisque;
     padding: 8px;
     margin-left: 10px;
+}
+.input{
+    padding: 10px;
+    border-width: 3px;
+    border-color: brown;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.subdiv{
+    padding: 10%;
 }

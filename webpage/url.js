@@ -7,6 +7,59 @@ input.addEventListener("keyup", function(event) {
     document.getElementById("myBtn").click();
   }
   });
+  function calculator(n)
+        {
+            if(document.getElementById("fname").value=="" || document.getElementById("sname").value=="")
+            {
+                alert("enter some value");
+            }
+            else{
+            var x = document.getElementById("fname").value;
+            var y = document.getElementById("sname").value;
+            if(parseInt(n)==1)
+            {
+                document.getElementById("result").value = parseInt(x)+parseInt(y);
+            }
+            if(parseInt(n)==2)
+            {
+                if(x>y)
+                {
+                document.getElementById("result").value = x-y;
+                }
+                else
+                {
+                alert("First Value Should be Greater than Second.!!!");
+                document.getElementById("fname").value="";
+                document.getElementById("sname").value="";
+                document.getElementById("result").value="";
+                }
+            }
+            if(parseInt(n)==3)
+            {
+                document.getElementById("result").value = x*y;
+            }
+            if(parseInt(n)==4)
+            {
+                if(x>y)
+                {
+                document.getElementById("result").value = x/y;
+                }
+                else
+                {
+                alert("First Value Should be Greater than Second.!!!");
+                document.getElementById("fname").value="";
+                document.getElementById("sname").value="";
+                document.getElementById("result").value="";
+                }
+            }
+            if(parseInt(n)==5)
+            {
+                document.getElementById("fname").value="";
+                document.getElementById("sname").value="";
+                document.getElementById("result").value="";
+            }
+        }
+        } 
   function is_url(str){
         regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
         if (regexp.test(str)){return true;}

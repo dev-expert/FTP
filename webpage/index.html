@@ -10,14 +10,52 @@
         <li style="float:right"><a href="#College">College</a></li>
         <li style="float:right"><a href="#Office">Office</a></li>
         <li style="float:right"><a class="active" href="#Home">Home</a></li>
-      </ul>    
-    <div class="sidebar">
-        <div class="urlsection">
-         <input type="text" placeholder="https://example.com" id="url">
-         <button onclick="addurl()" id="myBtn">+</button>
-         <button id="myBtn1" onclick="deletemultipleurl(selectcheckbox(`tickurl`))">X</button>
-         <ul id="list"></ul>
-        </div>
+      </ul>
+      <div class="container">   
+            <div class="sidebar">
+                <div class="urlsection">
+                    <input type="text" placeholder="https://example.com" id="url">
+                    <button onclick="addurl()" id="myBtn">+</button>
+                    <button id="myBtn1" onclick="deletemultipleurl(selectcheckbox(`tickurl`))">X</button>
+                    <ul id="list"></ul>
+                </div>
+            </div>
+      <div class="mainarea">
+        <div>
+            <div class="subdiv">
+            <table align="center" bgcolor="cornsilk" 
+            style="border-radius:10px; padding-right: 20px;
+            padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">
+                <tr>
+                    <td colspan="2"><label>First Value:</label></td>
+                <td colspan="3"><input type="number" id="fname" class="input" placeholder="First Value"><br>
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2"><label>Second Value:</label></td>
+            <td colspan="3"><input type="number" id="sname" class="input" placeholder="Second Value"><br>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>Result:</label>
+                </td>
+                <td colspan="3">
+                    <input type="text" id="result" value="Result" class="input"><br>
+                </td>
+            </tr>
+            <tr>
+                        <td><button onclick="calculator(1)">Add</button></td>
+                        <td><button onclick="calculator(2)">Substract</button></td>
+                        <td><button onclick="calculator(3)">Multiply</button></td>
+                        <td><button onclick="calculator(4)">Devide</button></td>
+                        <td><button onclick="calculator(5)">Clear</button></td>
+            </tr>            
+            </table>
+            </div>
+            </div>
+            </div>
+    </div>
     </div>
     <div>
         <img src="">
