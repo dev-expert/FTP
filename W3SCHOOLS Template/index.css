@@ -1,3 +1,7 @@
+button{
+    margin-left: 50px;
+
+}
 #left{
     background-color: rgb(224, 207, 207);
     position: fixed;
@@ -51,14 +55,15 @@ a:hover {
 ul{
     color: rgb(73, 60, 60);
     list-style-type: none;
-    padding-top: 100px;
+    /* padding-top: 100px; */
     margin:0%;
-    overflow: auto;
+   
+    
 
 }
 li{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
     background-color: transparent;
         color: black;
 
@@ -74,7 +79,26 @@ li{
     border: 15px solid green;
     padding: 150px;
     margin: 20px;
-    text-align: center;
+    /* text-align: center; */
     margin-left: 240px;
 
+  }
+  #li{
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin: 0px;
+
+  }
+  button {
+    background-color: #a8d8a9; /* Green */
+    border: none;
+    color: rgb(204, 30, 30);
+    /* padding: 20px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
   }
