@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+
+    <style>
+
+        body {
+            margin: 10%;
+            min-width: 250px;
+        }
+    </style>
+
+
+    <script>
+
+
+
+        let array = [];
+        let flag = 0;
+
+        var close = document.getElementsByClassName("close");
+            close.onclick = function() {
+                alert("Deleted");
+                var list = document.getElementById("result");
+                list.removeChild(list.li);
+        }
+
+        
+        function chief(){
+
+            var r= /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi; 
+            
+            if(r.test(url.value)==false){
+                alert("Enter a valid URl");
+                //msg.innerHTML="Enter Valid URL";
+            }
+            else{
+                add();
+            }
+        }
+
+        function add(){
+
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("url").value;
+            li.appendChild(document.createTextNode(inputValue));
+
+            var cb = document.createElement("input");
+
+
+            if (inputValue === '') {
+                alert("Cannot Add empty Task");
+            } 
+
+            else{                
+                
+
+                if(array.indexOf(document.getElementById("url").value)<0){
+                    array[flag] = document.getElementById("url").value;
+                    alert(array[flag]);
+                    flag++;
+                    
+                    document.getElementById("result").appendChild(li);
+                    //document.getElementById("result").appendChild(cb);
+                }
+
+                else{
+                    alert("URL exists");
+                }
+
+                
+            }
+            
+            var close = document.getElementsByClassName("close");
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u3164" + "\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+            li.appendChild(input)
+         
+            for (var i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="input">
+        <h2 id="heading">My To Do List</h2>
+        <input type="url" placeholder="Input URL" id="url">
+        <button type="button" id="btn" onclick="chief()">Add To List</button>
+    </div>
+
+    <div class="output">
+        <div id="result">
+            <ul>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        var input = document.getElementById("url");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("btn").click();
+        }
+        });
+    </script>
+</body>
+</html>
