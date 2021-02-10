@@ -44,17 +44,18 @@
                         <button type="button" onclick="deleteUrl()">Delete</button>
                     </div>
                     <div>
-                        <table style="width:100%" >
+                        <table style="width:100%" id="tblUrls" >
                             <thead>
                               <th>Urls</th>
                               <th>Delete Urls</th> 
-                              <th>delete Url </th>
+                              <th><input type="checkbox" name="Select" onclick="allSelect(this)"> All Select </th>
                             </thead>
                             <tbody id="fetch">
             
                             </tbody>
                             
                           </table>
+            
             
                        
                     </div>
