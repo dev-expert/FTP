@@ -1,0 +1,24 @@
+<script>
+// Edit your script here
+var n = prompt("Enter the number");
+var arr = [];
+var po=0,ze=0,ne=0;
+for(var i = 0;i<n;i++)
+{
+arr[i] = prompt("Enter the element");
+if(arr[i]<0)
+ne++;
+if(arr[i]==0)
+ze++;
+if(arr[i]>0)
+po++;
+}
+
+document.write(parseFloat(po/n).toFixed(6)+"<br>");
+document.write(parseFloat(ne/n).toFixed(6)+"<br>");
+document.write(parseFloat(ze/n).toFixed(6)+"<br>");
+
+
+
+</script>
+<!-- edit your html here -->
