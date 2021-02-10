@@ -1,0 +1,23 @@
+
+var p=0,z=0,ne=0;
+var n =prompt("Enter the number");
+var arr = [];
+for(i=0;i<n;i++)
+{
+    arr[i]= prompt("Enter the element"); 
+    if(arr[i]>0)
+    {
+        p++;
+    }
+    else if(arr[i]==0)
+    {
+        z++;
+    }
+      else (arr[i]<0)
+    {
+        ne++;
+    }
+}
+document.write("positive ratio=" + ((p/n).toFixed(5)) + "<br>");
+document.write("zero ratio=" +(( z/n ).toFixed(5))+"<br>");
+document.write("negative ratio=" + (( ne/n ).toFixed(5))+"<br>");
