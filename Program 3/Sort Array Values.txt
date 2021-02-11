@@ -1,0 +1,23 @@
+
+var x=prompt("Enter a number");
+var arr=[],a=[];
+var s=0,l=x-1;
+for(i=0;i<x;i++)
+{
+    arr[i]=prompt();
+
+
+}
+
+for(i=0;i<x;i++)
+{
+        if(i%2==0){
+       a[i]= arr[l];
+       l--;
+        }
+        else{
+            a[i]=arr[s];
+            s++;
+        }
+        document.write(a[i]);
+}
