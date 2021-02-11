@@ -8,10 +8,25 @@
 </head>
 <body>
     <script>
-        arr = [1,2,3,4,5,6]
-n = (arr.length)
-for(i=0;i<n/2;i++){
-    document.write(arr[n-i-1],arr[i]);
+let n = prompt("enter the array");
+    let arr = [];
+
+    for(i=0;i<n;i++)
+    {
+       arr[i] = prompt("enter the number");
+    } 
+    arr2 = '';
+
+    a = arr.sort((a,arr)=>a-arr)  
+   
+    for(i=0;i<(n/2);i++)
+    {
+    arr2 = arr2 + a[n-i-1] + a[i]
+   
+    }
+    for(i=0;i<n;i++)
+    {
+    document.write(arr2[i])
 }
     </script>
 </body>
