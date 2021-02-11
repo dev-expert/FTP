@@ -61,3 +61,53 @@ hr.new5 {
     text-align: center;
     font-size: 20px;
 }
+
+#second_trio_one{
+    border: 0px;
+    border-style: solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width: 10vw;
+    margin: 50px;
+    padding: 25px;
+}
+
+#second_trio_two{
+    border: 0px;
+    border-style: solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width: 10vw;
+    margin: 50px;
+    padding: 25px;
+}
+
+#second_trio_three{
+    border: 0px;
+    border-style: solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    width: 10vw;
+    margin: 50px;
+    padding: 25px;
+}
+
+.second_trio{
+    display: flex;
+    justify-content: center;
+}
+
+#second_trio_one_text{
+    text-align: center;
+    margin: 25px;
+}
+
+#second_trio_two_text{
+    text-align: center;
+    margin: 25px;
+}
+
+#second_trio_three_text{
+    text-align: center;
+    margin: 25px;
+}
