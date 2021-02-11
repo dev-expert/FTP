@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sig.css">
+</head>
+
+<body>
+    <center>
+        <div class="q">
+            <h1>Sign Up</h1>
+
+            <label>Name </label>
+            <br>
+            <input type="text" placeholder="Name" id="name">
+
+            <br> <br>
+            <label>Email </label>
+            <br>
+            <input type="email" placeholder="Email" id="email">
+
+            <br> <br>
+            <label>Number </label>
+            <br>
+            <input type="number" placeholder="Number" id="number">
+
+
+            <br> <br>
+            <label>Password</label>
+            <br>
+            <input type="password" placeholder="password" id="password">
+
+            <br> <br>
+            <label>Repeat Password</label>
+            <br>
+            <input type="password" placeholder="Repeat Password" id="repass">
+            <br><br><br>
+            <button onclick="window.location.href='login.html';">Login</button>
+            <button id="submit" onclick="submitDetails()">Submit</button>
+        </div>
+    </center>
+
+    <script>
+ 
+        function submitDetails() {
+            var name1 = document.getElementById("name").value;
+            var email1 = document.getElementById("email").value;
+            var number1 = document.getElementById("number").value;
+            var password1 = document.getElementById("password").value;
+            var repass1 = document.getElementById("repass").value;
+
+            var obj = { name: name1, number: number1, email: email1, password: password1 };
+            
+            var old = JSON.parse(localStorage.getItem("person"));
+            if (!old) {
+                old = [];
+            }
+            if(old.find(x=>x.email == email1))
+            {
+                alert("Present");
+            }
+            else{
+            old.push(obj);
+            }
+            localStorage.setItem("person", JSON.stringify(old));
+        }
+
+    </script>
+</body>
+
+</html>

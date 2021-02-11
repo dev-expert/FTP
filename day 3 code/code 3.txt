@@ -1,0 +1,25 @@
+<script>
+// Edit your script here
+var n = prompt("Enter the number");
+var arr = [];
+for(var i = 0;i<n;i++)
+{
+arr[i] = prompt("Enter the Number");
+}
+
+var a = [];
+var s = 0,l = n-1;
+
+for(var i = 0;i<n;i++)
+{
+if(i%2 == 0)
+a[i] = arr[l--];
+else
+a[i] = arr[s++];
+
+document.write(a[i]+" ");
+}
+
+
+</script>
+<!-- edit your html here -->
