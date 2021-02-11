@@ -1,0 +1,19 @@
+let n = prompt("enter the array");
+    let b = [];
+
+    for(i=0;i<n;i++)
+    {
+       b[i] = prompt("enter the number");
+    } 
+c = '';
+    a = b.sort((a,b)=>a-b)  
+   
+    for(i=0;i<(n/2);i++)
+    {
+    c = c+ a[n-i-1] + a[i]
+   
+    }
+    for(i=0;i<n;i++)
+    {
+    document.write(c[i])
+}
