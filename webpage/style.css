@@ -22,34 +22,10 @@ ul{
   .active {
     background-color: darkgrey;
   }
-
-.container{
-    display: flex;
-}
-.sidebar{
-    background-image: url("joker1.jpg");
-    padding: 1%;
-    height: 100vh;
-    min-width: 400px;
-}
-.mainarea{
-    background-image: url("joker2.jpg"); 
-}
-.footer{
-    padding: 30px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:black;
-    color: white;
-    text-align: center;
-}
-#url{
+  #url{
     padding: 10px;
     border-width: 3px;
     border-color: brown;
-    width: 250px;
     height: 50px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
@@ -98,7 +74,7 @@ ul{
 .urlsection{
     border-radius: 10px;
     width: fit-content;
-    padding: 5%;
+    padding: 3%;
     background-color: cornsilk;
     align-items: center;
 }
@@ -110,6 +86,23 @@ button{
     padding: 8px;
     margin-left: 10px;
 }
+.sidebar{
+    content: inherit;
+    background-image: url("joker1.jpg");
+    padding: 1%;
+    height: 100vh;
+    justify-content: center;
+}
+.footer{
+    padding: 30px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:black;
+    color: white;
+    text-align: center;
+}
 .input{
     padding: 10px;
     border-width: 3px;
@@ -120,5 +113,48 @@ button{
     background-color: rgb(255, 255, 255);
 }
 .subdiv{
-    padding: 10%;
+    padding-bottom: 10px;
+    justify-content:center;
+      align-items: center;
 }
+.inputurl{
+    display: flex;
+}
+.card {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: azure;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:chocolate;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .card:hover .overlay {
+    height: 100%;
+  }
+  .text {
+    white-space: nowrap; 
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
