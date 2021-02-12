@@ -1,50 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+	<title>Resume/CV Design</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="script.js"></script>
 </head>
-<body>
-    
+<body onload="showdata()">
+<div class="resume">
+   <div class="resume_left">
+     <div class="resume_profile">
+       <img src="profile.jpeg" alt="profile_pic">
+     </div>
+     <div class="resume_content">
+       <div class="resume_item resume_info">
+         <div class="title">
+           <p class="bold" id="resumename">Shubham Agrawal</p>
+           <p class="regular" id="resumedesignation">Web Developer</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fas fa-map-signs"></i>
+             </div>
+             <div class="data">
+               <p id="resumeaddress">Allahabad,UttarPradesh</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-mobile-alt"></i>
+             </div>
+             <div class="data">
+               <p id="resumephone">+91 8840696236</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-envelope"></i>
+             </div>
+             <div class="data">
+               <p id="resumeemail">shubham3565@gmail.com</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-linkedin"></i>
+             </div>
+             <div class="data">
+               <p id="resumelinkedin">www.linkedin.com</p>
+             </div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_skills">
+         <div class="title">
+           <p class="bold">skill's</p>
+         </div>
+         <ul>
+           <li>
+             <div class="skill_name" id="resumeskill1">
+               HTML
+             </div>
+             <div class="skill_progress">
+               <span style="width: 80%;"></span>
+             </div>
+             <div class="skill_per">80%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill2"> 
+               CSS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 70%;"></span>
+             </div>
+             <div class="skill_per">70%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill3">
+               C++
+             </div>
+             <div class="skill_progress">
+               <span style="width: 90%;"></span>
+             </div>
+             <div class="skill_per">90%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill4">
+               JS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 60%;"></span>
+             </div>
+             <div class="skill_per">60%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill5">
+               Python
+             </div>
+             <div class="skill_progress">
+               <span style="width: 88%;"></span>
+             </div>
+             <div class="skill_per">88%</div>
+           </li>
+         </ul>
+       </div>
+       
+       <div class="resume_item resume_education">
+        <div class="title">
+             <p class="bold">Activities</p>
+           </div>
+        <ul>
+              <li>
+                  <div class="date"></div> 
+                  <div class="info">
+                       <p class="semi-bold" style="color: white; font-weight: 700px;">* Participant - AANWIK-2019 Hackathon (03/2019)</p>
+                  </div>
+              </li>
+              <li>
+                <div class="info">
+                       <p class="semi-bold" style="color: white; font-weight: 700px;">* Coordinator TECHRUN (02/2019)</p> 
+                  </div>
+              </li>
+              <li>
+                <div class="info">
+                       <p class="semi-bold"  style="color: white; font-weight: 700px;">* Participant - i3india Technologies (11/2017)
+                      </p>
+                  </div>
+              </li>
+          </ul>
+      </div>
+     </div>
+  </div>
+  <div class="resume_right">
+    <div class="resume_item resume_about">
+        <div class="title">
+           <p class="bold">About us</p>
+         </div>
+         <p id="resumeobjective">To utilize my technical skills and provide a professional service to customers by applying and honing my
+          knowledge and working in a challenging and motivating working environment</p>
+    </div>
+    <div class="resume_item resume_work">
+        <div class="title">
+           <p class="bold">PERSONAL PROJECTS</p>
+         </div>
+        <ul>
+            <li>
+                <div class="date">07/2019</div> 
+                <div class="info">
+                  <p class="semi-bold">Smart Library System </p> 
+                  <p>The project contains a Python based GUI interface to manage the books
+                    issued or returned to the library.
+                    </p>
+                </div>
+            </li>
+            <li>
+              <div class="date">10/2017</div>
+              <div class="info">
+                     <p class="semi-bold">LPU Scholarship Scheme.</p> 
+                  <p>Used C language to make to check the amount of scholarship offered on the basis of the test scores of LPUNEST.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Education</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date" id="collegedate">2017-2021</div> 
+                <div class="info">
+                     <p class="semi-bold" id="collegecourse">B.Tech - Computer Science and Engineering</p> 
+                  <p id="collegeplace">Lovely Professional University</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2015-2016</div>
+              <div class="info">
+                     <p class="semi-bold">XIIth</p> 
+                  <p>Vishnu Bhagwan Public School</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2013-2014</div>
+              <div class="info">
+                     <p class="semi-bold">Xth</p> 
+                  <p>Vishnu Bhagwan Public School</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Acheivements</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date">03/2019</div> 
+                <div class="info">
+                     <p class="semi-bold">1st Runner Up SAP Hackathon</p> 
+                  <p>Organised by SAP UA Team in Lovely Professional University. .</p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+  </div>
+</div>
+
 </body>
-</html><HTML>
-    <HEAD>
-    <TITLE>Hunter S. Jobseeker</TITLE>
-    </HEAD>
-    <BODY BGCOLOR=”#FFFFFF”>
-    <H1>Hunter S. Jobseeker</H1>
-    <TABLE WIDTH=”100%”>
-    <TF><TD ALIGN=”left”>12013 Future Drive</TD>
-    <TD ALIGN=”right”>Residence (305) 555-1212</TD></TR>
-    <TF><TD ALIGN=”left”>New York, NY 10019</TD>
-    <TD ALIGN=”right”>Message (305) 555-1213</TD></TR>
-    </TD></TR>
-    <TD ALIGN=”right”>Email: jobseeker@internet.com</TD></TR>
-    <H2>Objective</H2>
-    <TABLE><TR><TD>&nbsp;</TD>
-    <TD>Marketing, public relations or sales position with a medical equipment company.</TD></TR></TABLE>
-    <H2>Sales Experience</H2>
-    <H3>March 2013 to Present</H3>
-    <TABLE><TR><TD>&nbsp;</TD>
-    <TD>Commissioned Salesperson — Fine Jewelry<BR>
-    Macy’s Department Store, New York, New York<UL>
-    <LI>Sell men’s and women’s jewelry, develop positive customer relations, provide sales promotion support for upper management, and maintain a product inventory worth up to $3 million.</LI>
-    <LI>Achieved 100 percent or more of sales quota since employed.</LI></UL></TD></TR></TABLE>
-    <H3>May 1990 to November 2012</H3>
-    <TABLE><TR><TD>&nbsp;</TD>
-    <TD>Commissioned Salesperson — Men’s Suits<BR>
-    Barney’s, New York, New York<UL><LI>
-    Sold men’s suits, established customer relations, handled staff scheduling duties, and ordered merchandise. kept track of market trends and effectively reformatted the store’s accounting system as it pertained to this department.</LI>
-    <LI>Ranked first, second, or third in every sales program during period of employment.</LI></UL></TD></TR></TABLE>
-    <H2>Additional Experience</H2>
-    <H3>June 1987 to November 1989</H3>
-    <UL><LI>Part-time and summer employment experience: Zoo Worker, Bronx Zoo, New York, summer 1987.</LI>
-    <LI>Word Processor and Medical Records Assistant, Mercy Hospital, New York, September 1987 – November 1989.</LI></UL>
-    <H2>Education</H2>
-    <TABLE><TR><TD>&nbsp;</TD>
-    <TD>Bachelor of Arts in Biology — December 1989
-    <BR>Columbia University<BR>
-    GPA: 3.5/4.0</TD></TR></TABLE>
-    <H2>Activities</H2>
-    <TABLE><TR><TD>&nbsp;</TD>
-    <TD>Vice President 1989, Social Chair 1987, Pi Beta Phi Sorority</TD></TR></TABLE></BODY>
-    </HTML>
+</html>
