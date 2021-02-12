@@ -13,6 +13,3 @@ function login() {
    }
     }
 
-function loginbutton(){
-    <a href="login.html">back to login</a><br/><br/>
- }
