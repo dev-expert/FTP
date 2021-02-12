@@ -1,0 +1,26 @@
+ body{
+    background-color: bisque;
+    border: 2px solid black ;
+
+}
+div {
+    width: 300px;
+    border: 5px solid green;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+  }
+  button{
+      text-align: center;
+  }
+.log{
+    text-align: center;
+    margin-left: 150px;
+    
+}
+.log1{
+    text-align: center;
+    margin-left: 80px;
+    
+}
