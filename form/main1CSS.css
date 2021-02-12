@@ -1,0 +1,45 @@
+*{
+    margin-right: 0%;
+    margin-left: 10px;
+}
+
+.img1{
+    width: 20px;
+}
+
+.mainSkills_1, .mainSkills_2, .mainSkills_3, .mainSkills_4{
+    margin-bottom: 15%;
+    display: block;
+    justify-content: space-between;
+}
+
+#skill1, #skill2, #skill3, #skill4, #skill5, #skill6, #skill7
+, #skill8, #skill9,#int1,#int2,#int3,#lan1,#lan2{
+    background-color: #2cbfaa;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+#mainDis
+{
+    background-color: #2cbfaa;
+}
+
+#pic{
+    width: 15vw;
+    border-radius: 50%;
+}
+.q
+{
+    color: #2cbfaa;
+}
+
+#ed11,#ed21,#ed31
+{
+    color: #2cbfaa;
+}
+
+#ed13,#ed23,#ed33
+{
+    margin-left: 90%;
+}
