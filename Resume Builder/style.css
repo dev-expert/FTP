@@ -1,0 +1,202 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+	display: inline-flex;
+}
+
+.container .image img{
+	width: 150px;
+	height: auto;
+}
+.name h1{
+	margin-left: 60px;
+	margin-top: 40px;
+}
+.linkedin img{
+	width: 35px;
+	height:auto;
+	margin-left: 40px;
+	margin-top:40px;
+}
+
+.linkedindetails{
+	margin-top: 48px
+}
+.mobileimage{
+	margin-top:90px;
+	margin-left: -600px;
+}
+
+.mobileimage img{
+	width: 30px;
+	height: auto;
+}
+.mobileimage p{
+	margin-left: 40px;
+	margin-top: -30px;
+}
+
+.mail{
+	margin-top: 90px;
+	margin-left: 20px;
+}
+
+.mail img{
+	width: 30px;
+	height: auto;
+}
+
+.mail p{
+	margin-top: -30px;
+	margin-left: 40px;
+}
+
+.ageaboutme{
+	display: inline-flex;
+}
+.ageaboutme .age h6{
+	color:#4285F4;
+	font-size: 15px;
+}
+.ageaboutme .age p{
+	margin-top:-30px;
+}
+.aboutme h6{
+	margin-left: 177px;
+	color:#4285F4;
+	font-size: 15px;
+}
+.aboutme p{
+	width: 40%;
+	margin-left: 177px;
+	margin-top: -30px;
+	text-align: justify;
+}
+.education img{
+	width: 30px;
+	height: auto;
+	margin-left: 450px;
+}
+.education h6{
+	font-size: 15px;
+	color:#4285F4;
+	margin-top:0px;
+	margin-left: 430px;
+}
+
+.masters{
+	display: inline-flex;
+}
+
+.masters{
+	margin-top: -30px;
+}
+.masters .masterscollege h6{
+	font-size: 15px;
+}
+
+.masters .masterscollege p{
+	margin-top: -30px;
+}
+
+.masters .passingyear{
+	margin-left: 220px;
+	margin-top: 45px;
+}
+.masters .passingyear p{
+	margin-top:-12px;
+}
+
+.bachelor{
+	display: block;
+}
+.bachelorcollege{
+	display: inline-flex;
+	margin-top:-50px;
+}
+.bachelorcollege h6{
+	font-size: 15px;
+}
+.bachelorcollege p{
+	margin-top: 60px;
+	margin-left: -155px;
+}
+.passingyearbachelor{
+	display: inline-flex;
+	margin-left: 214px;
+}
+
+.passingyearbachelor #graduated{
+	margin-top: 30px;
+}
+.passingyearbachelor #bsc{
+	margin-top:38px;
+	margin-left: -119px;
+}
+.passingyearbachelor #bacheloryear{
+	margin-top: 60px;
+	margin-left: -55px;
+}
+
+.twelthclass{
+	display: inline-flex;
+}
+
+.twelthschoolname{
+	margin-top: -40px;
+}
+
+.twelthschoolname h6{
+	font-size: 15px;
+}
+.twelthschoolname #schoolname{
+	margin-top: -25px;
+}
+
+.twelthschoolname #schoolboard{
+	margin-top: -10px;
+}
+
+.passingyeartwelth{
+	margin-top: -20px;
+	margin-left: 107px;
+}
+
+.passingyeartwelth #streamtwelth{
+	margin-top: -10px;
+}
+
+.passingyeartwelth #twelthmarks{
+	margin-top: -10px;
+}
+.tenthclass{
+	margin-top: -20px;
+}
+.tenthclass .tenthschool{
+	display: inline-flex;
+
+}
+
+.tenthclass h6{
+	font-size: 15px;
+}
+.tenthclass #schoolname{
+	margin-top: -20px;
+}
+.tenthclass #schoolboard{
+	margin-top: -10px;;
+}
+.passingyeartenth{
+	margin-top: -90px;
+	margin-left:325px;
+}
+.passingyeartenth #streamtenth{
+	margin-top: -10px;
+}
+.passingyeartenth #twelthmarks{
+	margin-top: -10px;
+}

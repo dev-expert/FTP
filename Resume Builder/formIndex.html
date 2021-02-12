@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+        
+        
+    </head>
+    <body>
+        <div class="heading">
+            <h1>Resume Builder</h1>
+        </div>
+
+        <div class="formcontainer">
+            <form id="myForm" action="index.html" method="POST">
+                <p id="labelname">Name: </p><input type="text" name="fname" id="fname" required>
+                <p id="labelmobilenumber">Mobile Number: </p><input type="number" name="mobile" id="mobile" required>
+                <p id="labelemail">Email: </p><input type="email" name="email" id="email" required><br>
+                <p id="labelemail">Linkedin </p><input type="text" name="linkedin" id="linkedin" required><br>
+                <p id="labelemail">Age: </p><input type="number" name="age" id="age" required><br>
+                <p id="labelaboutme">About Me: </p><input type="text" name="aboutme" id="aboutme" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="labelgraduation">Post Graduation (Course): </p></label><input type="text" name="postgraduation" id="postgraduation" required><br>
+                <p id="labelgraduation">University Name: </p></label><input type="text" name="postgraduation" id="postgraduationuniversity" required><br>
+                <p id="labelpercentage">Post Graduation Passing Year: </p><input type="number" id="postgraduationcomplete"  ><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="labelgraduation">Graduation (Course): </p></label><input type="text" name="graduation" id="graduation" required><br>
+                <p id="labelgraduation">University Name: </p></label><input type="text" name="graduation" id="graduationuniversity" required><br>
+                <p id="labelpercentage">Graduation Percentage </p><input type="number" id="graduationcgpa" required><br>
+                <p id="labelpercentage">Graduation Passing Year: </p><input type="number" id="graduationcomplete" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                
+                
+                <p id="label12thstream">12th Stream: </p><input type="text" name="12thstream" id="12thstream" required><br>
+                <p id="label12thstream">12th School Name: </p><input type="text" name="12thstream" id="schoolname12th" required><br>
+                <p id="label12thstream">12th School Board: </p><input type="text" name="12thstream" id="schoolboard12th" required><br>
+                <p id="label12thpercentage">12th Percentage: </p><input type="number" id="percentage12th" required><br>
+                <p id="label12thpercentage">12th Passing Year: </p><input type="number" id="complete12th" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="label10thschool">10th School: </p><input type="text" name="10thschool" id="school10th" required><br>
+                <p id="label10thschool">10th School Board: </p><input type="text" name="10thschool" id="school10thboard" required><br>
+                <p id="label10thpercentage">10th Percentage: </p><input type="number" id="percentage10th" required><br>
+                <p id="label12thpercentage">10th Passing Year: </p><input type="number" id="complete10th" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="labelhobbies">Hobbies: </p><input type="text"><br>
+                <p id="labeltechnicalskills">Technical Skills: </p><input type="text" name="skills" id="skills"><br>
+                <p id="labellanguage">Language: </p><input type="text" name="language" id="language">
+              
+                <p id="labelimage">Image: </p><input type="file" id="myFile" name="filename"><br>
+
+                <button class="btn success" onclick="sendData()">Generate Resume</button>
+            </form>
+        </div>
+        <script src="js.js"></script>
+    </body>
+</html>

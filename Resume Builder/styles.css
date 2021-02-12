@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.heading{
+    background-color: #a8e6bd;
+    height: 80px;
+}
+
+.heading h1{
+    font-size: 40px;
+    text-align: center;
+    line-height: 70px;
+    color:white;
+    margin:0px;
+}
+form{
+    text-align: center;
+}
+#labelname,#labelmobilenumber,#labelemail,#labelemail,#labelaboutme,#labelgraduation,#labelpercentage,#label12thstream,#label12thpercentage,#label10thschool,#label10thpercentage,#labelimage,#labelhobbies,#labeltechnicalskills,#labellanguage{
+    
+    margin-top: 10px;
+    font-weight: bold;
+}
+form input{
+    width: 40%;
+    padding: 12px 18px;
+    margin-top: 0px;
+}
+
+#btn{
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 4px 0px;
+    cursor: pointer;
+}
+#btn:hover{
+    background-color: white;
+    color:#4CAF50;
+    border-color:#4CAF50;
+}
+
+.success {
+    
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    font-size: 16px;
+    height: 60px;
+  }
+
+  .success:hover {
+    border-color: #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+  }
+
+#myFile{
+    text-align: center;
+    box-sizing: border-box;
+}
