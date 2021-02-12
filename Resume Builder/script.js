@@ -51,7 +51,7 @@ function storedata(){
         school1date:school1date,
         school1place:school1place
     }
-    resumedatas=JSON.parse(localStorage.getItem("resume") || "[]");
+    resumedata=JSON.parse(localStorage.getItem("resume") || "[]");
     resumedata.push(resume);
     localStorage.setItem("resume", JSON.stringify(resumedata));
     }
