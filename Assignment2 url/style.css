@@ -20,6 +20,7 @@ header{
     height: 600px;
     
 }
+
 footer{
     background-color: brown;
     height: 50px;
@@ -28,4 +29,6 @@ footer{
 .container{
     border: 1px solid black;
    text-align: center;
+   background-color: rosybrown;
+
 }

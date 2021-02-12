@@ -1,0 +1,10 @@
+body{
+    background-color: tomato;
+}
+.login{
+    background-color: teal;
+    width: 30%;
+    text-align: center;
+    margin-top: 250px;
+    margin-left: 500px;
+}
