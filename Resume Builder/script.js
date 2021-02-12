@@ -27,7 +27,7 @@ function storedata(){
     var school1place=formelements.get("school1place");
     var avatar=formelements.get("avatar");
     //var x = document.getElementById("avatar").value;
-    alert(avatar.name);
+    //alert(avatar.name);
     var resume={
         name:name,
         designation:designation,
