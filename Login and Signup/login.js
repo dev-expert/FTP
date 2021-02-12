@@ -23,6 +23,7 @@ function showlogin() {
     if(flag==0)
     {
         alert("Invalid passwrd or username")
+        location.reload();
     }
 
     
