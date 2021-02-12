@@ -75,6 +75,12 @@ function storedata(){
             document.getElementById("collegedate").innerHTML= s.collegedate;
             document.getElementById("collegecourse").innerHTML= s.collegecourse;
             document.getElementById("collegeplace").innerHTML= s.collegeplace;
+            document.getElementById("schooldate").innerHTML= s.schooldate;
+            document.getElementById("schoolcourse").innerHTML= s.schoolcourse;
+            document.getElementById("schoolplace").innerHTML= s.schoolplace;
+            document.getElementById("school1date").innerHTML= s.school1date;
+            document.getElementById("school1course").innerHTML= s.school1course;
+            document.getElementById("school1place").innerHTML= s.school1place;
         // document.getElementById("").innerHTML= s.;
         // document.getElementById("").innerHTML= s.;
         // document.getElementById("").innerHTML= s.;
