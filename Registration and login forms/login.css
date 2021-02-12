@@ -1,0 +1,31 @@
+form{
+margin-top: 100px;
+/* margin-left: 500px; */
+width: 300px;
+height: 400px;
+align-content: center;
+padding: 100px;
+color: rgb(3, 3, 3);
+}
+form{
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+body{
+    background-color: aquamarine;
+    display: flex;
+    align-content: center;
+}
+input{
+    background-color: rgb(145, 145, 160);
+}
+button{
+    border-radius: 20%;
+    background-color: cornsilk;
+    align-content: center;
+}
+h1{
+    font-family: 'Courier New';
+}

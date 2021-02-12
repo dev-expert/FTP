@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form>
+        <h1>LOGIN PAGE</h1><br>
+    Email<input type="email" id="email"><br><br>
+    
+    password<input type="password" class="password" id = "password"><br><br>
+    <button type="button" onclick="checking()">Login</button>
+    <p>Dont have a account Please Signup</p>
+    <button type="submit" ><a href="signup.html">Signup</a></button>
+</form>
+
+<script>
+function checking()
+{
+    let user = document.getElementById("email").value;
+   let key = document.getElementById("password").value
+   old = JSON.parse(localStorage.getItem("person"));
+            if(!old)
+            {
+                old = []
+            }
+            y = (old.find(x => x.email == user))
+            {
+                if(key == y.pass2)
+                {
+                    alert("Hello")
+                }
+                else {
+                    alert("Enter agaiin")
+                }
+            }
+   
+
+}
+
+
+</script>
+</body>
+</html>
