@@ -1,0 +1,211 @@
+body{
+    font-family: sans-serif;
+
+}
+
+span{
+    color:#4CAF50;
+}
+.heading{
+    font-size: 30px;
+    text-align: center;
+    line-height: 0.6;
+    flex-wrap: wrap;
+}
+
+.right li{
+    float: right;
+}
+ ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#4CAF50;
+  }
+  
+   li {
+    float: left;
+  }
+  
+   li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+  }
+  
+   li a:hover {
+    background-color: white;
+    color: black;
+  }
+  .mainDiv{
+      display: flex;
+      flex-wrap: wrap;
+  }
+ 
+ .form1{
+     min-width: 30%;
+     background-color: white;
+     border: 1px solid green;
+     min-height: 50vh;
+     border-radius: 25px;
+     color:#4CAF50;
+     text-align: center;
+     margin-left:206px;
+     margin-top: 20px;
+     
+     }
+     .marqueeDiv{
+background-color: red;
+
+     }
+     marquee{
+         font-size: 24px;
+
+     }
+ 
+    .footer {
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        min-height: 40px;
+     }
+     label{
+         padding-top: 10px;
+     }
+     .button{
+        display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-top: 10px;
+         
+     }
+
+     
+     .Div2{
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .InnerDiv2{
+       background-color:black;
+        min-width: 50%;
+        color: white;
+        box-shadow: 5px 10px 18px #888888;
+ padding: 10px;
+ display: flex;
+    }
+    .Div3{
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .InnerDiv3{
+        background-color:whitesmoke;
+         min-width: 50%;
+         box-shadow: 5px 10px 18px #888888;
+         padding: 10px;
+         display: flex;
+     }
+     .InnerDiv3 h3{
+         color: #28B4A3;
+     }
+     .LeftDiv3{
+         min-width: 50%;
+         color: black;
+     }
+     .skills span{
+         background-color: grey;
+        padding: 10px;
+         color: white;
+         border-radius: 25px;
+         margin: 5px;
+         
+     }
+     .leftDiv2{
+        min-width: 50%;
+        color:white;
+    }
+    
+    .rightDiv2{
+        min-width: 50%;
+    }
+    .rightDiv3{
+        min-width: 50%;
+    }
+    
+    .Div1{
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .InnerDiv1{
+        margin-top: 20px;
+       background-color:#2F3B44;
+        max-width: 50%;
+        color: white;
+        box-shadow: 5px 10px 18px #888888;
+       padding: 10px;
+       display: flex;
+       
+    }
+    .leftDiv1{
+        min-width: 80%;
+        color:white;
+    }
+    .rightDiv1{
+        min-width: 20%;
+    }
+    .rightDiv1 img{
+        width: 100%;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px solid green;
+    }
+    .mainSignUp{
+        display: flex;
+        
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        
+ background-image: url("../src/img/back.jpg");
+        
+        
+    }
+    .SignUp{
+        border: 2px solid black;
+        min-width: 30%;
+        justify-content: center;
+        background-color: rgb(177, 167, 27);
+        
+
+    }
+    .insignUp{
+        text-align: center;
+
+        min-width: 50%;
+        background-color: whitesmoke;
+        margin: 30px;
+    }
+    .insignUp input{
+        padding: 5px;
+        margin: 10px;
+
+    }
+    .login{
+        color: whitesmoke;
+       text-align: center;
+    }
+    .insignUp p{
+        color: red;
+    }
+    

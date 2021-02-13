@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protfolio</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../src/css/index.css">
+    <script src="../src/js/index.js"></script>
+</head>
+
+<body>
+
+
+    <div>
+
+        <p class="heading">Protfolio<span>.Com</span></p>
+    </div>
+    <div class="navDiv">
+
+        <ul>
+            <li><a class="active" href="#home">RESUME</a></li>
+            <li><a href="#news">CV</a></li>
+            <li><a href="#contact">PROTFOLIO</a></li>
+            <li><a href="#about">BIO_DATA</a></li>
+            <li><a href="#about">CERTIFICATES</a></li>
+            <li style="float: right;"><a href="#about">LogIn/SignUp</a></li>
+            <li style="float: right;"><a href="#about">About Us</a></li>
+            <li style="float: right;"><a href="#about">Contact Us</a></li>
+
+        </ul>
+
+    </div>
+
+    <div class="marqueeDiv">
+
+        <marquee>Fill all the necessary details</marquee>
+    </div>
+    <div class="mainDiv">
+        <div class="form1" data-aos="flip-down">
+
+            <form action="result.html" method="POST">
+                <h2>Personal Details <span><i class="fas fa-user"></i></span></h2>
+                <label>Fullname:</label><br>
+                <input type="text" id="lname" name="name[]" placeholder="Enter your name here" required><br>
+                <input type="hidden" name="key[]" value="Name">
+                <label>Email:</label><br>
+                <input type="text" id="email" name="name[]" placeholder="Enter your email here" required><br>
+                <input type="hidden" name="key[]" value="email">
+                <label>Contact no:</label><br>
+                <input type="text" id="Contactno." name="name[]" placeholder="Enter your Contact here" required><br>
+                <input type="hidden" name="key[]" value="ContactNo-">
+                <label> professional Profile:</label><br>
+                <input type="text" id="proP" name="name[]" placeholder="Enter  Professional Profile here"required><br>
+                <input type="hidden" name="key[]" value="Profile">
+
+                <label>About Yourself: </label><br>
+                <textarea name="name[]" style="width:200px; height:50px;"
+                    placeholder="Ex-Seeking a position in the well established organization. " id="aboutY"required></textarea>
+                <input type="hidden" name="key[]" value="About"><br>
+                
+               <label for="myfile">Select Image:</label>
+                <input type="file" name="name[]"required><br>
+                <input type="hidden" value="image" name="key[]"><br>
+
+
+        </div>
+        <div class="form1" data-aos="flip-up">
+
+
+
+            <h2>Education Details <span><i class="fas fa-graduation-cap"></i></span></h2>
+            <label>Intermediate:</label><br>
+            <input type="text" id="Intermediate" name="name[]" placeholder="Enter your details here"required><br>
+            <input type="hidden" name="key[]" value="Intermediate">
+            <label>High School:</label><br>
+            <input type="text" id="High School" name="name[]" placeholder="Enter your details here"required><br>
+            <input type="hidden" name="key[]" value="Highschool">
+            <label>Graduate:</label><br>
+            <input type="text" id="Graduate" name="name[]" placeholder="Enter your details here"required><br>
+            <input type="hidden" name="key[]" value="Graduate">
+
+
+
+        </div>
+
+
+    </div>
+    <div class="mainDiv">
+        <div class="form1" data-aos="flip-up">
+
+
+            <h2>Projects <span><i class="fas fa-project-diagram"></i></span></h2>
+            <label>Project 1:</label><br>
+            <input type="text" id="Project" name="name[]" placeholder="Project1"required><br>
+            <input type="hidden" name="key[]" value="Project1">
+            <label for="lname">Project 2:</label><br>
+            <input type="text" id="Project2" name="name[]" placeholder="Project2"required><br>
+            <input type="hidden" name="key[]" value="Project2">
+            <label for="fname">Project 3:</label><br>
+            <input type="text" id="Project3" name="name[]" placeholder="Project3"required><br>
+            <input type="hidden" name="key[]" value="Project3">
+            <label for="lname">Project 4:</label><br>
+            <input type="text" id="Project4" name="name[]" placeholder="Project4"required><br>
+            <input type="hidden" name="key[]" value="Project4">
+
+        </div>
+        <div class="form1" data-aos="flip-up">
+
+
+
+            <h2>Skills <span><i class="fas fa-chart-line"></i></span></h2>
+            <input type="text" id="Skills1" name="name[]" placeholder="Skills1"required><br><br>
+            <input type="hidden" name="key[]" value="Skills1">
+            <input type="text" id="Skills2" name="name[]" placeholder="Skills2"required><br><br>
+            <input type="hidden" name="key[]" value="Skills2">
+            <input type="text" id="Skills2" name="name[]" placeholder="Skills3"required><br><br>
+            <input type="hidden" name="key[]" value="Skills3">
+
+            <input type="text" id="Skills2" name="name[]" placeholder="Skills4"required><br><br>
+            <input type="hidden" name="key[]" value="Skills4">
+
+            <input type="text" id="Skills2" name="name[]" placeholder="Skills5"required><br><br>
+            <input type="hidden" name="key[]" value="Skills5">
+
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="mainDiv">
+        <div class="form1" data-aos="flip-up">
+
+
+            <h2>Work Experience <span><i class="fas fa-briefcase"></i></span></h2>
+            <label for="fname">Company Name:</label><br>
+            <input type="text" name="name[]"required><br>
+            <input type="hidden" name="key[]" value="CM">
+            <label for="lname">Date start:</label><br>
+            <input type="date"  name="name[]"required><br>
+            <input type="hidden" name="key[]" value="start">
+            <label for="fname">End Date:</label><br>
+            <input type="date"  name="name[]"required><br>
+            <input type="hidden" name="key[]" value="end">
+            <label for="lname">Title:</label><br>
+            <input type="text" name="name[]"required><br>
+            <input type="hidden" name="key[]" value="Project"><br>
+            
+            <h2>Certification <span><i class="far fa-file-certificate"></i></span></h2>
+            <input type="text"  name="name[]" placeholder="Certificate 1"required><br><br>
+            <input type="hidden" name="key[]" value="C1">
+            <input type="text" name="name[]" placeholder="Certificate 2"required><br><br>
+            <input type="hidden" name="key[]" value="C2">
+            <input type="text"  name="name[]" placeholder="Certificate 3"required><br><br>
+            <input type="hidden" name="key[]" value="C3">
+
+            <input type="text"  name="name[]" placeholder="Certificate 4"required><br><br>
+            <input type="hidden" name="key[]" value="C4">
+
+            <input type="text"  name="name[]" placeholder="Certificate 5"required><br><br>
+            <input type="hidden" name="key[]" value="C5">
+
+
+
+            
+
+        </div>
+        <div class="form1" data-aos="flip-up">
+
+
+
+            <h2>Languages <span><i class="fas fa-language"></i></span></h2>
+            <input type="text" name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="L1">
+            <input type="text" id="Skills2" name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="L2">
+            <input type="text"  name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="L3">
+
+            <h2>Interests <span><i class="fas fa-chart-line"></i></span></h2>
+            <input type="text" name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="I1">
+            <input type="text" id="Skills2" name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="I2">
+            <input type="text"  name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="I3">
+            
+            <h2>Social Account <span><i class="fas fa-user-circle"></i></i></span></h2>
+            <input type="text" name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="S1">
+            <input type="text"  name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="S2">
+            <input type="text"  name="name[]"required><br><br>
+            <input type="hidden" name="key[]" value="S3">
+
+
+
+        </div>
+
+
+    </div>
+    <div class="button">
+
+        <button type="submit" class="btn btn-success" onclick="information()">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>www.protfolio.com</p>
+        </div>
+
+    </footer>
+
+    </script>
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 800,
+            easing: 'ease-in-quad',
+            delay: 100,
+        });
+    </script>
+
+</body>
+
+
+</html>

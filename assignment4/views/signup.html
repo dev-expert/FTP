@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignUp</title>
+    <link rel="stylesheet" href="../src/css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <script src="../src/js/signup.js"></script>
+</head>
+<body>
+    <div class="mainSignUp">
+        <div class="SignUp">
+            <div class="insignUp">
+                <form  class="form-group">
+                   <h1>Signup</h1>
+                   <p style="color: gray;"><u>Please fill this form to create an account!</u></p>
+                    <input type="text" placeholder="First Name" id="fname"><br>
+                    <p id="ferr"></p>
+                    
+                    <input type="text"  placeholder="Last Name" id="lname"><br>
+                    <p id="lerr"></p>
+                    
+                    <input type="text"  placeholder="Email"  id="email" name="EMail"><br>
+                    <p id="Eerr"></p>
+                    
+                    
+                    <input type="text"  placeholder="Contact No."  id="number"><br>
+                    <p id="numloc"></p>
+                    
+                    <input type="password"  placeholder="Password"  id="pass" ><br>
+                    <p id="perr"></p>
+                    
+                    <input type="password"  placeholder="Confirm-Password"  id="cpass"><br>
+                    <p id="cerr"></p>
+                    <input type="checkbox"><label>I accept the <span class="text-primary">Terms of Use</span> & <span class="text-primary">Policy.</span> </label><br>
+                    <input type="button" class="btn btn-info"  value="Create an account" onclick="check()">
+                </form>
+            </div>
+            <div class="login">
+                <p>Already have an account <a href="login.html">Login here</a></p>
+            
+        </div>
+    </div>
+   
+</body>
+</html>
