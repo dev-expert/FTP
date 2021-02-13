@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+</head>
+<body>
+     <form action="display.html" method="get" target="_self " id="userform">
+        
+    <label for="Firstname">FirstName:</label>
+    <input type="text"  id="firstname"><br/><br/>
+    
+    <label for="lastname">LastName:</label>
+    <input type="text" name="lastname" id="lastname"><br/><br/>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email"><br/><br/>
+
+    <label for="number">Mobile number:</label>
+    <input type="number" name="number" id="number"><br/><br/>
+
+    
+
+    <label for="address">Address:</label>
+    <input type="address" name="address" id="address"><br/><br/>
+
+    
+    <label for="hobbies">Hobbies:</label><br/>
+    <input type="hobbies" name="hobbies" id="hobbies"><br/>
+    <input type="hobbies" name="hobbies" id="hobbies1"><br/>
+    <input type="hobbies" name="hobbies" id="hobbies2"><br/>
+    <input type="hobbies" name="hobbies" id="hobbies3"><br/><br/>
+
+    <label for="skills">Skills:</label><br/>
+    <input type="skills" name="skills" id="skills"><br/>
+    <input type="skills" name="skills" id="skills1"><br/>
+    <input type="skills" name="skills" id="skills2"><br/>
+    <input type="skills" name="skills" id="skills3"><br/><br/>
+
+    <label for="languages">Languages:</label><br/>
+    <input type="languages" name="languages" id="languages"><br/>
+    <input type="languages" name="languages" id="languages1"><br/>
+    <input type="languages" name="languages" id="languages2"><br/><br/>
+
+
+    <input type="submit" value="submit" onclick="login()">
+    
+    </form> 
+    <script>
+    function login()
+    {
+        var mail = document.getElementById("email").value;
+        var fname = document.getElementById("firstname").value;
+        var lname = document.getElementById("lastname").value;
+        var pnum = document.getElementById("number").value;
+        var addr = document.getElementById("address").value;
+        var skill = document.getElementById("skills").value;
+        var skill1 = document.getElementById("skills1").value;
+        var skill2 = document.getElementById("skills2").value;
+        var skill3 = document.getElementById("skills3").value;
+        var hobbie = document.getElementById("hobbies").value;
+        var hobbie1 = document.getElementById("hobbies1").value;
+        var hobbie2 = document.getElementById("hobbies2").value;
+        var hobbie3 = document.getElementById("hobbies3").value;
+        var language = document.getElementById("languages").value;
+        var language1 = document.getElementById("languages1").value;
+        var language2 = document.getElementById("languages2").value;
+        
+        obj = {
+               email:mail, firstname:fname,lastname:lname,number:pnum,address:addr,
+               skills:skill,skills1:skill1,skills2:skill2,skills3:skill3,
+               hobbies:hobbie,hobbies1:hobbie1,hobbies2:hobbie2,hobbies3:hobbie3,
+               languages: language, languages1: language1, languages2: language2    
+        }
+    
+    localStorage.setItem("user" , JSON.stringify(obj))
+    }
+
+</script>
+
+</body>
+</html>
