@@ -75,54 +75,99 @@
     </div>
 </div>
 <div class="right">
+    <div class="name">
      <script>
-         
      document.write(old.firstname+"&nbsp"+old.lastname)
-     
-     
     </script>
-        
-
+    </div>
         <div class="education">
             
             <h4>Education:</h4>
             <div class="vl"></div>
-            <h4>B.tech</br></h4>
-           <h5>Lovely Professional University</br></h5>
-            Computer Science & Engineering </br>
-            
-            2017 - 2021</br>
-            Jalandhar</br></br>
-           
-            <h4>Intermediate</br></h4>
-            <h5>Pragna Junior College</h5>
-            M.P.C</br>
-            2015 - 2017</br>
-            Karimnagar </br></br>
+            <h4>
+                <script>
+                    document.write(old.education)
+                </script>
+            </h4>
 
-            <h4>x(SSC, Board of Telangana)</br></h4>
-            <h5>Kerela Model High School</h5>
-            2014 - 2015</br>
-            Vemulawada
+           <h5>
+            <script>
+                document.write(old.college)
+            </script>
+           </br> 
+        </h5>
+
+           <script>
+            document.write(old.stream+"<br>")
+                document.write(old.year+"<br>")
+                document.write(old.place)
+            </script></br>
+
+           <h4>
+            <script>
+                document.write(old.education1)
+            </script>
+           </h4>
+
+            <h5>
+                <script>
+                    document.write(old.college1)
+                </script>
+            </br></h5>
+            <h5>
+                
+            </h5>
+            <script>
+                document.write(old.stream1+"<br>")
+                    document.write(old.year1+"<br>")
+                    document.write(old.place1)
+                </script></br>
+
+            <h4>
+                <script>
+                    document.write(old.education2)
+                </script>
+            </br></h4>
+            <h5>
+                <script>
+                    document.write(old.college2)
+                </script>
+            </br>
+            </h5>
+            <script>
+                document.write(old.stream2+"<br>")
+                    document.write(old.year2+"<br>")
+                    document.write(old.place2)
+                </script></br>
             </div>
             <div class="projects">
                 
                 <h4>Projects:</h4>
                 <div class="vl"></div>
-                <h5>Zodiac Sign Calculator (2018 - 2019):</h5>
-                This a c++ project which shows your zodiac sign based on your birth date . We need to check our mentioned date
-                and month and thus find its equivalent zodiac that is which zodiac fits in that particular date as well as month
-                and print its corresponding zodiac sign
-                <h5>Hotel Management System (2017 - 2018):</h5>
-                I have done this project through HTMl, CSS and JAVA SCRIPT . This project explains that the hotel needs to maintain the record of guests and reserve rooms beforehand. For Customers to know the availability of the
-rooms on a particular date. And also explains about food and other services. The record of the food taken by each
-customer and the services availed by the customer will be kept. These records help in generating bill. 
+                <h5>
+                    <script>
+                        document.write(old.project)
+                    </script>
+                </h5>
+                <script>
+                    document.write(old.desc)
+                </script>
+                <h5>
+                    <script>
+                        document.write(old.project1)
+                    </script>
+                </h5>
+                <script>
+                    document.write(old.desc1)
+                </script> 
                 </div>
                 <div class="certi">
                     
                     <h4>Certifications:</h4>
                     <div class="vl"></div>
-                    C/C++ programming certificate from coursera as a part of summer training (2019)
+                    <script>
+                        document.write(old.organi)
+                    </script>
                 </div>
     </div>
     

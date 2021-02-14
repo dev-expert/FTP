@@ -44,6 +44,37 @@
     <input type="languages" name="languages" id="languages1"><br/>
     <input type="languages" name="languages" id="languages2"><br/><br/>
 
+    <label for="education">Education:</label><br/><br/>
+    Course1:<input type="education" name="education" id="education"><br/>
+    College:<input type="college" name="college" id="college"><br/>
+    Stream:<input type="stream" name="stream" id="stream"><br/>
+    Year:<input type="year" name="year" id="year"><br/>
+    Place:<input type="place" name="place" id="place"><br/><br/>
+
+    Course2:<input type="education" name="education" id="education1"><br/>
+    College:<input type="college" name="college" id="college1"><br/>
+    Stream:<input type="stream" name="stream" id="stream1"><br/>
+    Year:<input type="year" name="year" id="year1"><br/>
+    Place:<input type="place" name="place" id="place1"><br/><br/>
+
+    Course3:<input type="education" name="education" id="education2"><br/>
+    College:<input type="college" name="college" id="college2"><br/>
+    Stream:<input type="stream" name="stream" id="stream2"><br/>
+    Year:<input type="year" name="year" id="year2"><br/>
+    Place:<input type="place" name="place" id="place2"><br/><br/>
+
+    <label for="project">Projects:</label><br/><br/>
+    Project1:<input type="project" name="project" id="project"><br/>
+    Description:<input type="desc" name="desc" id="desc"><br/><br/>
+    Project2:<input type="project" name="project" id="project1"><br/>
+    Description:<input type="desc" name="desc" id="desc1"><br/><br/>
+
+    <label for="organi">Organisations:</label>
+    <input type="text" name="organi" id="organi"><br/>
+
+
+    
+
 
     <input type="submit" value="submit" onclick="login()">
     
@@ -67,12 +98,44 @@
         var language = document.getElementById("languages").value;
         var language1 = document.getElementById("languages1").value;
         var language2 = document.getElementById("languages2").value;
+
+        var edu = document.getElementById("education").value;
+        var clg = document.getElementById("college").value;
+        var strm = document.getElementById("stream").value;
+        var yr = document.getElementById("year").value;
+        var plc = document.getElementById("place").value;
+
+        var edu1 = document.getElementById("education1").value;
+        var clg1 = document.getElementById("college1").value;
+        var strm1 = document.getElementById("stream1").value;
+        var yr1 = document.getElementById("year1").value;
+        var plc1 = document.getElementById("place1").value;
+
+        var edu2 = document.getElementById("education2").value;
+        var clg2 = document.getElementById("college2").value;
+        var strm2= document.getElementById("stream2").value;
+        var yr2 = document.getElementById("year2").value;
+        var plc2 = document.getElementById("place2").value;
+
+        var pro = document.getElementById("project").value;
+        var des = document.getElementById("desc").value;
+        var pro1 = document.getElementById("project1").value;
+        var des1 = document.getElementById("desc1").value;
+
+        var org = document.getElementById("organi").value;
+
+
         
         obj = {
                email:mail, firstname:fname,lastname:lname,number:pnum,address:addr,
                skills:skill,skills1:skill1,skills2:skill2,skills3:skill3,
                hobbies:hobbie,hobbies1:hobbie1,hobbies2:hobbie2,hobbies3:hobbie3,
-               languages: language, languages1: language1, languages2: language2    
+               languages: language, languages1: language1, languages2: language2,
+               education:edu,college:clg,stream:strm,year:yr,place:plc,
+               education1:edu1,college1:clg1,stream1:strm1,year1:yr1,place1:plc1,
+               education2:edu2,college2:clg2,stream2:strm2,year2:yr2,place2:plc2,
+               project:pro,desc:des,project1:pro1,desc1:des1,
+               organi:org
         }
     
     localStorage.setItem("user" , JSON.stringify(obj))
