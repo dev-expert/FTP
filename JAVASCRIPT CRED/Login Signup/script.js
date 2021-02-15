@@ -24,12 +24,15 @@ function setAction() {
       alert("WRONG USERNAME OR PASSWORD");
     }
   }
+  else{
+    alert("Not A Registered User");
+  }
   }
 function register(){
     var rname = document.getElementById("usernamesignup").value;
     var remail = document.getElementById("emailsignup").value;
     var rpassword = document.getElementById("passwordsignup").value;
-    var usertype;
+    var usertype; 
     if(document.querySelector('#usertype:checked') !== null){
       usertype="superuser";
       console.log(usertype);
@@ -64,15 +67,14 @@ function register(){
     AllUsers=JSON.parse(localStorage.getItem("users") || "[]");
     AllUsers.push(userdata);
     localStorage.setItem("users", JSON.stringify(AllUsers));
+    alert("Registered Successfully");
   }
-}
-function clearlocalstorage(){
-    localStorage.clear();
 }
 function superlogin(){
   alert("Admin Login");
+  window.open("users.html");  
 }
 function normallogin(){
-
   alert("Normal login");
+  window.open("webpage/index.html");
 }
