@@ -1,0 +1,84 @@
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background:#fff;
+    font-size: 14px;
+    line-height: 22px;
+    color: #555550;
+}
+.head1{
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    width: 100%;
+}
+.topleft{
+    width: 40%;
+    margin-left: 5%;
+}
+.ima{
+    border-radius: 50%;
+    height: 30vh;
+    width: 30%;
+    padding: 1%;
+    border-color: blue;
+
+}
+h3{
+    color: #449399;
+}
+
+.topright{
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 5%;
+
+}
+hr{
+    border-top: 3px solid black;
+}
+.left{
+    margin-left: 5%;
+    float: left;
+    width: 40vw;
+}
+.projects{
+    width: 50%;
+}
+.mainSkills_1{
+    margin-bottom: 15%;
+    display: block;
+    justify-content: space-between;
+}
+
+#skill1, #skill2, #skill3, #skill4, #skill5, #skill6, #skill7
+, #skill8, #skill9{
+    background-color: #2cbfaa;
+    border-radius: 5px;
+    padding: 8px;
+}
+.right{
+    margin-left: %;
+    width: 50%;
+    float: right;
+}
+.interests1{
+    margin-bottom: 15%;
+    display: block;
+    justify-content: space-between;
+}
+
+#int1,#int2,#int3,#int4,#int5{
+    background-color: thistle;
+    border-radius: 5px;
+    padding: 8px;
+}
+.social_icons{
+    font-size: 15px;
+}
