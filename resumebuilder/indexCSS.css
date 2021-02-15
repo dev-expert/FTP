@@ -1,0 +1,33 @@
+body{
+
+    font-family: 'Roboto', sans-serif ;
+    background-color: bisque;
+    display: flex !important;
+    flex-direction:column  !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    width: 70%;
+    margin-left: 15%;
+}
+input:hover{
+    background-color: darkred;
+
+}
+.skinput{
+    margin-left: 3rem;
+}
+.cert{
+    margin-left: 6rem;
+}
+.hobb{
+    margin-left: 4.3rem;
+}
+.langa{
+    margin-left: 5.6rem;
+}
+button:hover{
+    background-color:greenyellow;
+
+}
