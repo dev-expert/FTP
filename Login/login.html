@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <title>Document</title>
-    <link rel="stylesheet" href="register.css">
-    <script src="register.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="login.js"></script>
 </head>
 <body>
     <div id="login-box">
@@ -16,13 +14,19 @@
           
           <input type="text" id="email" placeholder="E-mail"  />
           <input type="password" id="password" placeholder="Password" />
+          <select id="user_type" aria-placeholder="User Type" >
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+            <option value="Both">Both user and admin</option>
+           
+          </select>
           <div id="remember">
             <input type="checkbox" value="lsRememberMe" id="rememberMe"
                    style="display: inline-block;">
             <label>Remember me</label>
         </div>
           
-          <input type="submit" id="login" value="Login" onsubmit="check()" /><br>
+          <input type="button" id="sbt-login" value="Login"  onclick="check()" /><br>
           
           
         </div>
@@ -33,26 +37,10 @@
           <button class="social-signin facebook">Log in with facebook</button>
           <button class="social-signin twitter">Log in with Twitter</button>
           <button class="social-signin google">Log in with Google+</button>
-         
+          <label>New User?Sign Up.<input type="button" id="submit" value="Sign Up" onclick="redirect()" /></label><br>
         </div>
         <div class="or">OR</div>
         </div></form>
       </div>
 </body>
 </html>
-<script>
-  function check(){
-    var storedName = localStorage.getItem('name');
-    var storedPw = localStorage.getItem('password');
-
-    var userName = document.getElementById('userName');
-    var userPw = document.getElementById('userPw');
-    var userRemember = document.getElementById("rememberMe");
-
-    if(userName.value == storedName && userPw.value == storedPw){
-        alert('You are logged in.');
-    }else{
-        alert('Error on login');
-    }
-}
-</script>
