@@ -83,10 +83,6 @@ function storedata(){
             document.getElementById("school1date").innerHTML= s.school1date;
             document.getElementById("school1course").innerHTML= s.school1course;
             document.getElementById("school1place").innerHTML= s.school1place;
-        // document.getElementById("").innerHTML= s.;
-        // document.getElementById("").innerHTML= s.;
-        // document.getElementById("").innerHTML= s.;
-        // document.getElementById("").innerHTML= s.;
             }   
         }
 }
