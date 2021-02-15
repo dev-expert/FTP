@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin page</title>
+    <script src="signin.js"></script>
+
+     <link rel="stylesheet" href="4.css">
+</head>
+<body>
+    <div class="login">
+        <h1>Login page</h1>
+    <form   method="GET" target="_self">
+        <div>
+            <label for="email">UserName:</label>
+            <input type="text" name="email" id="email" autofocus required/>
+        </div>
+        
+        <div>
+            <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+
+        </div>
+    
+         <div class="btn-row">
+            <input type="submit" value="Login" onclick="finalq()">
+            
+            
+            <button onclick="window.location.href='signup.html'">
+                Register
+              </button>
+
+         </div>
+        
+        
+    </form>
+    </div>
+</body>
+</html>

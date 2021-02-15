@@ -1,0 +1,42 @@
+body{
+    background-color: tomato;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
+    height: 90vh;
+}
+.login{
+    background-color: teal; 
+    width:500px;
+    text-align: center;
+    margin-top: 250px;
+    /* margin-left: 500px;  */
+    margin: auto;
+}
+form{
+    margin: auto;
+  
+    width: 400px;
+    text-align: center;
+    /* display: ; */
+}
+form >div{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.btn-row{
+    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.btn-row input{
+    margin-bottom:30px;
+    width: 100px;
+}
+button{
+    margin-bottom:30px;
+    width: 100px;
+}
