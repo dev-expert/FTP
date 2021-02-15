@@ -1,0 +1,13 @@
+var n=parseInt(prompt("Enter any number"));
+let arr = new Array(n),min=0,max=0,k=n-1;
+for(var i=0;i<n;i++){
+    var a=parseInt(prompt("Enter values"));
+    arr[i]=a;
+}
+arr.sort();
+for(var j=0;j<n-1;j++)
+{
+    min=min+arr[j];
+    max=max+arr[k--];
+}
+document.write(min+" &nbsp "+ max);
