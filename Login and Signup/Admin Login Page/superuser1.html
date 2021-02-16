@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        table, td, th {  
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+        
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 15px;
+        }
+        </style>
+        </head>
+</head>
+
+<body onload="tables1()">
+    <div class="container">
+        <table id="contain" border="1">
+        <thead>
+        <tr>
+       
+        <th>Email</th>
+        <th>usertype</th>
+        </tr>
+        </thead>
+        <tbody id="details">
+        
+        </tbody>
+        </table>
+        </div>
+</body>
+<script>
+    function tables1()
+    {
+        
+        var str="";
+        var keys=JSON.parse(localStorage.getItem("obj1"));
+       
+        for( i=0;i<keys.length;i++)
+        {
+             k=keys[i];
+             
+            str += `<tr>
+            <td>${k.email}</td>
+            <td>${k.usertype}</td>
+            <td><button onclick="userdelete('${k.email}')">Delete</button></td>
+            
+            </tr>`;
+
+        }
+        document.getElementById("details").innerHTML=str;
+
+    }
+
+    function userdelete(em){
+        let keys=JSON.parse(localStorage.getItem("obj1"));
+            for(i=0;i<keys.length;i++)
+            {
+                s=keys[i];
+                if(em===s.email){
+                    keys.splice(i, 1);
+                }
+            }
+            localStorage.setItem("obj1", JSON.stringify(keys));
+            tables1();
+
+
+    }
+
+</script>
+</html>
