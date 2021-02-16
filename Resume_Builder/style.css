@@ -1,104 +1,35 @@
-*{
-    font-family:Calibri (Body);
-}
 /* Form Section */
-input[type=text],[type=number],[type=file],[type=email], [type=date], select {
-    width: 100%;
+input{
+    width: 80%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 1px 0;
     display: inline-block;
     border: 1px solid black;
     border-radius: 4px;
     box-sizing: border-box;
     background-color:white;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
  }
- 
-.personal_details_heading{
-    text-align: center;
-     color: black;
-     font-weight: 900;
-     font-size: larger;
- }
-.personal_details{
-    border-radius: 20px;
-    background-color:#C0C0C0;
-    padding: 100px;
-}
 
-.educational_details_heading{
-    text-align: center;
-    color: black;
-    font-weight: 900;
-    font-size: larger;
-}
-.educational_details{
-    border-radius: 20px;
-    background-color: #f2f2f2;
-    padding: 100px;
-}
-.project_details_heading{
-    text-align: center;
-    color: black;
-    font-weight: 900;
-    font-size: larger;  
-}
-.project_details{
-    border-radius: 20px;
-    background-color: gray;
-    padding: 100px;
-
-}
-.project_details_heading, .certification_details_heading{
-    text-align: center;
-    color: black;
-    font-weight: 900;
-    font-size: larger;  
-}
-.skill_details, .certification_details{
+.basic, .education, .qualification, .projects, .skills, .proficiency, .language, .interest, .details{
     border-radius: 20px;
     background-color:#A9A9A9;
-    padding: 100px;
-
-}
-.skill_details_heading{
+    padding: 2px;
     text-align: center;
-    color: black;
-    font-weight: 900;
-    font-size: larger;  
-}
-.computer_proficiency{
-    border-radius: 20px;
-    background-color: #808080;
-    padding: 100px;
-
-}
-.computer_proficiency_heading{
-    text-align: center;
-    color: black;
-    font-weight: 900;
-    font-size: larger; 
-}
-.language_details_heading, .interest_details_heading, .status_details_heading{
-    text-align: center;
-    color: black;
-    font-weight: 900;
-    font-size: larger;  
-}
-.language_details, .interest_details, .status_details{
-    border-radius: 20px;
-    background-color: #696969;
-    padding: 100px;
-
+    width: 40vw;
+    align-items: center;
+    margin-left: 30vw;
 }
 
 
 
 /* Button Styling */
-.submit_form{
-    padding: 20px;
+.button{
     text-align: center;
 }
-.submit_button, .reset_button{
+.submit_button{
     font-weight: 900;
     height: 5vh;
     min-width: 10vw;
@@ -131,20 +62,20 @@ input[type=text],[type=number],[type=file],[type=email], [type=date], select {
     transition: 1s; 
 }
 
-/* .educational_details, .project_details, .skill_details, .computer_proficiency, .language_details, .submit_button{
-    display: none;
-    
-} */
 
 
 
 /* Resume Section Starts */
-/*************RESUME******************/
+.resume_preview{
+    /* margin: 900px; */
+    width: 40vw
+}
+
 .one_out, .contact_out{
     display: flex;
 }
 
-#profile_image_out{
+#image_out{
     width: 15vw;
     height: auto;
 }
@@ -158,12 +89,9 @@ input[type=text],[type=number],[type=file],[type=email], [type=date], select {
     font-weight: 800;
 }
 
-#tag_line_out{
+#tag_out{
     color: rgb(26, 56, 156);
     font-size: 25px;
-}
-#full_name_out{
-    font-size: 50px;
 }
 
 #call_out, #mailid_out, #linked_out{
@@ -172,7 +100,7 @@ input[type=text],[type=number],[type=file],[type=email], [type=date], select {
 }
 
 #phone_out, #mail_out{
-    margin-right: 1vw;
+    margin-right: 5vw;
     margin-bottom: 2vh;
     margin-top: 5vh;
     display: flex;

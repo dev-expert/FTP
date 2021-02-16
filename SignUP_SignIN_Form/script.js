@@ -4,6 +4,8 @@ function hide() {
   document.getElementById("signup_form").style.display = "block";
 }
 
+
+
 // SIGN IN AND VALIDATION
 let AllUsers = [];
 function setAction() {
@@ -28,22 +30,24 @@ function setAction() {
   //     alert("WRONG CREDENTIALS");
   //   }
 
-  var q = keys.find(x => x.email == email, y =>x.password == password)
+  var q = keys.find(x => x.email == email, y => x.password == password)
 
-  if (email == q.email && password == q.password && q.usertype == "true") {
+  if (email === q.email && password === q.password && q.usertype === "true") {
     alert("WELCOME ADMIN");
     window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/Calculator.html");
   }
 
-  if (email == q.email && password == q.password && q.usertype == "false") {
+  if (email === q.email && password === q.password && q.usertype === "false") {
     alert("WELCOME USER");
     window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/NormalLoginPage.html");
   }
 
-  if(email == q.email && password != q.password){
+  if (email !== q.email && password !== q.password) {
     alert("ENTER CORRECT CREDENTIALS");
   }
-
+  else{
+    alert("PLEASE SIGN UP FIRST");
+  }
 }
 
 
@@ -82,6 +86,9 @@ function register() {
     localStorage.setItem("users", JSON.stringify(AllUsers));
   }
 }
+
+
+// CLEAR ALL THE LOCAL STORAGE
 function clearlocalstorage() {
   localStorage.clear();
 }
