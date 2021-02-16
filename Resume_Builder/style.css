@@ -1,0 +1,368 @@
+*{
+    font-family:Calibri (Body);
+}
+/* Form Section */
+input[type=text],[type=number],[type=file],[type=email], [type=date], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color:white;
+ }
+ 
+.personal_details_heading{
+    text-align: center;
+     color: black;
+     font-weight: 900;
+     font-size: larger;
+ }
+.personal_details{
+    border-radius: 20px;
+    background-color:#C0C0C0;
+    padding: 100px;
+}
+
+.educational_details_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: larger;
+}
+.educational_details{
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 100px;
+}
+.project_details_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: larger;  
+}
+.project_details{
+    border-radius: 20px;
+    background-color: gray;
+    padding: 100px;
+
+}
+.project_details_heading, .certification_details_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: larger;  
+}
+.skill_details, .certification_details{
+    border-radius: 20px;
+    background-color:#A9A9A9;
+    padding: 100px;
+
+}
+.skill_details_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: larger;  
+}
+.computer_proficiency{
+    border-radius: 20px;
+    background-color: #808080;
+    padding: 100px;
+
+}
+.computer_proficiency_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: larger; 
+}
+.language_details_heading, .interest_details_heading, .status_details_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: larger;  
+}
+.language_details, .interest_details, .status_details{
+    border-radius: 20px;
+    background-color: #696969;
+    padding: 100px;
+
+}
+
+
+
+/* Button Styling */
+.submit_form{
+    padding: 20px;
+    text-align: center;
+}
+.submit_button, .reset_button{
+    font-weight: 900;
+    height: 5vh;
+    min-width: 10vw;
+    border: 2px solid balck;
+    background-color:#3e7bbe;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.submit_button:hover{
+    background-color: white;
+    color: #3e7bbe;
+    border-color: #3e7bbe;
+    transform: scale(1.1);
+    transition: 1s;   
+}
+.reset_button{
+    font-weight: 900;
+    height: 5vh;
+    min-width: 10vw;
+    border: 2px solid balck;
+    background-color:#3e7bbe;
+    border-radius: 4px;
+    cursor: pointer   
+}
+.reset_button:hover{
+    background-color: white;
+    color: #3e7bbe;
+    border-color: #3e7bbe;
+    transform: scale(1.1);
+    transition: 1s; 
+}
+
+/* .educational_details, .project_details, .skill_details, .computer_proficiency, .language_details, .submit_button{
+    display: none;
+    
+} */
+
+
+
+/* Resume Section Starts */
+/*************RESUME******************/
+.one_out, .contact_out{
+    display: flex;
+}
+
+#profile_image_out{
+    width: 15vw;
+    height: auto;
+}
+
+.one_one_out{
+    margin-left: 10%;
+}
+
+#name_out{
+    font-size: 60px;
+    font-weight: 800;
+}
+
+#tag_line_out{
+    color: rgb(26, 56, 156);
+    font-size: 25px;
+}
+#full_name_out{
+    font-size: 50px;
+}
+
+#call_out, #mailid_out, #linked_out{
+    width: 25px;
+    height: 25px;
+}
+
+#phone_out, #mail_out{
+    margin-right: 1vw;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
+    display: flex;
+}
+
+#linkedin_id_out{
+    display: flex;
+}
+
+#linkedin_id_out{
+    margin-top: 3vh;
+}
+
+.two{
+    display: flex;
+}
+
+#basic_two_out{
+    width: 15vw;
+    margin-top: 2%;
+}
+
+#base_about_out{
+    width: 80%;
+    margin-left: 12%;
+    margin-top: 2%;
+    padding-top: 1%;
+    border-top: 3px solid rgb(26, 56, 156);
+}
+
+#about_text_out{
+    color: rgb(26, 56, 156);
+}
+
+#edu_logo_out{
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
+}
+
+.education_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#bachelor_edu_out, #twelve_edu_out, #ten_edu_out{
+    display: flex;
+    font-size: 20px;
+}
+
+#bachelor_edu_name_out, #tweleve_edu_name_out, #ten_edu_name_out{
+    text-align: left;
+    width: 50vw;
+}
+
+#bachelor_edu_status_out, #twelve_edu_status_out, #ten_edu_status_out{
+    width: 50vw;
+}
+
+#quali_logo_out{
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.qualifications_out{
+    margin-top: 10vw;
+}
+
+#quali_text_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#project_logo_out{
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.project_out{
+    margin-top: 10vw;
+}
+
+#project_text_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#skill_logo_out{
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.skill_out{
+    margin-top: 10vw;
+}
+
+#skill_text_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#proficiency_logo_out{
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.proficiency_out{
+    margin-top: 10vw;
+}
+
+#proficiency_text_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#language_logo_out{
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.language_out{
+    margin-top: 10vw;
+}
+
+#language_text_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#interest_logo_out{
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.interest_out{
+    margin-top: 10vw;
+}
+
+#interest_text_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+.detail_out_out{
+    margin-bottom: 10%;
+}
+
+#detail_logo_out{
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
+}
+
+.detail_out{
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#detail_edu_out{
+    display: flex;
+    font-size: 20px;
+}
+
+#detail_edu_name_out{
+    text-align: left;
+    width: 50vw;
+}
+
+#detail_edu_status_out{
+    width: 50vw;
+}

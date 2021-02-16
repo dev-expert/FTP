@@ -1,0 +1,65 @@
+<html class="no-js">
+
+<head>
+    <title>Sign IN / Sign UP Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="signin_form" class="signin_form">
+        <form>
+            <h1>SIGN IN</h1>
+            <p>
+                <label for="email" class="uname"> Your Email </label><br>
+                <input id="email" name="email" type="email" placeholder="abc@gmail.com" required="required" />
+            </p>
+            <p>
+                <label for="password" class="youpasswd" data-icon="p"> Your Password </label><br>
+                <input id="password" name="password" type="password" placeholder="951753" required="required" />
+            </p>
+            <p class="signin_button">
+                <input type="submit" onclick="setAction()" />
+            </p>
+            <p class="create_new_account_button">
+                <input type="button" value="Create Account" id="new_account" onclick="hide()" />
+            </p>
+        </form>
+    </div>
+
+    <div id="signup_form" class="signup_form" style="display: none;">
+        <form>
+            <h1> SIGN UP</h1>
+            <p>
+                <label for="usernamesignup" class="uname">Your Username</label><br>
+                <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="iakash" />
+            </p>
+            <p>
+                <label for="emailsignup" class="youmail"> Your Email</label><br>
+                <input id="emailsignup" name="emailsignup" required="required" type="email"
+                    placeholder="xyz@mail.com" />
+            </p>
+            <p>
+                <label for="passwordsignup" class="youpasswd">Your Password</label><br>
+                <input id="passwordsignup" name="passwordsignup" required="required" type="password"
+                    placeholder="eg. 951753" />
+            </p>
+            <p>
+                <label for="useroption" class="useroption">Select Your Category</label><br>
+                <select name="user_type" id="user_type">
+                    <option value="false">Normal User</option>
+                    <option value="true">Admin</option>
+                </select>
+            </p>
+            <p class="signup_button">
+                <input type="submit" onclick="register()" />
+            </p>
+            <!-- <p class="clear_button">
+                <input type="button" onclick="clearlocalstorage()" value="Delete All Users" />
+            </p> -->
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
