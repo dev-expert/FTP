@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    border: 0;
+}
+header{
+    background-color:rgba(0, 0, 0, 6);
+    text-align: center;
+    width: 30%;
+    margin-left: 33%;
+       
+}
+h1{
+    color:#FFFFFF;
+    font-family: sans-serif;
+}
+h2{
+    color:black;
+}
+.main-container{
+    
+    background-image: url("resume.gif");
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center; 
+    background-size: cover;
+    min-height: 100vh;
+    
+    
+}
+.resumecontainer{
+    background-color: indianred;
+    
+    border: 10px solid black;
+    width: 90%;
+    
+}
+.resume-form{
+    background-color: greenyellow;
+}
+
+.detail-col{
+    /* background-color: black; */
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.detail-col > div{
+    width: 50%;
+    margin-bottom: 10px;
+}
+.detail-col > div label{
+    min-width: 150px;
+}
+.ps{
+    
+    margin-right: 20px;
+    
+    
+    
+}
+.edu{
+
+    margin-left: 20px;
+    
+}
+.pro{
+    margin-left: 50px;
+
+}
+.frow{
+    
+    display: flex;
+    justify-content: space-around;
+}
+.skill-container input{
+    /* width: 100%; */
+
+    width: 25%;
+ 
+    
+}
