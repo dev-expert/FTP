@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 10px 50px;
+        }
+
+        .form-group {
+            margin: 10px;
+        }
+
+        input {
+            width: 100%;
+            border: solid 1px #eee;
+            padding: 15px 10px;
+        }
+
+        button {
+            width: 200px;
+            padding: 15px;
+            margin-left: 250px;
+            background: #fff;
+            color: dodgerblue;
+            border: solid 1px dodgerblue;
+            cursor: pointer;
+            transition: all .38s ease-in-out;
+        }
+
+        button:hover {
+            background: dodgerblue;
+            color: #fff;
+        }
+
+        table tr td {
+            border: solid 1px rgb(211, 21, 21);
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Users Information</h2>
+    <!--
+    <div id="output">
+         DISPLAY USERS DATA 
+    </div> -->
+    <table>
+    <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>email</th>
+          <th>Password</th>
+          <th>Delete user</th>
+        </tr>
+      </thead>
+      <tbody id="userdetails">
+
+      </tbody>
+    </table>
+    <script type="text/javascript">
+
+
+        // console.log(localStorage.getItem('formData'));
+        // let {first, last, emai, pass} = JSON.parse(localStorage.getItem('data1'));
+        let keys = JSON.parse(localStorage.getItem('data1'));
+
+        let str = "";
+        // var keys = document.getElementById('output');
+        for (i = 0; i < keys.length; i++) {
+            s = keys[i];
+            str += `
+            <tr>
+                <td>${s.first}</td>
+                <td>${s.last}</td>
+                <td>${s.emai}</td>
+                <td>${s.pass}</td>
+                <td><input type="checkbox" name="tick" value="${s.emai}"><button type="submit" onclick="delete('${s.emai}')" >delete</button></td>
+                </tr>`;
+   }
+        // output.innerHTML = str;
+        document.getElementById("userdetails").innerHTML= str;
+
+    </script>
+</body>
+
+</html>

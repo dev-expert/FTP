@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;
+
+        }
+        .login{
+         
+            border: 2px solid black;
+            width: 30%;
+            height: 40%;
+            display: block;
+            align-items: center;
+            justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+        }
+        .email{
+            height: 50px;
+            width: 100%;
+
+        }
+        .log{
+            margin-top: 50px;
+        }
+        .pass{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+        <center>
+        <label><h1>User and Admin Login</h1></label>
+    <div class="email"><label>Email : &nbsp;<input type="email" name="email" id="email"></label></div>
+    <div class="pass"><label>Password : <input type="password" name="password" id="password"></label></div>
+    <div class="log"><button onclick="check()">Login</button></div>
+</center>
+</div>
+    <script>
+
+
+        function check() {
+            
+            let useremail = document.getElementById('email').value;
+            let userPw = document.getElementById('password').value;
+    
+            var data = JSON.parse(localStorage.getItem("data1"));
+    
+            for(i=0;i<data.length;i++)
+            {
+                s=data[i];
+                var useremail1=s.emai;
+                var userpassword1=s.pass;
+                if(useremail1==useremail && userpassword1==userPw){
+                    alert("welcome to user world");
+                }
+            }
+            var data3 = JSON.parse(localStorage.getItem("data2"));
+
+            for(i=0;i<data3.length;i++)
+            {
+                s=data3[i];
+                var useremail2=s.emai;
+                var userpassword2=s.pass;
+                if(useremail2==useremail && userpassword2==userPw){
+                    alert("welcome to  admin world");
+                     window.open("dis.html");
+                }
+            }
+            
+
+        
+        }
+
+    </script>
+
+
+</body>
+
+</html>
