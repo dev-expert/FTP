@@ -16,6 +16,11 @@ main {
 
 /* jo name aur name description ha uska design ha yeh */
 
+#degree1_cgpa {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .header {
     width: 100%;
     height: 100px;

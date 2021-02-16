@@ -1,10 +1,35 @@
-var storeduser = [];
-var storedpassword = [];
+var arr = [];
 var flag = 0
+
+$('.tab a').on('click', function(e) {
+
+    e.preventDefault();
+
+    $(this).parent().addClass('active');
+    $(this).parent().siblings().removeClass('active');
+
+    target = $(this).attr('href');
+
+    $('.tab-content > div').not(target).hide();
+
+    $(target).fadeIn(600);
+
+});
 
 function register() {
     var user = document.getElementById('username').value;
     var pass = document.getElementById('password').value;
+    var email_address = document.getElementById('email_address').value;
+    var mobile_number = document.getElementById('mobile_number').value;
+
+    //creating array of obj 
+    var obj = {
+        user: user,
+        pass: pass,
+        email_address: email_address,
+        mobile_number: mobile_number,
+
+    }
 
     //for the email
     if (localStorage.getItem('email') == null)
