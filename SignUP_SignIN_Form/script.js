@@ -34,19 +34,16 @@ function setAction() {
 
   if (email === q.email && password === q.password && q.usertype === "true") {
     alert("WELCOME ADMIN");
-    window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/Calculator.html");
+    window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/admin_view.html");
   }
 
   if (email === q.email && password === q.password && q.usertype === "false") {
     alert("WELCOME USER");
-    window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/NormalLoginPage.html");
+    window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/Resume_Builder.html");
   }
 
   if (email !== q.email && password !== q.password) {
     alert("ENTER CORRECT CREDENTIALS");
-  }
-  else{
-    alert("PLEASE SIGN UP FIRST");
   }
 }
 
