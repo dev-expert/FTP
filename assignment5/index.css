@@ -36,6 +36,10 @@ span{
     text-decoration: none;
     
   }
+  li label{
+      padding: 10px;
+      font-size: 20px;
+  }
   
    li a:hover {
     background-color: white;
@@ -86,7 +90,7 @@ background-color: red;
          
      }
 
-     
+    
      .Div2{
         display: flex;
         justify-content: center;
@@ -95,7 +99,7 @@ background-color: red;
     }
     .InnerDiv2{
        background-color:black;
-        min-width: 50%;
+        width: 50%;
         color: white;
         box-shadow: 5px 10px 18px #888888;
  padding: 10px;
@@ -109,7 +113,7 @@ background-color: red;
     }
     .InnerDiv3{
         background-color:whitesmoke;
-         min-width: 50%;
+        width: 50%;
          box-shadow: 5px 10px 18px #888888;
          padding: 10px;
          display: flex;
@@ -150,7 +154,7 @@ background-color: red;
     .InnerDiv1{
         margin-top: 20px;
        background-color:#2F3B44;
-        max-width: 50%;
+        width: 50%;
         color: white;
         box-shadow: 5px 10px 18px #888888;
        padding: 10px;
@@ -170,41 +174,79 @@ background-color: red;
         border-radius: 50%;
         border: 2px solid green;
     }
-    .mainSignUp{
+    .loginmaindiv{
+        max-height: 50%;
         display: flex;
         
+    }
+    .logindiv1{
+        width: 50%;
+        
+    }
+    .logindiv1 img{
+        width: 100%;
+    height: 800px;
+    
+    }
+    .logindiv2{
+        background-color: whitesmoke;
+        width: 50%;
+        min-height: 100vh;
+        display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
-        background-image: url("../img/back.jpg");
-        
-        
     }
-    .SignUp{
-        border: 2px solid black;
-        min-width: 30%;
-        justify-content: center;
-        background-color: rgb(177, 167, 27);
-        
-
-    }
+    
     .insignUp{
+        width: 70%;
         text-align: center;
-
-        min-width: 50%;
         background-color: whitesmoke;
-        margin: 30px;
+        
+    }
+    #myform input{
+        padding: 9px;
+        margin-top: 13px;
+        width: 60%;
+        border-radius: 25px;
+        outline: none;
+    
     }
     .insignUp input{
-        padding: 5px;
-        margin: 10px;
-
+        padding: 9px;
+        margin-top: 13px;
+        margin-bottom: 10px;
+        min-width: 10%;
+        border-radius: 25px;
+        outline: none;
+    
     }
-    .login{
-        color: whitesmoke;
-       text-align: center;
-    }
+    
+    
     .insignUp p{
         color: red;
     }
-    
+    #admincheck{
+        width: 0%;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th{
+          background-color: darkcyan;
+      }
+      .tablediv{
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          
+      }
+      #t01 tr:nth-child(even) {
+        background-color: #eee;
+      }
+      #t01 tr:nth-child(odd) {
+       background-color: #fff;
+      }
+     #details{
+         display: none;
+     }

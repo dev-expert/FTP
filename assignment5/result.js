@@ -30,8 +30,8 @@ window.addEventListener('load', () => {
 
             case "image":
                 var str = value[key];
-               
-               
+                count=0;
+                var s="\\";
                 var lastIndex = str.lastIndexOf("\\");
                 console.log(lastIndex);
                 var strslice=str.substr(lastIndex+1, str.length);
