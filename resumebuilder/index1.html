@@ -10,76 +10,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="color1">
     <h1>ENTER RESUME DETAILS</h1>
     <form action="resume.html" method="get" id="form">
-        <div>
+       <div class="flexd">
             <label for="name"><h4>Name :</h4> </label>
             <input type="text" name="name" id="name" required placeholder="username">
         
             <label for="email"><h4> Email :</h4> </label>
             <input type="email" name="email" id="email" required placeholder="email">
-        </div>
-        <div>
+       
             <label for="phonenumber"> <h4>Phone Number :</h4> </label>
             <input type="number" name="phonenumber" id="phone" required placeholder="Mobile no">
-        </div>
-    
-        <div>
+        
             <label for="Address"> <h4>Address :</h4> </label>
             <input type="text" name="Address" id="Address" required placeholder="address">
         </div>
     
-        <label ><h4> Skills :</h4></label>
-            <input type="text" id="skill1" class="skinput "><br><br>
-            <input type="text" id="skill2" class="skinput"><br><br>
-            <input type="text" id="skill3" class="skinput"><br><br>
-            <input type="text" id="skill4" class="skinput"><br><br>
+        <label ><h4> Skills :</h4>
+            <input type="text" id="skill1" class="skinput "><br>
+            <input type="text" id="skill2" class="skinput"><br>
+            <input type="text" id="skill3" class="skinput"><br>
+            <input type="text" id="skill4" class="skinput"><br>
             <input type="text" id="skill5" class="skinput">
+        </label>
         
-        <label> <br><h4>Certification :</h4></label>
-            <input type="text" id="cert1" class="cert"><br><br>
+        <label> <br><h4>Certification :</h4>
+            <input type="text" id="cert1" class="cert"><br>
             <input type="text" id="cert2" class="cert">
+        </label>
     
-    
-        <label><br> <h4>Hobbies :</h4></label>
-            <input type="text" id="hobb1" class="hobb"><br><br>
+        <label><br> <h4>Hobbies :</h4>
+            <input type="text" id="hobb1" class="hobb"><br>
             <input type="text" id="hobb2" class="hobb"> 
-        <label> <h4>Languages :</h4></label>
-        <input type="text" id="lang1" class="langa"><br><br>
-        <input type="text" id="lang2" class="langa"><br><br>
-        <input type="text" id="lang3" class="langa"><br>
-            
+        </label>    
 
-        <div >
-            <label style=" width: 400px; height: 200px;"> <h4>About :</h4></style></label>
-            <input type="text" id="about" name="about" > 
-        </div>
+        <label> <h4>Languages :</h4>
+            <input type="text" id="lang1" class="langa"><br>
+            <input type="text" id="lang2" class="langa"><br>
+            <input type="text" id="lang3" class="langa"><br>
+        </label>    
+
+        <label style=" width: 400px; height: 200px;"> <h4>About :</h4></style>
+        <input type="text" id="about" name="about" class="cert"> 
+        </label>    
     
-    
-            <label> <h4> Education :</h4></label>
-            College name : <input type="text" id="educ1"><br><br>
-            Course & Cgpa :<input type="text" id="source1"><br><br>
-            College name :<input type="text" id="educ2"><br><br>
-            Course & Cgpa :<input type="text" id="source2"><br><br>
-            College name :<input type="text" id="educ3"><br><br>
-            Course & Cgpa :<input type="text" id="source3"><br>
-       
+        <label> <h4> Education :</h4>
+            College name : <input type="text" id="educ1"><br>
+            Course &Cgpa :<input type="text" id="source1"><br><br>
+            College name : <input type="text" id="educ2"><br>
+            Course &Cgpa :<input type="text" id="source2"><br><br>
+            College name : <input type="text" id="educ3"><br>
+            Course &Cgpa :<input type="text" id="source3"><br>
+        </label>
         
-            <label> <h4>Projects :</h4><br></label>
-            Title :<input type="text" id="projs1"> <br><br>
+        <label> <h4>Projects :</h4><br>
+            Title : <input type="text" id="projs1"> <br>
             Descs :<input type="text" id="web1"> <br><br>
-            Title :<input type="text" id="projs2"> <br><br>
+            Title : <input type="text" id="projs2"> <br>
             Descs :<input type="text" id="web2"> <br><br>
-            Title :<input type="text" id="projs3"> <br><br>
+            Title : <input type="text" id="projs3"> <br>
             Descs :<input type="text" id="web3"> 
-         
-         <label> <h4>Activities :</h4></label>
-            <input type="text" id="acti1"> <br><br>
-            <input type="text" id="acti2"><br><br>
+        </label>
 
-        <button type="reset">Reset</button>&emsp;
-        <button type="Submit" onclick="login()" >Submit</button>
-       
+        <label> <h4>Activities :</h4>
+            <input type="text" id="acti1" class="cert"> <br>
+            <input type="text" id="acti2" class="cert"><br>
+        </label>
+        <br>
+        <button type="reset" class="button1">Reset</button>&emsp;
+        <button type="Submit" class="button1" onclick="login()" >Submit</button>
+    </div>
     </form>
     <script>
     function login()

@@ -1,33 +1,53 @@
 body{
 
     font-family: 'Roboto', sans-serif ;
-    background-color: bisque;
-    display: flex !important;
-    flex-direction:column  !important;
+    display: flex ;
+    padding: 0%;
+    margin: 0%;
+    flex-direction:column  ;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
     width: 70%;
     margin-left: 15%;
+    background-image: url(download\ \(2\).jpg);
+    background-size: cover;
+    
 }
 input:hover{
     background-color: darkred;
 
 }
-.skinput{
+.skinput, .cert, .hobb, .langa {
     margin-left: 3rem;
+    margin-top: 10px;
 }
-.cert{
-    margin-left: 6rem;
-}
-.hobb{
-    margin-left: 4.3rem;
-}
-.langa{
-    margin-left: 5.6rem;
-}
+
 button:hover{
     background-color:greenyellow;
 
 }
+.button1{
+    font-size: 20px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg,#0162c8,#55e7fc);
+    margin-left: 3rem;
+}
+.color1{
+    border: 2px solid black;
+    background-color: rgb(255, 196, 196);
+    border-radius: 20px;
+    width: 600px;
+}
+h1{
+    color: rgb(210, 30, 30);
+    text-decoration: underline;
+    text-align: center;
+}
+/* .flexd{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
