@@ -8,25 +8,52 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <form>
+     <div id="header">
+        <header>
+            <div id="buttons">
+                <a href="https://www.w3schools.com/html/default.asp">HTML</a>
+                <a href="https://www.w3schools.com/css/default.asp">CSS</a>
+                <a href="https://www.w3schools.com/js/default.asp">JAVASCRIPT</a>
+                <a href="https://www.w3schools.com/sql/default.asp">SQL</a>
+                <a href="https://www.w3schools.com/python/default.asp">PYTHON</a>
+                <a href="https://www.w3schools.com/php/default.asp">PHP</a>
+                <a href="https://www.w3schools.com/bootstrap/bootstrap_ver.asp">BOOTSTRAP</a>
+                <a href="https://www.w3schools.com/howto/default.asp">HOW TO</a>
+                <a href="https://www.w3schools.com/w3css/default.asp">W3.CSS</a>
+                <a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a>
+        </div>
+        </header>
+    <form class="main">
         <h1>SIGNUP FORM</h1><br>
         Name<input type="text"  id = "name"><br><br>
         Email: <input type="email" id = "email"><br><br>
         password <input type="password" id = "password"><br><br>
-        <button type="submit" onclick="login()"><a href="login.html">Login</a></button>
+
+        Role:
+        <select id="role">
+            <option value = "user">user</option>
+            <option value = "admin">admin</option>
+           
+        </select>
+
+
+        <button type="submit" onclick="student()"><a href="./login.html">Signup</a></button>
+
     </form>
     <script>
-        function login(){
+        function student(){
             
             user = document.getElementById("email").value;
             pass = document.getElementById("password").value;
             name = document.getElementById("name").value;
+            role = document.getElementById("role").value;
             var obj = {
                 name2   : name,
                 pass2 : pass,
-                email : user
+                email : user,
+                role : role
             }
-            old = JSON.parse(localStorage.getItem("person"));
+            old = JSON.parse(localStorage.getItem("admin"));
             if(!old)
             {
                 old = []
@@ -38,9 +65,77 @@
             else{
                 old.push(obj);
             }
-            localStorage.setItem("person",JSON.stringify(old));
+            localStorage.setItem("admin",JSON.stringify(old));
         }
+        // function admin(){
+            
+        //     user = document.getElementById("email").value;
+        //     pass = document.getElementById("password").value;
+        //     name = document.getElementById("name").value;
+        //     var obj1 = {
+        //         name   : name,
+        //         pass : pass,
+        //         email1 : user
+        //     }
+        //     old = JSON.parse(localStorage.getItem("user"));
+        //     if(!old)
+        //     {
+        //         old = []
+        //     }
+        //     if(old.find(x => x.email == user))
+        //     {
+        //         alert ("Present");
+        //     }
+        //     else{
+        //         old.push(obj1);
+        //     }
+        //     localStorage.setItem("user",JSON.stringify(old));
+        // }
+
 
     </script>
+   
+    <style>
+            body{
+        background-image: url(bg5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+        .main{
+        /* background-color: rgba(189, 187, 187, 0.4); */
+        padding-left: 200px;
+        width: 40%;
+        border-radius: 25px;
+        background: linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(0, 0, 0, 0.7))
+         }
+    
+    input,button , #role{
+        border-radius: 25px;
+        margin-left: 5px;
+        
+    }
+    header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7));
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
+    </style>
 </body>
 </html>

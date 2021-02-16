@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="login.css">
+    <!-- <link rel="stylesheet" href="login.css"> -->
 </head>
 <body>
-    <form>
+    <form class="main">
         <h1>LOGIN PAGE</h1><br>
     Email<input type="email" id="email"><br><br>
     
-    password<input type="password" class="password" id = "password"><br><br>
+    Password<input type="password" class="password" id = "password"><br><br>
     <button type="button" onclick="checking()">Login</button>
     <p>Dont have a account Please Signup</p>
     <button type="submit" ><a href="signup.html">Signup</a></button>
@@ -23,7 +23,7 @@ function checking()
 {
     let user = document.getElementById("email").value;
    let key = document.getElementById("password").value
-   old = JSON.parse(localStorage.getItem("person"));
+   old = JSON.parse(localStorage.getItem("admin"));
             if(!old)
             {
                 old = []
@@ -32,7 +32,22 @@ function checking()
             {
                 if(key == y.pass2)
                 {
-                    alert("Hello")
+                    if(y.role == "user")
+                    {
+                    alert("Hello user")
+                    // window.open("user-page.html")
+                    location.replace("user-page.html")
+
+
+                    }
+                    else{
+                        alert("Hello admin")
+                    // window.open("admin-page.html")
+
+                        location.replace("admin-page.html")
+
+                        
+                    }
                 }
                 else {
                     alert("Enter agaiin")
@@ -44,5 +59,28 @@ function checking()
 
 
 </script>
+<style>
+    body{
+        background-image: url(bg4.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-left: 25%;
+    }
+    .main{
+    /* background-color: rgba(189, 187, 187, 0.4); */
+    padding-left: 250px;
+    width: 40%;
+    border-radius: 25px;
+    background: linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(0, 0, 0, 0.7));
+    margin-top: 15%;
+}
+input,button{
+    border-radius: 20px;
+
+}
+}
+
+</style>
+
 </body>
 </html>
