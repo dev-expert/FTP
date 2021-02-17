@@ -13,11 +13,13 @@
         }
         
         table {
-          border-collapse: collapse;
-          width: 100%;
+          border-collapse: collapse;   
+          width: 50%;
+          align-items: center;
         }
         
         th, td {
+            background-color: rgb(74, 121, 121);
           padding: 15px;
         }
         </style>
@@ -32,6 +34,7 @@
        
         <th>Email</th>
         <th>usertype</th>
+        <th>Delete User</th>
         </tr>
         </thead>
         <tbody id="details">
@@ -50,14 +53,14 @@
         for( i=0;i<keys.length;i++)
         {
              k=keys[i];
-             
+            if(k.usertype!="Superuser")
+             {
             str += `<tr>
             <td>${k.email}</td>
             <td>${k.usertype}</td>
             <td><button onclick="userdelete('${k.email}')">Delete</button></td>
-            
             </tr>`;
-
+            }
         }
         document.getElementById("details").innerHTML=str;
 

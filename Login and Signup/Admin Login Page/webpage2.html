@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Create responsive Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="webpag.css">  
+    <link rel="stylesheet" href="table.css">
+     
+</head>
+<body onload="validate()">
+    <header>
+    <div class="wrapper">
+        <div class="logo">
+            <h1 style="color:wheat">
+                Welcome <span style="color: teal;">User</span></h1>
+            <!-- <img src="https://i.postimg.cc/mg4rWBmv/logo.png" alt=""> -->
+        </div>
+<ul class="nav-area" style="margin-bottom: 20px;">
+<li><a href="#" onclick="ShowHome()">Home</a></li>
+<li><a href="index.html" >Url Page</a></li>
+<li><a href="#">Resume</a></li>
+<li><a href="Jscalculator.html">Calculator</a></li>
+<li><a href="#" onclick="logout()">Logout</a></li>
+</ul>
+</div>
+
+<div class="welcome-text" id="welcome-text">
+        <h1>
+Appwrk <span>Solutions</span></h1>
+<a href="https://appwrk.com/contact/">Contact US</a>
+    </div>
+    <div class="user" id="user">
+        <div class="container">
+            <table id="contain" border="1">
+            <thead>
+            <tr>
+           
+            <th style= "color: white;" >Email</th>
+            <th style= "color: white;" >usertype</th>
+            <th style= "color: white;" >Delete User</th>
+            </tr>
+            </thead>
+            <tbody id="details">
+            
+            </tbody>
+            </table>
+            </div>
+</div>
+</header>
+<script>
+     function tables1()
+    {
+        
+        var str="";
+        var keys=JSON.parse(localStorage.getItem("obj1"));
+       
+        for( i=0;i<keys.length;i++)
+        {
+             k=keys[i];
+            if(k.usertype!="superuser")
+             {
+            str += `<tr>
+            <td>${k.email}</td>
+            <td>${k.usertype}</td>
+            <td><button onclick="userdelete('${k.email}')">Delete</button></td>
+            </tr>`;
+            }
+        }
+        document.getElementById("details").innerHTML=str;
+
+    }
+
+    function userdelete(em){
+        let keys=JSON.parse(localStorage.getItem("obj1"));
+            for(i=0;i<keys.length;i++)
+            {
+                s=keys[i];
+                if(em===s.email){
+                    keys.splice(i, 1);
+                }
+            }
+            localStorage.setItem("obj1", JSON.stringify(keys));
+            tables1();
+
+
+    }
+    function ShowHome()
+    {
+            document.getElementById("user").style.display="none";
+            document.getElementById("welcome-text").style.display="block";
+    }
+    function ShowUser()
+    {
+        document.getElementById("welcome-text").style.display="none";
+        document.getElementById("user").style.display="block";
+           
+    }
+    function validate(){
+var keys=JSON.parse(localStorage.getItem("loginuser"));
+if(keys!=null)
+{
+return true;
+}
+else{
+window.open("loginpage1.html","_self");
+}
+}
+function logout() {
+window.localStorage.removeItem("loginuser");
+location.reload();
+}
+    tables1();
+    
+    </script>
+</body>
+</html>

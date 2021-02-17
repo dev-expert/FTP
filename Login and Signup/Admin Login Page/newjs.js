@@ -1,110 +1,121 @@
-let arr=[];
-function addobj(){
-    
-    var email=document.getElementById("email1").value;
-    var passwrd=document.getElementById("passwrd1").value;
+let arr = [];
+function addobj() {
+
+    var email = document.getElementById("email1").value;
+    var passwrd = document.getElementById("passwrd1").value;
     var usertype;
-
-
-    if(document.querySelector("#usertype:checked" )!==null)
+     
+    if(email=="" && passwrd=="")
     {
-     usertype="superuser"
+        alert("Please Enter or Password");
+        window.open("Registration1.html","_self")
     }
     else
     {
-     usertype="normaluser"
+        if (document.querySelector("#usertype:checked") !== null) {
+            usertype = "Superuser"
+        }
+        else {
+            usertype = "Normaluser"
+        }
+        var flag = 0;
+        var keys = JSON.parse(localStorage.getItem("obj1"));
+    
+        if (keys != null) {
+            for (var i = 0; i < keys.length; i++) {
+                var s = keys[i]
+                if (s.email == email) {
+                    flag = 1;
+                }
+            }
+    
+        }
+    
+        if (flag == 1) {
+            alert(" Account Already exit");
+            window.open("Registration1.html","_self")
+        }
+        else {
+    
+            var obj1 = {
+                usertype: usertype,
+                email: email,
+                passwrd: passwrd
+    
+    
+            };
+            arr = JSON.parse(localStorage.getItem("obj1") || "[]");
+            arr.push(obj1);
+            localStorage.setItem("obj1", JSON.stringify(arr));
+            alert("Registred succesfully");
+    
+        }
+        window.open("loginpage1.html","_self");
+    
     }
-    var flag=0;
-    var keys=JSON.parse(localStorage.getItem("obj1"));
 
-    if(keys!=null)
-    {
-        for(var i=0;i<keys.length;i++)
-        {
-        var s=keys[i]
-            if(s.email==email){
-            flag=1;
+    }
+
+    
+
+function viewdata() {
+
+    var email = document.getElementById("email2").value;
+    var password = document.getElementById("passwrd2").value;
+    var keys = JSON.parse(localStorage.getItem("obj1"));
+    var flag = 0;
+    if (keys != null) {
+        for (i = 0; i < keys.length; i++) {
+            var s = keys[i];
+            console.log(s.email);
+            if (s.email === email && s.passwrd === password) {
+                flag = 1;
+                if (s.usertype == "Superuser") {
+                    var userobj = {
+                        email: s.email,
+                        password: s.password
+                    };
+                    currentuser = JSON.parse(localStorage.getItem("loginuser") || "[]");
+                    currentuser.push(userobj);
+                    localStorage.setItem("loginuser", JSON.stringify(currentuser));
+                    slogin();
+                }
+                if (s.usertype == "Normaluser") {
+                    var userobj = {
+                        email: s.email,
+                        password: s.password
+                    };
+                    currentuser = JSON.parse(localStorage.getItem("loginuser") || "[]");
+                    currentuser.push(userobj);
+                    localStorage.setItem("loginuser", JSON.stringify(currentuser));
+                    
+                    nlogin();
+                }
+                break;
             }
         }
-
+        if (flag == 0) {
+            alert("Wrong Password");
+            window.open("loginpage1.html","_self")
+        }
     }
-    
-    if(flag==1){
-        alert("already exit");
+    else {
+        alert("Not A Registered User");
     }
-    else
-    {
-        
-    var obj1={
-        usertype:usertype,
-        email:email,
-        passwrd:passwrd
-         
-
-    };
-    arr=JSON.parse(localStorage.getItem("obj1") || "[]");
-    arr.push(obj1);
-    localStorage.setItem("obj1", JSON.stringify(arr));
-    alert("signed succesfully");
-    
 }
-window.open ("loginpage1.html");
 
-    }
-
-function viewdata()
-{
-    
-        var email=document.getElementById("email2").value;
-        var password=document.getElementById("passwrd2").value;
-        var keys=JSON.parse(localStorage.getItem("obj1"));
-        var flag=0;
-        if(keys!=null){
-        for(i=0;i<keys.length;i++)
-        {
-        var s=keys[i];
-        console.log(s.email);
-        if(s.email===email && s.passwrd===password){
-        flag=1;
-        if(s.usertype=="superuser"){
-        slogin();
-        }
-        if(s.usertype=="normaluser"){
-        nlogin();
-        }
-        break;
-        }
-        }
-        if(flag==0){alert("Wrong Password");
-        }
-        }
-        else{alert("Not A Registered User");
-        }
-        }
-
-function slogin(){
-            alert("login as superuser");
-            window.open("superuser1.html")
+function slogin() {
+    alert("login as Admin");
+    window.open("webpage.html","_self")
 
 }
 
-function nlogin(){
-            alert("login as normal user")
-            window.open("normaluser1.html")
-            
+function nlogin() {
+    alert("Login as normal user")
+    window.open("webpage2.html","_self")
+
 
 }
-    
-
-
-    
-
-    
-
-
-
-
-   
 
 
 
@@ -136,62 +147,13 @@ function nlogin(){
 
 
 
-// if(document.getElementById("isAdmin").checked)
-// {
-// var name= document.getElementById("username").value;
-// var emaild=document.getElementById("email").value;
-// var passworde=document.getElementById("password").value;
-// if (localStorage.getItem("AdminId") === null) {
-// var admin = {};
-// var items = [];
-// admin.items = items;
-// var item = {
-// "name":name,
-// "emailid": emaild,
-// "password": passworde,
-// "isadmin":true
-// }
-// admin.items.push(item);
-// }
-// else
-// {
-// var admin = JSON.parse(localStorage.getItem("AdminId"));
-// var item = {
-// "name":name,
-// "emailid": emaild,
-// "password": passworde,
-// "isadmin":true
-// }
-// admin.items.push(item);
-// }
-// localStorage.setItem('AdminId', JSON.stringify(admin));
-// }
-// else{
-// var name= document.getElementById("username").value;
-// var emaild=document.getElementById("email").value;
-// var passworde=document.getElementById("password").value;
-// if (localStorage.getItem("AdminId") === null) {
-// var admin = {};
-// var items = [];
-// admin.items = items;
-// var item = {
-// "name":name,
-// "emailid": emaild,
-// "password": passworde,
-// "isadmin":false
-// }
-// admin.items.push(item);
-// }
-// else
-// {
-// var admin = JSON.parse(localStorage.getItem("AdminId"));
-// var item = {
-// "name":name,
-// "emailid": emaild,
-// "password": passworde,
-// "isadmin":false
-// }
-// admin.items.push(item);
-// }
-// localStorage.setItem('AdminId', JSON.stringify(admin));
-// } 
+
+
+
+
+
+
+
+
+
+

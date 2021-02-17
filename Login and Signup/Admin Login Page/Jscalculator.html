@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+    <style>
+        #res{
+            margin-left: -12px;
+        }
+        #first, #second {
+            background-color: aqua;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border-radius: 5px;
+            border: blue;
+            
+        }
+
+        #result{
+            margin-left: 2px;
+            background-color: aqua;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border-radius: 5px;
+            border: blue;
+
+            
+        }
+
+        #add:hover{
+            background-color: blueviolet;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .container{
+            background-color: rgb(150, 131, 168);
+            width: 300px;
+            text-align: center;
+            border:5px solid chocolate;
+            padding: 50px 50px;
+            margin: 100px;
+            display:block;
+        }
+    </style>
+
+    <script>
+
+
+function calculator(){
+
+}
+   
+function cleard(){
+    var result=null;
+    document.getElementById("result").value=result;
+}
+function sum(){
+    var num1=parseInt(document.getElementById("first").value);
+    var num2=parseInt(document.getElementById("second").value);
+    
+    var result=num1+num2;
+    document.getElementById("result").value=result;
+    
+}
+
+function minus(){
+    var num1=parseInt(document.getElementById("first").value);
+    var num2=parseInt(document.getElementById("second").value);
+    if(num2>num1){
+        alert("This is not possible");
+    }
+    else{
+    var result=num1-num2;
+    document.getElementById("result").value=result;
+    }
+}
+function multiply(){
+    var num1=parseInt(document.getElementById("first").value);
+    var num2=parseInt(document.getElementById("second").value);
+    var result=num1*num2;
+    document.getElementById("result").value=result;
+}
+function divide(){
+    var num1=parseInt(document.getElementById("first").value);
+    var num2=parseInt(document.getElementById("second").value);
+    var result=num1/num2;
+    document.getElementById("result").value=result;
+}
+
+
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+
+    
+    Number1:<input type="number" id="first"><br><br>
+    Number2:<input type="number" id="second"><br><br>
+
+ <p id="res">Result : <input id="result"></input></p>
+    <br>
+    
+    
+
+
+    <button id="add" onclick="sum()">Addition</button>
+    
+<button id="minus" onclick="minus()">Subtraction</button>
+<button id="multiply" onclick="multiply()">Multiply</button>
+<button id="divide" onclick="divide()">Divide</button>
+<button  onclick="cleard()">clear</button>
+
+</div>
+    
+
+
+    
+</body>
+</html
