@@ -64,7 +64,9 @@ var loginpg = () => {
     var currentperson = old1.find(x => x.email_address == loginemail_address); //pura data le rha ha jisses email match hua ha 
     if (loginpassword == currentperson.password) {
         if (currentperson.admin == "true") {
+            localStorage.setItem('logged_in', JSON.stringify(currentperson.email_address));
             window.open("admin.html");
+
         } else
             window.open('normal_user.html')
     } else

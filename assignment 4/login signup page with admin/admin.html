@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 
-<body onload="users()">
+<body onload="checkadmin() ,users()">
     <nav>
         <div class="nav_section">
             <div class="firstdiv_nav">
                 <b><h1>ADMIN PAGE</h1></b>
+            </div>
+            <div class="seconddiv_nav">
+                <button class="btn" onclick="logout()">Log Out</button>
             </div>
 
         </div>
@@ -24,7 +27,7 @@
                 <th>Email_address</th>
                 <th>Contact</th>
                 <th><button onclick="deletetick(gettick('tick'))">Delete Users</button></th>
-                <th>Edit</th>
+
             </tr>
         </thead>
         <tbody id="datatable">

@@ -12,10 +12,6 @@ var users = () => {
         <input type="checkbox" name="tick" value="${s.email_address}"> 
         <button type="submit" onclick="deleteuser('${s.email_address}')">Delete</button>
         </td>
-        <td>
-        <input type="checkbox" name="tick" value="${s.email_address}"> 
-        <button type="submit" onclick="edituser('${s.email_address}')">Edit</button>
-        </td>
     </tr>
     `;
 
@@ -77,3 +73,15 @@ var edituser = (email_address) => {
     users();
 
 };
+
+var logout = () => {
+    localStorage.removeItem('logged_in');
+    location.replace('index.html');
+};
+
+var checkadmin = () => {
+    var person = JSON.parse(localStorage.getItem('logged_in'));
+    if (person == null)
+        location.replace('index.html')
+
+}

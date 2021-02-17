@@ -7,11 +7,26 @@ body {
     background-color: antiquewhite;
 }
 
-.nav_section {
-    display: flex;
+nav {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.firstdiv_nav {
+    display: flex;
     justify-content: center;
+}
+
+.seconddiv_nav {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10%;
+}
+
+.btn {
+    padding: 20px;
+    border-radius: 30px black;
+    cursor: pointer;
 }
 
 .nav_section h1 {
