@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Header</header>
+
+    <div class="sidebar">
+        Sidebar
+    </div>
+
+    <div class="article">
+    <div class="container">
+        
+          <table id="table" border="1">
+            <tr>
+              <th></th>
+              <th>Url</th>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="select"></td>
+              <td>
+                Enter a link : <input type="url" id="email">
+                <button onclick="lists()">Add to list</button>
+                <button onclick="deleteRow();">Remove</button>
+              </td>
+              
+            </tr>
+           
+          </table>
+          
+        </div>
+
+    
+        <script>
+          let arr=[];
+             function lists(){
+               var  link = document.getElementById("email").value;
+        //    document.getElementById("demo").innerHTML = "Existing Urls:"; 
+        /*for(i=0;i<arr.length;i++){
+        arr[i]=arr[i]+link;
+        }
+        */
+        
+       if(checkurl(link)){
+        if(isValidURL(link)){
+
+            var table = document.getElementById("table");
+            var row = table.insertRow(2);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            
+            var checkbox = document.createElement("Input");
+                checkbox.setAttribute("type", "checkbox");
+                checkbox.setAttribute("name", "check");
+            
+                cell1.appendChild(checkbox)
+            cell2.innerHTML = link;
+
+            arr[arr.length] = link;
+        }
+      
+    }
+  }
+
+        
+
+
+         function deleteRow () {
+  /* Cache the table. */
+  var table = document.getElementById("table"); 
+  
+  /* Create the index used in the loop. */
+  var index = 1;
+  
+  /* Repeat as long as the index is less than the number of rows. */
+  while (index < table.rows.length) {
+    /* Get the input of the cell. */
+    var input = table.rows[index].cells[0].children[0];
+    
+    /* Check whether the input exists and is checked. */
+    if (input && input.checked) {
+      /* Delete the row at the current index. */
+      table.deleteRow(index);
+    }
+    else {
+      /* Increment the index. */
+      index++;
+    }
+  }
+}
+        
+function isValidURL(str) {
+            var pattern = new RegExp('^((https?:)?\\/\\/)?' + // protocol
+                '(?:\\S+(?::\\S*)?@)?' + // authentication
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locater
+            if (!pattern.test(str)) {
+                alert("Enter valid URL")
+                return false;
+            } else {
+                return true;
+            }
+        }
+function checkurl(str){
+    var flag=0;
+    for(i=0;i<arr.length;i++)
+    {
+      if(arr[i]==str)
+      {
+        flag=1;
+      }     
+    }
+    if(flag==1)
+    {
+      alert("Don't Repeat Dude....");
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+        </script>
+        </div>
+        <footer>Footer</footer>
+        
+</body>
+
+</html>
