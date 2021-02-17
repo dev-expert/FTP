@@ -6,15 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
 </head>
 
-<body>
+<body onload="users()">
+    <nav>
+        <div class="nav_section">
+            <div class="firstdiv_nav">
+                <b><h1>ADMIN PAGE</h1></b>
+            </div>
+
+        </div>
+    </nav>
     <table id="localstorage_table">
-        <tr>
-            <th>email_address</th>
-            <th>contact</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Email_address</th>
+                <th>Contact</th>
+                <th><button onclick="deletetick(gettick('tick'))">Delete Users</button></th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody id="datatable">
+
+        </tbody>
     </table>
+
+    <script src="admin.js"></script>
 </body>
 
 </html>

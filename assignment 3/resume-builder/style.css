@@ -58,22 +58,6 @@ main {
     text-decoration: underline;
 }
 
-
-/* giving spaces to each input box */
-
-
-/* #email_address {
-    margin-left: 30px;
-}
-
-#mobile_number {
-    margin-left: 50px;
-}
-
-#location {
-    margin-left: 62px;
-} */
-
 .seconddiv_icon {
     margin-top: 10px;
     margin-left: 40px;
@@ -115,90 +99,17 @@ main {
     width: 50%;
 }
 
-
-/* #linkedin {
-    margin-left: 20px;
+.firstdiv_interest {
+    width: 40%;
 }
 
-#github {
-    margin-left: 32px;
+.seconddiv_interest {
+    width: 40%;
+    margin-left: 80px;
 }
-
-#instagram {
-    margin-left: 15px;
-}
-
-#skill_1 {
-    margin-left: 30px;
-}
-
-#skill_2 {
-    margin-left: 30px;
-}
-
-#skill_3 {
-    margin-left: 30px;
-}
-
-#skill_4 {
-    margin-left: 30px;
-}
-
-#skill_5 {
-    margin-left: 30px;
-}
-
-#skill_6 {
-    margin-left: 30px;
-}
-
-#skill_7 {
-    margin-left: 30px;
-}
-
-#skill_8 {
-    margin-left: 30px;
-}
-
-#degree_1 {
-    margin-left: 56px;
-}
-
-#college_1 {
-    margin-left: 4px;
-}
-
-#degree1_date {
-    margin-left: 86px;
-}
-
-#degree_2 {
-    margin-left: 56px;
-}
-
-#college_2 {
-    margin-left: 4px;
-}
-
-#degree2_date {
-    margin-left: 86px;
-}
-
-#school_board {
-    margin-left: 24px;
-} */
 
 label {
     width: 10px;
-}
-
-
-/* #project1_name {
-    margin-right: 40px;
-} */
-
-#school_date {
-    margin-left: 86px;
 }
 
 .name-section {
@@ -233,5 +144,15 @@ label {
 }
 
 .certificates_section {
+    padding-left: 5%;
+}
+
+.interest_section {
+    display: flex;
+    padding-left: 5%;
+    flex-wrap: wrap;
+}
+
+.achivements_section {
     padding-left: 5%;
 }

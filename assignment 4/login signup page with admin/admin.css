@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+.nav_section {
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.nav_section h1 {
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+table {
+    background: #fff;
+}
+
+table,
+thead,
+tbody,
+tr,
+td,
+th {
+    text-align: center;
+    margin: auto;
+    border: 1px solid #dedede;
+    padding: 1rem;
+    width: 50%;
+}
+
+#localstorage_table th {
+    text-decoration: underline;
+}

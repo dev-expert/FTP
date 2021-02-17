@@ -67,3 +67,13 @@ document.getElementById('project3_link').innerHTML = person[0].project3_link;
 document.getElementById('certificate_1').innerHTML = person[0].certificate_1;
 document.getElementById('certificate_2').innerHTML = person[0].certificate_2;
 document.getElementById('certificate_3').innerHTML = person[0].certificate_3;
+
+//getting the interests values
+document.getElementById('interest_1').innerHTML = person[0].interest_1;
+document.getElementById('interest_2').innerHTML = person[0].interest_2;
+document.getElementById('interest_3').innerHTML = person[0].interest_3;
+document.getElementById('interest_4').innerHTML = person[0].interest_4;
+
+//achievement part
+document.getElementById('achievement_1').innerHTML = person[0].achievement_1;
+document.getElementById('achievement_2').innerHTML = person[0].achievement_2;
