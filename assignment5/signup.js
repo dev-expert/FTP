@@ -2,7 +2,7 @@
 let val;
 function check() {
 
-  debugger;
+    debugger;
     var fname = document.getElementById("fname").value;
 
     var lname = document.getElementById("lname").value;
@@ -60,7 +60,7 @@ function check() {
 
     //if there is no error then count =0;
     if (count == 0) {
-       
+
 
         var value = JSON.parse(localStorage.getItem("admin")); //accessing the local storage values
         if (value == null) { //if there is no key related to value in local storage then 
@@ -77,59 +77,38 @@ function check() {
         }
 
         else {
-            
+
             var arradmin = JSON.parse(localStorage.getItem("admin")); //fetch the data
             var checkbox = document.getElementById("adminCheck").checked;
-            var admin = { name:fname,email: email, password: pass, isAdmin: checkbox };
-            
-            if (checkbox) {
-               var checkcount = 0;
-                //find the element in to the array
-                arradmin.forEach(element => {
-                   
-                    if (element.email === email) {
-                        checkcount = checkcount + 1;
-
-                    }
+            var admin = { name: fname, email: email, password: pass, isAdmin: checkbox };
 
 
-                });
-                if (checkcount == 0) {
-                     arradmin.push(admin);
-                    localStorage.setItem("admin", JSON.stringify(arradmin));
-                    alert("Signup Successfully");
-                    document.getElementById("myform").reset();
+            var checkcount = 0;
+            //find the element in to the array
+            arradmin.forEach(element => {
+
+                if (element.email === email) {
+                    checkcount = checkcount + 1;
+
                 }
-                else {
 
-                    alert("email is alreay exists");
-                    document.getElementById("myform").reset();
-                }
+
+            });
+            if (checkcount == 0) {
+                arradmin.push(admin);
+                localStorage.setItem("admin", JSON.stringify(arradmin));
+                alert("Signup Successfully");
+                document.getElementById("myform").reset();
             }
             else {
-            
-                checkcount = 0;
-                arradmin.forEach(element => {
-                    
-                    if (element.email == email) {
-                        checkcount = checkcount + 1;
 
-                    }
-
-                });
-                if (checkcount == 0) {
-
-                    arradmin.push(admin);
-                    localStorage.setItem("admin", JSON.stringify(arradmin));
-                    alert("Signup Successfully");
-                    document.getElementById("myform").reset();
-                }
-                else {
-
-                    alert("email is already exists");
-                    document.getElementById("myform").reset();
-                }
+                alert("email is alreay exists");
+                document.getElementById("myform").reset();
             }
+
+
+
+
         }
 
 
@@ -143,30 +122,30 @@ function login() {
 
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
-    var arradmin = JSON.parse(localStorage.getItem("admin")); 
+    var arradmin = JSON.parse(localStorage.getItem("admin"));
     if (email != "") {
-        count=0;
+        count = 0;
         arradmin.forEach((element) => {
-           
+
             if (element.email == email) {
-                count= count+1;
+                count = count + 1;
                 if (element.password == pass) {
-                    
-                    
+
+
                     alert("You successfully logged in");
                     val = element.name;
                     em = element.email;
-                    window.location.href= `index.html?uname=${val}&email=${em}`;
-                    
+                    window.location.href = `index.html?uname=${val}&email=${em}`;
+
                 }
                 else {
                     document.getElementById("perr").innerHTML = "Please Enter your correct password";
                 }
             }
-           
+
 
         });
-        if(count==0){
+        if (count == 0) {
             alert("You can't login ,Signup first");
         }
     }
@@ -176,52 +155,52 @@ function login() {
         document.getElementById("Eerr").innerHTML = "Please Enter your Email Id";
     }
 }
-function data(){
-    window.location.href="admin.html";
+function data() {
+    window.location.href = "admin.html";
 }
-function  myFunction(){
+function myFunction() {
     var url = document.URL.indexOf("?");
-    var params= new Array();
-    
-    if(url!=-1){
-        var pairs = document.URL.substring(url+1, document.URL.length).split('&');
+    var params = new Array();
 
-    
-        for (var i=0; i<pairs.length; i++){
-                    nameVal = pairs[i].split('=');
-                    params[nameVal[0]] = nameVal[1];
-                }
+    if (url != -1) {
+        var pairs = document.URL.substring(url + 1, document.URL.length).split('&');
+
+
+        for (var i = 0; i < pairs.length; i++) {
+            nameVal = pairs[i].split('=');
+            params[nameVal[0]] = nameVal[1];
+        }
 
     }
-   var name=params["uname"];
-   var email = params["email"];
-  debugger;
-    
-   
-    if(name!=undefined){
-    document.getElementById("name").innerText=name;
-    }
-    else{
-        window.location.href="login.html";
-    }
-var check = JSON.parse(localStorage.getItem("admin"));
-count=0;
-check.forEach(element=>{
-    
-    if(element.email==email){
-         if(element.isAdmin===true){
-             count=count+1;
-         }
-    }
-})
+    var name = params["uname"];
+    var email = params["email"];
+    debugger;
 
-if(count>0){
- var x=document.getElementById("details");
-if (x.style.display === "none") {
-    x.style.display = "block";
-  }
+
+    if (name != undefined) {
+        document.getElementById("name").innerText = name;
+    }
+    else {
+        window.location.href = "login.html";
+    }
+    var check = JSON.parse(localStorage.getItem("admin"));
+    count = 0;
+    check.forEach(element => {
+
+        if (element.email == email) {
+            if (element.isAdmin === true) {
+                count = count + 1;
+            }
+        }
+    })
+
+    if (count > 0) {
+        var x = document.getElementById("details");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+    }
+
+
+
 }
-
-
-
-    }
