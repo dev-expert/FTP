@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        table tbody tr td {
+            border: solid 1px rgb(20, 19, 19);
+            padding: 10px;
+
+        }
+
+        table thead th {
+            border: solid 1px rgb(14, 9, 9);
+            padding: 10px;
+        }
+
+        .button {
+            transition-duration: 0.4s;
+
+        }
+
+        .button:hover {
+            background-color: #632f2f;
+            /* Green */
+            color: white;
+        }
+
+        header {
+            width:auto;
+            background: black;
+            color: white;
+            /*trbl*/
+            padding: 8px 0px 6px 40px;
+            height: 45px
+        }
+
+        header h1 {
+            display: inline;
+            font-family: "oswald", sans-serif;
+            font-weight: 400;
+            font-size: 32px;
+            float: left;
+            margin-top: 0px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: inline;
+            padding: 0px;
+            float: right;
+
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style-type: none;
+            color: white;
+            float: left;
+            margin-left: 12px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #nav {
+            font-family: "montserrat", sans-serif;
+        }
+
+        .divider {
+            background-color: red;
+            height: 5px;
+        }
+
+        .homeblack:hover {
+            background-color: red;
+            padding: 10px 8px 8px 8px;
+        }
+        .userdata{
+            display:none;
+        }
+        .home{
+          
+        text-align: center;
+        margin-top: 200px;
+        
+            /* transform: translate(-50%, -50%); */
+        }
+    </style>
+</head>
+
+<body style="background:radial-gradient(#fff,#ffd6d6);">
+    <header>
+        <nav>
+            <h1><b><span style="color:yellow">Admin</span> Page</b></h1>
+            <ul id="nav">
+                <li><b><a class="homeblack" href="#" onclick="showHome()">HOME</a></b></li>
+                <li><b><a class="homeblack" href="#" onclick="showUserData()">USER</a></b></li>
+                <li><b><a class="homeblack" href="res.html">CV</a></b></li>
+                <li><b><a class="homeblack" href="#">URL</a></b></li>
+                <li><b><a class="homeblack" href="index.html" onclick="deleteAdmin()">LOG OUT</a></b></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="divider"></div>
+    <div class="home" id="home"><h1 style="color:rgb(124, 19, 101)"> Welcome to Admin Page</h1></div>
+    <div class="userdata" id="userdata">
+    <h2 style="text-align:center; margin-right: 220px;">USER INFO</h2>
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <thead style="color:#4EB1BA; background-color: #222930; ">
+            <th>Username</th>
+            <th>Email Id</th>
+            <th>User Type</th>
+            <th>Action</th>
+        </thead>
+        <tbody id="output" style="background-color:#0e758f; color:#222930; font-weight: 600;">
+        </tbody>
+    </table>
+</div>
+    <script type="text/javascript">
+          function validate()
+          {
+          if (localStorage.getItem("AdminDetail") === null)
+          {
+            window.location.href=("index.html")
+          }
+        else{
+        function user() {
+            let keys = JSON.parse(localStorage.getItem('AdminId'));
+            str = "";
+            var output = document.getElementById('output');
+            for (i = 0; i < keys.items.length; i++) {
+
+                s = keys.items[i];
+                if (s.isadmin) {
+                    str += `<tr>
+                        <td>${s.name}</td>
+                        <td>${s.emailid}</td>
+                        <td>${"Admin"}</td> 
+                        <td></td> 
+                    </tr>`
+                }
+                else {
+                    str += `<tr>
+                        <td>${s.name}</td>
+                        <td>${s.emailid}</td>
+                        <td>${"User"}</td>
+                        <td><button type='button' class="button" onclick="ConfirmDelete('${s.name}');">Delete</button></td>
+                        
+                    </tr>`
+                }
+            }
+
+            output.innerHTML = str;
+        }
+        function ConfirmDelete(ctl) {
+            var x = confirm("Are you sure you want to delete?");
+            if (x) {
+                productDelete(ctl);
+                return true;
+            }
+            else
+                return false;
+        }
+        function productDelete(ctl) {
+            console.log(typeof ctl);
+            let del = JSON.parse(localStorage.getItem('AdminId'));
+            var index
+            for (let i = 0; i < del.items.length; i++) {
+                i = parseInt(i);
+                let s = del.items[i];
+                if (s.name == ctl) {
+                    index = i;
+                    break;
+                }
+            }
+            del.items.splice(index, 1)
+            localStorage.setItem("AdminId", JSON.stringify(del));
+            user();
+        }
+       
+         
+        user(); 
+    }  
+}
+validate();
+function showUserData()
+        {
+            document.getElementById("home").style.display="none";
+		   document.getElementById("userdata").style.display="block";
+        } 
+        function showHome()
+        {
+            document.getElementById("userdata").style.display="none";
+            document.getElementById("home").style.display="block";
+		   
+        }
+function deleteAdmin()
+{
+    localStorage.removeItem('AdminDetail');
+}
+    </script>
+    <script>
+
+    </script>
+
+</body>
+
+</html>
