@@ -8,6 +8,22 @@
     <!-- <link rel="stylesheet" href="login.css"> -->
 </head>
 <body>
+    <div id="header">
+        <header>
+            <div id="buttons">
+                <a href="https://www.w3schools.com/html/default.asp">HTML</a>
+                <a href="https://www.w3schools.com/css/default.asp">CSS</a>
+                <a href="https://www.w3schools.com/js/default.asp">JAVASCRIPT</a>
+                <a href="https://www.w3schools.com/sql/default.asp">SQL</a>
+                <a href="https://www.w3schools.com/python/default.asp">PYTHON</a>
+                <a href="https://www.w3schools.com/php/default.asp">PHP</a>
+                <a href="https://www.w3schools.com/bootstrap/bootstrap_ver.asp">BOOTSTRAP</a>
+                <a href="https://www.w3schools.com/howto/default.asp">HOW TO</a>
+                <a href="https://www.w3schools.com/w3css/default.asp">W3.CSS</a>
+                <a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a>
+        </div>
+        </header>
+    </div>
     <form class="main">
         <h1>LOGIN PAGE</h1><br>
     Email<input type="email" id="email"><br><br>
@@ -17,6 +33,7 @@
     <p>Dont have a account Please Signup</p>
     <button type="submit" ><a href="signup.html">Signup</a></button>
 </form>
+
 
 <script>
 function checking()
@@ -43,14 +60,15 @@ function checking()
                     else{
                         alert("Hello admin")
                     // window.open("admin-page.html")
+                    localStorage.setItem("currUser",user);
 
-                        location.replace("admin-page.html")
+                        location.replace("admin-page1.html")
 
                         
                     }
                 }
                 else {
-                    alert("Enter agaiin")
+                    alert("Enter again")
                 }
             }
    
@@ -79,6 +97,27 @@ input,button{
 
 }
 }
+header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7));
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
 
 </style>
 

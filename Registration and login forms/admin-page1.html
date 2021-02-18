@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="userscss.css">
+</head>
+<body  onload = "checkUser()"; onload="users()"   >
+    <div id="header">
+        <header>
+            <div id="buttons">
+                <a href="https://www.w3schools.com/html/default.asp">HTML</a>
+                <a href="https://www.w3schools.com/css/default.asp">CSS</a>
+                <a href="https://www.w3schools.com/js/default.asp">JAVASCRIPT</a>
+                <a href="https://www.w3schools.com/sql/default.asp">SQL</a>
+                <a href="https://www.w3schools.com/python/default.asp">PYTHON</a>
+                <a href="https://www.w3schools.com/php/default.asp">PHP</a>
+                <a href="https://www.w3schools.com/bootstrap/bootstrap_ver.asp">BOOTSTRAP</a>
+                <a href="https://www.w3schools.com/howto/default.asp">HOW TO</a>
+                <a href="https://www.w3schools.com/w3css/default.asp">W3.CSS</a>
+                <a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a>
+        </div>
+        </header>
+    </div>
+    <div class="mainareakaamka">
+        <table id="mainareakaamka" border="1" class="styled-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>usertype</th>
+                    <th>Delete user</th>
+                    <th><button onclick="deletetick(gettick('tickdata'))">Delete Users</button></th>
+                </tr>
+            </thead>
+            <tbody id="displayallusers">
+
+            </tbody>
+        </table>
+        
+    </div>
+
+    <button type="submit" id="logout" name="logout" onclick="logout()">Logout</button>
+    <script>
+        function users(){
+            var keys=JSON.parse(localStorage.getItem("admin"));
+            var str="";
+            for(i=0;i<keys.length;i++)
+            {
+                s=keys[i];
+                if(s.role==="user"){
+                str += `<tr>
+                <td>${s.name2}</td>
+                <td>${s.email}</td>
+                <td>${s.role}</td>
+                <td><input type="checkbox" name="tickdata" value="${s.email}"><button onclick="deleteuser('${s.email}')">Delete</button></td>
+                </tr>`
+                }
+            }
+            document.getElementById("displayallusers").innerHTML=str;   
+        }
+        function deleteuser(semail){
+            let keys=JSON.parse(localStorage.getItem("admin"));
+            for(i=0;i<keys.length;i++)
+            {
+                s=keys[i];
+                if(semail===s.email){
+                    keys.splice(i, 1);
+                }
+            }
+            localStorage.setItem("admin", JSON.stringify(keys));
+            users();
+        }
+        function deletetick(keys1){
+            let keys=JSON.parse(localStorage.getItem("admin"));
+            for(i=0;i<keys1.length;i++)
+            {
+                for(j=0;j<keys.length;j++){
+                    s=keys[j];
+                    if(keys1[i]===s.email)
+                    {
+                    keys.splice(j, 1);
+                    }
+                }
+            }
+            localStorage.setItem("admin", JSON.stringify(keys));
+            users();
+        }
+        function gettick(semail){
+            const c=document.querySelectorAll(`input[name="${semail}"]:checked`);
+            let drr=[];
+            c.forEach((c)=>{
+            drr.push(c.value);
+            console.log(c.value);
+            });
+            return drr;
+        }
+        function checkUser()
+{
+//document.getElementById("body1").style.display= "none";
+var email = localStorage.getItem("currUser");
+if(!email)
+{
+location.replace("login.html");
+}
+}
+
+function logout()
+
+{
+localStorage.removeItem("currUser");
+location.replace("login.html");
+users();
+
+}
+     
+    </script>
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-left: 5%;
+           
+margin-top: 10%;
+margin-left: 10%;
+background-color: aqua;
+
+        }
+        table{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 40px;
+            background-color: burlywood;
+        }
+        td{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+    
+    
+        }
+        thead{
+            font-weight: bolder;
+        }
+        .body{
+            background-color: rgba(189, 187, 187, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding: 10px; */
+            width: 40%;
+            border-radius: 25px;
+            background: linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(0, 0, 0, 0.7))
+      }
+        }
+        #logout{
+            position: absolute;
+            top:0px;
+            right: 0px;
+        }
+        header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7));
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
+    </style>
+</body>
+</html>
