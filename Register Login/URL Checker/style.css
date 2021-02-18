@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.heading{
+    background-color: aqua;
+    height: 80px;
+    line-height: 80px;
+}
+
+.heading h1{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+#url{
+    padding: 10px;
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 5px;
+    width: 50vw;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+#myBtn{
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+#myBtn:hover{
+    cursor:pointer;
+}
+
+#myBtn1{
+    border-width: 3px;
+    border-color: rgb(0, 0, 0);
+    height: 50px;
+    
+    border-radius: 10px;
+}
+#myBtn1:hover{
+    cursor: pointer;
+}
+
+.urlsection{
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5%;
+    align-items: center;
+}
+button{
+    border-width: 3px;
+    border-color: rgb(165, 97, 42);
+    border-radius: 10px;
+    padding: 8px;
+    margin-left: 10px;
+}

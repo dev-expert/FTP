@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="heading">
+            <h1>Register</h1>
+        </div>
+        <div class="form">
+        Email
+        <br>
+        <input type="email" id="email" name="names[]" required><br><br>
+        Password 
+        <br>
+        <input type="password" id="password" required>
+        <br><br>
+        Confirm Password
+        <br>
+        <input type="password" id="confirmpassword" required>
+        <br><br>
+        <!--<input type="checkbox" value="false" id="checkbox"><span id="check">Admin</span><br>-->
+        <label for="usertype" id="usertype">User Type:</label>
+        <select id="access">
+            
+            <option value="false">User</option>
+            <option value="true">Admin</option>
+          </select>
+<br>
+        <button onclick="lucky()">User Register</button>
+        <br><br>
+        
+
+        <a href="login.html">Already Registered? Click Here</a>
+        </div>
+        <script src="js/js.js"></script>
+    </body>
+</html>

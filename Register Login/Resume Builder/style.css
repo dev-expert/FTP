@@ -1,0 +1,352 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerr{
+	display: flex;
+	justify-content: center;
+}
+.maincontainer{
+	width:1000px;
+}
+
+.container{
+	display: inline-flex;
+}
+
+.container .image img{
+	width: 150px;
+	height: auto;
+}
+.name{
+	
+	min-width: 340px;
+}
+.name h1{
+	margin-left: 60px;
+	margin-top: 40px;
+	
+}
+.linkedin img{
+	width: 35px;
+	height:auto;
+	margin-left: 40px;
+	margin-top:40px;
+}
+
+.linkedindetails{
+	margin-top: 48px
+}
+.mobileimage{
+	margin-top:90px;
+	margin-left: -600px;
+	
+}
+
+.mobileimage img{
+	width: 30px;
+	height: auto;
+}
+
+.mobileimage p{
+	margin-left: 40px;
+	margin-top: -30px;
+}
+
+.mail{
+	margin-top: 90px;
+	margin-left: 20px;
+}
+
+.mail img{
+	width: 30px;
+	height: auto;
+}
+
+.mail p{
+	margin-top: -30px;
+	margin-left: 40px;
+}
+
+.ageaboutme{
+	display: inline-flex;
+}
+.ageaboutme .age h6{
+	color:#4285F4;
+	font-size: 15px;
+}
+.ageaboutme .age p{
+	margin-top:-30px;
+}
+.aboutme h6{
+	margin-left: 177px;
+	color:#4285F4;
+	font-size: 15px;
+}
+.aboutme p{
+	width: 60%;
+	margin-left: 177px;
+	margin-top: -30px;
+	text-align: justify;
+}
+.education img{
+	width: 30px;
+	height: auto;
+	margin-left: 450px;
+}
+.education h6{
+	font-size: 15px;
+	color:#4285F4;
+	margin-top:0px;
+	margin-left: 430px;
+}
+
+.masters{
+	display: inline-flex;
+}
+
+.masters{
+	margin-top: -30px;
+}
+.masters .masterscollege h6{
+	font-size: 15px;
+}
+
+.masterscollege{
+	min-width: 100px;
+}
+.bachelorcollege{
+	min-width: 100px;
+	
+}
+
+
+.masters .masterscollege p{
+	margin-top: -30px;
+}
+
+.masters .passingyear{
+	margin-left: 220px;
+	margin-top: 45px;
+}
+.masters .passingyear p{
+	margin-top:-12px;
+}
+
+.bachelor{
+	display: block;
+}
+.bachelorcollege{
+	display: inline-flex;
+	margin-top:-50px;
+}
+.bachelorcollege h6{
+	font-size: 15px;
+}
+.bachelorcollege p{
+	margin-top: 60px;
+	margin-left: -155px;
+}
+.passingyearbachelor{
+	display: inline-flex;
+	margin-left: 214px;
+}
+
+.passingyearbachelor #graduated{
+	margin-top: 30px;
+}
+.passingyearbachelor #bsc{
+	margin-top:38px;
+	margin-left: -119px;
+}
+.passingyearbachelor #bacheloryear{
+	margin-top: 60px;
+	margin-left: -55px;
+}
+
+.twelthclass{
+	display: inline-flex;
+}
+
+.twelthschoolname{
+	margin-top: -40px;
+}
+
+#school12thname{
+	margin-top: -30px;;
+}
+
+.twelthschoolname h6{
+	font-size: 15px;
+}
+.twelthschoolname #schoolname{
+	margin-top: -25px;
+}
+
+.twelthschoolname #schoolboard{
+	margin-top: -10px;
+}
+
+.passingyeartwelth{
+	margin-top: -20px;
+	margin-left: 107px;
+}
+
+.passingyeartwelth #streamtwelth{
+	margin-top: -10px;
+}
+
+.passingyeartwelth #twelthmarks{
+	margin-top: -10px;
+}
+
+#school10thname{
+	margin-top: -30px;
+}
+
+.tenthclass{
+	margin-top: -20px;
+}
+.tenthclass .tenthschool{
+	display: inline-flex;
+
+}
+
+.tenthclass h6{
+	font-size: 15px;
+}
+.tenthclass #schoolname{
+	margin-top: -35px;
+}
+.tenthclass #schoolboards{
+	margin-top: -15px;;
+}
+.passingyeartenth{
+	margin-top: -75px;
+	margin-left:325px;
+}
+.passingyeartenth #streamtenth{
+	margin-top: -10px;
+}
+.passingyeartenth #twelthmarks{
+	margin-top: -10px;
+}
+
+.certification img{
+	width: 40px;
+	height: auto;
+	margin-left: 450px;
+}
+#certificationtext{
+	font-size: 15px;
+	margin-left: 430px;
+	font-weight: bold;
+	color: #4285F4;
+}
+.listofcertification ul li{
+	margin-top: 5px;
+}
+
+.skills img{
+	width: 120px;
+	height: auto;
+	margin-left: 410px;
+
+}
+#skillstext{
+	font-size: 15px;
+	margin-left: -85px;
+	font-weight: bold;
+	color: #4285F4;
+}
+
+.computerproficiencylogo img{
+	width: 32px;
+	height: auto;
+	margin-left: 455px;
+
+}
+#computerproficiencytext{
+	font-size: 15px;
+	margin-left: 400px;
+	font-weight: bold;
+	margin-top: 30px;
+	color: #4285F4;
+}
+
+.languagelogo img{
+	width: 38px;
+	height: auto;
+	margin-left: 452px;
+
+}
+#languagetext{
+	font-size: 15px;
+	margin-left: 428px;
+	font-weight: bold;
+	margin-top: 30px;
+	color: #4285F4;
+}
+
+.personalinterestlogo img{
+	width: 35px;
+	height: auto;
+	margin-left: 452px;
+
+}
+#personalinteresttext{
+	font-size: 15px;
+	margin-left: 413px;
+	font-weight: bold;
+	margin-top: 30px;
+	color: #4285F4;
+}
+
+.personaldetailslogo img{
+	width: 35px;
+	height: auto;
+	margin-left: 452px;
+
+}
+#personaldetailstext{
+	font-size: 15px;
+	margin-left: 413px;
+	font-weight: bold;
+	margin-top: 30px;
+	color: #4285F4;
+}
+
+.container{
+	display: inline-flex;
+}
+.leftdiv,.rightdiv{
+	
+	width:370px;
+	height: auto;
+}
+
+.container li{
+	list-style-type: none;
+}
+
+.declaration{
+
+	width: 80%;
+	margin-top: -30px;
+}
+.declaration h6{
+	font-size: 18px;
+	font-weight: bold;
+}
+.declaration p{
+	margin-top: -30px;
+}
+.sign,.place{
+	
+	width: 560px;
+}
+.electronicsign{
+	display: inline-flex;
+}

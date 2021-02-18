@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            .container{
+                background-color: blueviolet;
+                width:40%;
+                text-align: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color:white;
+                font-size: 20px;
+            }
+            button{
+                background-color:cornflowerblue;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                font-size: 16px;
+            }
+            button:hover{
+                background-color: white;
+                color:cornflowerblue;
+            }
+            input{
+            }
+            button{
+                background-color:cornflowerblue;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                font-size: 16px;
+            }
+            button:hover{
+                background-color: white;
+                color:cornflowerblue;
+            }
+            input{
+                width: 50%;
+                padding: 12px 20px;
+            }
+        </style>
+    </head>
+    <body>
+<center>
+        <div class="container">
+        <p>First Number</p>
+        <input type="text" id="firstvalue">
+         <p>Second Number</p>
+        <input type="text" id="secondvalue">
+        <p>Result</p>
+        <p id="result"></p>
+        <br>
+<!--------------------- Buttons ----------------------------------------------------------------------------->
+        <button onclick=add()>Add</button>
+        <button onclick=sub()>Sub</button>
+        <button onclick=mul()>Mul</button>
+        <button onclick=div()>Div</button>
+        <button onclick=Reset()>Clear</button>
+
+        </div>
+</center>
+        <script>
+// -------------------- Addition -----------------------------------------------------------------------------
+            function add() {
+                var x = Number(document.getElementById("firstvalue").value);
+                var y = Number(document.getElementById("secondvalue").value);
+                if(x ==""){
+                    alert("Please Fill the First Value");
+                    return false;
+                }
+                else if(y==""){
+                    alert("Please Fill the Second Value");
+                    return false;
+                }
+                if(isNaN(x))
+                {
+                    alert("Please Enter Number in First TextBox");
+                }
+                else if(isNaN(y)){
+                    alert("Please Enter Number in Second TextBox");
+                }
+                var res=(x+y);
+                document.getElementById("result").innerHTML = res;
+            }
+// -------------------- Subtraction -----------------------------------------------------------------------------
+            function sub() {
+                var x = Number(document.getElementById("firstvalue").value);
+                var y = Number(document.getElementById("secondvalue").value);
+                if(x ==""){
+                    alert("Please Fill the First Value");
+                    return false;
+                }
+                else if(y==""){
+                    alert("Please Fill the Second Value");
+                    return false;
+                }
+                var res=parseInt(x-y);
+                 document.getElementById("result").innerHTML = res;
+            }
+// -------------------- Multiplication -----------------------------------------------------------------------------            
+            function mul() {
+                var x = Number(document.getElementById("firstvalue").value);
+                var y = Number(document.getElementById("secondvalue").value);
+                if(x ==""){
+                    alert("Please Fill the First Value");
+                    return false;
+                }
+                else if(y==""){
+                    alert("Please Fill the Second Value");
+                    return false;
+                }
+                var res=parseInt(x*y);
+                 document.getElementById("result").innerHTML = res;
+            }
+// -------------------- Division -----------------------------------------------------------------------------
+            function div() {
+                var x = Number(document.getElementById("firstvalue").value);
+                var y = Number(document.getElementById("secondvalue").value);
+                if(x ==""){
+                    alert("Please Fill the First Value");
+                    return false;
+                }
+                else if(y==""){
+                    alert("Please Fill the Second Value");
+                    return false;
+                }
+                var res=parseInt(x/y);
+                 document.getElementById("result").innerHTML = res;
+            }
+
+            function Reset(){
+  		        document.getElementById("firstvalue").value = "";
+                document.getElementById("secondvalue").value = "";
+                document.getElementById("firstvalue").value = "";
+                document.getElementById("result").innerHTML = "";
+            }
+
+        </script>
+    </body>
+</html>

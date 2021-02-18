@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+        
+        
+    </head>
+    <body>
+        <div class="heading">
+            <h1>Resume Builder</h1>
+        </div>
+
+        <div class="formcontainer">
+            <form id="myForm" action="index.html" method="POST">
+                <p id="labelname">Name: </p><input type="text" name="fname" id="fname" required>
+                <p id="labelmobilenumber">Mobile Number: </p><input type="number" name="mobile" id="mobile" required>
+                <p id="labelemail">Email: </p><input type="email" name="email" id="email" required><br>
+                <p id="labelemail">Linkedin </p><input type="text" name="linkedin" id="linkedin" required><br>
+                <p id="labelemail">Age: </p><input type="number" name="age" id="age" required><br>
+                <p id="labelaboutme">About Me: </p><input type="text" name="aboutme" id="aboutme" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="labelgraduation">Post Graduation (Course): </p></label><input type="text" name="postgraduation" id="postgraduation" required><br>
+                <p id="labelgraduation">University Name: </p></label><input type="text" name="postgraduation" id="postgraduationuniversity" required><br>
+                <p id="labelpercentage">Post Graduation Passing Year: </p><input type="number" id="postgraduationcomplete" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="labelgraduation">Graduation (Course): </p></label><input type="text" name="graduation" id="graduation" required><br>
+                <p id="labelgraduation">University Name: </p></label><input type="text" name="graduation" id="graduationuniversity" required><br>
+                <p id="labelpercentage">Graduation Percentage </p><input type="number" id="graduationcgpa" required><br>
+                <p id="labelpercentage">Graduation Passing Year: </p><input type="number" id="graduationcomplete" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                
+                
+                <p id="label12thstream">12th Stream: </p><input type="text" name="12thstream" id="12thstream" required><br>
+                <p id="label12thstream">12th School Name: </p><input type="text" name="12thstream" id="schoolname12th" required><br>
+                <p id="label12thstream">12th School Board: </p><input type="text" name="12thstream" id="schoolboard12th" required><br>
+                <p id="label12thpercentage">12th Percentage: </p><input type="number" id="percentage12th" required><br>
+                <p id="label12thpercentage">12th Passing Year: </p><input type="number" id="complete12th" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="label10thschool">10th School: </p><input type="text" name="10thschool" id="school10th" required><br>
+                <p id="label10thschool">10th School Board: </p><input type="text" name="10thschool" id="school10thboard" required><br>
+                <p id="label10thpercentage">10th Percentage: </p><input type="number" id="percentage10th" required><br>
+                <p id="label12thpercentage">10th Passing Year: </p><input type="number" id="complete10th" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+                <p id="labelcertification1">Certification: </p><input type="text" id="certification1" required><br>
+                <input type="text" id="certification2" required><br>
+                 <input type="text" id="certification3" required><br>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="labelskill1">Skills: </p><input type="text" id="skill1" required><br>
+                <input type="text" id="skill2" required><br>
+                <input type="text" id="skill3" required><br>
+                <input type="text" id="skill4" required><br>
+                <input type="text" id="skill5"><br>
+                <input type="text" id="skill6"><br>
+
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <p id="computerproficiency">Computer Proficiency: </p><input type="text" id="computerproficiencyy" required><br>
+
+                <p id="languages">Languages: </p><input type="text" id="languagess" required><br>
+
+                <p id="personalinterest">Personal Interest: </p><input type="text" id="personalinterest1" required><br>
+                <input type="text" id="personalinterest2" required><br>
+
+                <p id="fathernamee">Father Name: </p><input type="text" id="fathername" required><br>
+                <p id="gender">Gender: </p><input type="text" id="genderr" required><br>
+                <p id="maritalstatus">Marital Status: </p><input type="text" id="maritalstatuss" required><br>
+                <p id="nationality">Nationality: </p><input type="text" id="nationalityy" required><br>
+                <p id="electronicsign">Electronic Sign: </p><input type="text" id="electronicsignn" required><br>
+                <p id="place">Place: </p><input type="text" id="placee" required><br>
+
+                
+                Upload Image:<input type="file" id="img" accept="image/*">
+                <button class="btn success" onclick="sendData()">Generate Resume</button>
+            </form>
+        </div>
+        <script src="js.js"></script>
+    </body>
+</html>

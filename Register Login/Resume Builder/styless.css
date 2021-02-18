@@ -1,0 +1,369 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.wrapcontainer{
+    width: 60vw;
+    display: block;
+    margin: auto;
+    border: 1px solid black;
+   
+}
+
+.container{
+	
+    border: 1px solid black;
+}
+.firstdiv{
+    border: 1px solid black;
+}
+.seconddiv{
+
+    border: 1px solid black;
+    
+}
+.name{
+    border: 1px solid black;
+ 
+    font-weight: bold;
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-top-width:50px ;
+    height: 70px;
+    margin-left: 30px;
+
+}
+.name h1{
+    border: 1px solid black;
+    height: 50%;
+
+}
+
+.containertop{
+    display: inline-flex;
+}
+
+.container .image img{
+	width: 150px;
+	height: auto;
+    border: 1px solid black;
+}
+.linkedin{
+    border: 1px solid black;
+    height: 40px;
+}
+.linkedin img{
+	width: 35px;
+	height:auto;
+    border: 1px solid black;
+
+}
+.linkedindetails{
+    border: 1px solid black;
+    margin-top:10px;
+    height: 50px;
+}
+.containerphoneemail{
+    display: inline-flex;
+}
+.mobileimage img{
+	width: 30px;
+	height: auto;
+    border: 1px solid black;
+}
+
+.mail img{
+	width: 30px;
+	height: auto;
+    border: 1px solid black;
+}
+
+.ageaboutme{
+	
+    border: 1px solid black;
+}
+.ageaboutme .age h6{
+	color:#4285F4;
+	font-size: 15px;
+    border: 1px solid black;
+}
+
+.aboutme h6{
+
+	color:#4285F4;
+	font-size: 15px;
+    border: 1px solid black;
+}
+.aboutme p{
+	width: 40%;
+
+	text-align: justify;
+    border: 1px solid black;
+}
+
+.education img{
+	width: 30px;
+	height: auto;
+    border: 1px solid black;
+	
+}
+.education h6{
+	font-size: 15px;
+	color:#4285F4;
+    border: 1px solid black;
+}
+
+.masters{
+	
+    border: 1px solid black;
+}
+
+.masters{
+	border: 1px solid black;
+}
+.masters .masterscollege h6{
+	font-size: 15px;
+    border: 1px solid black;
+}
+
+.masters .masterscollege p{
+	border: 1px solid black;
+}
+
+.masters .passingyear{
+	border: 1px solid black;
+}
+.masters .passingyear p{
+	border: 1px solid black;
+}
+
+.bachelor{
+	display: block;
+    border: 1px solid black;
+}
+
+.bachelorcollege{
+	
+    border: 1px solid black;
+	
+}
+.bachelorcollege h6{
+	font-size: 15px;
+    border: 1px solid black;
+}
+.bachelorcollege p{
+	border: 1px solid black;
+}
+
+.passingyearbachelor{
+
+    border: 1px solid black;
+	
+}
+
+.passingyearbachelor #graduated{
+    border: 1px solid black;
+}
+.passingyearbachelor #bsc{
+    border: 1px solid black;
+}
+.passingyearbachelor #bacheloryear{
+    border: 1px solid black;
+}
+.twelthclass{
+	
+    border: 1px solid black;
+}
+
+.twelthschoolname{
+	border: 1px solid black;
+}
+
+.twelthschoolname h6{
+	font-size: 15px;
+    border: 1px solid black;
+}
+.twelthschoolname #schoolname{
+	border: 1px solid black;
+}
+
+.twelthschoolname #schoolboard{
+	border: 1px solid black;
+}
+
+.passingyeartwelth{
+    border: 1px solid black;
+}
+
+.passingyeartwelth #streamtwelth{
+	border: 1px solid black;
+}
+
+.passingyeartwelth #twelthmarks{
+	border: 1px solid black;
+}
+
+.tenthclass{
+	border: 1px solid black;
+}
+.tenthclass .tenthschool{
+	
+    border: 1px solid black;
+
+}
+
+.tenthclass h6{
+	font-size: 15px;
+    border: 1px solid black;
+}
+.tenthclass #schoolname{
+	border: 1px solid black;
+}
+.tenthclass #schoolboards{
+	border: 1px solid black;
+}
+
+.passingyeartenth{
+    border: 1px solid black;
+}
+.passingyeartenth #streamtenth{
+    border: 1px solid black;
+}
+.passingyeartenth #twelthmarks{
+    border: 1px solid black;
+}
+
+.certification img{
+	width: 40px;
+	height: auto;
+    border: 1px solid black;
+	
+}
+#certificationtext{
+	font-size: 15px;
+	
+	font-weight: bold;
+	color: #4285F4;
+    border: 1px solid black;
+}
+
+.listofcertification ul li{
+	border: 1px solid black;
+}
+
+.skills img{
+	width: 120px;
+	height: auto;
+    border: 1px solid black;
+	
+
+}
+#skillstext{
+	font-size: 15px;
+	
+	font-weight: bold;
+	color: #4285F4;
+    border: 1px solid black;
+}
+
+.computerproficiencylogo img{
+	width: 32px;
+	height: auto;
+	border: 1px solid black;
+
+}
+#computerproficiencytext{
+	font-size: 15px;
+	
+	font-weight: bold;
+	
+	color: #4285F4;
+    border: 1px solid black;
+}
+
+.languagelogo img{
+	width: 38px;
+	height: auto;
+    border: 1px solid black;
+
+}
+#languagetext{
+	font-size: 15px;
+
+	font-weight: bold;
+
+	color: #4285F4;
+    border: 1px solid black;
+}
+
+.personalinterestlogo img{
+	width: 35px;
+	height: auto;
+	border: 1px solid black;
+
+}
+#personalinteresttext{
+	font-size: 15px;
+	
+	font-weight: bold;
+	
+	color: #4285F4;
+    border: 1px solid black;
+}
+
+.personaldetailslogo img{
+	width: 35px;
+	height: auto;
+	border: 1px solid black;
+
+}
+#personaldetailstext{
+	font-size: 15px;
+	
+	font-weight: bold;
+	
+	color: #4285F4;
+    border: 1px solid black;
+}
+
+.container{
+	
+    border: 1px solid black;
+}
+.leftdiv,.rightdiv{
+	
+	width:370px;
+	height: auto;
+    border: 1px solid black;
+}
+
+.container li{
+	list-style-type: none;
+    border: 1px solid black;
+}
+
+.declaration{
+
+	width: 50%;
+	border: 1px solid black;
+}
+.declaration h6{
+	font-size: 18px;
+	font-weight: bold;
+    border: 1px solid black;
+}
+.declaration p{
+	border: 1px solid black;
+}
+.sign,.place{
+	
+	width: 560px;
+    border: 1px solid black;
+}
+.electronicsign{
+	
+    border: 1px solid black;
+}

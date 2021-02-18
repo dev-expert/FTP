@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>URL Bucket List</h1>
+    </div>
+    <div class="urlsection">
+        <input type="text" placeholder="www.john.com" id="url">
+        <button onclick="addurl()" id="myBtn">Add</button>
+        <button id="myBtn1" onclick="deletemultipleurl(selectcheckbox(`tickurl`))">Delete Selected Row</button>
+        <ul id="list"></ul>
+    </div>
+    <script src="js.js"></script>
+</body>
+</html>

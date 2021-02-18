@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("");
+    background-size: cover;
+}
+
+.heading{
+    background-color: #384A40;
+    width: 100%;
+    height: 80px;
+}
+
+.heading h1{
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    line-height: 80px;
+}
+
+.form{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 25px;
+    color:#384A40;
+    font-weight: bold;
+}
+.form input{
+ 
+    padding:10px 32px;
+    margin-top: 20px;
+}
+button{
+    margin-top: 15px;
+    background-color: teal;
+    padding:10px 18px;
+    color:white;
+    font-size: 16px;
+}
+button:hover{
+    background-color: white;
+    border-color: teal;
+    color: teal;
+    cursor: pointer;
+}
+.form a{
+    text-decoration: none;
+    color:#086BCE;
+    font-size: 15px;
+
+}
+.form a:hover{
+    text-decoration: underline;
+}
+
+.heading1{
+    background-color: #384A40;
+    width: 100%;
+    height: 80px;
+}
+
+.heading1 h1{
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    line-height: 80px;
+}
+
+.form1{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 22px;
+    color:#384A40;
+    font-weight: bold;
+}
+.form1 input{
+    width: 30%;
+    padding:10px 32px;
+    margin-top: 20px;
+}
+
+.form1 a{
+    text-decoration: none;
+    color:#086BCE;
+    font-size: 20px;
+
+}
+.form1 a:hover{
+    text-decoration: underline;
+}
+
+#check{
+    font-size: 16px;
+}
+
+#usertype{
+    font-size: 15px;
+}
