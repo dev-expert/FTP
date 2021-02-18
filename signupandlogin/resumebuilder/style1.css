@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap');
+.box{
+    border: 1px solid black;
+    width: 27%;
+    background-color:	#D3D3D3;
+}
+.box1{
+    border: 1px solid black;
+    /* height: 7016px; */
+    /* float: left; */
+    width: 60%;
+}
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    height: 950px;
+    height: 1048px;
+    width: 1240;
+    font-family: 'Roboto', sans-serif ;
+
+}
+.photo{
+    display: flex;
+    margin-top: 5px;
+    align-content: center;
+    image-resolution: ;
+    border-radius: 50%;
+}
+.color{
+    color: crimson;
+    margin-left: 0.5rem;
+}
+.color1{
+    color: crimson;
+    margin-left: 0.5rem;
+}
+.about{
+    padding-left: 20px;
+}
+.font{
+    margin-left: 0.5rem;
+}
+#name{
+    color: crimson;
+ 
+    font-weight: 900;
+
+}
+#about{
+    
+    color: crimson;
+ 
+    font-weight: 900;
+}
+.userName{
+    color: brown !important;
+}

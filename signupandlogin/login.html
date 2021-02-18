@@ -44,12 +44,16 @@
            border-radius: 20px;
          
        }
-       .log1{
+       /* .log1{
            margin-left: 150px;
-       }
-       input , button{
+       } */
+       input {
            border-radius: 25px;
            margin: 10px;
+       }
+       button{
+           border-radius: 25px;
+           margin-left: 40%;
        }
    </style>
    <script>
@@ -59,11 +63,11 @@ function login1()
     var user = document.getElementById('email').value;
     var pass = document.getElementById('password').value;
     
-   var person = JSON.parse(localStorage.getItem("person"));
+   var person = JSON.parse(localStorage.getItem("superuser"));
    var q = person.find(x=>x.email == user)
    if(pass == q.password)
    {
-       
+    localStorage.setItem("currUser",user);
        window.open("teacherpage.html");
    }
    else{
@@ -77,11 +81,10 @@ function login2()
     var user = document.getElementById('email').value;
     var pass = document.getElementById('password').value;
 
-   var user1 = JSON.parse(localStorage.getItem("superuser"));
+   var user1 = JSON.parse(localStorage.getItem("normaluser"));
    var q = user1.find(x=>x.email == user)
    if(pass == q.password)
    {
-       
        window.open("studentpage.html");
    }
    else{
@@ -95,8 +98,8 @@ function login2()
 function finalq()
 {
     var user1 = document.getElementById('email').value;
-    var user = JSON.parse(localStorage.getItem("superuser"));
-    var person = JSON.parse(localStorage.getItem("person"));
+    var user = JSON.parse(localStorage.getItem("normaluser"));
+    var person = JSON.parse(localStorage.getItem("superuser"));
     if(person.find(x=>x.email == user1))
     {
         login1();

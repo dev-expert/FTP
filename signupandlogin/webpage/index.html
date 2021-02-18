@@ -30,41 +30,13 @@
                 </ul>
         
             </div>
-            <div class="container">
-                <div class="tab tab-1">
-                  <table id="table" border="1">
-                    <thead>
-                      <th></th>
-                      <th>URL</th>
-                      <!-- <th>Last Name</th>
-                      <th>Age</th>
-                      <th>edit</th> -->
-                    </thead>
-                    <tr>
-                      <td><input type="checkbox" id="select"></td>
-                      <td>A1</td>
-                      <!-- <td>B1</td>
-                      <td>10</td> -->
-                      <td><input type="button" value="edit" id="edit"></td>
-                    </tr>
-                    <tr>
-                      <td><input type="checkbox" id="select"></td>
-                      <td>A3</td>
-                      <!-- <td>B3</td>
-                      <td>30</td> -->
-                      <td><input type="button" value="edit" id="edit"></td>
-                    </tr>
-                    <tr>
-                      <td><input type="checkbox" id="select" class="select"></td>
-                      <td>A2</td>
-                      <!-- <td>B2</td>
-                      <td>20</td> -->
-                      <td><input type="button" value="edit" id="edit"></td>
-                    </tr>
-                  </table>
-                </div>
-                <button onclick="deleteRow();">Remove</button>
-            <button type="button" class="buttton1" id="del" onclick="deleteRow()" >Delete</button>
+            <!-- <input type="text"  id="url" onclick="myFunction()" >
+            
+            <button type="button" class="button">Insert</button>
+            <br>
+            <br>
+             -->
+            <button type="button" class="buttton1" id="del" onclick="del()" >Delete</button>
         <style>
             .button {
                 background-color: white;
@@ -100,18 +72,9 @@
                 }
             }
         
-//             function isURL(str) {
-//   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-//   '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
-//   '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-//   '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-//   '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-//   '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-//   return pattern.test(str);
-// }
         function lists()
         {
-         var link = document.getElementById("email").value;
+        var link = document.getElementById("email").value;
             if(isValidURL(link)){
            
                 // console.log(link);
@@ -125,49 +88,27 @@
                 document.getElementById("myList").appendChild(node);
         
             }
-            // else
-            // {
-            //     alert("It is invalid url");
-            // }
+            else
+            {
+                alert("It is invalid url");
+            }
         
         }
-        function deleteRow () {
-  /* Cache the table. */
-  var table = document.getElementById("table"); 
-  
-  /* Create the index used in the loop. */
-  var index = 1;
-  
-  /* Repeat as long as the index is less than the number of rows. */
-  while (index < table.rows.length) {
-    /* Get the input of the cell. */
-    var input = table.rows[index].cells[0].children[0];
-    
-    /* Check whether the input exists and is checked. */
-    if (input && input.checked) {
-      /* Delete the row at the current index. */
-      table.deleteRow(index);
-    }
-    else {
-      /* Increment the index. */
-      index++;
-    }
-  }
-}
         
-        // function del()
-        // {
-        //     var lik = document.getElementById("myList");
-        //     lik.removeChild(lik.childNodes[0]);
         
-        // }
+        function del()
+        {
+            var lik = document.getElementById("myList");
+            lik.removeChild(lik.childNodes[0]);
+        
+        }
     </script>
 
         </div>
-        <!-- <div class="section3">
+        <div class="section3">
             
             <img src="download.jpg" alt="">
-        </div> -->
+        </div>
     </section>
     <footer >
         <div class="footer1">

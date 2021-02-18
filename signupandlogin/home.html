@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        name : <input type="text" id="practs"> <br>
+        email : <input type="email" id="practs1">
+        <button type="button" name="submit" onclick="practise()" id="pract">submit</button>
+    </form>
+<script>
+    function practise()
+    {
+        // debugger;
+        var login1 =document.getElementById("practs").value;
+        var login2 = document.getElementById("practs1").value;
+    
+        var obj = {
+            practs:login1,practs1:login2
+        }
+        localStorage.setItem("superuser" ,JSON.stringify(obj)); 
+
+        
+        var old =JSON.parse( localStorage.getItem("superuser"));
+
+        document.write(old.practs);
+    }
+
+</script>
+</body>
+
+</html>
