@@ -19,14 +19,27 @@ nav {
 
 .seconddiv_nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     padding-right: 10%;
+    margin-top: 20px;
+    border: 5px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
 }
 
 .btn {
     padding: 20px;
     border-radius: 30px black;
     cursor: pointer;
+    background-color: white;
+}
+
+.btn_first {
+    padding: 20px;
+    border-radius: 30px black;
+    cursor: pointer;
+    background-color: white;
 }
 
 .nav_section h1 {

@@ -34,7 +34,7 @@ document.getElementById('language_3').innerHTML = person[0].language_3;
 // //education
 document.getElementById('degree_1').innerHTML = person[0].degree_1;
 document.getElementById('college_1').innerHTML = person[0].college_1;
-document.getElementById('degree1_date').innerHTML = person[0].ddegree1_date
+document.getElementById('degree1_date').innerHTML = person[0].degree1_date
 document.getElementById('degree1_cgpa').innerHTML = person[0].degree1_cgpa;
 
 document.getElementById('degree_2').innerHTML = person[0].degree_2;
