@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Resume/CV Design</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="script.js"></script>
+</head>
+<body onload="showdata()">
+<div class="resume">
+   <div class="resume_left">
+     <div class="resume_profile">
+       <img src="profile.jpeg" alt="profile_pic">
+     </div>
+     <div class="resume_content">
+       <div class="resume_item resume_info">
+         <div class="title">
+           <p class="bold" id="resumename">Shubham Agrawal</p>
+           <p class="regular" id="resumedesignation">Web Developer</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fas fa-map-signs"></i>
+             </div>
+             <div class="data">
+               <p id="resumeaddress">Allahabad,UttarPradesh</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-mobile-alt"></i>
+             </div>
+             <div class="data">
+               <p id="resumephone">+91 8840696236</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-envelope"></i>
+             </div>
+             <div class="data">
+               <p id="resumeemail">shubham3565@gmail.com</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-linkedin"></i>
+             </div>
+             <div class="data">
+               <p id="resumelinkedin">www.linkedin.com</p>
+             </div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_skills">
+         <div class="title">
+           <p class="bold">skill's</p>
+         </div>
+         <ul>
+           <li>
+             <div class="skill_name" id="resumeskill1">
+               HTML
+             </div>
+             <div class="skill_progress">
+               <span style="width: 80%;"></span>
+             </div>
+             <div class="skill_per">80%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill2"> 
+               CSS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 70%;"></span>
+             </div>
+             <div class="skill_per">70%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill3">
+               C++
+             </div>
+             <div class="skill_progress">
+               <span style="width: 90%;"></span>
+             </div>
+             <div class="skill_per">90%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill4">
+               JS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 60%;"></span>
+             </div>
+             <div class="skill_per">60%</div>
+           </li>
+           <li>
+             <div class="skill_name" id="resumeskill5">
+               Python
+             </div>
+             <div class="skill_progress">
+               <span style="width: 88%;"></span>
+             </div>
+             <div class="skill_per">88%</div>
+           </li>
+         </ul>
+       </div>
+       
+       <div class="resume_item resume_education">
+        <div class="title">
+             <p class="bold">Activities</p>
+           </div>
+        <ul>
+              <li>
+                  <div class="date"></div> 
+                  <div class="info">
+                       <p class="semi-bold" style="color: white; font-weight: 700px;">* Participant - AANWIK-2019 Hackathon (03/2019)</p>
+                  </div>
+              </li>
+              <li>
+                <div class="info">
+                       <p class="semi-bold" style="color: white; font-weight: 700px;">* Coordinator TECHRUN (02/2019)</p> 
+                  </div>
+              </li>
+              <li>
+                <div class="info">
+                       <p class="semi-bold"  style="color: white; font-weight: 700px;">* Participant - i3india Technologies (11/2017)
+                      </p>
+                  </div>
+              </li>
+          </ul>
+      </div>
+     </div>
+  </div>
+  <div class="resume_right">
+    <div class="resume_item resume_about">
+        <div class="title">
+           <p class="bold">About us</p>
+         </div>
+         <p id="resumeobjective">To utilize my technical skills and provide a professional service to customers by applying and honing my
+          knowledge and working in a challenging and motivating working environment</p>
+    </div>
+    <div class="resume_item resume_work">
+        <div class="title">
+           <p class="bold">PERSONAL PROJECTS</p>
+         </div>
+        <ul>
+            <li>
+                <div class="date">07/2019</div> 
+                <div class="info">
+                  <p class="semi-bold">Smart Library System </p> 
+                  <p>The project contains a Python based GUI interface to manage the books
+                    issued or returned to the library.
+                    </p>
+                </div>
+            </li>
+            <li>
+              <div class="date">10/2017</div>
+              <div class="info">
+                     <p class="semi-bold">LPU Scholarship Scheme.</p> 
+                  <p>Used C language to make to check the amount of scholarship offered on the basis of the test scores of LPUNEST.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Education</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date" id="collegedate">2017-2021</div> 
+                <div class="info">
+                     <p class="semi-bold" id="collegecourse">B.Tech - Computer Science and Engineering</p> 
+                  <p id="collegeplace">Lovely Professional University</p>
+                </div>
+            </li>
+            <li>
+              <div class="date" id="schooldate">2015-2016</div>
+              <div class="info">
+                     <p class="semi-bold" id="schoolcourse">XIIth</p> 
+                  <p id="schoolplace">Vishnu Bhagwan Public School</p>
+                </div>
+            </li>
+            <li>
+              <div class="date" id="school1date">2013-2014</div>
+              <div class="info">
+                     <p class="semi-bold" id="school1course">Xth</p> 
+                  <p id="school1place">Vishnu Bhagwan Public School</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Acheivements</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date">03/2019</div> 
+                <div class="info">
+                     <p class="semi-bold">1st Runner Up SAP Hackathon</p> 
+                  <p>Organised by SAP UA Team in Lovely Professional University. .</p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

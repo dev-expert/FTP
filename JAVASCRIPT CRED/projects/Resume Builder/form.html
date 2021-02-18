@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="resumecontainer">
+    <form action="index.html" method="post" id="userform">
+        <script src="script.js"></script>
+        <table border="0" cellpadding="5" cellspacing="0" align="center">
+        <tr><td><h3>Personal Information</h3><td></tr>
+        <tr> <td style="width: 50%">
+        <label for="First_Name"><b>First name *</b></label><br />
+        <input name="First_Name" id="fname" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        </td> <td style="width: 50%">
+        <label for="Last_Name"><b>Last name *</b></label><br />
+        <input name="Last_Name" id="lname" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        </td> </tr>
+        <tr>
+            <td><label for="avatar">Choose a profile picture:</label><br>
+            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></td>
+        </tr>
+        <tr>
+            <td style="width: 50%"><label for="designation"><b>Designation *</b></label><br />
+                <input name="designation" type="text" maxlength="50" style="width:100%;max-width: 260px" /></td>
+            <td style="width: 50%"><label for="address"><b>Address *</b></label><br />
+                <input name="address" type="text" maxlength="50" style="width:100%;max-width: 260px" /></td>
+        </tr> 
+        <tr> <td>
+        <label for="email"><b>Email *</b></label><br />
+        <input name="email" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        </td> 
+        <td>
+            <label for="Phone"><b>Phone *</b></label><br />
+            <input name="Phone" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+            </td></tr>
+        <tr> <td colspan="2">
+        <label for="LinkedIn"><b>LinkedIn ID</b></label><br />
+        <input name="LinkedIn" type="text" maxlength="255" value="http://" style="width:100%;max-width: 535px" />
+        </td> </tr> 
+        <td colspan="2">
+            <label for="objective"><b>Objective</b></label><br />
+            <input name="objective" type="text" maxlength="100" style="width:100%;max-width: 535px">
+        </td> </tr>
+<!-- SKILLS SECTION START -->
+        <tr>
+            <td><h3>Skills</h3>
+        </tr>
+        <tr> <td>
+            <label for="skill-1"><b>1 *</b></label><br />
+            <input name="skill-1" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        </td><td>
+            <label for="skill-2"><b>2 *</b></label><br />
+            <input name="skill-2" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+            </td> </tr>
+        <tr> <td>
+            <label for="skill-3"><b>3 *</b></label><br />
+            <input name="skill-3" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        </td><td>
+            <label for="skill-4"><b>4 *</b></label><br />
+            <input name="skill-4" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        </td>
+         </tr>
+        <tr> <td>
+                <label for="skill-5"><b>5 *</b></label><br />
+                <input name="skill-5" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+                </td> </tr>
+
+<!-- END SKILLS SECTION -->
+
+<!-- EDUCATION SECTION START -->
+        <tr><td><h3>Education</h3><td></tr>
+        <tr><td><h4>1. College</h4><td></tr>
+        <tr> <td>
+        <label for="collegedate"><b>Date</b></label><br />
+        <input name="collegedate" type="text" maxlength="50" style="width:100%;max-width: 260px" /> </td> 
+        <td>
+        <label for="collegecourse"><b>Course</b></label><br />
+        <input name="collegecourse" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        </td> </tr>
+         <tr> <td colspan="2">
+            <label for="collegeplace"><b>Place</b></label><br />
+            <input name="collegeplace" type="text" maxlength="50" style="width:100%;" />
+        </td> </tr> 
+        <tr><td><h4>1. XIIth</h4><td></tr>
+            <tr> <td>
+            <label for="schooldate"><b>Date</b></label><br />
+            <input name="schooldate" type="text" maxlength="50" style="width:100%;max-width: 260px" /> </td> 
+            <td>
+            <label for="schoolcourse"><b>Course</b></label><br />
+            <input name="schoolcourse" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+            </td> </tr>
+             <tr> <td colspan="2">
+                <label for="schoolplace"><b>Place</b></label><br />
+                <input name="schoolplace" type="text" maxlength="50" style="width:100%;" />
+            </td> </tr> 
+            <tr><td><h4>1. X</h4><td></tr>
+                <tr> <td>
+                <label for="school1date"><b>Date</b></label><br />
+                <input name="school1date" type="text" maxlength="50" style="width:100%;max-width: 260px" /> </td> 
+                <td>
+                <label for="school1course"><b>Course</b></label><br />
+                <input name="school1course" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+                </td> </tr>
+                 <tr> <td colspan="2">
+                    <label for="school1place"><b>Place</b></label><br />
+                    <input name="school1place" type="text" maxlength="50" style="width:100%;" />
+                </td> </tr> 
+         <tr>  <tr> <td colspan="2" style="text-align: center;">
+        <input type="submit" onclick="storedata()"> 
+        </td> </tr>
+        </table>
+        </form>
+        </div>
+</body>
+</html>

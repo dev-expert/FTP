@@ -18,8 +18,31 @@
     .mySlides {
       display: none;
     }
+    /* loader css*/
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    }
+    @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+    }
+  
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    } 
+/* loader css end*/
   </style>
   <body onload="validate()">
+    <div id="hideloader" style="min-height:100vh ; display:flex; justify-content:center ;align-items:center ">
+      <div class="loader"></div></div>
+    <div id="hidearea" style="display: none;">
     <!-- Navbar -->
     <div class="w3-top">
       <div class="w3-bar w3-black w3-card">
@@ -37,12 +60,12 @@
           >USERS</a
         >
         <a
-          href="#tour"
+          href="./projects/Javascript URL Log/urllog.html" 
           class="w3-bar-item w3-button w3-padding-large w3-hide-small"
           >URL-LOG</a
         >
         <a
-          href="#contact"
+          href="./projects/Resume Builder/form.html"
           class="w3-bar-item w3-button w3-padding-large w3-hide-small"
           >RESUME BUILDER</a
         >
@@ -52,8 +75,6 @@
           </button>
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
             <a href="#" class="w3-bar-item w3-button">Calculator</a>
-            <a href="#" class="w3-bar-item w3-button">Extras</a>
-            <a href="#" class="w3-bar-item w3-button">Media</a>
           </div>
         </div>
         <a
@@ -123,7 +144,7 @@
                 <p class="w3-opacity">Get Source Code</p>
                 <button
                   class="w3-button w3-black w3-margin-bottom"
-                  onclick="document.getElementById('ticketModal').style.display='block'"
+                  onclick="window.open('./projects/Javascript URL Log/urllog.html')"
                 >
                   View
                 </button>
@@ -208,6 +229,7 @@
         Made by <a href="#" target="_blank">Shubham Agrawal</a>
       </p>
     </footer>
+    </div>
       <!-- // Used to toggle the menu on small screens when clicking on the menu button -->
   </body>
 </html>

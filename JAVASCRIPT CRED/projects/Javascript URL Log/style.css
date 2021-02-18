@@ -1,0 +1,65 @@
+#url{
+    padding: 10px;
+    border-width: 3px;
+    border-color: brown;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+#url:hover{
+    padding: 10px;
+    border-width: 3px;
+    border-color: red;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+#myBtn{
+    border-width: 3px;
+    border-color: brown;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn:hover{
+    border-width: 3px;
+    border-color: red;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn1{
+    border-width: 3px;
+    border-color: brown;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+#myBtn1:hover{
+    border-width: 3px;
+    border-color: red;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+.urlsection{
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5%;
+    background-color: cornsilk;
+    align-items: center;
+}
+button{
+    border-width: 3px;
+    border-color: brown;
+    border-radius: 10px;
+    background-color: bisque;
+    padding: 8px;
+    margin-left: 10px;
+}

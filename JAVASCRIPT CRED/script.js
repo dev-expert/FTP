@@ -1,5 +1,6 @@
 let AllUsers = [];
 let currentuser = [];
+//function to login 
 function setAction() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
@@ -34,6 +35,10 @@ function setAction() {
     alert("Not A Registered User");
   }
 }
+//
+
+
+//function to register
 function register() {
   var rname = document.getElementById("usernamesignup").value;
   var remail = document.getElementById("emailsignup").value;
@@ -73,15 +78,24 @@ function register() {
     alert("Registered Successfully");
   }
 }
+
+//
+
+// after admin login this function will run
 function superlogin() {
   alert("Admin Login");
   window.open("admin homepage.html");
 }
+
+//
+
+// after normal login this function will run
 function normallogin() {
   alert("Normal login");
   window.open("webpage/index.html");
 }
 
+//function for responsive design 
 function myFunction() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
@@ -91,19 +105,35 @@ function myFunction() {
   }
 }
 
+//
+
+//function to validate
+
 function validate() {
   var keys = JSON.parse(localStorage.getItem("presentuser"));
   if (keys != null) {
+    var q=document.getElementById("hidearea");
+    var w=document.getElementById("hideloader");
+    q.style.display="block";
+    w.style.display="none";
     return true;
   } else {
     window.open("index.html", "_self");
   }
 }
 
+//
+
+
+// onclick logout
 function logoff() {
   window.localStorage.removeItem("presentuser");
   location.reload();
 }
+
+//
+
+// display normal users table 
 function users() {
   var keys = JSON.parse(localStorage.getItem("users"));
   var str = "";
@@ -120,6 +150,9 @@ function users() {
   }
   document.getElementById("displayallusers").innerHTML = str;
 }
+//
+
+// fucntion to delete single user
 function deleteuser(semail) {
   let keys = JSON.parse(localStorage.getItem("users"));
   for (i = 0; i < keys.length; i++) {
@@ -131,6 +164,9 @@ function deleteuser(semail) {
   localStorage.setItem("users", JSON.stringify(keys));
   users();
 }
+//
+
+// function to delete multiple users
 function deletetick(keys1) {
   let keys = JSON.parse(localStorage.getItem("users"));
   for (i = 0; i < keys1.length; i++) {
@@ -153,6 +189,10 @@ function gettick(semail) {
   });
   return drr;
 }
+
+//
+
+//function to show or hide users division
 function showusers() {
   let w = document.getElementById("mainareakaamka");
   if (w.style.display != "none") {
@@ -163,3 +203,4 @@ function showusers() {
     w.style.display="block";
   }
 }
+//
