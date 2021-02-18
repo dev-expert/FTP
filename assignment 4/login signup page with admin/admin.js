@@ -1,5 +1,6 @@
 var info = document.getElementById('localstorage_table');
 var users = () => {
+    document.getElementById('localstorage_table').style.display = 'block';
     var persons = JSON.parse(localStorage.getItem('person'));
     var str = ""
     for (var i = 0; i < persons.length; i++) {
@@ -84,4 +85,24 @@ var checkadmin = () => {
     if (person == null)
         location.replace('index.html')
 
+}
+
+var home = () => {
+    location.replace('admin.html')
+}
+
+var calculator = () => {
+    window.open('calculator/index.html');
+}
+
+var notepad = () => {
+    window.open('notepad/index.html');
+}
+
+var website_notepad = () => {
+    window.open('website with notepad embedded/index.html')
+}
+
+var resume_generator = () => {
+    window.open('resume-builder/index.html')
 }

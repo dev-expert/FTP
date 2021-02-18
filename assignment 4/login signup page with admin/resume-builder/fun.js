@@ -52,6 +52,13 @@ var passvalue = () => {
     var certificate_2 = document.getElementById('certificate_2').value;
     var certificate_3 = document.getElementById('certificate_3').value;
 
+    var interest_1 = document.getElementById('interest_1').value;
+    var interest_2 = document.getElementById('interest_2').value;
+    var interest_3 = document.getElementById('interest_3').value;
+    var interest_4 = document.getElementById('interest_4').value;
+
+    var achievement_1 = document.getElementById('achievement_1').value;
+    var achievement_2 = document.getElementById('achievement_2').value;
 
 
     var obj = {
@@ -107,6 +114,14 @@ var passvalue = () => {
         certificate_1: certificate_1,
         certificate_2: certificate_2,
         certificate_3: certificate_3,
+
+        interest_1: interest_1,
+        interest_2: interest_2,
+        interest_3: interest_3,
+        interest_4: interest_4,
+
+        achievement_1: achievement_1,
+        achievement_2: achievement_2,
 
     }
     if (localStorage.getItem("person") == null) {

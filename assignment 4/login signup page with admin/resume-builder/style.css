@@ -1,8 +1,158 @@
+body {
+    background-color: antiquewhite;
+}
+
+
+/* new css */
+
+.filed-col {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.filed-col>div {
+    width: 130px;
+}
+
+
+/* new css end */
+
+.final_submit {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.final_btn {
+    border-radius: 5px;
+    background: -webkit-linear-gradient(left, antiquewhite, lightblue);
+    padding: 20px;
+}
+
+.regform {
+    margin-top: 40px;
+    width: 800px;
+    background-color: rgb(0, 0, 6);
+    /* text-align: center; */
+    color: whitesmoke;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
 main {
+    background-color: whitesmoke;
+    width: 800px;
+    margin-left: 25%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border-color: solid black;
+}
+
+.myForm h1 {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    /* border: 2px solid lightgray; */
+    text-decoration: underline;
+}
+
+.seconddiv_icon {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.seconddiv_name {
+    margin-left: 40px;
+}
+
+.seconddiv_skills {
+    margin-left: 150px;
+}
+
+.firstdiv_education {
+    width: 40%;
+}
+
+.seconddiv_education {
+    margin-left: 80px;
+    width: 40%;
+}
+
+.thirddiv_education {
+    width: 50%;
+    padding-top: 20px;
+}
+
+.firstdiv_personal {
+    width: 40%;
+    padding-right: 80px;
+}
+
+.seconddiv_personal {
+    width: 40%;
+}
+
+.thirddiv_personal {
+    padding-top: 20px;
+    width: 50%;
+}
+
+.firstdiv_interest {
+    width: 40%;
+}
+
+.seconddiv_interest {
+    width: 40%;
+    margin-left: 80px;
+}
+
+label {
+    width: 10px;
+}
+
+.name-section {
+    padding-left: 5%;
     display: flex;
 }
 
-.myForm {
-    max-width: 500px;
-    margin: auto;
+.icon-section {
+    padding-left: 5%;
+    display: flex;
+}
+
+.skills_section {
+    padding-left: 5%;
+    display: flex;
+}
+
+.languages_section {
+    padding-left: 5%;
+}
+
+.education_section {
+    padding-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.personal_projects_section {
+    padding-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.certificates_section {
+    padding-left: 5%;
+}
+
+.interest_section {
+    display: flex;
+    padding-left: 5%;
+    flex-wrap: wrap;
+}
+
+.achivements_section {
+    padding-left: 5%;
 }
