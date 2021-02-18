@@ -3,33 +3,37 @@
 <head>
 
 	<title>Document</title>
+	<link rel="stylesheet" href="admin_portal.css">
+	<script src="admin_portal.js"></script>
 </head>
 <fieldset display:inline-block>
 	<legend class="legend">
-	  Announcement Creator</legend>  
-<body>
+	  List of Users</legend>  
+<body onload="display_name()">
+	<div class="header">
+		<h1>Welcome</h1>
+		<p>Admin Panel
+
+		</p>
+	  </div>
+	  
+	  <div class="navbar">
+		<a href="#" class="active">Home</a>
+		
+		<a href="#" id="username"></a>
+		<a href="#" class="right" onclick="redirect()">Log Out</a>
+	  </div>
+
+	</div>
+	<div class="row">
+		<div class="side">
+		</div>
+		<div class="main">
 <div class="button">
  <button value="call" value="Display Users" onclick="call()">Display Users</button></div>
 
 
-<style>
-table {
-border-collapse: collapse;
-width: 100%;
-}
 
-th, td {
-text-align: left;
-padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-background-color: #4CAF50;
-color: white;
-}
-</style>
 	<table>
 		<thead>
 						  <tr>
@@ -37,36 +41,17 @@ color: white;
 							<th class="head">Email</th>
 							<th class="head">Contact</th>
 							<th class="head">Date of Birth</th>
-							
+							<th class="head">Role</th>
+							<th  class ="head">Action</th>
 						  </tr>
 		</thead>
 		<tbody id="dtable">
 			</tbody>
 		</table>
-		
+		</div>
+		<div class="footer">
+			<h2>Rights Reserved</h2>
+		  </div>
 
 </body>
 </html>
-<script>
-	function call() {
-		debugger;
-'use strict';
-var get, create, text, i;
-get = localStorage.getItem("data_fields");
-create = JSON.parse(get);
-
-text = "";
-
-for (i = 0; i < create.length; i++) 
-{ 
-    text += "<tr>";
-    text += "<td>" + create[i].name+ "</td>";
-    text += "<td>" + create[i].email+ "</td>";
-    text += "<td>" + create[i].contact+ "</td>";
-    text += "<td>" + create[i].phno+ "</td></tr>";   
-
-}
-document.getElementById("dtable").innerHTML = text;
-
-}
-</script>

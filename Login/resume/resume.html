@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resume.css">
+    <script src=resume.js></script>
+</head>
+<body onload="open_load()">
+    <div class ="header">
+        
+       
+        <h1>Build your resume here!</h1>
+    </div>
+    <div class="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="#" class="right">LogOut</a>
+      
+    </div>
+   
+    <div class="row">
+       
+    
+    <div class="fakeimg" style="height:200px;"></div>
+    <p></p>
+    <h3></h3>
+    <p></p>
+    <div class="fakeimg" style="height:60px;"></div><br>
+    <div class="fakeimg" style="height:60px;"></div><br>
+    <div class="fakeimg" style="height:60px;"></div>
+      
+   
+    <div class ="main">
+        <div class ="container">
+            <div id="login-box">
+                <div class="left">
+           <form id ="info"  action="res.html" method="POST" >
+     
+           <label>NAME:</label>
+           <input name="val[]" class ="textbox" type="text" id="txt-name"/><br>  
+           <input type="hidden" name="key[]" value="name">
+
+           <label>HIGHEST QUALIFICATION:</label>
+           <input  name="val[]"class ="textbox" type ="text" id ="txt-qual"/><br>  
+           <input type="hidden" name="key[]" value="qual">
+           
+           <label>EMAIL:</label>
+           <input class ="textbox"  name="val[]" type="text" id="txt-email"/><br> 
+           <input type="hidden" name="key[]" value="email"> 
+           
+           <label >ADDRESS:</label>
+           <input class ="textarea" name="val[]"  type="textarea" id="txt-address"/><br>  
+           <input type="hidden" name="key[]" value="address">
+           
+           <label>PHONE NUMBER:</label>
+           <input class ="textbox"  name="val[]" type="text" id="txt-phno"/><br>  
+           <input type="hidden" name="key[]" value="phno">
+           
+           <label>EDUCATION:</label>
+           <input class ="textbox" name="val[]" type="text" id="txt-edu"/><br> 
+           <input type="hidden" name="key[]" value="edu">  
+           
+           <label >PROJECTS:</label>
+           <input class ="textbox" name="val[]" type="text" id="txt-projects"/><br>
+           <input type="hidden" name="key[]" value="pro">  
+           
+           <label >ACHIEVEMENTS:</label>
+           <input type="text" name="val[]" class ="textbox"  id="txt-achieve"/><br>
+           <input type="hidden" name="key[]" value="achieve">
+           
+           <label >ASSESMENTS/CERTIFICATES:</label>
+           <input  name="val[]"type="text" class ="textbox" id="txt-assesments"/><br>  
+           <input type="hidden" name="key[]" value="assess"> 
+           
+           <label >SEMINARS/TRAININGS/WORKSHOPS:</label>
+           <input name="val[]" class ="textbox"  type="text" id="txt-semi"/><br>   
+           <input type="hidden" name="key[]" value="semi">
+           
+           <label >EXTRA CURICULAR ACTIVITIES:</label>
+           <input name="val[]" class ="textbox"  type="text" id="txt-eca"/><br> 
+           <input type="hidden" name="key[]" value="extra">    
+           
+           <label >PERSONAL INTERESTS/HOBBIES:</label>
+           <input  name="val[]" class ="textbox" type="text" id="txt-pi"/><br>
+           <input type="hidden" name="key[]" value="personal">   
+           
+           <label >WEBLINKS:</label>
+           <input  name="val[]"type="text" id="txt-wl"class ="textbox"/><br> 
+           <input type="hidden" name="key[]" value="weblinks">  
+           
+           <label >PERSONAL DETAILS:</label>
+           <input  name="val[]" type="text" id="txt-pd"class ="textbox"/><br>  
+           <input type="hidden" name="key[]" value="pd">
+           
+           
+           <button type="submit" onclick="store()">Create Resume</button>
+           </form>
+        </div>
+       </div>
+     </div>
+
+</div>
+</div>
+<div class ="row"></div>
+<div class="footer">
+    <h6>Rights Reserved</h6>
+  </div>
+  
+    
+</body>
+</html>

@@ -1,0 +1,225 @@
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+
+  }
+  .header
+{
+    padding : 30px;
+    text-align: center;
+    background-color:cadetblue;
+    color: white;
+
+}
+#login-box {
+  
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 500px;
+  background:cadetblue;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+input[type="submit"]
+ {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background:tomato;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus 
+{
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active
+ {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+.body{
+    align-items: center;
+    background: #D8AA96;
+    color: $font-color;
+    display: grid;
+    font-family: $font-family;
+    font-size: 14px;
+    font-weight: 400;
+    height: 100vh;
+    justify-items: center;
+    weight: 100vw;
+}
+.res-container {
+  display: grid;
+  grid-template-areas: "left right";
+  max-width: 900px;
+}
+.right-container {
+    background: lighten($primary-bg-color, 5%);
+    display: grid;
+    grid-template-areas: "." ".";
+    width: 500px;
+}
+
+.navbar
+{
+    overflow:hidden;
+    background-color: darkcyan;
+    position:sticky;
+    position:-webkit-sticky;
+    top:0;
+    
+
+}
+.textbox { 
+    background: white; 
+    border: 1px solid #999; 
+    outline:0; 
+    height:25px; 
+    width: 275px; 
+  } 
+  .textarea{ 
+    background: white; 
+    border: 1px solid #999; 
+    outline:0; 
+    height:90px; 
+    width: 275px; 
+    
+  } 
+
+
+
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+.navbar a.active
+ {
+    background-color: #666;
+    color: white;
+  }
+  .navbar a:hover
+   {
+    background-color: #ddd;
+    color: black;
+  }
+  .navbar a.right 
+  {
+    float: right;
+  }
+  .row {  
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+  }
+
+
+
+  .right
+  {
+      position:absolute;
+      right:0px;
+      width:300px;
+      background-color:transparent;
+  }
+  
+  .side
+   {
+    -ms-flex: 30%; 
+        flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  #login-box {
+    position: relative;
+    margin: 5% auto;
+    width: 900px;
+    height: 800px;
+    background: radial-gradient(#f1f1f1,darkcyan);
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  }
+  .left
+ {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+input[type="submit"]
+ {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background:tomato;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+  
+  .main
+   {   
+    -ms-flex: 70%; 
+    flex: 70%;
+    background-color:lightgrey;
+    padding: 20px;
+  }
+  
+  .footer 
+  {
+    padding: 60px;
+    text-align: right;
+    background:silver;
+  }
+  @media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+  }
+  
+  
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+  .right .create
+ {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}

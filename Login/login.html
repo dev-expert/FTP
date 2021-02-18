@@ -14,17 +14,14 @@
           
           <input type="text" id="email" placeholder="E-mail"  />
           <input type="password" id="password" placeholder="Password" />
-          <select id="user_type" aria-placeholder="User Type" >
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-            <option value="Both">Both user and admin</option>
-           
-          </select>
+          
           <div id="remember">
             <input type="checkbox" value="lsRememberMe" id="rememberMe"
                    style="display: inline-block;">
             <label>Remember me</label>
         </div>
+        <input type="checkbox" onclick="Toggle()"> 
+        <sub>Show Password</sub>
           
           <input type="button" id="sbt-login" value="Login"  onclick="check()" /><br>
           

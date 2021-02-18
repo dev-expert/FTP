@@ -1,14 +1,4 @@
 
-/* function required(inputtxt ) 
-
-   {
-     if (inputtxt.value.length == 0)
-      { 
-         alert("Fileds are mandatory.");  	
-               } 
-      else 	
-      store(); 
-   }  */
 
 function check()
  {
@@ -74,10 +64,7 @@ function check()
     {
         alert("Signed Up as User");
     }
-    else if(type==="Both")
-    {
-        alert("Signed Up as both admin and user");
-    }
+   
     else
     {
         store();
@@ -88,7 +75,8 @@ function check()
     
 let data=[];
 function store()
-{
+{   var s=JSON.parse(localStorage.getItem("data_fields"));
+    
     
     var name= document.getElementById("name").value;
      var email= document.getElementById("email").value;
@@ -97,7 +85,20 @@ function store()
      var pwd= document.getElementById("password").value;
      var pwd1= document.getElementById("password2").value;
     var type=document.getElementById("user_type").value;
-  
+    if(s!=null)
+    {
+        
+        for(i=0;i<s.length;i++)
+        {
+          var q=s[i].email;
+        if(q===email)
+        {
+            alert("already a user.");
+            window.location.href = "file:///C:/Users/APPWRK/Documents/Login/register.html";
+        }
+    }
+}
+
 var data_fields={
     name:name,
     email:email,
@@ -119,3 +120,12 @@ function redirect()
 {
     window.location.href="file:///C:/Users/APPWRK/Documents/Login/login.html";
 }
+function Toggle() { 
+    var temp = document.getElementById("password"); 
+    if (temp.type === "password") { 
+        temp.type = "text"; 
+    } 
+    else { 
+        temp.type = "password"; 
+    } 
+} 
