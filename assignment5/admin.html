@@ -5,10 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css">
     <script src="admin.js"></script>
+    <script src="index.js"></script>
+    <script src="signup.js"></script>
 </head>
-<body>
+<body onload="myFunction()">
+  <div>
+
+    <p class="heading">Protfolio<span>.Com</span></p>
+</div>
+<div class="navDiv">
+
+    <ul>
+      <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="result.html">CV</a></li>
+        <li><a href="#contact">PROTFOLIO</a></li>
+        <li><a href="practice.html">Calculator</a></li>
+        <li><a href="list.html">URL</a></li>
+        <li><a href="admin.html" id="details" style="display: none;">USERS</a></li>
+
+
+      
+        <li style="float: right;"><a href="login.html" id="logout" style="display: none;"
+                onclick="logout()">LOGOUT</a></li>
+        <li style="float: right; color: black;"><label id="name"></label></li>
+        <li style="float: right;"><label>Welcome ,</label></li>
+
+    </ul>
+
+</div>
+
+
     <div class="tablediv" id="t01">
         <table style="width: 100%;" >
             <thead>

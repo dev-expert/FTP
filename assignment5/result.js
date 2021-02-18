@@ -1,6 +1,8 @@
 
-window.addEventListener('load', () => {
 
+
+window.addEventListener('load', () => {
+debugger;
 
     var value = JSON.parse(localStorage.getItem("User"));
     console.log(value);
@@ -13,7 +15,7 @@ window.addEventListener('load', () => {
         switch (key) {
 
             case "Name":
-                document.getElementById("name").innerHTML = value[key];
+                document.getElementById("username").innerHTML = value[key];
                 break;
             case "email":
                 document.getElementById("email").innerHTML = `<i class="fas fa-envelope-square"></i>  ` + value[key];
@@ -31,7 +33,7 @@ window.addEventListener('load', () => {
             case "image":
                 var str = value[key];
                 count=0;
-                var s="\\";
+                
                 var lastIndex = str.lastIndexOf("\\");
                 console.log(lastIndex);
                 var strslice=str.substr(lastIndex+1, str.length);
@@ -50,33 +52,44 @@ window.addEventListener('load', () => {
                 document.getElementById("High").innerHTML = value[key];
                 break;
 
-            case "Project1":
-                document.getElementById("P1").innerHTML = value[key];
+            case "Projects":
+
+                var alldata = JSON.parse(localStorage.getItem("User"));
+   
+                var projectdata=alldata["Projects"];
+                var keys = Object.keys(projectdata);
+                str="";
+                Project=[];
+                for(i=0;i<keys.length;i++){
+                    var value=projectdata[keys[i]];
+                    str = `<p>${value}</p>`;
+                    Project.push(str);
+                 
+                }
+                document.getElementById("Projects").innerHTML=Project.join('');
+                
                 break;
 
-            case "Project2":
-                document.getElementById("P2").innerHTML = value[key];
-                break;
-            case "Project3":
-                document.getElementById("P3").innerHTML = value[key];
-                break;
-            case "Project4":
-                document.getElementById("P4").innerHTML = value[key];
+           
+
+            case "Skills":
+            
+                var alldata = JSON.parse(localStorage.getItem("User"));
+   
+                var skilldata=alldata["Skills"];
+                var keys = Object.keys(skilldata);
+                str="";
+                skill=[];
+                for(i=0;i<keys.length;i++){
+                    var value=skilldata[keys[i]];
+                    str = `<p>${value}</p>`;
+                    skill.push(str);
+                 
+                }
+                document.getElementById("skill").innerHTML=skill.join('');
+                
                 break;
 
-            case "Skills1":
-                document.getElementById("1").innerHTML = value[key];
-                break;
-
-            case "Skills2":
-                document.getElementById("2").innerHTML = value[key];
-                break;
-            case "Skills3":
-                document.getElementById("3").innerHTML = value[key];
-                break;
-            case "Skills4":
-                document.getElementById("4").innerHTML = value[key];
-                break;
             
                 case "CM":
                     document.getElementById("CM").innerHTML = value[key];

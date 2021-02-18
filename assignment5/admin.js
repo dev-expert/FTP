@@ -21,7 +21,7 @@ url.forEach(element => {
         <tr>
         <td>${element.name}</td>
         <td>${element.email}</td>
-        <td>${admin}</td>
+        <td>${admin}</td> 
         <td><button type="button" onclick="deleteOnebyOne('${element.email}') "class="delete-btn">Delete</button></td>
       </tr>`
     }

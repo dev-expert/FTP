@@ -67,13 +67,13 @@ function check() {
 
             var checkbox = document.getElementById("adminCheck").checked;
             var arradmin = [];
-            var admin = { email: email, password: pass, isAdmin: checkbox };
+            var admin = { name: fname, email: email, password: pass, isAdmin: checkbox };
             arradmin.push(admin);
-            if (checkbox) {
-                localStorage.setItem("admin", JSON.stringify(arradmin)); //it will store the data in to local storage
-                alert("Signup Successfully");
-                document.getElementById("myform").reset(); //after submitting the form , form will be reset
-            }
+
+            localStorage.setItem("admin", JSON.stringify(arradmin)); //it will store the data in to local storage
+            alert("Signup Successfully");
+            document.getElementById("myform").reset(); //after submitting the form , form will be reset
+
         }
 
         else {
@@ -107,8 +107,6 @@ function check() {
             }
 
 
-
-
         }
 
 
@@ -119,7 +117,6 @@ function check() {
 
 
 function login() {
-
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
     var arradmin = JSON.parse(localStorage.getItem("admin"));
@@ -133,9 +130,18 @@ function login() {
 
 
                     alert("You successfully logged in");
-                    val = element.name;
-                    em = element.email;
-                    window.location.href = `index.html?uname=${val}&email=${em}`;
+
+
+
+                        var admin = { name: element.name, email: email, password: pass, isAdmin: element.isAdmin };
+                        
+
+                        localStorage.setItem("login", JSON.stringify(admin)); //it will store the data in to local storage
+
+
+
+                   
+                    window.location.href = `index.html?`;
 
                 }
                 else {
@@ -159,42 +165,35 @@ function data() {
     window.location.href = "admin.html";
 }
 function myFunction() {
-    var url = document.URL.indexOf("?");
-    var params = new Array();
-
-    if (url != -1) {
-        var pairs = document.URL.substring(url + 1, document.URL.length).split('&');
-
-
-        for (var i = 0; i < pairs.length; i++) {
-            nameVal = pairs[i].split('=');
-            params[nameVal[0]] = nameVal[1];
-        }
-
-    }
-    var name = params["uname"];
-    var email = params["email"];
     debugger;
+    let login =JSON.parse(localStorage.getItem("login"));
+    if(login==null){
+        window.location.href="login.html";
+    }
+    
+    var name = login["name"];
+    var isAdmin = login["isAdmin"];
+    // if (url != -1) {
+    //     var pairs = document.URL.substring(url + 1, document.URL.length).split('&');
 
 
-    if (name != undefined) {
+    //     for (var i = 0; i < pairs.length; i++) {
+    //         nameVal = pairs[i].split('=');
+    //         params[nameVal[0]] = nameVal[1];
+    //     }
+
+    // }
+
+
+    
         document.getElementById("name").innerText = name;
-    }
-    else {
-        window.location.href = "login.html";
-    }
-    var check = JSON.parse(localStorage.getItem("admin"));
-    count = 0;
-    check.forEach(element => {
-
-        if (element.email == email) {
-            if (element.isAdmin === true) {
-                count = count + 1;
-            }
+        var x = document.getElementById("logout");
+        if (x.style.display === "none") {
+            x.style.display = "block";
         }
-    })
 
-    if (count > 0) {
+
+    if (isAdmin==true) {
         var x = document.getElementById("details");
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -203,4 +202,8 @@ function myFunction() {
 
 
 
+}
+function logout(){
+    localStorage.removeItem("login");
+    window.location.href="login.html";
 }

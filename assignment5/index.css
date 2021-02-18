@@ -36,6 +36,8 @@ span{
     text-decoration: none;
     
   }
+  
+
   li label{
       padding: 10px;
       font-size: 20px;
@@ -49,12 +51,16 @@ span{
       display: flex;
       flex-wrap: wrap;
   }
+  li button{
+      margin-top: 10px;
+      font-size: 20px;
+  }
  
  .form1{
      min-width: 30%;
      background-color: white;
      border: 1px solid green;
-     min-height: 50vh;
+     min-height: 30vh;
      border-radius: 25px;
      color:#4CAF50;
      text-align: center;
@@ -62,6 +68,7 @@ span{
      margin-top: 20px;
      
      }
+  
      .marqueeDiv{
 background-color: red;
 
@@ -124,6 +131,7 @@ background-color: red;
      .LeftDiv3{
          min-width: 50%;
          color: black;
+         word-wrap: break-word;
      }
      .skills span{
          background-color: grey;
@@ -136,13 +144,16 @@ background-color: red;
      .leftDiv2{
         min-width: 50%;
         color:white;
+        word-wrap: break-word;
     }
     
     .rightDiv2{
         min-width: 50%;
+        word-wrap: break-word;
     }
     .rightDiv3{
         min-width: 50%;
+        word-wrap: break-word;
     }
     
     .Div1{
@@ -164,6 +175,7 @@ background-color: red;
     .leftDiv1{
         min-width: 80%;
         color:white;
+        word-wrap: break-word;
     }
     .rightDiv1{
         min-width: 20%;
@@ -228,17 +240,27 @@ background-color: red;
     #admincheck{
         width: 0%;
     }
-    table, th, td {
+    table, th {
         border: 1px solid black;
-        border-collapse: collapse;
+        
+        color: white;
+        font-size: 21px;
+        padding: 10px;
+        margin-top: 20px;
+      }
+        tr,td{
+         border: 1px solid black;
+        color: black;
+        font-size: 21px;
       }
       th{
-          background-color: darkcyan;
+          background-color: #4CAF50;
       }
       .tablediv{
           height: 100vh;
           display: flex;
           justify-content: center;
+
           
       }
       #t01 tr:nth-child(even) {
@@ -249,4 +271,14 @@ background-color: red;
       }
      #details{
          display: none;
+     }
+     .row{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+     #calform{
+        display: flex;
+        justify-content: center;
+        align-items: center;
      }
