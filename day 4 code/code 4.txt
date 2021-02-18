@@ -1,0 +1,20 @@
+<script>
+// Edit your script here
+var no = prompt("Enter the Number");
+var flag = 0,n = parseInt(no);
+var len = no.length;
+
+for(var i = 0;i<len;i++)
+{
+var q = parseInt(no.charAt(i));
+if(n%q == 0 && q !=0)
+{
+flag++;
+}
+
+}
+document.write(flag);
+
+
+</script>
+<!-- edit your html here -->

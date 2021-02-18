@@ -38,6 +38,15 @@
             <label>Repeat Password</label>
             <br>
             <input type="password" placeholder="Repeat Password" id="repass">
+            <br>
+
+            <br>
+            <label for="user1">Choose type of User:</label>
+            <select name="user1" id="user1" style="height: 25px;">
+                <option value="false">Normal User</option>
+                <option value="true">Admin</option>
+            </select>
+
             <br><br><br>
             <button onclick="window.location.href='login.html';">Login</button>
             <button id="submit" onclick="submitDetails()">Submit</button>
@@ -45,28 +54,33 @@
     </center>
 
     <script>
- 
+
         function submitDetails() {
             var name1 = document.getElementById("name").value;
             var email1 = document.getElementById("email").value;
             var number1 = document.getElementById("number").value;
             var password1 = document.getElementById("password").value;
             var repass1 = document.getElementById("repass").value;
-
-            var obj = { name: name1, number: number1, email: email1, password: password1 };
+            var a = document.getElementById("user1").value;
             
-            var old = JSON.parse(localStorage.getItem("person"));
+            var obj = { name: name1, number: number1, 
+                email: email1, password: password1,
+            Admin:a };
+
+            var old = JSON.parse(localStorage.getItem("person1"));
+
             if (!old) {
                 old = [];
             }
-            if(old.find(x=>x.email == email1))
-            {
+
+
+            if (old.find(x => x.email == email1)) {
                 alert("Present");
             }
-            else{
-            old.push(obj);
+            else {
+                old.push(obj);
             }
-            localStorage.setItem("person", JSON.stringify(old));
+            localStorage.setItem("person1", JSON.stringify(old));
         }
 
     </script>

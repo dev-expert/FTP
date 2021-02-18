@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="homeCSS.css">
+</head>
+
+<body onload="checkUser()" id="body1">
+
+
+    <div>
+
+        <ul>
+            <li><a href="./url/Ass 2/Ass2.html">URL</a></li>
+            <li><a href="./cv/form/form1.html">CV</a></li>
+            <li id="userData" style="display: none;"><a href="javascript:showUser()">User Data</a></li>
+            <li><a href="./calc/Javascript Calculator/index.html">Calculator</a></li>
+
+            <li style="float:right"><a class="active" onclick="logout()">Logout</a></li>
+        </ul>
+
+    </div>
+    <center>
+        <div id="table" style="display: none;">
+
+            <table id="myTable">
+                <tr style="background-color:#4CAF50">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Type of User</th>
+                    <th>Select</th>
+                </tr>
+                <tbody id="data">
+                </tbody>
+            </table><br>
+            <button onclick="deleteData()">Delete</button><br>
+        </div>
+
+            <div class="card" id="card">
+                <img src="img_avatar.png" alt="Avatar" style="width: 100%; height: 70%;">
+                <div class="container">
+                  <h4 id="username1"><b>John Doe</b></h4> 
+                  <p>Architect & Engineer</p> 
+                </div>
+
+        </div>
+    </center>
+</body>
+<script src="homeJS.js"> </script>
+
+</html>

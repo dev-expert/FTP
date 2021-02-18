@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Enter the Url to Add</label>
+    <br>
+    <input type="url" id="urlInput">
+    <br>
+    <br>
+    <button onclick="addUrl()">Add URL</button>
+    <br>
+    <br>
+    <button onclick="DeleteUrl()">Delete</button>
+    <br>
+    <label>URL are: </label>
+    <br>
+    <br>
+
+    <ul id="list"></ul>
+
+    <script>
+
+        let arr = [];
+        let i = 0;
+
+        let dearr = [];
+        let flag = 0;
+
+        function addUrl() {
+            var str = document.getElementById("urlInput").value;
+
+            if (str != "") {
+                var q = isValidUrl(str);
+                if (!q) {
+                    alert("Enter a valid URL ");
+                    return;
+                }
+            }
+            else {
+                alert("Enter URL ");
+                return;
+            }
+
+            if (arr.indexOf(str) < 0) {
+                arr[i++] = str;
+            }
+            else {
+                alert("Added");
+                return;
+            }
+
+
+            var ul = document.getElementById("list");
+            var li = document.createElement("li");
+
+            li.appendChild(document.createTextNode(str));
+
+            var checkbox = document.createElement("Input");
+            checkbox.setAttribute("type", "checkbox");
+            //checkbox.setAttribute("id","checkk");
+            //var c = document.getElementById("checkk");
+            /*if(c.check == true)
+            {
+                alert(str);
+            }*/
+
+            checkbox.addEventListener('click', function () {
+                //if (document.getElementsByClassName('ch').checked === true)
+                    //remove.push(ulist.node);
+                alert(str);
+            });
+
+            li.appendChild(checkbox);
+
+
+            var button = document.createElement("button");
+            button.innerHTML = "Delete";
+            button.addEventListener("click", function () {
+                /*var div = this.parentElement;
+                div.style.display = "none";
+                */
+                ul.removeChild(li);
+
+                var b = arr.indexOf(str);
+                alert(b);
+                arr.slice(b - 1, 1);
+            });
+
+            li.appendChild(button);
+            ul.appendChild(li);
+        }
+
+        /*function DeleteUrl()
+        {
+            dearr.forEach(z)
+            {
+                list.removeChild(z);
+            }
+        }
+        */
+
+
+
+        function isValidUrl(str) {
+            var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+            return pattern.test(str);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

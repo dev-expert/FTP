@@ -1,0 +1,25 @@
+<script>
+// Edit your script here
+var no = parseInt(prompt("Enter the no."));
+var arr = [],max = 0,min= 100000,sum = 0;
+ 
+for(var i = 0;i<no;i++)
+{
+arr[i] = parseInt(prompt("Enter the number"));
+if(arr[i]>max)
+max = arr[i];
+
+if(arr[i]<min)
+min = arr[i];
+
+sum +=arr[i];
+}
+
+document.write((sum - max)+" ");
+document.write((sum - min)+" ");
+
+
+
+
+</script>
+<!-- edit your html here -->

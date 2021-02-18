@@ -41,14 +41,16 @@
             var email1 = document.getElementById("email").value;
             var password1 = document.getElementById("password").value;
             
-            var person = JSON.parse(localStorage.getItem("person"));
+            var person = JSON.parse(localStorage.getItem("person1"));
             
             var q = person.find(x=>x.email == email1)
             
             if(password1 == q.password)
             {
-                alert(q.name);
+                localStorage.setItem("currUser",email1);
+                location.replace("home.html");
             }
+            
         }
         </script>
 </html>
