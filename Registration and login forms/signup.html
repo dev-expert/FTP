@@ -23,11 +23,11 @@
                 <a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a>
         </div>
         </header>
-    <form class="main">
+    <form action="login.html" class="main">
         <h1>SIGNUP FORM</h1><br>
-        Name<input type="text"  id = "name"><br><br>
-        Email: <input type="email" id = "email"><br><br>
-        password <input type="password" id = "password"><br><br>
+        Name<input type="text"  id = "name" required><br><br>
+        Email: <input type="email" id = "email" required><br><br>
+        password <input type="password" id = "password" required><br><br>
 
         Role:
         <select id="role">
@@ -37,7 +37,7 @@
         </select>
 
 
-        <button type="submit" onclick="student()"><a href="./login.html">Signup</a></button>
+        <button type="submit" onclick="student()">Signup</button>
 
     </form>
     <script>
