@@ -1,0 +1,108 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+   /*background-image: url("img8.png");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+  background-color: rgb(202, 213, 223);
+
+}
+
+/* new css */
+.form-coanitner{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.form-coanitner form{
+    padding: 50px;
+    background-color:rgb(148, 187, 209);
+    width: 100%;
+    max-width: 700px;
+    /* display: flex; */
+   box-shadow: -2px 10px 20px -4px rgba(181,172,181,1);
+    width: auto;
+
+}
+.fileds{
+    display: flex;
+}
+.input-cmn{
+    width: 50%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+input{
+    background-color: white;
+    border: 0px;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 10px;
+}
+::placeholder{
+    color:black;
+}
+
+.filed-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.field-col{
+    /* background-color: red; */
+    width: 50%;
+    margin-bottom: 15px;
+
+}
+.field-col label{
+    display: block;
+    font-weight: 800;
+}
+.usersills{
+    display: flex;
+}
+
+.usersills  input {
+    width: 25%;
+    margin-bottom: 10px;
+}
+
+#lang,#about,#edu,#acti{
+    font-weight: bold;
+}
+
+.certi{
+    display: flex;
+}
+
+.certi input{
+    width: 25%;
+}
+
+input::placeholder{
+    opacity: 50%;
+}
+
+input:focus{
+    transform: scale(1.1);
+}
+
+button{
+    padding: 15px;
+    width: 30%;
+    border-radius: 10px;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(34, 84, 150);
+    color: white;
+}
+
+button:hover{
+    background-color: teal;
+    transform: translate(20px);
+}

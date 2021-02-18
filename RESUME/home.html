@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scal
+    e=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="indx.js"></script>
+</head>
+
+<body background="img1.jpg">
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+
+                <input type="text" placeholder="USERNAME" id="x" />
+
+                <input type="password" id="a" placeholder="PASSWORD" />
+                <input type="password" id="b" placeholder="CONFORM PASSWORD" />
+                <input type="text" id="c" placeholder="EMAIL" />
+                <input type="text" id="d" placeholder="PHONE NUMBER" />
+
+
+
+
+                <div style="text-align: left;"><label for="text">CHOOSE:</label>
+
+                    <select name="text" id="e">
+                        <option value="true" id="admin">ADMIN</option>
+                        <option value="false" id="normal user">NORMAL USER</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" onclick="Register()">Create</button>
+                <p class="message">Already Registered?<a href="#">Login</a></p>
+
+            </form>
+            <form class="Login-form">
+                <input type="text" id="r" placeholder="EMAIL" />
+                <input type="password" id="f" placeholder="PASSWORD" />
+                <button onclick="Login()">Login</button>
+                <p class="message">Not Registered? <a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+    </script>
+    <script>
+        $('.message a').click(function () {
+            $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+        });
+    </script>
+</body>
+
+</html>

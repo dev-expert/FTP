@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="table.css">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(206, 102, 102);
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: whitesmoke;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: rgb(243, 194, 103);
+        }
+    </style>
+</head>
+
+<body onload="validateuser()" style="background-color: rgb(202, 213, 223);">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li style="float:right"><a class="active" href="javascript:logoff()">Log off</a></li>
+    </ul>
+    <table id="myTable1">
+        <tr style="background-color:rgb(38, 152, 197);">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Admin</th>
+
+            <th>Select</th>
+
+        </tr>
+        <tbody id="data1">
+        </tbody>
+    </table>
+    <div class="buttons">
+        <button onclick="display()">Show Table</button>
+        <!-- <button onclick="logoff()">Logoff</button> -->
+        <button onclick="deletetick(gettick('tickdata'))">Delete</button>
+    </div>
+
+</body>
+<script src="table1.js"></script>
+
+</html>
