@@ -10,22 +10,22 @@
 <body>
 <h1>Resume Building Form</h1> 
 <!-- Creating a Form -->
-<form>  
-    <div class = info> 
-<label ><h4>First Name :</h4> </label>
-<input type="text"  id="fname" required placeholder="First Name">
+<form action="main.html">  
+    <div class = info > 
+<label name><h4>First Name :</h4> </label>
+<input type="text"  id="fname" required placeholder="First Name" required>
 
 <label ><h4>Last Name :</h4> </label>
-<input type="text" name="" id="lname" required placeholder="Lastname">
+<input type="text" name="" id="lname" required placeholder="Lastname" required>
 <br><br>
 <break></break>
 
 
 <label ><h4>Role :</h4> </label>
-<input type="text" name="" id="role" required placeholder="role">
+<input type="text" name="role" id="role" required placeholder="role" required>
 
 <label ><h4>Bio :</h4> </label>
-<input type="text" name="" id="bio" required placeholder="bio">
+<input type="text" name="" id="bio" required placeholder="bio" required>
 
 <break></break>
 
@@ -35,28 +35,28 @@
 
 
 <label ><h4>Email :</h4> </label>
-<input type="text" name="" id="email" required placeholder="Email">
+<input type="email" name="" id="email" required placeholder="Email" required>
 
 <label ><h4>Mobile :</h4> </label>
-<input type="text" name="" id="mobile" required placeholder="MObile number">
+<input type="text" name="" id="mobile" required placeholder="Mobile number" required>
 
 <break></break>
 
 
 <label ><h4>Linkedin :</h4> </label>
-<input type="text" name="" id="linkedin" required placeholder="Linkedin">
+<input type="text" name="" id="linkedin" required placeholder="Linkedin" required>
 
 <label ><h4>Location :</h4> </label>
-<input type="text" name="" id="loc2" required placeholder="Location">
+<input type="text" name="" id="loc2" required placeholder="Location" required>
 
 <break></break>
 
 
  <label ><h4>Github :</h4> </label>
-<input type="text" name="" id="github" required placeholder="Github">
+<input type="text" name="" id="github" required placeholder="Github" required>
 
 <label ><h4>Instagram :</h4> </label>
-<input type="text" name="" id="instagram" required placeholder="Instagram">
+<input type="text" name="" id="instagram" required placeholder="Instagram" required>
 
 
     </div>
@@ -77,10 +77,10 @@
 
         <label ><h4> Institute Name:</h4> </label>
 
-         <input type="text" name="School" id="school1">
+         <input type="text" name="School" id="school1" required>
         <label ><h4>CGPA :</h4> </label>
 
-         <input type="number" name="cgpa1" id="cgpa1"><br>
+         <input type="number" name="cgpa1" id="cgpa1" required><br>
       
         </div>
         <div class="edu">
@@ -97,11 +97,11 @@
         <break></break>
 
         <label ><h4> Institute Name:</h4> </label>
-       <input type="text" name="School" id="school2">
+       <input type="text" name="School" id="school2" required>
 
        <label ><h4>CGPA :</h4> </label>
 
-       <input type="number" name="cgpa2" id="cgpa2"><br>
+       <input type="number" name="cgpa2" id="cgpa2" required><br>
 
        
     </div> 
@@ -118,11 +118,11 @@
         <break></break>
 
         <label ><h4> Institute Name:</h4> </label>
-       <input type="text" name="School" id="school3">
+       <input type="text" name="School" id="school3" required>
 
        <label ><h4>CGPA :</h4> </label>
 
-         <input type="number" name="cgpa3" id="cgpa3"><br>
+         <input type="number" name="cgpa3" id="cgpa3" required><br>
 
         </div> 
 
@@ -133,108 +133,109 @@
         <!-- <b>Projects</b><br> -->
         <label ><h4> Projects1:</h4> </label>
 
-        <input type="text"  id="pro1">
+        <input type="text"  id="pro1" required>
         <label><h4> Info:</h4> </label>
 
-         <input type="text"  id="pro12"><br>
+         <input type="text"  id="pro12" required><br>
         <break></break>
         <label ><h4> Projects2:</h4> </label>
 
-        <input type="text"  id="pro2">
+        <input type="text"  id="pro2" required>
         <label><h4> Info:</h4> </label>
 
-        <input type="text"  id="pro22"><br>
+        <input type="text"  id="pro22" required><br>
         <break></break>
         <label ><h4> Projects3:</h4> </label>
 
-        <input type="text"  id="pro3">
+        <input type="text"  id="pro3" required>
         <label><h4> Info:</h4> </label>
 
-      <input type="text"  id="pro32"><br>
+      <input type="text"  id="pro32" required><br>
     </div>
 
     <div class="skills">
        
         <label><h4> Skill1:</h4> </label>
-        <input type="text" id = "sk1">
+        <input type="text" id = "sk1" required>
         <label><h4> Skill2:</h4> </label>
 
-        <input type="text" id = "sk2">
+        <input type="text" id = "sk2" required>
         <break></break>
 
         <label><h4> Skill3:</h4> </label>
 
-        <input type="text" id = "sk3"><br>
+        <input type="text" id = "sk3"><br required>
         <label><h4> Skill4:</h4> </label>
-        <input type="text" id = "sk4">
+        <input type="text" id = "sk4" required>
         <break></break>
 
         <label><h4> Skill5:</h4> </label>
-        <input type="text" id = "sk5">
+        <input type="text" id = "sk5" required>
         <label><h4> Skill6:</h4> </label>
-        <input type="text" id = "sk6"><br><br>
+        <input type="text" id = "sk6" required><br><br>
 </div>
         <div class="ach">
         <label><h4>Achievement 1 : </h4> </label>
-        <input type="text" id="ac1">
+        <input type="text" id="ac1" required> 
 
         <label><h4>Achievement 2 : </h4> </label>
-        <input type="text" id="ac2">
+        <input type="text" id="ac2" required>
         <break></break>
 
         <label><h4>Achievement 3 : </h4> </label>
-        <input type="text" id="ac3"><br><br>
+        <input type="text" id="ac3" required><br><br>
     </div>
 
     <div class="org">
         <label><h4>Organisation 1 : </h4> </label>
 
-         <input type="text" id="o1">
+         <input type="text" id="o1" required>
 
          <label><h4>Organisation 2 :</h4> </label>
 
-         <input type="text" id="o2"><br>
+         <input type="text" id="o2" required><br>
     </div>
 
     <div class="cer">
-        <label><h4>CERTIFICATE 1 :</h4> </label>
+        <label><h4>CERTIFICATE 1:</h4> </label>
 
-         <input type="text" id="c1">
+         <input type="text" id="c1" required>
+
          <label><h4>CERTIFICATE 2:</h4> </label>
-        <input type="text" id="c2">
+        <input type="text" id="c2" required>
         <break></break>
 
         <label><h4>CERTIFICATE 3 :</h4> </label>
 
-       <input type="text" id="c3"><br><br>
+       <input type="text" id="c3" required><br><br>
 
     </div>
 
     <div class="lang">
         <label><h4>Language 1 : </h4> </label>
-        <input type="text" id="l1">
+        <input type="text" id="l1" required>
         <label><h4>Language 2 : </h4> </label>
-        <input type="text" id="l2">
+        <input type="text" id="l2" required>
         <break></break>
         <label><h4>Language 3 : </h4> </label>
-        <input type="text" id="l3">
+        <input type="text" id="l3" required>
         <label><h4>Language 4 : </h4> </label>
-        <input type="text" id="l4"><br><br>
+        <input type="text" id="l4" required><br><br>
     </div>
     <div class="hob">
         <label><h4> Hobbie 1 : </h4> </label>
-        <input type="text" id="h1">
+        <input type="text" id="h1" required>
         <label><h4> Hobbie 2 : </h4> </label>
-         <input type="text" id="h2">
+         <input type="text" id="h2" required>
          <break></break>
         <label><h4> Hobbie 3 : </h4> </label>
-        <input type="text" id="h3">
+        <input type="text" id="h3" required>
         <label><h4> Hobbie 4 : </h4> </label>
-      <input type="text" id="h4"><br><br>
+      <input type="text" id="h4" required> <br><br>
     </div>
 
 
-        <button type="submit" value="submit" onclick="add()"><a href="main.html">Submit</a></button>
+        <button type="submit" value="submit" onclick="add()"> Submit</button>
 
     </form>
     <script src="resume.js"></script>
