@@ -1,3 +1,19 @@
+// COMBINED FUNCTION TO HIDE AND GENERATE THE FROM
+function hide_generate(){
+  hide()
+  generate()
+}
+
+
+// FUNCTION TO HIDE THE INPUT FORM
+function hide() {
+  var x = document.getElementById("form");
+  x.style.display = 'none';
+  document.getElementById("resume_preview").style.display = "block";
+}
+
+
+// FUNCTION TO GENERATE THE FORM
 function generate() {
 
   document.getElementById("name_out").innerHTML = document.getElementById("name_in").value;
@@ -5,14 +21,17 @@ function generate() {
   document.getElementById("call_num_out").innerHTML = document.getElementById("phone_in").value;
   document.getElementById("gmail_id_out").innerHTML = document.getElementById("mail_in").value;
   document.getElementById("linkedin_out").innerHTML = document.getElementById("linkedin_in").value;
-  document.getElementById("experience_out").innerHTML = document.getElementById("experience_in").value + " Years Intern";
+  document.getElementById("experience_out").innerHTML = document.getElementById("experience_in").value + "Month Intern";
   document.getElementById("age_out").innerHTML = document.getElementById("age_in").value;
   document.getElementById("about_out").innerHTML = document.getElementById("about_in").value;
 
 
-  document.getElementById("bachelor_college_out").innerHTML = document.getElementById("bachelor_college_in").value;
-  document.getElementById("senior_secondry_college_out").innerHTML = document.getElementById("senior_secondry_college_in").value;
-  document.getElementById("matriculation_college_out").innerHTML = document.getElementById("matriculation_college_in").value;
+  document.getElementById("bachelor_college_name_out").innerHTML = document.getElementById("bachelor_college_name_in").value;
+  document.getElementById("bachelors_marks_out").innerHTML = document.getElementById("bachelors_marks_in").value +"CGPA";
+  document.getElementById("senior_secondry_college_name_out").innerHTML = document.getElementById("senior_secondry_college_name_in").value;
+  document.getElementById("senior_secondrys_marks_out").innerHTML = document.getElementById("senior_secondrys_marks_in").value +"%";
+  document.getElementById("matriculation_college_name_out").innerHTML = document.getElementById("matriculation_college_name_in").value;
+  document.getElementById("matriculations_marks_out").innerHTML = document.getElementById("matriculations_marks_in").value +"%";
 
 
   document.getElementById("quali_out_1").innerHTML = document.getElementById("quali_1").value;

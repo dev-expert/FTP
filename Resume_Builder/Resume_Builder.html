@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume_builder_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
-    <script src="script.js"></script>
+    <script src="resume_builder_script.js"></script>
 </head>
 
 <body>
-    <!-- Form Section -->
+    <!-- FORM INPUT SECTION -->
     <form id="form">
         <div class="basic">
 
@@ -259,12 +259,12 @@
         <br>
         <div class="button">
             <button id="reset" class="reset_button" type="reset">Reset</button>
-            <button id="submit" class="submit_button" type="button" onclick="generate()">Submit</button>
+            <button id="submit" class="submit_button" type="button" onclick="hide_generate()">Submit</button>
         </div>
 
     </form>
-
-    <section id="resume_preview">
+    <!-- RESUME SECTION -->
+    <form id="resume_preview" style="display: none;">
         <div class="basic_out" style="margin: 10%; font-size: 20px;">
             <div class="one_out">
                 <div id=""><img src="Akash_Sharma.PNG" id="image_out"></div>
@@ -482,9 +482,7 @@
                 </div>
             </div>
         </div>
-
-
-    </section>
+    </form>
     <script>
         var loadFile = function (event) {
             var image = document.getElementById('image_out');

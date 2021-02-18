@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume_builder_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder</title>
-    <script src="script.js"></script>
+    <script src="resume_builder_script.js"></script>
 </head>
 
 <body>
-    <!-- Form Section -->
+    <!-- FORM INPUT SECTION -->
     <form id="form">
         <div class="basic">
 
@@ -52,7 +52,7 @@
             </div>
 
             <div class="experience">
-                <p id="experience_txt">Experience (in Years)</p>
+                <p id="experience_txt">Experience (in Months)</p>
                 <input id="experience_in" type="number"> <br>
             </div>
 
@@ -81,17 +81,23 @@
 
             <div class="bachelor">
                 <p id="bachelor_college_txt">Bachelor's Collge/University's Name</p>
-                <input id="bachelor_college_in">
+                <input id="bachelor_college_name_in">
+                <p id="bachelors_marks_text">Bachelor's Marks (In CGPA)</p>
+                <input id="bachelors_marks_in">
             </div>
 
             <div class="twelveth">
                 <p id="senior_secondry_college_txt">Senior Secondry Institute's Name</p>
-                <input id="senior_secondry_college_in">
+                <input id="senior_secondry_college_name_in">
+                <p id="senior_secondrys_marks_text">Senior Secondry's Marks (In Percentage)</p>
+                <input id="senior_secondrys_marks_in">
             </div>
 
             <div class="tenth">
                 <p id="matriculation_college_txt">Matriculation Institute's Name</p>
-                <input id="matriculation_college_in">
+                <input id="matriculation_college_name_in">
+                <p id="matriculations_marks_text">Matriculation's Marks (In Percentage)</p>
+                <input id="matriculations_marks_in">
             </div>
         </div>
 
@@ -205,7 +211,7 @@
 
         <div class="interest">
             <div id="interest_desc">
-                <h4>Interests</h4>
+                <h4> Personal Interests</h4>
             </div>
 
             <p id="interest_txt">Hobbies</p>
@@ -259,12 +265,12 @@
         <br>
         <div class="button">
             <button id="reset" class="reset_button" type="reset">Reset</button>
-            <button id="submit" class="submit_button" type="button" onclick="generate()">Submit</button>
+            <button id="submit" class="submit_button" type="button" onclick="hide_generate()">Submit</button>
         </div>
 
     </form>
-
-    <section id="resume_preview">
+    <!-- RESUME SECTION -->
+    <form id="resume_preview" style="display: none;">
         <div class="basic_out" style="margin: 10%; font-size: 20px;">
             <div class="one_out">
                 <div id=""><img src="Akash_Sharma.PNG" id="image_out"></div>
@@ -320,39 +326,39 @@
                 <div id="bachelor_edu_out">
                     <div id="bachelor_edu_name_out">
                         <span><b>Bachelor Technology</b></span><br>
-                        <span id="bachelor_college_out">GNA University</span><br>
+                        <span id="bachelor_college_name_out">GNA University</span><br>
                         <span>Phagwara, Punjab</span><br>
                     </div>
 
                     <div id="bachelor_edu_status_out">
                         <span>Pursuing, July 2021</span><br>
-                        <span>6.8 CGPA</span><br>
+                        <span id="bachelors_marks_out">6.8 CGPA</span><br>
                     </div>
                 </div>
 
                 <div id="twelve_edu_out">
                     <div id="tweleve_edu_name_out">
                         <span><b>10+2</b></span><br>
-                        <span id="senior_secondry_college_out">T.W.E.I.Sr.Sec School</span><br>
+                        <span id="senior_secondry_college_name_out">T.W.E.I.Sr.Sec School</span><br>
                         <span>Phagwara, Punjab</span><br>
                     </div>
 
                     <div id="twelve_edu_status_out">
                         <span>Graduated, March 2017</span><br>
-                        <span>69%</span><br>
+                        <span id="senior_secondrys_marks_out">69%</span><br>
                     </div>
                 </div>
 
                 <div id="ten_edu_out">
                     <div id="ten_edu_name_out">
                         <span><b>10</b></span><br>
-                        <span id="matriculation_college_out">T.W.E.I.Sr.Sec School</span><br>
+                        <span id="matriculation_college_name_out">T.W.E.I.Sr.Sec School</span><br>
                         <span>Phagwara, Punjab</span><br>
                     </div>
 
-                    <div id="bachelor_edu_status_out">
+                    <div id="ten_edu_status_out">
                         <span>Graduated, June 2015</span><br>
-                        <span>82.63%</span><br>
+                        <span id="matriculations_marks_out">82.63%</span><br>
                     </div>
                 </div>
             </div>
@@ -447,7 +453,7 @@
 
         <div class="interest_out">
             <img id="interest_logo_out" src="interest.png" alt="interest">
-            <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Interests</h4>
+            <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;"> Personal Interests</h4>
             <div id="interest_text_out" style="font-size: 20px;">
                 <ul style="margin: 3%;">
                     <div style="display: block; margin: auto;">
@@ -482,9 +488,7 @@
                 </div>
             </div>
         </div>
-
-
-    </section>
+    </form>
     <script>
         var loadFile = function (event) {
             var image = document.getElementById('image_out');

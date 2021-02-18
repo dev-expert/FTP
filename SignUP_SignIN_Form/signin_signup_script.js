@@ -4,8 +4,6 @@ function hide() {
   document.getElementById("signup_form").style.display = "block";
 }
 
-
-
 // SIGN IN AND VALIDATION
 let AllUsers = [];
 function setAction() {
@@ -33,17 +31,18 @@ function setAction() {
   var q = keys.find(x => x.email == email, y => x.password == password)
 
   if (email === q.email && password === q.password && q.usertype === "true") {
-    alert("WELCOME ADMIN");
-    window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/admin_view.html");
+    alert("Welcome ADMIN");
+    localStorage.setItem("firewall" ,"1");
+    window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/dashboard.html");
   }
 
   if (email === q.email && password === q.password && q.usertype === "false") {
-    alert("WELCOME USER");
-    window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/Resume_Builder.html");
+    alert("Welcome USER");
+    window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/resume_builder.html");
   }
 
   if (email !== q.email && password !== q.password) {
-    alert("ENTER CORRECT CREDENTIALS");
+    alert("Enter CORRECT CREDENTIALS");
   }
 }
 

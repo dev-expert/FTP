@@ -1,3 +1,19 @@
+// COMBINED FUNCTION TO HIDE AND GENERATE THE FROM
+function hide_generate(){
+  hide()
+  generate()
+}
+
+
+// FUNCTION TO HIDE THE INPUT FORM
+function hide() {
+  var x = document.getElementById("form");
+  x.style.display = 'none';
+  document.getElementById("resume_preview").style.display = "block";
+}
+
+
+// FUNCTION TO GENERATE THE FORM
 function generate() {
 
   document.getElementById("name_out").innerHTML = document.getElementById("name_in").value;

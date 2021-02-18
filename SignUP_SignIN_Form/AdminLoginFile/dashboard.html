@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DashBoard</title>
+  <link rel="stylesheet" href="dashboard_style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="dashboard_script.js"></script>
+</head>
+
+<body id="body_body">
+  <header class="header_portion">
+    <div class="uppernav">
+      <ul class="upper_nav_bar_ul">
+        <li class="upper_nav_bar_li"><a style="cursor: pointer;" onclick="delFireWall()">LOGOUT</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="sidenav">
+    <a style="cursor: pointer;" onclick="database()">LIST OF USERS</a>
+    <a href="#">SAMPLE WEBSITE</a>
+  </div>
+
+  <div class="main_area" id="main_area" style="display: none;">
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non cumque harum obcaecati earum debitis incidunt in
+    accusantium sunt tenetur nam quas laborum voluptatem sit fuga est, id aperiam minima.
+
+  </div>
+
+  <table id="table" style="display: none;">
+    <tr>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>User Type</th>
+      <th>Select</th>
+      <th>Delete</th>
+    </tr>
+    <tbody id="table_data"></tbody>
+  </table>
+
+</body>
+
+</html>
