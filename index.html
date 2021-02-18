@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>Login form design</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+    <div class="element"></div>
+	<div class="loginbox" id="loginbox" style="display: block;">
+	<img src="logo.jpg" class="logo">
+	<h5 class="log">LOGIN</h1>
+	<form class="user">
+		<li style="display: flex; align-items: center;">                  
+			<!-- <div class="user_id">Username</div> -->
+			<div class="box">
+				<input type="text" id="usernamelog"  placeholder="Username" style="width: 100px; height: 10px; border-radius:5px; margin-left: 5px;">
+			</div>
+			</li>
+			<li style="display: flex; align-items: center;">
+                                
+				<!-- <div class="user_id">Password</div> -->
+				<div class="box">
+					<input type="password" id="passwordlog" placeholder="Password"style="width: 100px; height: 10px; border-radius:5px;  margin-left: 5px">
+				</div>
+				</li>		
+				<button class="glow-on-hover" onclick="myfunction()" type="button">Log in</button>	
+				<div>
+			    <a class="onClick" onclick="onClick()" style="color:rgb(199, 181, 184);font-size:10px;margin-left: 68px;">Not a member?Sign up now</a>
+			</div>
+	</form>
+	</div>
+	<div class="signupbox" id="signupbox" >
+		<img src="logo.jpg" class="logo">
+		<h5 class="log">SIGNUP</h1>
+		<form class="user">
+			<li style="display: flex; align-items: center;">
+				<div class="box">
+					<input type="text" id="username"  placeholder="Username" style="width: 100px; height: 10px; border-radius:5px; margin-left: 5px;">
+				</div>
+				</li>
+				<li style="display: flex; align-items: center;">
+					<div class="box">
+						<input type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="email" placeholder="Email" required style="width: 100px; height: 10px; border-radius:5px;  margin-left: 5px" >
+					</div>
+					</li>	
+				<li style="display: flex; align-items: center;">
+					<div class="box">
+						<input type="password" id="password" placeholder="Password" style="width: 100px; height: 10px; border-radius:5px;  margin-left: 5px" 
+						 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+					</div>
+					</li>	
+					<div>
+					<input type="checkbox" id="isAdmin" name="isAdmin" style="width: 10px; height: 8px;  margin-left:80px" >	
+					<label for="isAdmin" style="width: 10px; height: 10px; font-size: 10px;">Is Admin</label><br>	
+					</div >		
+					<button class="glow-on-hover" onclick="onClickSignupbutton()" type="button">Sign Up</button>
+					<div>
+					<a class="onClick" onclick="onClickSignup()" style="color:rgb(199, 181, 184);font-size:10px;">Already member?Sign in now</a>
+					</div>
+
+		</form>
+		</div>
+		<div id="welcomebox" class="welcomebox" >
+			<img src="logo.jpg" class="logo">
+			<div class="loader">Loading...</div>						
+		</div>
+		</form>
+
+<script>
+	function onClickSignup()
+	{
+		document.getElementById("signupbox").style.display="none";
+		document.getElementById("welcomebox").style.display="block";
+		setTimeout(function () {
+			document.getElementById('welcomebox').style.display='none';
+			var x=document.getElementById("loginbox").style.display="block"}, 2000);
+	}
+	function onClick(){
+		document.getElementById("loginbox").style.display = "none";
+		document.getElementById("welcomebox").style.display="block";
+		setTimeout(function () {
+			document.getElementById('welcomebox').style.display='none';
+			var x=document.getElementById("signupbox").style.display = "block"}, 2000);
+	
+	}
+	function onClickSignupbutton(){
+	
+        if(document.getElementById("isAdmin").checked)
+		{
+			
+			let name= document.getElementById("username").value;
+			var emaild=document.getElementById("email").value;
+			var passworde=document.getElementById("password").value;
+			if (localStorage.getItem("AdminId") === null) {
+			var admin = {};
+			var items = [];
+			admin.items = items;
+			var item = {
+			"name":name,
+ 			"emailid": emaild,
+ 			"password": passworde,
+			 "isadmin":true
+				}   
+				admin.items.push(item);
+			}
+			else
+			{	
+			var admin = JSON.parse(localStorage.getItem("AdminId"));
+			var item = {
+			"name":name,
+ 			"emailid": emaild,
+ 			"password": passworde,
+			 "isadmin":true
+				}  
+				
+				admin.items.push(item);	
+				
+			}
+			localStorage.setItem('AdminId', JSON.stringify(admin))		
+}   
+else{
+			var name= document.getElementById("username").value;
+			var emaild=document.getElementById("email").value;
+			var passworde=document.getElementById("password").value;
+			if (localStorage.getItem("AdminId") === null) {
+			var admin = {};
+			var items = [];
+			admin.items = items;
+			var item = {
+			"name":name,
+ 			"emailid": emaild,
+ 			"password": passworde,
+			 "isadmin":false
+				}   
+				admin.items.push(item);
+			}
+			else
+			{
+			var admin = JSON.parse(localStorage.getItem("AdminId"));
+			var item = {
+			"name":name,
+ 			"emailid": emaild,
+ 			"password": passworde,
+			 "isadmin":false
+				}   
+				admin.items.push(item);
+			}
+			localStorage.setItem('AdminId', JSON.stringify(admin));
+		}
+
+		
+              document.getElementById("username").value="";
+			  document.getElementById("email").value="";
+			  document.getElementById("password").value="";
+	}
+function myfunction(){
+var user = document.getElementById("usernamelog").value;
+var password = document.getElementById("passwordlog").value;
+var arr= [];
+arr=JSON.parse(localStorage.getItem('AdminId'));
+document.getElementById("usernamelog").value="";
+document.getElementById("passwordlog").value="";
+for(var i=0;i<arr.items.length;i++)
+{ 
+	
+	i=parseInt(i);
+    if(user==(arr.items[i]["name"]) && password==(arr.items[i]["password"]))
+	{
+		if(arr.items[i]["isadmin"])
+		{
+			if (localStorage.getItem("AdminDetail") === null) {
+			var admin = {};
+			var items = [];
+			admin.items = items;
+			var item = {
+			"name":user,
+ 			"password": password,
+			 "isadmin":true
+				}   
+				admin.items.push(item);
+			}
+			else
+			{	
+			var admin = JSON.parse(localStorage.getItem("AdminDetail"));
+			var item = {
+			"name":user,
+ 			"password": password,
+			 "isadmin":true
+				}  
+				admin.items.push(item);	
+			}
+			localStorage.setItem('AdminDetail', JSON.stringify(admin));
+			alert("Login as Admin");
+			window.location.href=("admin.html")
+			return;
+		}
+		else{
+			alert("Login as User");
+			window.location.href=("user.html")
+		     return;	
+		}	
+	}
+}
+alert('Username or password is invalid');	
+}
+</script>
+</body>
+</html>
+
+
