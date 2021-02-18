@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+
+        body{
+            background-color: aqua;
+
+        }
+
+        #main{
+            width: 50vw;
+            height: 50vh;   
+            padding: 40px;
+        }
+
+        #first, #second{
+            width: 100%;
+            height: 40px;
+            border-radius: 10px ;
+        }
+
+        button{
+            width: 20%;
+            height: 40px;
+            border-radius: 10px;
+            margin: 2%;
+        }
+
+        
+    </style>
+
+
+
+    <script>
+        function sum(flag){
+            var result;
+
+            var num1 = parseInt(document.getElementById("first").value);
+            var num2 = parseInt(document.getElementById("second").value);
+
+            if(document.getElementById("first").value == "" || document.getElementById("first").value == ""){
+                alert("Empty Input");
+            }
+
+            else{
+
+                if(flag == 1)
+                    result = num1 + num2;
+
+                else if(flag == 2){
+                    if(num1<num2){
+                        alert("Calculation Not possible"); 
+                        result = 'Not Possible'
+                    }
+
+                    else
+                        result = num1 - num2;
+                }
+
+                else if(flag == 3){
+                    if(num1<num2){
+                        alert("Calculation Not possible");
+                        result = 'Not Possible'
+                    }
+
+                    else
+                        result = num1 * num2;
+                }
+
+                else if(flag == 4){
+                    if(num1<num2){
+                        alert("Calculation Not possible");
+                        result = 'Not Possible'}
+                    else
+                        result = num1 / num2;
+                }
+            }
+                
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+</head>
+<body>
+        <div id="main">
+            <p id="firstText">Enter First Number : <br>
+            <input type="number" placeholder="First Number" id="first"/> </p>
+            <br>
+            <p id="secondText">Enter Second Number : <br>
+            <input type="number" placeholder="Second Number" id="second"/></p>
+            <br>
+            <p id="res">Result : <br>
+            <output id="result"></output></p>
+
+            <button id="add" onclick="sum(1)">Addition</button>
+            <button id="minus" onclick="sum(2)">Subtraction</button>
+            <button id="multiply" onclick="sum(3)">Multiply</button>
+            <button id="divide" onclick="sum(4)">Divide</button>
+        </div>
+</body>
+</html>

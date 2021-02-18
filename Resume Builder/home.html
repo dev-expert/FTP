@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+  <div class="login-page" id="loginpage">
+    <div class="form" id="form">
+      <form class="registerform" id="registerform">
+        <input type="text" id="nme" placeholder="name" required />
+        <input type="password" id="passwd" placeholder="password" required />
+        <input type="text" id="email" placeholder="email address" required />
+        <div style="display: flex; justify-content: space-evenly;">
+          <span>User</span>
+          <input type="checkbox" id="switch" class="checkbox" /> 
+          <label for="switch" id="toggle" class="toggle" onclick="adminView()"> </label>
+          <span>Admin</span>
+        </div> <br>
+        <button onclick="create()">create</button>
+        <!-- <p class="message">Already registered? <a href="#">Sign In</a></p> -->
+      </form>
+
+      <form class="loginform" id="loginform">
+        <input id="email_in" placeholder="email address" required />
+        <input type="password" id="passwd_in" placeholder="password" required />
+        <button onclick="login()">login</button>
+        <p class="message">Not registered? <a style="color: red" onclick="account()">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let admin = 0;
+    function adminView(){
+      if(admin == 0)
+        admin = 1;
+
+      else if(admin == 1)
+        admin = 0;
+    }
+
+    function create() {
+      
+      var flag = 0;
+      const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      email = document.getElementById("email").value;
+      if(re.test(String(email)) == true){
+         flag = 1;
+      }
+
+      else { }
+
+      if (flag == 1) {
+        var j = 0;
+
+        var nme = document.getElementById("nme").value;
+        var passwd = document.getElementById("passwd").value;
+        var email = document.getElementById("email").value;
+        
+        if (nme != "" && passwd != "" && email != "") {
+          if(admin == 0){
+            var users = {
+              nme: nme,
+              passwd: passwd,
+              email: email,
+              admin: admin,
+            };
+          }
+
+          else if(admin == 1){
+            var users = {
+              nme: nme,
+              passwd: passwd,
+              email: email,
+              admin: admin,
+            };
+          }
+
+          for (var i = 1; i <= localStorage.length; i++) {
+            if (localStorage.key(i) == email) {
+              var j = 1;
+            }
+          }
+
+          if (j == 1) {
+            alert("Users Exists");
+          }
+
+          else {
+            alert("Account Created successfully");
+            localStorage.setItem(email, JSON.stringify(users));
+          }
+        }
+
+        else
+          alert('Cannot enter empty values');
+      }
+
+      else
+        alert("Enter Valid email address");
+    }
+
+    function account() {
+      var x = document.getElementById("loginform");
+      x.innerHTML = " ";
+      document.getElementById("registerform").style.display = "block";
+    }
+
+    function login() {
+      var temp = -1;
+      var email = document.getElementById("email_in").value;
+      var passwd = document.getElementById("passwd_in").value;
+      for (var i = 0; i <= localStorage.length; i++) {
+        if (localStorage.key(i) == email)
+          var temp = parseInt(i);
+      }
+
+      if (temp == -1)
+        alert("User Doesn't Exist....!!!!");
+
+
+      else {
+        var user = JSON.parse(localStorage.getItem(localStorage.key(temp)));
+
+        if (user.email == email && user.passwd == passwd && user.admin == 1) {
+          localStorage.setItem("fireWall", "1");
+          window.open("admin.html");
+        }
+
+        else {
+          if (user.email == email && user.passwd == passwd && user.admin == 0) {
+          localStorage.setItem("fireWall", "1");
+            window.open("index.html");
+          }
+
+          else {
+            alert("Wrong Password");
+          }
+        }
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

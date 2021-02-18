@@ -1,0 +1,16 @@
+body{
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    margin: 20px;
+    width: 40vw;
+    height: 5vh;
+}
+
+h1{
+    text-align: center;
+}
