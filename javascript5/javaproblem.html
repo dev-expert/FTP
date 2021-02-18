@@ -10,32 +10,33 @@
             let n = parseInt(prompt("Enter the no"));
 for(i=0;i<n;i++)
 {
-  for(j=0;j<=i;j++)
-  {
-    x=65+i-j;
-    document.write(String.fromCharCode(x))
-  }
-  for(j=0;j<i;j++)
-  {
-    x=66+j;
-    document.write(String.fromCharCode(x))
-  }
-  document.write("<br>");
+    for(j=0;j<=i;j++)
+    {
+        x=65+i-j;
+        document.write(String.fromCharCode(x));
+    }
+    for(j=1;j<=i;j++)
+    {
+        x=66+i-j;
+        document.write(String.fromCharCode(x));
+    }
+    document.write("<br>");
 }
 for(i=n-2;i>=0;i--)
 {
-  for(j=0;j<=i;j++)
-  {
-    x=65+i-j;
-    document.write(String.fromCharCode(x))
-  }
-  for(j=0;j<i;j++)
-  {
-    x=66+j;
-    document.write(String.fromCharCode(x))
-  }
-  document.write("<br>");
+    for(j=0;j<=i;j++)
+    {
+        x=65+i-j;
+        document.write(String.fromCharCode(x));
+    }
+    for(j=1;j<=i;j++)
+    {
+        x=66+i-j;
+        document.write(String.fromCharCode(x));
+    }
+    document.write("<br>");
 }
+
     </script>
 </body>
 </html>
