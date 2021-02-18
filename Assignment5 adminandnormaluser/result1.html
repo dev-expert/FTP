@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <h1>Admin page</h1>   
+    <link rel="stylesheet" href="result1.css">
     
 
-    <a href="signin.html">back to login</a><br/><br/>
-    <a href="signup.html">register</a><br/><br/>
+    <!-- <a href="signin.html">back to login</a><br/><br/>
+    <a href="signup.html">register</a><br/><br/> -->
 </head>
 <body onload="checkUser()">
+    <ul>
+        <li><a class="active" href="assignment1.html">Calc</a></li>
+        <li><a href="assign2.html">Url</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="signin.html">Home</a></li>
+      </ul>
+      <h1>Users Data:</h1>
     <table id="myTable">
         <tr style="background-color:chocolate;">
             <th>FirstName</th>
@@ -25,6 +33,7 @@
         <tbody id="data">
             </tbody>
         </table>
+
         
         <script>
 
@@ -109,6 +118,7 @@
             }
             </script>
    <button onclick="deleteData()">Delete</button>
+   <button onclick="logout()">Logout</button>
    
 
 

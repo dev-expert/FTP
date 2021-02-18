@@ -6,6 +6,7 @@ function login1() {
    var q = person.find(x=>x.email == user)
    if(pass == q.password)
    {
+    
        window.open("result2.html")
        
    }
@@ -22,7 +23,9 @@ function login1() {
        var q = superuser.find(x=>x.email == user)
        if(pass == q.password)
        {
+           localStorage.setItem("currUser",user);
            window.open("result1.html")
+
            
        }
        else{
