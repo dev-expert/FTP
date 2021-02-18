@@ -1,6 +1,6 @@
 var arrayy=[];
 function storedata(){
-    
+    debugger;
     
     var formdata=document.forms.formmid;
     var formelements = new FormData(formdata);

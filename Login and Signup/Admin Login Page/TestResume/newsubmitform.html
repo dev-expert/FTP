@@ -10,7 +10,7 @@
 </head>
 
 <body>
-   <form action="resume.html" method="post" id="formmid">
+   <form action="resume.html" method="POST" id="formmid" onsubmit="return storedata()">
       <div class="wrapper">
          <div class="title">
             Resume Form
@@ -76,12 +76,12 @@
             </div>
             <div class="inputfield">
                <label>Course & cgpa</label>
-               <input type="text" class="input" name="collegecourse" required >
+               <input type="text" class="input" name="collegecourse" >
             </div>
 
             <div class="inputfield">
                <label>Date</label>
-               <input type="text" class="input" name="collegedate" required >
+               <input type="text" class="input" name="collegedate" >
             </div>
 
 
@@ -92,16 +92,16 @@
 
             <div class="inputfield">
                <label>School Name</label>
-               <input type="text" class="input" name="schoolname1" required>
+               <input type="text" class="input" name="schoolname1" >
             </div>
             <div class="inputfield">
                <label>Course</label>
-               <input type="text" class="input" name="schoolcourse1" required>
+               <input type="text" class="input" name="schoolcourse1" >
             </div>
 
             <div class="inputfield">
                <label>Date</label>
-               <input type="text" class="input" name="schooldate1" required>
+               <input type="text" class="input" name="schooldate1" >
             </div>
 
             <div class="inputfield">
@@ -111,16 +111,16 @@
 
             <div class="inputfield">
                <label>School Name</label>
-               <input type="text" class="input" name="schoolname" required>
+               <input type="text" class="input" name="schoolname" >
             </div>
             <div class="inputfield">
                <label>Course</label>
-               <input type="text" class="input" name="schoolcourse" required>
+               <input type="text" class="input" name="schoolcourse">
             </div>
 
             <div class="inputfield">
                <label>Date</label>
-               <input type="text" class="input" name="schooldate" required>
+               <input type="text" class="input" name="schooldate" >
             </div>
 
 
@@ -140,7 +140,7 @@
 
             <div class="inputfield">
                <label>Projectdate</label>
-               <input type="text" class="input" name="projectdate1" required>
+               <input type="text" class="input" name="projectdate1" >
             </div>
 
             <div class="inputfield">
@@ -170,7 +170,7 @@
             </div>
             <div class="inputfield">
                <label>Certificatedis</label>
-               <input type="text" class="input" name="Certidis1" maxlength="400px" required>
+               <input type="text" class="input" name="Certidis1" maxlength="400px" >
             </div>
 
             <div class="inputfield">
@@ -209,17 +209,17 @@
             </div>
             <div class="inputfield">
                <label>Skill 2.</label>
-               <input type="text" class="input" name="skill-2" required>
+               <input type="text" class="input" name="skill-2" >
             </div>
 
             <div class="inputfield">
                <label>Skill 3.</label>
-               <input type="text" class="input" name="skill-3" required>
+               <input type="text" class="input" name="skill-3" >
             </div>
 
             <div class="inputfield">
                <label>Skill 4.</label>
-               <input type="text" class="input" name="skill-4" required>
+               <input type="text" class="input" name="skill-4" >
             </div>
             <div class="inputfield">
                <label>Skill 5.</label>
@@ -250,16 +250,16 @@
 
             <div class="inputfield">
                <label>Hobbie 1</label>
-               <input type="text" class="input" name="Hobbi1" required>
+               <input type="text" class="input" name="Hobbi1" >
             </div>
             <div class="inputfield">
                <label>Hobbie 2</label>
-               <input type="text" class="input" name="Hobbi2" required >
+               <input type="text" class="input" name="Hobbi2" >
             </div>
 
             <div class="inputfield">
                <label>Hobbie 3</label>
-               <input type="text" class="input" name="Hobbi3" required>
+               <input type="text" class="input" name="Hobbi3" >
             </div>
 
 
@@ -290,7 +290,7 @@
           <p>Agreed to terms and conditions</p>
        </div>  -->
             <div class="inputfield">
-               <input type="submit" onclick="storedata()" value="Genrate Resume" class="btn">
+               <input type="submit" value="Genrate Resume" class="btn">
             </div>
          </div>
       </div>
