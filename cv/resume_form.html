@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <title>Register Form</title>
+    <link rel="stylesheet" href="resume_form.css">
+    <script src="resume_form.js"></script>
+  </head>
+  <body>
+    <form class="signup-form" action="display.html" onsubmit=" return store()" >
+     
+        <div class="form-header">
+        <h1>Build Your Resume Here!</h1>
+      </div>
+
+      
+      <div class="form-body">
+
+        <!-- Firstname and Lastname -->
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label for="firstname" class="label-title">First name *</label>
+            <input type="text" id="firstname" class="form-input" placeholder="enter your first name" required="required" />
+          </div>
+          <div class="form-group right">
+            <label for="lastname" class="label-title">Last name</label>
+            <input type="text" id="lastname" class="form-input" placeholder="enter your last name" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="email" class="label-title">Email*</label>
+              <input type="email" id="email" class="form-input" placeholder="enter your email" required="required">
+            </div>
+            <div class="form-group right">
+              <label for="phone_number" class="label-title">Phone Number*</label>
+              <input type="text" class="form-input" id="phone_number" placeholder="enter your phone number" required="required">
+            </div>
+          </div>
+
+        <!-- Address and web links -->
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label for="address" class="label-title">Address *</label>
+            <input type="text" id="address" class="form-input" placeholder="enter your address" required="required">
+          </div>
+          <div class="form-group right">
+            <label for="weblink" class="label-title">Weblink*</label>
+            <input type="url" class="form-input" id="weblink" placeholder="enter web link" required="required">
+          </div>
+        </div>
+
+        <!-- Gender and Hobbies -->
+        <div class="horizontal-group">
+          <!-- <div class="form-group left">
+            <label class="label-title">Gender:</label>
+            <div class="input-group">
+              <label for="male"><input type="radio" name="gender" value="male" id="male"> Male</label>
+              <label for="female"><input type="radio" name="gender" value="female" id="female"> Female</label>
+            </div>
+          </div> -->
+          
+          <div class="form-group right">
+            <div >
+                <label class="label-title">Hobbies:</label> 
+                <input type="text" id="hobbies" class="form-input" placeholder="Enter your hobbies." />
+            </div>
+          </div>
+        </div>
+
+        <!--highest Qualification and education  -->
+        <div class="horizontal-group">
+          <div class="form-group left" >
+            <label class="label-title">Highest Qualification</label>
+            <select class="form-input" id="level" >
+              <option value="G">Graduate</option>
+              <option value="P">Post-Graduate</option>
+              <option value="PS">Phd Scholar</option>
+            </select>
+          </div>
+          <div class="form-group right">
+            <label for="Education" class="label-title">Education:</label>
+            <input type="text" id="education" class="form-input" placeholder="Enter your current/last qualification." />
+          </div>
+        </div>
+         <!-- matriculate and 12th marks -->
+         <!-- <div class="horizontal-group">
+            <div class="form-group left" >
+              <label  for="makrs_10"class="label-title">10th Marks:</label>
+              <input type="text" id="obtained10" class="form-input" placeholder="Marks Obtained." />
+              
+              <input type="text" id="total10" class="form-input" placeholder="Total Marks."   />
+              
+              <input type="text" id="percent10" class="form-input" placeholder="%"  ondblclick="return cal();"/>
+            </div>
+            <div class="form-group right">
+              <label for="marks_12" class="label-title">12th Marks:</label>
+              <input type="text" id="obtained12" class="form-input" placeholder="Obtained Marks." />
+              
+              <input type="text" id="total12" class="form-input" placeholder="Total Marks" />
+              
+              <input type="text" id="percent12" class="form-input" placeholder="%"  ondblclick="return calc();" />
+            
+            </div>
+          </div> -->
+
+
+          <div class="horizontal-group">
+            <div class="form-group left" >
+              <label  for="graduation"class="label-title">Graduation:</label>
+              <input type="text" id="graduation" class="form-input" placeholder="Graduated in." />
+              
+              <input type="text" id="collegename" class="form-input" placeholder="College Name."   />
+              
+              <input type="number" id="marksg" class="form-input" placeholder="graduation %"  />
+            </div>
+            <div class="form-group right">
+              <label for="postgraduation" class="label-title">Post Graduation:</label>
+              <input type="text" id="postgrad" class="form-input" placeholder="college name" />
+              
+              <input type="text" id="college" class="form-input" placeholder="College Name" />
+              
+              <input type="number" id="marksp" class="form-input" placeholder="post graduate %"   />
+            
+            </div>
+          </div>
+
+      
+        <!-- Profile photograph and Date of birth -->
+        <div class="horizontal-group">
+          <div class="form-group left" >
+            
+            <label for="projects" class="label-title">Projects:</label>
+            <input type="text" id="projects" class ="form-input" placeholder="Enter your projects here.">
+          </div>
+          <div class="form-group right">
+            <label for="birth_date" class="label-title">Date of Birth:</label>
+            <input type="date" class="form-input" id="dob"/>
+          </div>
+        </div>
+        <!--key skills and -->
+
+        <div class="horizontal-group">
+          <div class="form-group left" >
+            <label for="skills" class="label-title">Skills:</label>
+            <input type="text" id="skills"  class="form-input" placeholder="Enter your key skills">
+          </div>
+          <!-- <div class="form-group right">
+            <label for="birth_date" class="label-title">Date of Birth</label>
+            <input type="date" class="form-input" id="dob">
+          </div> -->
+        </div>
+
+
+
+         <!-- Profile photograph and Date of birth -->
+         <div class="horizontal-group">
+          <div class="form-group right" >
+            <label for="choose-file" class="label-title">Upload Photograph:</label>
+            <input type="file" id="choose-file" size="80">
+          </div>
+          <!-- <div class="form-group right">
+            <label for="birth_date" class="label-title">Date of Birth</label>
+            <input type="date" class="form-input" id="dob">
+          </div> -->
+        </div>
+
+        <!-- Brief overview -->
+        <div class="form-group">
+          <label for="choose-file" class="label-title">Brief Overview/Career Objective:</label>
+          <textarea id="oview" class="form-input" rows="4" cols="50" style="height:auto"></textarea>
+        </div>
+      </div>
+
+      <!-- form-footer -->
+      <div class="form-footer">
+        <span>* required</span>
+        <input type="submit" class="btn" value="Create Resume"/>
+      </div>
+
+    </form>
+
+  
+
+  </body>
+</html>
