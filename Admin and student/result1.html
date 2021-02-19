@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>Admin page</h1>   
+    <link rel="stylesheet" href="result1.css">
+    
+
+    <!-- <a href="signin.html">back to login</a><br/><br/>
+    <a href="signup.html">register</a><br/><br/> -->
+</head>
+<body onload="checkUser()">
+    <ul>
+        <li><a class="active" href="assignment1.html">Calc</a></li>
+        <li><a href="assign2.html">Url</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="signin.html">Home</a></li>
+      </ul>
+      <h1>Users Data:</h1>
+    <table id="myTable">
+        <tr style="background-color:chocolate;">
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Number</th>
+        
+            
+            <th>Type of User</th>
+        </tr>
+        <tbody id="data">
+            </tbody>
+        </table>
+
+        
+        <script>
+
+            var obj = JSON.parse(localStorage.getItem("person"));
+            
+            var data = document.getElementById("data");
+            
+            let len = obj.length;
+            
+            for (var i = 0; i < len; i++) {
+               
+            
+                var row = data.insertRow(i);
+                var cell = row.insertCell(0);
+                cell.innerHTML = obj[i].firstname;
+
+                var cell = row.insertCell(1);
+                cell.innerHTML = obj[i].lastname;
+            
+                var cell1 = row.insertCell(2);
+                cell1.innerHTML = obj[i].email;
+            
+                var cell2 = row.insertCell(3);
+                cell2.innerHTML = obj[i].number;
+            
+                var cell3 = row.insertCell(4);
+
+                if (obj[i].superuser == "true")
+                    cell3.innerHTML = "superuser";
+            
+                else
+                    cell3.innerHTML = "NormalUser";
+            
+                var cell4 = row.insertCell(5);
+                
+            
+            
+                var checkbox = document.createElement("Input");
+                checkbox.setAttribute("type", "checkbox");
+                checkbox.setAttribute("name", "check");
+            
+                cell4.appendChild(checkbox);
+            }
+            
+             function checkUser()
+            {
+            //document.getElementById("body1").style.display= "none";
+            var email = localStorage.getItem("currUser");
+            if(!email)
+            {
+            location.replace("signin.html");
+            }
+            }
+
+            function logout()
+            {
+            localStorage.removeItem("currUser");
+            location.replace("signin.html");
+            }
+    
+            
+            function deleteData() {
+                
+                var table = document.getElementById("myTable");
+                var obj = JSON.parse(localStorage.getItem("person"));
+                
+            
+                var checkboxs = table.getElementsByTagName("Input");
+                
+                for (var i = 0; i < checkboxs.length; i++) {
+                    
+                    if (checkboxs[i].checked == true) {
+                        
+                        table.deleteRow(i+1);
+                        obj.splice(i,1);
+                        i--;
+                    }
+                }
+            
+                localStorage.setItem("person",JSON.stringify(obj));
+            
+            }
+            </script>
+   <button onclick="deleteData()">Delete</button>
+   <button onclick="logout()">Logout</button>
+   
+
+
+</table>
+</body>
+</html>
