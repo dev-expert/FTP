@@ -1,0 +1,27 @@
+</head>
+<body>
+    <h3>URL</h3>
+    <input type="text" id="url">
+    <button onclick="addurl()">Add URL</button>
+    <ul id="list"></ul>
+    <script>
+        function addurl()
+        {
+            var ul = document.getElementById("list");
+            var li = document.createElement("li");
+            var val=document.getElementById("url").value;
+            li.setAttribute('id',val.value);
+            li.appendChild(document.createTextNode(val));
+            var button = document.createElement("button");
+            button.innerHTML = "Delete URL";
+            li.appendChild(button);
+            ul.appendChild(li);
+            button.onclick=function()
+            {
+              ul.removeChild(li);  
+            };
+        }
+        
+        </script>
+</body>
+</html>
