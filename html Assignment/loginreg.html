@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+        <link rel="stylesheet" href="style1.css">
+        <script src="myScr.js"></script>
+    </head>
+    <body>
+       <div class="abc">
+            <div class="form-box"></div>
+            <div class="signup" id="signup">
+        <form id="register-form"> 
+            <h1>Register</h1>
+            <input id="nm" type="text" placeholder="Email"><br>
+            <input id="pw" type="password" placeholder="Password"><br>
+            <select style="margin-left: 37%;" name="user1" id="user1" style="height: 25px;">
+                <option value="false">Normal User</option>
+                <option value="true">Admin</option>
+            </select>
+            <input id="rgstr_btn" type="submit" value="Get Account" onClick="store()"/> 
+            <a id="already" style="text-align: center; margin: 30%; cursor: pointer;" onclick="showSignIn()">Already User? LogIn </a>
+         </form>
+        </div>
+        <div class="login" id="login">
+        <form id="login-form"> 
+            <h1>Log In</h1>
+            <input id="userName" type="text" placeholder="Enter Username"><br>
+            <input id="userPw" type="" placeholder="Enter Password"><br>
+            <input id="login_btn" type="submit" value="Login" onClick="check()"/>
+            <a href="#" onclick="showSignUp()" id="abcd" style="margin-left: 30%;">New User? SignUp Now</a>
+       </form>
+    </div>
+    </div>
+   <script>
+       function showSignUp(){      
+           document.getElementById("login").style.display="none";
+       document.getElementById("signup").style.display="block";
+        }
+        function showSignIn(){
+            document.getElementById("signup").style.display="none";
+          document.getElementById("login").style.display="block"
+       }
+   </script>
+    </body>
+</html>

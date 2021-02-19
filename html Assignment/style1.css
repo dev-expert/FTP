@@ -1,0 +1,76 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+     background-color: rgb(105, 124, 187); 
+}
+#signup{
+    display:none;
+}
+input{
+    margin: 5px;
+    width: 30vw;
+    height: 5vh;
+    width: 300px;
+    display: flex;
+    margin: 15px auto;
+    position: relative; 
+    border-radius: 30px;
+    border: 2px solid#3498db;
+      
+}
+
+h1{
+    text-align: center;  
+}
+.abc
+{
+width: 400px;
+height: 335px;
+background-color: lightskyblue
+}
+#login_btn
+{
+    /* background: -webkit-linear-gradient(left, #a445b2, #fa4299); */
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+#rgstr_btn
+{
+
+    /* background: -webkit-linear-gradient(left, #a445b2, #fa4299); */
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+#abcd{
+    background-color:#a445b2, #fa4299;
+    
+}
+
+#user1{
+    justify-content: center;
+}
+
+#already{
+    text-align: center;
+}
+#login_btn:hover,.login_btn:active{
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+#rgstr_btn:hover,.login_btn:active{
+   background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+input::placeholder{
+    text-align: center;
+}

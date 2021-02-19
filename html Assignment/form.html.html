@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js.js"></script>
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="formhtml.css">
+    
+    <style>
+        #basic_txt{
+            background-color: wheat;
+        }
+        #education_txt{
+            background-color: wheat
+        }
+        #qualification_head{
+            background-color: wheat
+        }
+        #skills_desc{
+        background-color: wheat
+        }
+        #language_desc{
+            background-color: wheat 
+        }
+        #interest_desc{
+            background-color: wheat 
+        }
+        #training_desc{
+            background-color: wheat 
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="abcde">
+    <header>
+        <h1 style="color: black;">Resume</h1><br>
+    </header> 
+    <form action="webcv.html">
+        <div class="basic">
+            <div id="basic_txt" style="width: 50%; margin-left: 25%;"><h2>PERSONAL DETAILS</h2></div>
+            <div class="name">
+                <p id="name_txt">NAME</p>
+                <input id="name_in" type="text" placeholder="e.g. XYZ"></input>
+            </div>
+            <div class="phone">
+                <p id="phone_txt">Phone Number</p>
+                <input id="phone_in" type="number" placeholder="e.g. 8409902699"> </input><br>
+            </div>
+            <div class="mail">
+                <p id="mail_txt">Mail ID</p>
+                <input id="mail_in" type="text" placeholder="e.g. abc@gmail.com"></input> <br>
+            </div>
+            <div class="linkedin">
+                <p id="linkedin_txt">LinkedIn Link</p>
+                <input id="linkedin_in" type="text" placeholder="e.g./in/swetanksingh."> </input><br>
+            </div>
+        <div class="education">
+            <div id="education_txt" style="width: 50%; margin-left: 25%;"><h2>EDUCATION DETAILS</h2></div>
+            <div class="bachelor">
+                <p id="bachelor_college_txt">B.Tech CSE</p>
+                <input id="bachelor_college_in" placeholder="e.g. LPU"></input>
+            </div>
+            <div class="twelveth">
+                <p id="12th_college_txt">12th</p>
+                <input id="12th_college_in" placeholder="e.g. abc"></input>
+            </div>
+            <div class="tenth">
+                <p id="10th_college_txt">10th</p>
+                  <input id="10th_college_in" placeholder="e.g. xyz"></input>
+            </div>
+        </div>
+        <div class="qualification">
+            <div id="qualification_head" style="width: 50%; margin-left: 25%;"><h2> CERTIFICATIONS </h2></div>
+            <div id="qualification_in">
+                <p id="qualification_txt">Certifications Done</p>
+                <input id="quali" placeholder="e.g. Code Karona by Club Sapphire"></input>
+                <input id="qualif" placeholder="e.g. Hack dot by Club Gravity"></input>
+                <input id="qualii" placeholder="e.g. DevOps Hackathon by TechGig"></input>
+            </div>
+        </div>
+        <!-- <div class="projects">
+            <div id="project_desc"><h2>PROJECTS UNBDERTAKEN</h2></div>
+            <p id="project_txt">Projects and Work done</p>
+            <input id="project_in" placeholder="e.g. Software Requirement Specifactions On Paytm"></input>
+            <input id="project_in" placeholder="e.g. TGPA/CGPA Calculator"></input>
+            <input id="project_in" placeholder="e.g. Scholarship Management System"></input>
+            <input id="project_in" placeholder="e.g. Cricket Scoreboard"></input>
+        </div> -->
+        <div class="skills">
+            <div id="skills_desc" style="width:50%; margin-left: 25%;"><h2>SKILLS</h2></div>
+            <p id="skills_txt">Technical Skills</p>
+            <input id="skills_ina" placeholder="e.g. Python"></input>
+            <input id="skills_inb" placeholder="e.g. Kubernetes"></input>
+            <input id="skills_inc" placeholder="e.g. splunk"></input>
+            <input id="skills_ind" placeholder="e.g. Docker"></input>
+            <input id="skills_ine" placeholder="e.g. C++ Language"></input>
+        </div>
+        <div class="language">
+            <div id="language_desc" style="width:50%; margin-left: 25%;"><h2>LANGUAGES</h2></div>
+            <p id="language_txt">Languages Known</p>
+            <input id="language_in" placeholder="e.g. English"></input>
+            <input id="language_hin" placeholder="e.g. Hindi"></input>
+
+        </div>
+        <div class="interest">
+            <div id="interest_desc" style="width:50%;  margin-left: 25%;"><h2>INTERESTS</h2></div>
+            <p id="interest_txt">Hobbies</p>
+            <input id="interest_ina" placeholder="e.g. Cricket"></input>
+             <input id="interest_inb" placeholder="e.g. Football"></input> 
+           
+        </div>
+            <div class="training">
+               <div id="training_desc" style="width:50%; margin-left: 25%;"><h2>TRAINING</h2></div>
+                <p id="training_txt">Training Done</p>
+                <input id="training_in" placeholder="e.g. C/C++ from Internshala">
+            </div>
+       
+        </div>
+        <div >
+            <button id="reset" type="reset">Reset</button>
+            <button  onclick ="getdata()">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
