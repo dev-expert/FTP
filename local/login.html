@@ -66,7 +66,11 @@
                 var userpassword1=s.pass;
                 if(useremail1==useremail && userpassword1==userPw){
                     alert("welcome to user world");
+                
+                    localStorage.setItem("currUser",useremail1);
                 }
+            
+                
             }
             var data3 = JSON.parse(localStorage.getItem("data2"));
 
@@ -77,8 +81,12 @@
                 var userpassword2=s.pass;
                 if(useremail2==useremail && userpassword2==userPw){
                     alert("welcome to  admin world");
+                    localStorage.setItem("currUser",useremail2);
                      window.open("dis.html");
                 }
+                else
+                alert("user not exits you need singup first");
+                window.open("local.html");
             }
             
 

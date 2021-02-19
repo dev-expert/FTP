@@ -1,7 +1,7 @@
-debugger;
+
 var person = JSON.parse(localStorage.getItem("person"));
 //alert(person.name);
-document.getElementById("name1").innerHTML = person.name;
+document.getElementById("name1").innerHTML = person.name1;
 document.getElementById("email1").innerHTML = person.email;
 document.getElementById("num").innerHTML = person.phone;
 document.getElementById("linkdin").innerHTML = person.link;
@@ -67,3 +67,13 @@ document.getElementById("ach2info").innerHTML = ach.arc22;
 var org=JSON.parse(localStorage.getItem("org"))
 document.getElementById("org1").innerHTML = org.org1;
 document.getElementById("org1info").innerHTML = org.org12;
+
+var bp=JSON.parse(localStorage.getItem("bp"))
+document.getElementById("duration1").innerHTML = bp.bp1;
+document.getElementById("duration12").innerHTML = bp.bp2;
+document.getElementById("duration2").innerHTML = bp.bp3;
+document.getElementById("duration22").innerHTML = bp.bp4;
+document.getElementById("duration3").innerHTML = bp.bp5;
+document.getElementById("duration32").innerHTML = bp.bp6;
+document.getElementById("git").innerHTML = bp.bp7;
+document.getElementById("birth").innerHTML = bp.bp8;

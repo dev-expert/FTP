@@ -1,6 +1,7 @@
 
 *{
-    margin: 0;
+    
+    margin-top: 2px;
     padding: 0%;
     box-sizing: border-box;
     list-style: none;
@@ -11,6 +12,7 @@ body{
     font-size: 14px;
     line-height: 22px;
     color: #555550;
+    width: = 1000px;
 }
 .head1{
     display: flex;
@@ -20,12 +22,13 @@ body{
 }
 .topleft{
     width: 40%;
-    margin-left: 5%;
+    margin-left: 2%;
+
 }
 .ima{
     border-radius: 50%;
-    height: 30vh;
-    width: 30%;
+    height: 200px;
+    width: 200px;
     padding: 1%;
     border-color: blue;
 
@@ -36,17 +39,20 @@ h3{
 
 .topright{
     width: 40%;
+    float: right;
     margin-top: 5%;
-    margin-left: 5%;
+   
+    
+
 
 }
 hr{
     border-top: 3px solid black;
 }
 .left{
-    margin-left: 5%;
     float: left;
-    width: 40vw;
+    width: 40%;
+    margin-left: 2%;
 }
 .projects{
     width: 50%;
@@ -64,7 +70,7 @@ hr{
     padding: 8px;
 }
 .right{
-    margin-left: %;
+   margin-left: 5px;
     width: 50%;
     float: right;
 }
@@ -81,4 +87,9 @@ hr{
 }
 .social_icons{
     font-size: 15px;
+}
+.one{
+    margin: auto;
+    width: 1000px;
+    border: 2px solid black;
 }

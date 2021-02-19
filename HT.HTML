@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,104 +8,86 @@
     <title>Document</title>
     <link rel="stylesheet" href="ht.css">
 </head>
+
 <body>
     <div>
-    <header class="main"> 
-       <h2> <p>padaeekaro.com</p></h2>
-      <button class="but" ><a href="https://mypage.w3schools.com/mypage/login.php?logintyp=1">signup</a></button>
-
-    </header>
-</div>
+        <header class="main">
+            <h2>
+                <p>welcome To User World</p>
+            </h2>
+           
+        </header>
+    </div>
     <div class="header">
-     
-            <a href="#css">css</a>
-            <a href="#c++">c++</a>
-            <a href="#java">java</a>
-            <a href="#react">react</a>
-            <a href="#php">php</a>
-            <a href="#bootstrap">bootstrap</a>
-    
-      </div>
-      <section class="sidesection">
-                <div class="sideheader"> 
-    
-        <h1>this is side header</h1>
-       <h2> <a href="#css">css</a></h2>
-       <h2><a href="#c++">c++</a></h2>
-            <h2>    <a href="#java">java</a></h2>
-        <h2>    <a href="#react">react</a></h2>
-         <h2>   <a href="#php">php</a></h2>
-      <h2>  <a href="#bootstrap">bootstrap</a></h2>
+
+        <a href="#css">css</a>
+        <a href="#c++">c++</a>
+        <a href="#java">java</a>
+        <a href="#react">react</a>
+        <a href="#php">php</a>
+        <a href="#bootstrap">bootstrap</a>
+
     </div>
-    <div class="image">
-        <img src="1.jpg" alt="">
+    <section class="sidesection">
+    
+        <div class="vi">
+            <p float: right;> this is viswa</p><br>
+
+            <p>enter the values</p>
+
+            <p id="f" bgcolor="red">enter first value <input id="firstvalue" type="number"></p>
+            <p id="t">enter second value <input id="secondvalue" type="number"></p>
+            <p id="o">result: <input id="r"></input></p> <br>
+
+            <input type="button" value="add" onclick=add(1)>
+            <input type="button" value=sub onclick=add(2)>
+            <input type="button" value=mul onclick=add(3)>
+            <input type="button" value=divide onclick=add(4)>
+
         </div>
-    </div>
-    <div class="vi">
-        <p float: right; >   this is viswa</p><br>
-    
-        <p>enter the values</p>
-    
-       <p id="f" bgcolor="red">enter first value <input id="firstvalue" type="number"></p>
-       <p id="t">enter second value <input id="secondvalue" type="number"></p>
-       <p id="o">result: <input id="r"></input></p>  <br>    
-        
-    <input type="button" value="add" onclick=add(1)>
-    <input type="button" value=sub onclick=add(2)>
-    <input type="button" value=mul onclick=add(3)>
-    <input type="button" value=divide onclick=add(4)>
-    
-    </div>
 
-        </section>
-        
+    </section>
 
-    <div class="footer">
-        <p>this id footer</p>
 
-   
-    <script>
-        
-        function add(a)
-     {
-         var num1=parseInt(document.getElementById("firstvalue").value);
-         var num2=parseInt(document.getElementById("secondvalue").value);
-         if(num1=="")
-         alert("no value in num1");
-         if(a==1)
-         {
-       
-         var r=num1+num2;
-         
-         }
-         else if(a==2)
-         {
-             if(num1>=num2)
-             {
-                var r=num1-num2;
-                 document.getElementById("r").value=r;
-             }
-              else
-                  {
-                   alert("first value is less than second value");
-                  }
- 
-             
-         }
-         else if(a==3)
-         {
-             var r=num1*num2;
-         }
-         else
-         {
-             var r=num1/num2;
-         }
-         document.getElementById("r").value=r;
- 
-     }
-   
- 
-     </script>
     
+
+
+        <script>
+
+            function add(a) {
+                var num1 = parseInt(document.getElementById("firstvalue").value);
+                var num2 = parseInt(document.getElementById("secondvalue").value);
+                if (num1 == "")
+                    alert("no value in num1");
+                if (a == 1) {
+
+                    var r = num1 + num2;
+
+                }
+                else if (a == 2) {
+                    if (num1 >= num2) {
+                        var r = num1 - num2;
+                        document.getElementById("r").value = r;
+                    }
+                    else {
+                        alert("first value is less than second value");
+                    }
+
+
+                }
+                else if (a == 3) {
+                    var r = num1 * num2;
+                }
+                else {
+                    var r = num1 / num2;
+                }
+                document.getElementById("r").value = r;
+
+            }
+
+
+        </script>
+
 </body>
+
 </html>
