@@ -1,3 +1,4 @@
+// VALIDATION OF ADMIN USER TYPE
 var session = 0;
 
 for (var i = 0; i < localStorage.length; i++) {
@@ -17,6 +18,7 @@ function delFireWall() {
     localStorage.removeItem("firewall");
     location.replace("file:///D:/FTP/SignUP_SignIN_Form/signin_signup.html");
 }
+
 
 
 function database() {
@@ -53,50 +55,27 @@ function database() {
         checkbox.setAttribute("name", "check");
         cell3.appendChild(checkbox);
 
-
-
-
-        var cell4 = row.insertCell(4);
-        var button = document.createElement("button");
-        button.innerHTML = "Delete";
-        button.addEventListener("click", function () {
-            alert(button.innerHTML);
-        });
-
-        cell4.append(button);
     }
 
 
 
-    function deleteData() {
-        debugger;
+    function deljeteData() {
         var table = document.getElementById("table_data");
         var obj = JSON.parse(localStorage.getItem("users"));
-        /*
-        var data = document.getElementById("data");
-        for(var i = 0;i<len;i++)
-        {
-            var check = data.rows[i].cells[4].data;
-            if((table.rows[i].cells[4].data).checked == true)
-            {
-                alert(i);
-            }
-        }
-        */
-
+       
         var checkboxs = table.getElementsByTagName("Input");
-        
+
         for (var i = 0; i < checkboxs.length; i++) {
             //var check = data.rows[i].cells[4].data;
             if (checkboxs[i].checked == true) {
                 //alert(i);
-                table.deleteRow(i+1);
-                obj.splice(i,1);
+                table.deleteRow(i + 1);
+                obj.splice(i, 1);
                 i--;
             }
         }
 
-        localStorage.setItem("users",JSON.stringify(obj));
+        localStorage.setItem("users", JSON.stringify(obj));
 
     }
 }

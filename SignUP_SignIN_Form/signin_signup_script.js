@@ -1,6 +1,7 @@
+// HIDE FORM
 function hide() {
-  var x = document.getElementById("signin_form");
-  x.style.display = 'none';
+  var a = document.getElementById("signin_form");
+  a.style.display = 'none';
   document.getElementById("signup_form").style.display = "block";
 }
 
@@ -22,28 +23,32 @@ function setAction() {
   //   if (flag == 1) {
   //     // login();
   //     alert("LOGIN SUCCESFULLY");
-  //     window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/NormalLoginPage.html");
+  //     window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/normal_user_dashboard.html");
   //   }
   //   else {
   //     alert("WRONG CREDENTIALS");
   //   }
 
-  var q = keys.find(x => x.email == email, y => x.password == password)
+  var q = keys.find(x => x.email == email, y => y.password == password)
+  // debugger;
 
   if (email === q.email && password === q.password && q.usertype === "true") {
-    alert("Welcome ADMIN");
-    localStorage.setItem("firewall" ,"1");
-    window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/dashboard.html");
+    // alert("Welcome ADMIN");
+    localStorage.setItem("firewall", "1");
+    window.open("file:///D:/FTP/SignUP_SignIN_Form/AdminLoginFile/admin_dashboard.html");
   }
 
-  if (email === q.email && password === q.password && q.usertype === "false") {
-    alert("Welcome USER");
-    window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/resume_builder.html");
+  else if (email === q.email && password === q.password && q.usertype === "false") {
+    // alert("Welcome USER");
+    window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/normal_user_dashboard.html");
   }
 
-  if (email !== q.email && password !== q.password) {
-    alert("Enter CORRECT CREDENTIALS");
+  else if (email !== q.email || password !== q.password) {
+    alert("ENTER CORRECT CREDENTIALS");
   }
+
+  else
+    alert("PLEASE REGISTER FIRST");
 }
 
 
@@ -83,12 +88,12 @@ function register() {
   }
 }
 
+  // CLEAR ALL THE LOCAL STORAGE
+  // function clearlocalstorage() {
+  //   localStorage.clear();
+  // }
 
-// CLEAR ALL THE LOCAL STORAGE
-function clearlocalstorage() {
-  localStorage.clear();
-}
   // function login() {
   //   alert("LOGIN SUCCESFULLY");
-  //   window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/NormalLoginPage.html");
+  //   window.open("file:///D:/FTP/SignUP_SignIN_Form/NormalLoginFile/normal_user_dashboard.html");
   // }
