@@ -2,7 +2,7 @@
 
 
 window.addEventListener('load', () => {
-debugger;
+
 
     var value = JSON.parse(localStorage.getItem("User"));
     console.log(value);
@@ -57,16 +57,17 @@ debugger;
                 var alldata = JSON.parse(localStorage.getItem("User"));
    
                 var projectdata=alldata["Projects"];
-                var keys = Object.keys(projectdata);
+                var projectKey = Object.keys(projectdata);
                 str="";
                 Project=[];
-                for(i=0;i<keys.length;i++){
-                    var value=projectdata[keys[i]];
+                for(j=0;j<projectKey.length;j++){
+                    var value=projectdata[projectKey[j]];
                     str = `<p>${value}</p>`;
                     Project.push(str);
                  
                 }
                 document.getElementById("Projects").innerHTML=Project.join('');
+            
                 
                 break;
 
@@ -77,12 +78,12 @@ debugger;
                 var alldata = JSON.parse(localStorage.getItem("User"));
    
                 var skilldata=alldata["Skills"];
-                var keys = Object.keys(skilldata);
+                var skillkey = Object.keys(skilldata);
                 str="";
                 skill=[];
-                for(i=0;i<keys.length;i++){
-                    var value=skilldata[keys[i]];
-                    str = `<p>${value}</p>`;
+                for(k=0;k<skillkey.length;k++){
+                    var value=skilldata[skillkey[k]];
+                    str = `<span>${value}</span>`;
                     skill.push(str);
                  
                 }

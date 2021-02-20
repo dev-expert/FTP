@@ -2,7 +2,7 @@
 let val;
 function check() {
 
-    debugger;
+    
     var fname = document.getElementById("fname").value;
 
     var lname = document.getElementById("lname").value;
@@ -98,12 +98,12 @@ function check() {
                 arradmin.push(admin);
                 localStorage.setItem("admin", JSON.stringify(arradmin));
                 alert("Signup Successfully");
-                document.getElementById("myform").reset();
+                window.open("signup.html");
             }
             else {
 
                 alert("email is alreay exists");
-                document.getElementById("myform").reset();
+                window.open("signup.html");
             }
 
 
@@ -165,7 +165,7 @@ function data() {
     window.location.href = "admin.html";
 }
 function myFunction() {
-    debugger;
+
     let login =JSON.parse(localStorage.getItem("login"));
     if(login==null){
         window.location.href="login.html";

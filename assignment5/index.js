@@ -1,5 +1,5 @@
 function information() {
-    debugger;
+    
 
     if (confirm("Are you Sure to save the details") == true) {
         
@@ -109,7 +109,7 @@ var skill ="";
 var skills=[];
 let skillCount=1;
 function addskills(){
-    debugger;
+    
     
 skillCount++;
 skill = `<label for="lname">Skill ${skillCount}:</label><br>
@@ -130,8 +130,7 @@ document.getElementById("skillIncrease").innerHTML=skills.join('');
 
 }
 function subskills(){
-    debugger;
-  
+    
   skills.pop();
   
   

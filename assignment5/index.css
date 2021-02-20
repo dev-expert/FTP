@@ -133,12 +133,16 @@ background-color: red;
          color: black;
          word-wrap: break-word;
      }
+     #skill{
+         display: flex;
+         flex-wrap: wrap;
+     }
      .skills span{
-         background-color: grey;
-        padding: 10px;
-         color: white;
-         border-radius: 25px;
-         margin: 5px;
+        background-color: grey;
+        padding: 6px 9px;
+        color: white;
+        border-radius: 6px;
+        margin: 5px;
          
      }
      .leftDiv2{
