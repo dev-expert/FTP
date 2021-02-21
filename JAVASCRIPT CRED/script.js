@@ -14,6 +14,7 @@ function setAction() {
         flag = 1;
         if (s.usertype == "superuser") {
           var currentuserobj = {
+            name:s.name,
             email: s.email,
             password: s.password,
           };
@@ -23,6 +24,14 @@ function setAction() {
           superlogin();
         }
         if (s.usertype == "normaluser") {
+          var currentuserobj = {
+            name:s.name,
+            email: s.email,
+            password: s.password,
+          };
+          currentuser = JSON.parse(localStorage.getItem("presentnormaluser") || "[]");
+          currentuser.push(currentuserobj);
+          localStorage.setItem("presentnormaluser", JSON.stringify(currentuser));
           normallogin();
         }
         break;
@@ -83,7 +92,6 @@ function register() {
 
 // after admin login this function will run
 function superlogin() {
-  alert("Admin Login");
   window.open("admin homepage.html");
 }
 
@@ -91,8 +99,7 @@ function superlogin() {
 
 // after normal login this function will run
 function normallogin() {
-  alert("Normal login");
-  window.open("webpage/index.html");
+  window.open("user_homepage.html");
 }
 
 //function for responsive design 

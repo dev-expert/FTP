@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>User Homepage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    }
+    @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+    }
+  
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    } 
+</style>
+</head>
+<body onload="validate()">
+  <div id="hideloader" style="min-height:100vh ; display:flex; justify-content:center ;align-items:center ">
+    <div class="loader"></div></div>
+<div id="hidearea" style="display: none;">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>WELCOME</b><span id="username" style="margin-left: 10px; text-transform: uppercase;">User</span></a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="./projects/Javascript URL Log/urllog.html" class="w3-bar-item w3-button">URL-LOG</a>
+      <a href="./projects/Resume Builder/form.html" class="w3-bar-item w3-button">Resume Builder</a>
+      <a href="./projects/Javascript Calculator/index.html" class="w3-bar-item w3-button">Calculator</a>
+      <a href="javascript:logoff()" class="w3-bar-item w3-button" style="background-color: black; color: white;">Logout</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="./images/black.jpg" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Hi </b></span> <span class="w3-hide-small w3-text-light-grey" id="username1" style="text-transform: uppercase;">User</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Calculator</div>
+        <img src="./images/c.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">URL-Log</div>
+        <img src="./images/u.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Resume Builder</div>
+        <img src="./images/resumes-desk.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Made by <a href="#" title="shubham" target="_blank" class="w3-hover-text-green">Shubham Agrawal</a></p>
+</footer>
+
+</div>
+<script>
+  //function to validate
+
+function validate() {
+  var keys = JSON.parse(localStorage.getItem("presentnormaluser"));
+  if (keys != null) {
+    var name =keys[0].name;
+    document.getElementById("username").innerHTML=name;
+    document.getElementById("username1").innerHTML=name;
+    var q=document.getElementById("hidearea");
+    var w=document.getElementById("hideloader");
+    q.style.display="block";
+    w.style.display="none";
+    return true;
+  } else {
+    window.open("index.html", "_self");
+  }
+}
+
+//
+
+
+// onclick logout
+function logoff() {
+  window.localStorage.removeItem("presentnormaluser");
+  location.reload();
+}
+</script>
+</body>
+</html>
