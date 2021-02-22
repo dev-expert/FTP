@@ -96,6 +96,8 @@
     
             
             function deleteData() {
+                var result = confirm("Are you sure to delete?");
+                if(result){
                 
                 var table = document.getElementById("myTable");
                 var obj = JSON.parse(localStorage.getItem("person"));
@@ -114,7 +116,7 @@
                 }
             
                 localStorage.setItem("person",JSON.stringify(obj));
-            
+                }
             }
             </script>
    <button onclick="deleteData()">Delete</button>

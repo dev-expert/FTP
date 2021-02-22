@@ -8,6 +8,7 @@
     <h1>Admin page</h1>   
     <link rel="stylesheet" href="result1.css">
     
+    
 
     <!-- <a href="signin.html">back to login</a><br/><br/>
     <a href="signup.html">register</a><br/><br/> -->
@@ -33,7 +34,7 @@
         <tbody id="data">
             </tbody>
         </table>
-
+       
         
         <script>
 
@@ -96,7 +97,8 @@
     
             
             function deleteData() {
-                
+                var result = confirm("Are you sure to delete?");
+                if(result){
                 var table = document.getElementById("myTable");
                 var obj = JSON.parse(localStorage.getItem("person"));
                 
@@ -114,7 +116,8 @@
                 }
             
                 localStorage.setItem("person",JSON.stringify(obj));
-            
+                }
+                       
             }
             </script>
    <button onclick="deleteData()">Delete</button>
