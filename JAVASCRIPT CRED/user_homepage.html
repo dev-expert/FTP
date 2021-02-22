@@ -36,9 +36,9 @@
     <a href="#home" class="w3-bar-item w3-button"><b>WELCOME</b><span id="username" style="margin-left: 10px; text-transform: uppercase;">User</span></a>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="./projects/Javascript URL Log/urllog.html" class="w3-bar-item w3-button">URL-LOG</a>
-      <a href="./projects/Resume Builder/form.html" class="w3-bar-item w3-button">Resume Builder</a>
-      <a href="./projects/Javascript Calculator/index.html" class="w3-bar-item w3-button">Calculator</a>
+      <a href="urllog.html" class="w3-bar-item w3-button">URL-LOG</a>
+      <a href="cv_form.html" class="w3-bar-item w3-button">Resume Builder</a>
+      <a href="calculator.html" class="w3-bar-item w3-button">Calculator</a>
       <a href="javascript:logoff()" class="w3-bar-item w3-button" style="background-color: black; color: white;">Logout</a>
     </div>
   </div>
@@ -64,19 +64,23 @@
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Calculator</div>
-        <img src="./images/c.jpg" alt="House" style="width:100%">
+        <a href="calculator.html"><img src="./images/c.jpg" alt="House" style="width:100%"></a>
       </div>
     </div>
+
+    
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">URL-Log</div>
-        <img src="./images/u.jpg" alt="House" style="width:100%">
+        <a href="urllog.html"><img src="./images/u.jpg" alt="House" style="width:100%"></a>
       </div>
     </div>
+
+
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black w3-padding">Resume Builder</div>
-        <img src="./images/resumes-desk.jpg" alt="House" style="width:100%">
+        <a href="cv_form.html"><img src="./images/resumes-desk.jpg" alt="House" style="width:100%"></a>
       </div>
     </div>
   </div>
@@ -91,33 +95,7 @@
 </footer>
 
 </div>
-<script>
-  //function to validate
-
-function validate() {
-  var keys = JSON.parse(localStorage.getItem("presentnormaluser"));
-  if (keys != null) {
-    var name =keys[0].name;
-    document.getElementById("username").innerHTML=name;
-    document.getElementById("username1").innerHTML=name;
-    var q=document.getElementById("hidearea");
-    var w=document.getElementById("hideloader");
-    q.style.display="block";
-    w.style.display="none";
-    return true;
-  } else {
-    window.open("index.html", "_self");
-  }
-}
-
-//
-
-
-// onclick logout
-function logoff() {
-  window.localStorage.removeItem("presentnormaluser");
-  location.reload();
-}
+<script src="./js/script.js"></script>
 </script>
 </body>
 </html>

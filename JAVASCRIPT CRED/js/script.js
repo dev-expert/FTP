@@ -17,8 +17,8 @@ function setAction() {
             name:s.name,
             email: s.email,
             password: s.password,
+            usertype:s.usertype
           };
-          currentuser = JSON.parse(localStorage.getItem("presentuser") || "[]");
           currentuser.push(currentuserobj);
           localStorage.setItem("presentuser", JSON.stringify(currentuser));
           superlogin();
@@ -28,10 +28,10 @@ function setAction() {
             name:s.name,
             email: s.email,
             password: s.password,
+            usertype:s.usertype
           };
-          currentuser = JSON.parse(localStorage.getItem("presentnormaluser") || "[]");
           currentuser.push(currentuserobj);
-          localStorage.setItem("presentnormaluser", JSON.stringify(currentuser));
+          localStorage.setItem("presentuser", JSON.stringify(currentuser));
           normallogin();
         }
         break;
@@ -92,7 +92,7 @@ function register() {
 
 // after admin login this function will run
 function superlogin() {
-  window.open("admin homepage.html");
+  window.open('admin homepage.html');
 }
 
 //
@@ -120,6 +120,23 @@ function validate() {
   var keys = JSON.parse(localStorage.getItem("presentuser"));
   if (keys != null) {
     var q=document.getElementById("hidearea");
+    var name=keys[0].name;
+    document.getElementById("username").innerHTML=name;
+    document.getElementById("username1").innerHTML=name;
+    var w=document.getElementById("hideloader");
+    q.style.display="block";
+    w.style.display="none";
+    return true;
+  } else {
+    window.open("index.html", "_self");
+  }
+}
+function validateadmin() {
+  var keys = JSON.parse(localStorage.getItem("presentuser"));
+  if (keys != null && keys[0].usertype=="superuser") {
+    var q=document.getElementById("hidearea");
+    var name=keys[0].name;
+    document.getElementById("username").innerHTML=name;
     var w=document.getElementById("hideloader");
     q.style.display="block";
     w.style.display="none";

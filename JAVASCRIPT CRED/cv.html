@@ -2,15 +2,22 @@
 <html lang="en">
 <head>
 	<title>Resume/CV Design</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="./css/resume_styles.css">
 	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.2.8/es6-promise.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+<!-- <script src="./jspdf.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="html2pdf.bundle.min.js"></script>
+  <script src="./js/resume_script.js"></script>
+  <!-- <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js" type="'application/javascript'"></script> -->
+  <script src="./html2pdf.bundle.min.js"></script>
 </head>
 <body onload="showdata()">
-<div class="resume">
+<div class="resume" id='resumeFull'>
    <div class="resume_left">
      <div class="resume_profile">
-       <img src="profile.jpeg" alt="profile_pic">
+       <img src="./images/profile.jpeg" alt="profile_pic">
      </div>
      <div class="resume_content">
        <div class="resume_item resume_info">
@@ -208,6 +215,48 @@
     </div>
   </div>
 </div>
+<div style="align-items: center; display: flex; justify-content: center; margin: 100px;">
+  <button onClick="xx()">Download Pdf</button>
+</div>
 
+<script>
+//   function addScript(url) {
+//     var script = document.createElement('script');
+//     script.type = 'application/javascript';
+//     script.src = url;
+//     document.head.appendChild(script);
+// }
+//addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+  function xx(){
+    var element = document.getElementById('resumeFull');
+    
+  const opt = {
+    filename: "fiche-methodo",
+    margin: 10,
+    image: {
+      type: "jpeg",
+      quality: 0.85
+    },
+    html2canvas: {
+      scale: 2,
+      logging: true,
+      letterRendering: true,
+      useCORS: true,
+    },
+    jsPDF: {
+      unit: "in",
+      format: "letter",
+      orientation: "portrait",
+    },
+  };
+
+  // Promise-based usage:
+  html2pdf()
+    .set(opt)
+    .from(element)
+    .toPdf()
+    .save();
+  }
+  </script>
 </body>
 </html>

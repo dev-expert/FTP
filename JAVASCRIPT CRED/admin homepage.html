@@ -3,7 +3,6 @@
   <title>Admin Page</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="script.js"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
   <link
@@ -39,7 +38,7 @@
     } 
 /* loader css end*/
   </style>
-  <body onload="validate()">
+  <body onload="validateadmin()">
     <div id="hideloader" style="min-height:100vh ; display:flex; justify-content:center ;align-items:center ">
       <div class="loader"></div></div>
     <div id="hidearea" style="display: none;">
@@ -53,14 +52,15 @@
           title="Toggle Navigation Menu"
           ><i class="fa fa-bars"></i
         ></a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Welcome<span id="username" style="margin-left: 10px; text-transform: uppercase;">User</span></a>
+        <a href="admin homepage.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
         <a
-          href="./projects/Javascript URL Log/urllog.html" 
+          href="urllog.html" 
           class="w3-bar-item w3-button w3-padding-large w3-hide-small"
           >URL-LOG</a
         >
         <a
-          href="./projects/Resume Builder/form.html"
+          href="cv_form.html"
           class="w3-bar-item w3-button w3-padding-large w3-hide-small"
           >RESUME BUILDER</a
         >
@@ -69,7 +69,7 @@
             MORE <i class="fa fa-caret-down"></i>
           </button>
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="./projects/Javascript Calculator/index.html" class="w3-bar-item w3-button">Calculator</a>
+            <a href="calculator.html" class="w3-bar-item w3-button">Calculator</a>
           </div>
         </div>
         <a
@@ -139,8 +139,7 @@
                 <p class="w3-opacity">Get Source Code</p>
                 <button
                   class="w3-button w3-black w3-margin-bottom"
-                  onclick="window.open('./projects/Javascript URL Log/urllog.html')"
-                >
+                  onclick="window.open('urllog.html','_self')">
                   View
                 </button>
               </div>
@@ -180,7 +179,7 @@
                 <p class="w3-opacity">Get Source Code</p>
                 <button
                   class="w3-button w3-black w3-margin-bottom"
-                  onclick="window.open('./projects/Resume Builder/form.html')"
+                  onclick="window.open('cv_form.html','_self')"
                 >
                   View
                 </button>
@@ -226,5 +225,6 @@
     </footer>
     </div>
       <!-- // Used to toggle the menu on small screens when clicking on the menu button -->
+      <script src="./js/script.js"></script>
   </body>
 </html>
