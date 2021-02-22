@@ -14,7 +14,7 @@
 }
 
 #skill1, #skill2, #skill3, #skill4, #skill5, #skill6, #skill7
-, #skill8, #skill9,#int1,#int2,#int3,#lan1,#lan2{
+, #skill8, #skill9{
     background-color: #2cbfaa;
     border-radius: 5px;
     padding: 8px;
@@ -23,11 +23,13 @@
 #mainDis
 {
     background-color: #2cbfaa;
+    width: calc(100% + 10px);
 }
 
 #pic{
-    width: 15vw;
+    width: 70%;
     border-radius: 50%;
+
 }
 .q
 {
@@ -42,4 +44,23 @@
 #ed13,#ed23,#ed33
 {
     margin-left: 90%;
+}
+
+#int1,#int2,#int3
+{
+    border:2px solid #2cbfaa;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+#lan1,#lan2
+{
+    color: black;
+}
+
+#name,#dis1,#dis2
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }

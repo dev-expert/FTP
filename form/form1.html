@@ -7,115 +7,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="FormCss.css">
-   
+
 </head>
 
-<body>
+<body style="background-color: #76b852;">
     <center>
-        <form action="main1.html" method="GET" id="form">
-            <div>
-                <label for="name"> Name : </label><br>
-                <input type="text" name="name" id="name" required placeholder="username">
-            </div>
-            <div>
-                <label for="email"> Email : </label><br>
-                <input type="email" name="email" id="email" required placeholder="email">
-            </div>
-            </div>
-            <div>
-                <label for="phonenumber"> Phone Number : </label><br>
-                <input type="number" name="phonenumber" id="phone" required placeholder="Mobile no">
-            </div>
-            <div>
-                <label for="Address"> Address : </label><br>
-                <input type="text" name="Address" id="Address" required placeholder="address">
+        <div id="form">
+            <div id="basicData12">
+                <div>
+                    <label for="name"> Name : </label><br>
+                    <input type="text" name="name" id="name" required placeholder="Username">
+                </div>
+                <div>
+                    <label for="email"> Email : </label><br>
+                    <input type="email" name="email" id="email" required placeholder="Email">
+                </div>
+
+                <div>
+                    <label for="phonenumber"> Phone Number : </label><br>
+                    <input type="number" name="phonenumber" id="phone" required placeholder="Mobile no">
+                </div>
+                <div>
+                    <label for="Address"> Address : </label><br>
+                    <input type="text" name="Address" id="Address" required placeholder="Address">
+                </div>
+
+                <div>
+                    <label for="dis"> Profile :  </label><br>
+                    <input type="text" id="dis" placeholder="Profile">
+                </div>
+
+                <div>
+                    <label for="dis1"> Discription : </label>
+                    <input type="text" id="dis1" placeholder="Discription">
+                </div>
+
+                <div>
+                    <label for="Linkedin"> Linkedin : </label><br>
+                    <input type="url" id="li" placeholder="Linkedin">
+                </div>
+
+                <div>
+                    <label>Photo :</label>
+                    <input type="file"></input>
+                </div>
+
+                <button disabled>Back</button>
+                <button onclick="forSkill()">Next</button>
             </div>
 
-            <div>
-                <label for="dis"> Dis : </label><br>
-                <input type="text" id="dis" required placeholder="Dis">
-            </div>
-
-            <div>
-                <label for="dis1"> Dis1 : </label><br>
-                <input type="text" id="dis1" required placeholder="Dis1">
-            </div>
-
-            <div>
-                <label for="Linkedin"> Linkedin : </label><br>
-                <input type="url" id="li" required placeholder="Linkedin">
-            </div>
-
-
-
-
-            <label id="skills">Skills</label>
+            <div id="skills">
+                <label id="skill">Skills</label>
                 <br>
-                <input type="text" id = "skill1" placeholder="Skill 1"><br>
-                <input type="text" id = "skill2" placeholder="Skill 2"><br>
-                <input type="text" id = "skill3" placeholder="Skill 3"><br>
-                <input type="text" id = "skill4" placeholder="Skill 4"><br>
-                <input type="text" id = "skill5" placeholder="Skill 5"><br>
-                <input type="text" id = "skill6" placeholder="Skill 6"><br>
-                <input type="text" id = "skill7" placeholder="Skill 7"><br>
-                <input type="text" id = "skill8" placeholder="Skill 8"><br>
-                <input type="text" id = "skill9" placeholder="Skill 9"><br>
-                <br>
+                <input type="text" id="skill1" placeholder="Skill 1"><br>
+                <input type="text" id="skill2" placeholder="Skill 2"><br>
+                <input type="text" id="skill3" placeholder="Skill 3"><br>
+                <input type="text" id="skill4" placeholder="Skill 4"><br>
+                <input type="text" id="skill5" placeholder="Skill 5"><br>
+                <input type="text" id="skill6" placeholder="Skill 6"><br>
+                <input type="text" id="skill7" placeholder="Skill 7"><br>
+                <input type="text" id="skill8" placeholder="Skill 8"><br>
+                <input type="text" id="skill9" placeholder="Skill 9"><br>
 
+                <button onclick="backskills() ">Back</button>
+                <button onclick="skil()">Next</button>
+
+            </div>
+
+            <div id="lang">
                 <label id="lan">Languages</label>
                 <br>
-                <input type="text" id = "lan1" placeholder="Languages 1"><br>
-                <input type="text" id = "lan2" placeholder="Languages 2"><br>
-                <br>
+                <input type="text" id="lan1" placeholder="Languages 1" ><br>
+                <input type="text" id="lan2" placeholder="Languages 2"><br>
 
+                <button onclick="backlang()">Back</button>
+                <button onclick="lange()">Next</button>
+
+            </div>
+
+            <div id="inter">
                 <label id="int">INTERESTS</label>
                 <br>
-                <input type="text" id = "int1" placeholder=" INTERESTS 1"><br>
-                <input type="text" id = "int2" placeholder="INTERESTS 2"><br>
-                <input type="text" id = "int3" placeholder="INTERESTS 3"><br>
-                
+                <input type="text" id="int1" placeholder=" INTERESTS 1"><br>
+                <input type="text" id="int2" placeholder="INTERESTS 2"><br>
+                <input type="text" id="int3" placeholder="INTERESTS 3">
+
+                <button onclick="backint()">Back</button>
+                <button onclick="inter()">Next</button>
+
+            </div>
+
+            <div id="education">
                 <label id="edu">EDUCATION</label>
                 <br>
-                <input type="text" id = "edu11"><br>
-                <input type="text" id = "edu12" ><br>
-                <input type="text" id = "edu13" ><br>
-                
+                <input type="text" id="edu11" placeholder="Degree"><br>
+                <input type="text" id="edu12" placeholder="College Name "><br>
+                <input type="text" id="edu13" placeholder="Marks"><br>
 
-                <input type="text" id = "edu21"><br>
-                <input type="text" id = "edu22" ><br>
-                <input type="text" id = "edu23" ><br>
 
-                <input type="text" id = "edu31"><br>
-                <input type="text" id = "edu32" ><br>
-                <input type="text" id = "edu33" ><br>
+                <input type="text" id="edu21" placeholder="Class"><br>
+                <input type="text" id="edu22" placeholder="School Name"><br>
+                <input type="text" id="edu23" placeholder="Marks"><br>
 
+                <input type="text" id="edu31" placeholder="Class"><br>
+                <input type="text" id="edu32" placeholder="School Name"><br>
+                <input type="text" id="edu33" placeholder="Marks">
+
+                <button onclick="backedu()">Back</button>
+                <button onclick="edu()">Next</button>
+
+            </div>
+
+            <div id="projects">
                 <label id="edu">PERSONAL PROJECTS</label>
                 <br>
-                <input type="text" id = "pro11"><br>
-                <input type="text" id = "pro12" ><br>
+                <input type="text" id="pro11" placeholder="Project Tilte"><br>
+                <input type="text" id="pro12" placeholder="Project Discription"><br>
 
-                <input type="text" id = "pro21"><br>
-                <input type="text" id = "pro22" ><br>
-                
-                <input type="text" id = "pro31"><br>
-                <input type="text" id = "pro32" ><br>
+                <input type="text" id="pro21" placeholder="Project Tilte"><br>
+                <input type="text" id="pro22"placeholder="Project Discription"><br>
 
-                <input type="text" id = "pro41"><br>
-                <input type="text" id = "pro42" ><br>
+                <input type="text" id="pro31"placeholder="Project Tilte"><br>
+                <input type="text" id="pro32"placeholder="Project Discription"><br>
 
+                <input type="text" id="pro41"placeholder="Project Tilte"><br>
+                <input type="text" id="pro42"placeholder="Project Discription">
+
+                <button onclick="backproject()">Back</button>
+                <button onclick="project()">Next</button>
+            </div>
+
+
+            <div id="certi">
                 <label id="edu">CERTIFICATES</label>
                 <br>
-                <input type="text" id = "cer1"><br>
-                <input type="text" id = "cer2" ><br>
+                <input type="text" id="cer1" placeholder="Certificate 1"><br>
+                <input type="text" id="cer2" placeholder="Certificate 2"><br>
 
-                <input type="text" id = "cer3"><br>
-                <input type="text" id = "cer4" ><br>
-               
-            <button type="reset">Reset</button>
-            <button type="Submit" onclick="login()">Submit</button>
+                <input type="text" id="cer3" placeholder="Certificate 3"><br>
+                <input type="text" id="cer4" placeholder="Certificate 4">
 
-        </form>
-    </center>>
+                <button onclick="backcerti()">Back</button>
+                <button onclick="basicData1()">Submit</button>
+            </div>
+
+        </div>
+    </center>
     <script src="formJS.js"> </script>
 </body>
 
