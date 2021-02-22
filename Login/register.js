@@ -97,7 +97,7 @@ function store()
             window.location.href = "file:///C:/Users/APPWRK/Documents/Login/register.html";
         }
     }
-}
+
 
 var data_fields={
     name:name,
@@ -109,6 +109,7 @@ var data_fields={
     type:type
 }
 
+
 data=JSON.parse(localStorage.getItem("data_fields") || "[]");
 data.push(data_fields);
 localStorage.setItem("data_fields", JSON.stringify(data));
@@ -116,6 +117,9 @@ alert('Your account has been created');
 window.location.href = "file:///C:/Users/APPWRK/Documents/Login/register.html";
 
 }
+
+}
+
 function redirect()
 {
     window.location.href="file:///C:/Users/APPWRK/Documents/Login/login.html";

@@ -112,3 +112,21 @@ case "name":
 			
 		
 	}
+  function cv()
+{
+	window.location.href="C:/Users/APPWRK/Documents/resume/resume.html";
+}
+function url()
+{
+window.location.href="C:/Users/APPWRK/Documents/Login/url/assignment_2.html";
+}
+function cal()
+{
+	window.location.href="C:/Users/APPWRK/Documents/Login/cal.html";
+}
+function home()
+{
+	window.location.href="C:/Users/APPWRK/Documents/Login/user_portal.html";
+}
+
+

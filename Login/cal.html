@@ -22,7 +22,7 @@ body {
 	  </div>
 	  
 	  <div class="navbar">
-		<a href="#" class="active">Home</a>
+		<a href="#" class="active" onclick="home()">Home</a>
 		<a href="#" class="active" onclick="cv()">CV </a>
 		<a href="#" class="active" onclick="cal()">Calculator</a>
 		<a href="#" class="active" onclick="url()">URL</a>
@@ -110,5 +110,23 @@ function open_page()
    			 setTimeout("preventBack()", 0);
     		window.onunload=function(){null};
 		}
+		function cv()
+{
+	window.location.href="C:/Users/APPWRK/Documents/resume/resume.html";
+}
+function url()
+{
+window.location.href="C:/Users/APPWRK/Documents/Login/url/assignment_2.html";
+}
+function cal()
+{
+	window.location.href="C:/Users/APPWRK/Documents/Login/cal.html";
+}
+function home()
+{
+	window.location.href="C:/Users/APPWRK/Documents/Login/user_portal.html";
+}
+
+
 </script>
 </body>

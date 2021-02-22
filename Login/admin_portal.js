@@ -40,7 +40,13 @@ function call()
 		}
 function deleteRow(e) 
 		{
-			
+			var x = confirm("Are you sure you want to delete?");
+  if (x==true)
+      
+
+{
+
+
 			
 		var url = JSON.parse(localStorage.getItem("data_fields"));
 	    console.log(url);
@@ -52,7 +58,10 @@ function deleteRow(e)
         })
         localStorage.setItem("data_fields",JSON.stringify(url));
         window.location.href = "admin_portal.html";
-		}
+	}
+		else
+	 window.location.href = "admin_portal.html";
+	}
 
 function redirect()
 		{
