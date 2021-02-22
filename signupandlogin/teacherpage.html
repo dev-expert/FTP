@@ -50,6 +50,8 @@ body {
   background-color: #f1f1f1;
   padding: 20px 10px;
   width: 100%;
+  position: absolute;
+  top: 0px;
 }
 
 .header a {
@@ -62,12 +64,13 @@ body {
   line-height: 25px;
   border-radius: 4px;
   width: 100%;
+  
  
 }
 
 /* .header a.logo {
   font-size: 25px;
-  font-weight: bold;
+  font-weight: bold;                                                                                                                                        '' 
 }
 
 .header a:hover {
@@ -103,13 +106,13 @@ body {
        
     }
     body{
-        margin: auto;
+        /* margin: auto; */
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-         width: 300px;
-        height: 200px;
+         /* width: 300px; */
+        height: 100vh;
     }
     .size{
         display: flex;
@@ -193,7 +196,10 @@ location.replace("login.html");
 //document.getElementById("data").innerHTML=str;
 
 function deleteData() {
+  var result = confirm("Are you sure to delete?");
     //debugger;
+    if(result)
+    {
     var table = document.getElementById("myTable");
     var obj = JSON.parse(localStorage.getItem("superuser"));
     /*
@@ -219,9 +225,10 @@ function deleteData() {
             i--;
         }
     }
-
+    
     localStorage.setItem("superuser",JSON.stringify(obj));
 
+}
 }
 function logout()
 {
