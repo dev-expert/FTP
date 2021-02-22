@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var n = parseInt(prompt("Enter the Number"));
+        // m=1;
+        // for(i=1;i<=n;i++)
+        // {
+        //     document.write(m+" ");
+        //     m=m+i;
+        // }
+
+        // var n = parseInt(prompt("Enter the rows:"));
+        // for(i=0;i<n;i++)
+        // {
+        //     for(j=0;j<=i*2;j++)
+        //     {
+        //         document.write(String.fromCharCode(65+(Math.abs(i-j))));
+        //     }
+        //     document.write("<br>");
+        // } 
+        // for(i=n-2;i>=0;i--)
+        // {
+        //     for(j=0;j<=2*i;j++)
+        //     {
+        //         document.write(String.fromCharCode(65+(Math.abs(i-j))));
+        //     }
+        //     document.write("<br>");
+        // } 
+        
+        // var n =parseInt(prompt("Enter the rows: "));
+        // let k=1;
+        // for(i=0;i<=n;i++)
+        // {
+        //     for(j=0;j<=n-i;j++)
+        //     {
+        //         document.write("&nbsp; &nbsp;");
+        //     }
+        //     for(j=1;j<=i;j++)
+        //     {
+        //         document.write(k+"&nbsp; &nbsp; ");
+        //         k++;
+        //     }
+        
+        //     document.write("<br>");
+        // }
+
+        // var n=parseInt(prompt("Enter the rows:"));
+        // for(i=1;i<=n;i++)
+        // {
+        //     for(j=i;j>=1;j--)
+        //     {
+        //         document.write(j+" ");
+        //     }
+        //     document.write("<br>");
+        // }
+
+        let n = parseInt(prompt("Enter the no of elements in an array"));
+        arr = [];
+        k=1;
+        for(i=0;i<n;i++)
+        {
+          arr[i] = parseInt(prompt("enter the number"));
+          k = k * arr[i];
+        }
+            for(i=0;i<n;i++)
+            {
+                 document.write(k/arr[i] + " ");
+        } 
+
+    </script>
+</body>
+</html>
