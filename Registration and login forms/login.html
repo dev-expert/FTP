@@ -45,7 +45,8 @@ function checking()
             {
                 old = []
             }
-            y = (old.find(x => x.email == user))
+        if(    y = (old.find(x => x.email == user)))
+        
             {
                 if(key == y.pass2)
                 {
@@ -68,9 +69,12 @@ function checking()
                     }
                 }
                 else {
-                    alert("Enter again")
+                    alert("Enter again");
                 }
             }
+        else{
+            alert("please Register first")
+        }
    
 
 }
@@ -83,6 +87,7 @@ function checking()
         background-repeat: no-repeat;
         background-size: cover;
         padding-left: 25%;
+        color:white;
     }
     .main{
     /* background-color: rgba(189, 187, 187, 0.4); */

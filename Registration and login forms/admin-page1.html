@@ -66,7 +66,15 @@
             {
                 s=keys[i];
                 if(semail===s.email){
-                    keys.splice(i, 1);
+                    if (confirm('Are you sure you want to save this thing into the database?')) {
+  // delete it!
+  console.log('Thing was Deleted');
+  keys.splice(i, 1);
+
+} else {
+  // Do nothing!
+  console.log('Thing was not deleted to the database.');
+}
                 }
             }
             localStorage.setItem("admin", JSON.stringify(keys));
@@ -74,16 +82,25 @@
         }
         function deletetick(keys1){
             let keys=JSON.parse(localStorage.getItem("admin"));
-            for(i=0;i<keys1.length;i++)
+            if (confirm('Are you sure you want to Delete these things from the database?')) {
+  // Save it!
+  console.log('Thing was deleted to the database.');
+  for(i=0;i<keys1.length;i++)
             {
                 for(j=0;j<keys.length;j++){
                     s=keys[j];
+                    
                     if(keys1[i]===s.email)
                     {
                     keys.splice(j, 1);
                     }
                 }
             }
+} else {
+  // Do nothing!
+  console.log('Thing was not deleted from the database.');
+}
+           
             localStorage.setItem("admin", JSON.stringify(keys));
             users();
         }
@@ -104,6 +121,8 @@ if(!email)
 {
 location.replace("login.html");
 }
+users();
+
 
 }
 
