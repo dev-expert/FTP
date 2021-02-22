@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
+
+.formsubmit ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.formsubmit li {
+  float: right;
+  
+}
+
+.formsubmit li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.formsubmit li a:hover {
+  background-color: #111;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -8,7 +34,10 @@
 }
 body{
   background: #fec107;
-  padding: 0 10px;
+  
+  margin: 0px;
+  padding: 0px;
+  
 }
 .wrapper{
   max-width: 500px;

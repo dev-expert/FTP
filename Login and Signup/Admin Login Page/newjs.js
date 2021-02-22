@@ -105,13 +105,13 @@ function viewdata() {
 }
 
 function slogin() {
-    alert("login as Admin");
+    
     window.open("webpage.html","_self")
 
 }
 
 function nlogin() {
-    alert("Login as normal user")
+    
     window.open("webpage2.html","_self")
 
 
