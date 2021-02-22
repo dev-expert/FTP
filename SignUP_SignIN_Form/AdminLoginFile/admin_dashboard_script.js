@@ -38,10 +38,6 @@ function database() {
         var cell1 = row.insertCell(1);
         cell1.innerHTML = obj[i].email;
 
-
-
-
-
         var cell2 = row.insertCell(2);
         if (obj[i].usertype == "true")
             cell2.innerHTML = "Admin";
@@ -56,26 +52,27 @@ function database() {
         cell3.appendChild(checkbox);
 
     }
+}
 
+function deljeteData() {
+    var table = document.getElementById("table");
+    var obj = JSON.parse(localStorage.getItem("users"));
+   
+    var checkboxs = table.getElementsByTagName("Input");
 
-
-    function deljeteData() {
-        var table = document.getElementById("table_data");
-        var obj = JSON.parse(localStorage.getItem("users"));
-       
-        var checkboxs = table.getElementsByTagName("Input");
-
-        for (var i = 0; i < checkboxs.length; i++) {
-            //var check = data.rows[i].cells[4].data;
-            if (checkboxs[i].checked == true) {
-                //alert(i);
-                table.deleteRow(i + 1);
-                obj.splice(i, 1);
-                i--;
-            }
+    for (var i = 0; i < checkboxs.length; i++) {
+        // debugger;
+        // alert("Hello");
+        
+        if (checkboxs[i].checked == true) {
+            alert("Deleting Row");
+            table.deleteRow(i+1);
+            obj.splice(i, 1);
+            // alert("Hi");
+            i--;
         }
-
-        localStorage.setItem("users", JSON.stringify(obj));
-
     }
+
+    localStorage.setItem("users", JSON.stringify(obj));
+
 }
