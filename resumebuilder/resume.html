@@ -29,11 +29,11 @@
         <div>
             <h2 class="font">SKILLS</h2>
             <ul> 
-            <li> <script>document.write(old.skill1)</script></li>
-            <li> <script>document.write(old.skill2)</script></li>
-            <li> <script>document.write(old.skill3)</script></li>
-            <li> <script>document.write(old.skill4)</script></li>
-            <li> <script>document.write(old.skill5)</script></li>
+            <li style="display: none;" id="lenskill1"> </li>
+            <li style="display: none;" id="lenskill2"> </li>
+            <li style="display: none;" id="lenskill3"> </li>
+            <li style="display: none;" id="lenskill4"> </li>
+            <li style="display: none;" id="lenskill5"> </li>
             
             </ul>
             
@@ -140,8 +140,20 @@
         
 
     </div>
-  
+  <script>
+      var skill = JSON.parse(localStorage.getItem("skills"));
+let l = skill.length;
+// alert(l);
+
+for(var i =1;i<=l;i++)
+{
+
+document.getElementById("lenskill"+i).style.display = "block";
+document.getElementById("lenskill"+i).innerHTML = skill[i-1];
+}
+  </script>
     <!-- <script>
+
         check();
         function getParams(){
         var idx = document.URL.indexOf('?');

@@ -44,100 +44,112 @@
                 </div>
             </div>
             <div class="row3">
-            
-            <div>
-            <label>
-                <h4>Certification :</h4>
-                <input type="text" id="cert1" class="cert"><br>
-                <input type="text" id="cert2" class="cert">
-            </label>
-        </div>
-        <div>
-            <label>
-                <h4>Hobbies :</h4>
-                <input type="text" id="hobb1" class="hobb"><br>
-                <input type="text" id="hobb2" class="hobb">
-            </label>
+
+                <div>
+                    <label>
+                        <h4>Certification :</h4>
+                        <input type="text" id="cert1" class="cert"><br>
+                        <input type="text" id="cert2" class="cert">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <h4>Hobbies :</h4>
+                        <input type="text" id="hobb1" class="hobb"><br>
+                        <input type="text" id="hobb2" class="hobb">
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="row4">
-        <div >
-            <label>
-                <h4> Skills :</h4>
+            <div class="row4">
+                <div id="skills">
+                    <h4> Skills :</h4>
+                    <button type="button" onclick="addFl()"> Add Skill</button>
+                    <!-- <label>
+                
                 <input type="text" id="skill1" class="skinput "><br>
                 <input type="text" id="skill2" class="skinput"><br>
                 <input type="text" id="skill3" class="skinput"><br>
                 <input type="text" id="skill4" class="skinput"><br>
                 <input type="text" id="skill5" class="skinput">
-            </label>
+            </label> -->
 
-        </div>
-        <div>
-            <label>
-                <h4>Languages :</h4>
-                <input type="text" id="lang1" class="langa"><br>
-                <input type="text" id="lang2" class="langa"><br>
-                <input type="text" id="lang3" class="langa"><br>
-            </label>
-        </div>
-        </div>
-            
-        <div class="row5"> 
-            <div>
-            <label>
-                <h4> Education :</h4>
-                <input type="text" id="educ1" placeholder="College name"><br>
-                <input type="text" id="source1" placeholder=" Course &Cgpa"><br><br>
-                <input type="text" id="educ2" placeholder=" College name"><br>
-                <input type="text" id="source2" placeholder="Course &Cgpa"><br><br>
-                <input type="text" id="educ3" placeholder="College name"><br>
-                <input type="text" id="source3" placeholder=" Course &Cgpa"><br>
-            </label>
-        </div>
-        <div>
-            <label>
-                <h4>Projects :</h4>
-                <input type="text" id="projs1" placeholder="Title"> <br>
-                <input type="text" id="web1" placeholder="Description"> <br><br>
-                <input type="text" id="projs2" placeholder=" Title"> <br>
-                <input type="text" id="web2" placeholder="Description"> <br><br>
-                <input type="text" id="projs3" placeholder="Title"> <br>
-                <input type="text" id="web3" placeholder="Description">
-            </label>
-        </div>
-        </div>
-        <div class="row6">
-        <div>
-        <label >
-            <h4>About :</h4>
-            </style>
-            <input type="text" id="about" name="about" class="cert">
-        </label>
-    </div>
-    <div>
-            <label>
-                <h4>Activities :</h4>
-                <input type="text" id="acti1" class="cert"> <br>
-                <input type="text" id="acti2" class="cert"><br>
-            </label>
-        </div>
-    </div>
+                </div>
+                <div>
+                    <label>
+                        <h4>Languages :</h4>
+                        <input type="text" id="lang1" class="langa"><br>
+                        <input type="text" id="lang2" class="langa"><br>
+                        <input type="text" id="lang3" class="langa"><br>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row5">
+                <div>
+                    <label>
+                        <h4> Education :</h4>
+                        <input type="text" id="educ1" placeholder="College name"><br>
+                        <input type="text" id="source1" placeholder=" Course &Cgpa"><br><br>
+                        <input type="text" id="educ2" placeholder=" College name"><br>
+                        <input type="text" id="source2" placeholder="Course &Cgpa"><br><br>
+                        <input type="text" id="educ3" placeholder="College name"><br>
+                        <input type="text" id="source3" placeholder=" Course &Cgpa"><br>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <h4>Projects :</h4>
+                        <input type="text" id="projs1" placeholder="Title"> <br>
+                        <input type="text" id="web1" placeholder="Description"> <br><br>
+                        <input type="text" id="projs2" placeholder=" Title"> <br>
+                        <input type="text" id="web2" placeholder="Description"> <br><br>
+                        <input type="text" id="projs3" placeholder="Title"> <br>
+                        <input type="text" id="web3" placeholder="Description">
+                    </label>
+                </div>
+            </div>
+            <div class="row6">
+                <div>
+                    <label>
+                        <h4>About :</h4>
+                        </style>
+                        <input type="text" id="about" name="about" class="cert">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <h4>Activities :</h4>
+                        <input type="text" id="acti1" class="cert"> <br>
+                        <input type="text" id="acti2" class="cert"><br>
+                    </label>
+                </div>
+            </div>
             <br>
             <button type="reset" class="button1">Reset</button>&emsp;
             <button type="Submit" class="button1" onclick="login()">Submit</button>
     </div>
     </form>
     <script>
+
+        let i = 1;
         function login() {
+            debugger;
             var about1 = document.getElementById("about").value;
             var email = document.getElementById("email").value;
             var name1 = document.getElementById("name").value;
             var phn1 = document.getElementById("phone").value;
-            var skill = document.getElementById("skill1").value;
-            var skil = document.getElementById("skill2").value;
-            var ski = document.getElementById("skill3").value;
-            var sk = document.getElementById("skill4").value;
-            var s = document.getElementById("skill5").value;
+            var arr = [];
+            for (var j = 1; j < i; j++) {
+                arr[j - 1] = document.getElementById("skill" + j).value;
+            }
+
+            localStorage.setItem("skills", JSON.stringify(arr));
+
+            // var skill = document.getElementById("skill1").value;
+            // var skil = document.getElementById("skill2").value;
+            // var ski = document.getElementById("skill3").value;
+            // var sk = document.getElementById("skill4").value;
+            // var s = document.getElementById("skill5").value;
             var hobbs = document.getElementById("hobb1").value;
             var hobb = document.getElementById("hobb2").value;
             var certf = document.getElementById("cert1").value;
@@ -162,8 +174,9 @@
             var webs = document.getElementById("web3").value;
 
             obj = {
-                about: about1, name: name1, skill1: skill, skill2: skil, skill3: ski,
-                skill4: sk, skill5: s, cert1: certf, cert2: cert, phone: phn1, hobb1: hobbs,
+                about: about1, name: name1, 
+                //skill1: skill, skill2: skil, skill3: ski,skill4: sk, skill5: s, 
+                cert1: certf, cert2: cert, phone: phn1, hobb1: hobbs,
                 hobb2: hobb, lang1: lang, lang2: lan, lang3: la, educ1: educ, educ2: edu,
                 educ3: ed, email: email, Address: address, source1: name, source2: nam,
                 source3: na, projs1: proje, projs2: proj, projs3: pro, acti1: activi,
@@ -173,6 +186,23 @@
 
             localStorage.setItem("user", JSON.stringify(obj))
         }
+        function addFl() {
+            if (i <= 6) {
+                var sk = document.getElementById("skills");
+
+                var newS = document.createElement("input");
+                newS.setAttribute("type", "text");
+                newS.setAttribute("id", "skill" + i);
+                newS.setAttribute("placeholder", "skill" + (i++));
+                var pos = sk.childElementCount;
+                sk.insertBefore(newS, sk.childNodes[pos]);
+            }
+            else {
+                alert("Max skill limit is 6");
+            }
+        }
+
+
     </script>
 </body>
 
