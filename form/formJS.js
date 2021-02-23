@@ -1,5 +1,5 @@
+let i = 1;
 function basicData1() {
-//debugger;
     var name1 = document.getElementById('name').value;
     var user = document.getElementById('email').value;
     var phn1 = document.getElementById('phone').value;
@@ -15,22 +15,13 @@ function basicData1() {
 
     localStorage.setItem("person11", JSON.stringify(obj1));
 
-    var skills1 = document.getElementById('skill1').value;
-    var skills2 = document.getElementById('skill2').value;
-    var skills3 = document.getElementById('skill3').value;
-    var skills4 = document.getElementById('skill4').value;
-    var skills5 = document.getElementById('skill5').value;
-    var skills6 = document.getElementById('skill6').value;
-    var skills7 = document.getElementById('skill7').value;
-    var skills8 = document.getElementById('skill8').value;
-    var skills9 = document.getElementById('skill9').value;
-
-    var skill = {
-        skill1: skills1, skill2: skills2, skill3: skills3, skill4: skills4,
-        skill5: skills5, skill6: skills6, skill7: skills7,
-        skill8: skills8, skill9: skills9
+    var arr = [];
+    for(var j =1;j<i;j++)
+    {
+        arr[j-1] =  document.getElementById("skill"+j).value;
     }
-    localStorage.setItem("skills", JSON.stringify(skill));
+
+    localStorage.setItem("skills", JSON.stringify(arr));
 
 
     var lan1 = document.getElementById('lan1').value;
@@ -192,6 +183,26 @@ function backskills() {
 
     document.getElementById("skills").style.display = "none";
     document.getElementById("basicData12").style.display = "block";
+}
+
+
+function addFl()
+{
+    if(i<=6)
+    {
+    var sk = document.getElementById("skills");
+
+    var newS = document.createElement("input");
+    newS.setAttribute("type","text");
+    newS.setAttribute("id","skill"+i);
+    newS.setAttribute("placeholder","skill"+(i++));
+    var pos = sk.childElementCount;
+    sk.insertBefore(newS,sk.childNodes[pos]);
+    }
+    else
+    {
+        alert("Max skill limit is 6");
+    }
 }
 
 

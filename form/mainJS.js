@@ -1,5 +1,4 @@
 var person =  JSON.parse(localStorage.getItem("person11"));
-//alert(person.name);
 document.getElementById("name").innerHTML = person.name;
 
 document.getElementById("dis1").innerHTML = person.dis;
@@ -10,17 +9,17 @@ document.getElementById("iphone").innerHTML = person.phone;
 document.getElementById("ild").innerHTML = person.link;
 document.getElementById("iadd").innerHTML = person.Address;
 
-var skill = JSON.parse(localStorage.getItem("skills"));
-document.getElementById("skill1").innerHTML = skill.skill1;
-document.getElementById("skill2").innerHTML = skill.skill2;
-document.getElementById("skill3").innerHTML = skill.skill3;
-document.getElementById("skill4").innerHTML = skill.skill4;
-document.getElementById("skill5").innerHTML = skill.skill5;
-document.getElementById("skill6").innerHTML = skill.skill6;
-document.getElementById("skill7").innerHTML = skill.skill7;
-document.getElementById("skill8").innerHTML = skill.skill8;
-document.getElementById("skill9").innerHTML = skill.skill9;
 
+var skill = JSON.parse(localStorage.getItem("skills"));
+let l = skill.length;
+alert(l);
+var temp;
+for(var i =1;i<=l;i++)
+{
+
+    document.getElementById("skill"+i).style.display = "block";
+    document.getElementById("skill"+i).innerHTML = skill[i-1];
+}
 
 var lang = JSON.parse(localStorage.getItem("lang"));
 document.getElementById("lan1").innerHTML = lang.lan1;
