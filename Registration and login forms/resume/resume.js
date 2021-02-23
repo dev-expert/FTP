@@ -1,3 +1,7 @@
+var arr = [];
+i = 1;
+
+debugger;
 function add()
 {
 fname1 = document.getElementById("fname").value;
@@ -22,12 +26,12 @@ proj3= document.getElementById("pro3").value;
 proj12 = document.getElementById("pro12").value;
 proj22= document.getElementById("pro22").value;
 proj32= document.getElementById("pro32").value;
-ski1=document.getElementById("sk1").value;
-ski2=document.getElementById("sk2").value;
-ski3=document.getElementById("sk3").value;
-ski4=document.getElementById("sk4").value;
-ski5=document.getElementById("sk5").value;
-ski6=document.getElementById("sk6").value;
+// ski1=document.getElementById("sk1").value;
+// ski2=document.getElementById("sk2").value;
+// ski3=document.getElementById("sk3").value;
+// ski4=document.getElementById("sk4").value;
+// ski5=document.getElementById("sk5").value;
+// ski6=document.getElementById("sk6").value;
 Ach1=document.getElementById("ac1").value;
 Ach2=document.getElementById("ac2").value;
 Ach3=document.getElementById("ac3").value;
@@ -70,12 +74,12 @@ bio=document.getElementById("bio").value;
   pro1:proj1,
   pro3:proj3,
   pro2:proj2,
-  s1 : ski1,
-  s2 : ski2,
-  s3 : ski3,
-  s4 : ski4,
-  s5 : ski5,
-  s6 : ski6,
+  // s1 : ski1,
+  // s2 : ski2,
+  // s3 : ski3,
+  // s4 : ski4,
+  // s5 : ski5,
+  // s6 : ski6,
   ac1:Ach1,
   ac2:Ach2,
   ac3:Ach3,
@@ -101,4 +105,32 @@ bio=document.getElementById("bio").value;
   bio:bio
 }
   localStorage.setItem("user" , JSON.stringify(obj));
+
+
+    for(var j =1;j<i;j++)
+    {
+        arr[j-1] =  document.getElementById("skill"+j).value;
+    }
+    localStorage.setItem("skills" , JSON.stringify(arr));
+}
+function sk()
+{
+  
+  
+      if(i<=6)
+      {
+      var sk = document.getElementById("skills");
+      
+      var newS = document.createElement("input");
+      newS.setAttribute("type","text");
+      newS.setAttribute("id","skill"+i);
+      newS.setAttribute("placeholder","skill"+(i++));
+      var pos = sk.childElementCount;
+      sk.insertBefore(newS,sk.childNodes[pos]);
+      }
+      else
+      {
+          alert("Max skill limit is 6");
+      }
+  
 }

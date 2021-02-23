@@ -3,12 +3,12 @@ body{
     max-width: 60%;
     border: 2px solid white;
     font-size: large;
-    background-color: rgb(175, 166, 166);
+    background-color: rgb(224, 53, 53);
     /* color: cornsilk; */
-    background-image: url(bg4.jpg);
+    /* background-image: url(bg4.jpg); */
     background-size: cover;
     border-radius: 20px;
-    background-color: rgb(175, 166, 166);
+    background-color: rgb(233, 14, 14);
 
     padding-left: 20px;
     margin-left: 20%;
@@ -81,11 +81,11 @@ break{
     overflow: hidden;
   }
   form{
-    /* background: linear-gradient(to right bottom,rgba(255, 253, 253, 0.2),rgba(255, 255, 255, 0.2)); */
+    background: linear-gradient(to right bottom,rgba(255, 253, 253, 0.2),rgba(255, 255, 255, 0.2));
 
   }
   input{
-      background-color: rgb(202, 190, 190);
+      background-color: rgb(253, 253, 253);
       border-radius: 10px;
   }
   select{
