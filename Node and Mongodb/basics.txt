@@ -1,0 +1,25 @@
+SANDBOX.io
+
+EXpress Framework on JS
+Rest Architecture
+Routing in node js
+
+Endpoints is an API
+
+
+app.use("./listUsers",(req,res)=> {
+
+res.json([{
+"name": "Mahi",
+"role": "dev"
+
+}])
+})
+
+
+app.get
+app.delete
+app.put
+app.post
+
+Postman tool install
