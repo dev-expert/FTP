@@ -1,16 +1,23 @@
-var http = require("http");
-var fs = require("fs");
-var express = require("express");
-var app = express();
-app.get("/listenuser", (req, res) => {
-    fs.readFile("user.txt", (err, data) => {
-        var data = data.toString();
-       var update= JSON.parse(data);
-        console.log(update);
-        res.send(update);
-    })
 
-});
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const bodyparser = require("body-parser");
+const model = require("./model/product");
+const router = require("./controller/user");
+app.use(bodyparser.json()); 
+app.use(bodyparser.urlencoded({ extended: false }));
+mongoose.connect("mongodb://localhost:27017/appwrk-db", { useNewUrlParser: true, useUnifiedTopology: true, }).then(result => {
+    console.log("database connected successfully");
+}).catch((err) => {
+    console.log("failed", err);
+})
+
+app.use(router);
+
+app.use(model);
+
+
 app.listen(8080);
 
 
