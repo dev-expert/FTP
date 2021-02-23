@@ -15,7 +15,6 @@ else{
 }
 
 function generate() {
-
     document.getElementById("nme_out").innerHTML = document.getElementById("name_in").value;
     document.getElementById("tag_out").innerHTML = document.getElementById("tag_in").value;
     document.getElementById("call_num_out").innerHTML = document.getElementById("phone_in").value;
@@ -86,9 +85,18 @@ function generate() {
     document.getElementById("detail_out_3").innerHTML = document.getElementById("male").value;
     document.getElementById("detail_out_4").innerHTML = document.getElementById("maritial_in").value;
 
+    document.getElementById("printButton").style.display = "block";
     document.getElementById("form").style.display = "none";
     document.getElementById("section").style.display = "block";
-    
+
+    var divs = document.getElementsByTagName("li");
+    for(var i = 0; i < divs.length; i++){
+        if(divs[i].innerHTML == ""){
+            document.getElementById(divs[i].id).style.display = "none";
+        }
+
+        else{}
+    }
 }
 
 function openNav() {
@@ -104,4 +112,15 @@ function closeNav() {
 function deleteFireWall(){
     localStorage.removeItem("fireWall");
     location.replace("home.html");
+}
+
+function prin(){
+    var printContents = document.getElementById("section").innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
 }
