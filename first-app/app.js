@@ -1,18 +1,27 @@
- const express = require('express')
+const express = require('express')
 const app = express()
-const port = 3000
 
-const fs = require('fs');
-// app.get('/', (req, res) => res.send('Hello World'))
-app.get('/madhav',function(req,res){
-    res.send('Welcome back madhav')
-})
 
-app.get('/list', function(req, res) {
-    fs.readFile('nodefile.txt', function(err, data) {
-        console.log(data);
-        res.end(data);
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb+srv://new-user:user@cluster1.sioak.mongodb.net/madhav.madhav1?retryWrites=true&w=majority";
+
+app.get('/', function (req, res) {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("mydb");
+        dbo.collection("customers").find().toArray(function (err, result) {
+            if (err) throw err;
+            console.log("Running");
+            res.send(result);
+            db.close();
+        });
     });
 })
 
-app.listen(port, () => console.log(`Example app listening on port port!`))
+
+app.listen(9000, function (req, res) {
+    console.log('Running..')
+})
+
+
+
