@@ -44,24 +44,14 @@
     <div class="skills" >
         <h4>Skills:</h4>
         <div class="vl"></div>
-        <script>
-            var skill = JSON.parse(localStorage.getItem("skills"));
-            let l = skill.length;
-            alert(l);
-            var temp;
-            for(var i =1;i<=l;i++)
-            {
-
-            document.getElementById("skill"+i).style.display = "block";
-            document.getElementById("skill"+i).innerHTML = skill[i-1];
-}
-        </script>
-        <!-- <ul>
-       <li><script>document.write(old.skills)</script></br></li>
-       <li><script>document.write(old.skills1)</script></br></li> 
-       <li><script>document.write(old.skills2)</script></br></li> 
-       <li><script>document.write(old.skills3)</script></br></li>
-    </ul> -->
+       
+        
+        <ul>
+       <li style="display: none;" id="lenskill1"></li>   
+        <li style="display: none;" id="lenskill2"> </li>
+       <li style="display: none;" id="lenskill3"> </li>
+       <li style="display: none;" id="lenskill4"></li>
+    </ul> 
     </div>
     
     <!-- <div class="languages"> -->
@@ -184,7 +174,18 @@
                     </script>
                 </div>
     </div>
-    
+    <script>
+        var skill = JSON.parse(localStorage.getItem("skills"));
+        let l = skill.length;
+        // alert(l);
+        var temp;
+        for(var i =1;i<=l;i++)
+        {
+
+        document.getElementById("lenskill"+i).style.display = "block";
+        document.getElementById("lenskill"+i).innerHTML = skill[i-1];
+}
+    </script>
 
 </body>
 </html>

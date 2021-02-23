@@ -17,7 +17,7 @@ body{
 }
 .skills{
     margin-top: 10px;
-    
+    /* display: none; */
     width: 100%;
     
 }
