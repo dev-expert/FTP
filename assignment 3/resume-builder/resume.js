@@ -75,5 +75,17 @@ document.getElementById('interest_3').innerHTML = person[0].interest_3;
 document.getElementById('interest_4').innerHTML = person[0].interest_4;
 
 //achievement part
-document.getElementById('achievement_1').innerHTML = person[0].achievement_1;
-document.getElementById('achievement_2').innerHTML = person[0].achievement_2;
+// document.getElementById('achievement_1').innerHTML = person[0].achievement_1;
+// document.getElementById('achievement_2').innerHTML = person[0].achievement_2;
+
+// for (var i = 0; i < localStorage.achievements.length; i++) {
+//     document.getElementById(`achievement${i+1}`) 
+// }
+var old = [];
+var old = JSON.parse(localStorage.getItem("achievements"));
+console.log(old);
+for (var i = 0; i < person[0].achive; i++) {
+    document.getElementById(`achievement_${i+1}`).innerHTML = old[i]
+}
+
+console.log(person[0].achive);

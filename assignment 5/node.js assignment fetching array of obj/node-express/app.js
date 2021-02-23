@@ -11,13 +11,13 @@ app.get('/listusers', function(req, res) {
     });
 })
 app.get('/list', function(req, res) {
-    fs.readFile('users.json', function(err, data) {
+    fs.readFile('file.txt', function(err, data) {
         console.log(data);
         res.end(data);
     });
 })
 
-var server = app.listen(8081, function() {
+var server = app.listen(300, function() {
     var host = server.address().address
     var port = server.address().port
     console.log("Example app listening at http://%s:%s", host, port)

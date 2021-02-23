@@ -1,6 +1,31 @@
 // creating array of objects
 let arr = [];
+var achievements = [];
+var achive = 1;
+var add_achivement = () => {
+    var str = `<div><label> Achievement :</label></div>
+        <input type="text" id="achievement_${achive}" placeholder="Achievement">`;
+    document.getElementById(`add`).innerHTML += str;
+    achive++;
+}
+
 var passvalue = () => {
+
+    //dynamically adding values in achievment 
+    for (var i = 1; i < achive; i++) {
+        achievements[i - 1] = document.getElementById(`achievement_${i}`).value;
+    }
+
+    if (localStorage.getItem("achievements") == null) {
+        localStorage.setItem("achievements", JSON.stringify(achievements));
+    }
+
+    var old1 = JSON.parse(localStorage.getItem("achievements"));
+
+    old1.push(obj);
+    localStorage.setItem("achievements", JSON.stringify(old1));
+
+    //till here
     var name = document.getElementById("name").value;
     var name_description = document.getElementById("name_description").value;
     var email_address = document.getElementById('email_address').value;
@@ -57,8 +82,7 @@ var passvalue = () => {
     var interest_3 = document.getElementById('interest_3').value;
     var interest_4 = document.getElementById('interest_4').value;
 
-    var achievement_1 = document.getElementById('achievement_1').value;
-    var achievement_2 = document.getElementById('achievement_2').value;
+
 
 
     var obj = {
@@ -120,9 +144,12 @@ var passvalue = () => {
         interest_3: interest_3,
         interest_4: interest_4,
 
-        achievement_1: achievement_1,
-        achievement_2: achievement_2,
+        // achievement_1: achievement_1,
+        // achievement_2: achievement_2,
 
+
+
+        achive: achive,
     }
     if (localStorage.getItem("person") == null) {
         localStorage.setItem("person", JSON.stringify(arr));

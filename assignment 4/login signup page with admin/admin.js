@@ -23,32 +23,40 @@ var users = () => {
 
 //for single user deletion
 var deleteuser = (email_address) => {
-    var persons = JSON.parse(localStorage.getItem('person'));
+    if (confirm("if you press ok user is going to be deleted")) {
+        var persons = JSON.parse(localStorage.getItem('person'));
 
-    for (var i = 0; i < persons.length; i++) {
-        var s = persons[i];
-        if (email_address == s.email_address)
-            persons.splice(i, 1);
+        for (var i = 0; i < persons.length; i++) {
+            var s = persons[i];
+            if (email_address == s.email_address)
+                persons.splice(i, 1);
+        }
+        localStorage.setItem('person', JSON.stringify(persons));
+        users();
+    } else {
+        users();
     }
-    localStorage.setItem('person', JSON.stringify(persons));
-    users();
 
 };
 
 //for user multidelete
 
 function deletetick(keys1) {
-    let keys = JSON.parse(localStorage.getItem("person"));
-    for (i = 0; i < keys1.length; i++) {
-        for (j = 0; j < keys.length; j++) {
-            s = keys[j];
-            if (keys1[i] === s.email_address) {
-                keys.splice(j, 1);
+    if (confirm("if you press ok user is going to be deleted")) {
+        let keys = JSON.parse(localStorage.getItem("person"));
+        for (i = 0; i < keys1.length; i++) {
+            for (j = 0; j < keys.length; j++) {
+                s = keys[j];
+                if (keys1[i] === s.email_address) {
+                    keys.splice(j, 1);
+                }
             }
         }
+        localStorage.setItem("person", JSON.stringify(keys));
+        users();
+    } else {
+        users();
     }
-    localStorage.setItem("person", JSON.stringify(keys));
-    users();
 }
 
 function gettick(semail) {
