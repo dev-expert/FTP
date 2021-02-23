@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div
+        style="margin-left: 25%; max-width: 50%; background-color: rgb(241, 173, 26);border: 3px solid; text-align: center;">
+        <br>
+        <label>Enter Number 1: </label><input type="number" id="num1"><br>
+        <br>
+        <label>Enter Number 2: </label><input type="number" id="num2"><br>
+        <br>
+        <label>Click : </label>
+        <button style="width: 1cm;background-color: dimgray; border-radius: 5px;" onclick="sum(1)">+</button>
+        <button style="width: 1cm;background-color: dimgray; border-radius: 5px;"
+            onclick="sum(2)">-</button>
+        <button style="width: 1cm;background-color: dimgray; border-radius: 5px;" onclick="sum(3)">*</button>
+        <button style="width: 1cm;background-color: dimgray; border-radius: 5px;" onclick="sum(4)">/</button>
+        <button style="width: 1cm;background-color: dimgray; border-radius: 5px;" onclick="clr()">C</button>
+        <br><br>
+        <label>Result : </label><input type="number" id="res"><br>
+    </div>
+    <script>
+        function sum(x){
+            var z=parseInt(x);
+            a = document.getElementById("num1").value;
+            b = document.getElementById("num2").value;
+            a=parseInt(a);
+            b=parseInt(b);
+            if(z===1){
+                return document.getElementById("res").value=a+b;
+            }
+            if(z===2 && a>b){
+                return document.getElementById("res").value=a-b;
+            }
+            if(z===3){
+                return document.getElementById("res").value=a*b;
+            }
+            if(z===4 && a>b){
+                return document.getElementById("res").value=a/b;
+            }
+            else{
+                alert("Invalid Input");
+            }
+        }
+        function clr(){
+           document.getElementById("num1").value="";
+           document.getElementById("num2").value="";
+           document.getElementById("res").value="";
+        }
+        
+        
+    </script>
+</body>
+
+</html>
