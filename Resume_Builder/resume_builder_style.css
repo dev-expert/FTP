@@ -291,3 +291,24 @@ input{
 #detail_edu_status_out{
     width: 50vw;
 }
+.print_button{
+    /* text-align: center;
+    align-items: center;
+    justify-items: center; */
+    margin-left: 350px;
+    font-weight: 900;
+    height: 5vh;
+    min-width: 10vw;
+    border: 2px solid balck;
+    background-color:#3e7bbe;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.print_button:hover{
+    background-color: white;
+    color: #3e7bbe;
+    border-color: #3e7bbe;
+    transform: scale(1.1);
+    transition: 1s;   
+}

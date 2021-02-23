@@ -1,5 +1,5 @@
 // COMBINED FUNCTION TO HIDE AND GENERATE THE FROM
-function hide_generate(){
+function hide_generate() {
   hide()
   generate()
 }
@@ -27,11 +27,11 @@ function generate() {
 
 
   document.getElementById("bachelor_college_name_out").innerHTML = document.getElementById("bachelor_college_name_in").value;
-  document.getElementById("bachelors_marks_out").innerHTML = document.getElementById("bachelors_marks_in").value +"CGPA";
+  document.getElementById("bachelors_marks_out").innerHTML = document.getElementById("bachelors_marks_in").value + "CGPA";
   document.getElementById("senior_secondry_college_name_out").innerHTML = document.getElementById("senior_secondry_college_name_in").value;
-  document.getElementById("senior_secondrys_marks_out").innerHTML = document.getElementById("senior_secondrys_marks_in").value +"%";
+  document.getElementById("senior_secondrys_marks_out").innerHTML = document.getElementById("senior_secondrys_marks_in").value + "%";
   document.getElementById("matriculation_college_name_out").innerHTML = document.getElementById("matriculation_college_name_in").value;
-  document.getElementById("matriculations_marks_out").innerHTML = document.getElementById("matriculations_marks_in").value +"%";
+  document.getElementById("matriculations_marks_out").innerHTML = document.getElementById("matriculations_marks_in").value + "%";
 
 
   document.getElementById("quali_out_1").innerHTML = document.getElementById("quali_1").value;
@@ -79,4 +79,38 @@ function generate() {
 
   //document.getElementById("form").style.display = "none";
   //document.getElementById("section").style.display = "block";
+
+
+  var hide_list = document.getElementsByTagName("li");
+  for (var i = 0; i < hide_list.length; i++) {
+    if (hide_list[i].innerHTML == "") {
+      document.getElementById(hide_list[i].id).style.display = "none";
+    }
+
+    else { }
+  }
 }
+
+
+
+// VALIDATION
+function checke(url,msg)
+{
+    r=/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+     if(r.test(url.value)==false)
+       alert("Enter Valid Phone Number");
+    else;
+      // alert(" ");
+}
+
+function checkf(url,msg)
+{
+    r=/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+     if(r.test(url.value)==false)
+       alert("Enter Valid Email Id");
+    else;
+      // alert(" ");
+}
+
+
+
