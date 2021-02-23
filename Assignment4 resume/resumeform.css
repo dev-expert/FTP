@@ -18,7 +18,7 @@ h2{
 }
 .main-container{
     
-    background-image: url("resume.gif");
+    /* background-image: url("resume.gif"); */
     display: flex;
     flex-wrap: wrap;
     align-content: center;

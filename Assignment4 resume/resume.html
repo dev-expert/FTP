@@ -80,13 +80,14 @@
 
                         </div>
 
-                        <div class="skill-container"> 
-                            <label for="skills">Skills:</label></br>
-                            <input type="skills" name="skills" id="skills"/></br>
+                        <div id="skills"> 
+                            <label for="skill">Skills:</label></br>
+                            <!-- <input type="skills" name="skills" id="skill"/></br> -->
 
-                            <input type="skills" name="skills" id="skills1"/></br>
+                            <!-- <input type="skills" name="skills" id="skills1"/></br>
                             <input type="skills" name="skills" id="skills2"/></br>
-                            <input type="skills" name="skills" id="skills3">
+                            <input type="skills" name="skills" id="skills3"> -->
+                            <button type="button" onclick="addFl()">Add skill</button>
                         </div>
 
                         <div>
@@ -179,6 +180,7 @@
 
 
     <script>
+        let i=1;
         function login() {
             var mail = document.getElementById("email").value;
             var fname = document.getElementById("firstname").value;
@@ -187,10 +189,17 @@
             var addr = document.getElementById("address").value;
             var ur = document.getElementById("url").value
             var url = document.getElementById("url1").value
-            var skill = document.getElementById("skills").value;
-            var skill1 = document.getElementById("skills1").value;
-            var skill2 = document.getElementById("skills2").value;
-            var skill3 = document.getElementById("skills3").value;
+
+            var arr = [];
+            for(var j =1;j<i;j++)
+            {
+            arr[j-1] = document.getElementById("skills"+j).value;
+            }
+
+            // var skill = document.getElementById("skills").value;
+            // var skill1 = document.getElementById("skills1").value;
+            // var skill2 = document.getElementById("skills2").value;
+            // var skill3 = document.getElementById("skills3").value;
             var hobbie = document.getElementById("hobbies").value;
             var hobbie1 = document.getElementById("hobbies1").value;
             var hobbie2 = document.getElementById("hobbies2").value;
@@ -228,7 +237,7 @@
 
             obj = {
                 email: mail, firstname: fname, lastname: lname, number: pnum, address: addr, url: ur, url1: url,
-                skills: skill, skills1: skill1, skills2: skill2, skills3: skill3,
+                // skills: skill, skills1: skill1, skills2: skill2, skills3: skill3,
                 hobbies: hobbie, hobbies1: hobbie1, hobbies2: hobbie2, hobbies3: hobbie3,
                 languages: language, languages1: language1, languages2: language2,
                 education: edu, college: clg, stream: strm, year: yr, place: plc,
@@ -240,6 +249,27 @@
 
             localStorage.setItem("user", JSON.stringify(obj))
         }
+
+            function addFl()
+            {
+            if(i<=6)
+            {
+            var sk = document.getElementById("skills");
+
+            var newS = document.createElement("input");
+            newS.setAttribute("type","text");
+            newS.setAttribute("id","skills"+i);
+            newS.setAttribute("placeholder","skills"+(i++));
+            var pos = sk.childElementCount;
+            sk.insertBefore(newS,sk.childNodes[pos]);
+            }
+            else
+            {
+            alert("Max skill limit is 6");
+            }
+            }
+
+           
 
     </script>
 
