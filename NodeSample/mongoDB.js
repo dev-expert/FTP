@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "";
+var url = "mongodb+srv://Amigo:123@democluster.4unbc.mongodb.net/demoDataBase?retryWrites=true&w=majority";
 
 app.get('/mongoDB1', function (req, res) {
     MongoClient.connect(url, function (err, db) {
@@ -15,15 +15,15 @@ app.get('/mongoDB1', function (req, res) {
 // const express = require('express');
 // const app = express();
 // var MongoClient = require('mongodb').MongoClient;
-// var url = "";
+// var url = "mongodb+srv://Amigo:123@cluster0.4unbc.mongodb.net/DemoData?retryWrites=true&w=majority";
 
 // DISPLAYING COLLECTION
 app.get('/mongoDB2', function (req, res) {
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
-        var dbo = db.db("DemoDataBase");
+        var dbo = db.db("demoDataBase");
         //Find all documents in DemoData Collection:
-        dbo.collection("DemoData").find({}).toArray(function (err, result) {
+        dbo.collection("demoCollection").find({}).toArray(function (err, result) {
             if (err) throw err;
             //console.log(result);
             res.send(result);
@@ -37,9 +37,9 @@ app.get('/mongoDB2', function (req, res) {
 app.get('/mongoDB3', function (req, res) {
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
-        var dbo = db.db("DemoDataBase");
+        var dbo = db.db("demoDataBase");
         var myobj = { id: "4", name: "Rohit_Kumar_Shrivasta", age: "22" };
-        dbo.collection("DemoData").insertOne(myobj, function (err, result) {
+        dbo.collection("demoCollection").insertOne(myobj, function (err, result) {
             if (err) throw err;
             res.send(result);
             console.log("1 Document Inserted");
@@ -48,6 +48,22 @@ app.get('/mongoDB3', function (req, res) {
     });
 })
 
-app.listen(8082, function (req, res) {
-    console.log('Running Server')
+
+// DELETEING OBJECT FROM THE COLLECTION
+app.get('/mongoDB4', function (req, res) {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("demoDataBase");
+        /*Delete the first customers with the Name: "Rohit_Kumar_Shrivasta":*/
+        var myquery = { name: 'Rohit_Kumar_Shrivasta' };
+        dbo.collection("demoCollection").deleteOne(myquery, function (err, obj) {
+            if (err) throw err;
+            console.log("1 Document Deleted");
+            db.close();
+        });
+    });
+})
+
+app.listen(9000, function (req, res) {
+    console.log('Running Server');
 });
