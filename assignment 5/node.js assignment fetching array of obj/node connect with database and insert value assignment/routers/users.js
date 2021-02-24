@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 
-const bodyparser = require("body-parser");
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: false }));
+// const bodyparser = require("body-parser");
+// app.use(bodyparser.json());
+// app.use(bodyparser.urlencoded({ extended: false }));
 
 //now we want to use the schema we created in user.js inside models folder
 var User = require('../models/user')

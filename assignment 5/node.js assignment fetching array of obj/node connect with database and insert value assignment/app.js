@@ -18,11 +18,11 @@ con.on('error', (err) => {
 });
 
 //we are using res.json so for that we have to mention here about the json
-app.use(express.json())
+app.use(express.json());
 
 //creating route for user list
 var userRouter = require('./routers/users');
-app.use('/', userRouter); //matlab ki jab bhi /users name ka endpoint run hoga toh vo user vale page pe le jayega
+app.use('/users', userRouter); //matlab ki jab bhi /users name ka endpoint run hoga toh vo user vale page pe le jayega
 
 
 //creating localhost port
