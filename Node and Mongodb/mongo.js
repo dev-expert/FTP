@@ -13,7 +13,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 // MongoClient.connect(url, function(err, db) {
 //     if (err) throw err;
 //     var dbo = db.db("mydb");
-//     var myobj = { name: "Mahendra", address: "Apwrk" };
+//     var myobj = { name: "Ofiice", address: "Bestech" };
 //     dbo.collection("customers").insertOne(myobj, function(err, res) {
 //       if (err) throw err;
 //       console.log("1 document inserted");
@@ -25,27 +25,86 @@ app.get('/', (req, res) => res.send('Hello World!'))
 //Finding and Printing The data
 
 
-app.get('/mongo',function(req,res){
+// app.get('/mongo',function(req,res){
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   var dbo = db.db("mydb");
+//   dbo.collection("customers").find().toArray(function(err, result) {
+//     if (err) throw err;
+//     console.log("runningg.......")
+//     res.send(result);
+//     db.close();
+//   });
+// })}
+// );
+
+
+//Posting Data  -Error
+
+// app.post('/mongo',function(res,req){
+//   console.log('POST request to the homepage');
+//   res.send("Hello");
+//   db.close();
+// })
+
+
+// Finding a single elememt from the Database
+
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   var dbo = db.db("mydb");
+//   var query = { address: "Mohali" };
+//   dbo.collection("customers").find(query).toArray(function(err, result) {
+//     if (err) throw err;
+//     console.log(result);
+//     db.close();
+//   });
+// });
+
+
+//Deleting a Element from the Database;
+
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   var dbo = db.db("mydb");
+//   var myquery = { address: 'Bestech' };
+//   dbo.collection("customers").deleteOne(myquery, function(err, obj) {
+//     if (err) throw err;
+//     console.log("1 document deleted");
+//     db.close();
+//   });
+// });
+
+//Updating the data
+
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   var dbo = db.db("mydb");
+//   var myquery = { address: "Canyon 123" };
+//   var newvalues = { $set: {name: "Office", address: "Bestech" } };
+//   dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+//     if (err) throw err;
+//     console.log("1 document updated");
+//     db.close();
+//   });
+// }); 
+
+//Deleting a Entire Database
+
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("mydb");
-  dbo.collection("data").find().toArray(function(err, result) {
+  dbo.collection("data").drop(function(err, delOK) {
     if (err) throw err;
-    console.log("runningg.......")
-    res.send(result);
+    if (delOK) console.log("Collection deleted");
     db.close();
   });
-})}
-);
-app.post('/mongo',function(res,req){
-  console.log('POST request to the homepage');
-  res.send("Hello");
-  db.close();
-})
+}); 
 
 
 
-app.listen(port, () => console.log(`Example app listening on port port!`))
+
+app.listen(port, () => console.log("This is Running.."))
 
 
 
