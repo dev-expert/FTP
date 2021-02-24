@@ -1,6 +1,9 @@
 window.addEventListener("load",()=>{
     
     var k=JSON.parse(localStorage.getItem("resume"));
+
+    var p=JSON.parse(localStorage.getItem("skills"));
+  
     if(k!=null){
         for(i=0;i<k.length;i++)
         {
@@ -14,11 +17,11 @@ window.addEventListener("load",()=>{
         document.getElementById("emails").innerHTML= s.email;
         document.getElementById("cont").innerHTML= s.Phone;
         document.getElementById("S1").innerHTML= s.LinkedIn;
-        document.getElementById("si1").innerHTML= s.skill1;
-        document.getElementById("si2").innerHTML= s.skill2;
-        document.getElementById("si3").innerHTML= s.skill3;
-        document.getElementById("si4").innerHTML= s.skill4;
-        document.getElementById("si5").innerHTML= s.skill5;
+        // document.getElementById("si1").innerHTML= s.skill1;
+        // document.getElementById("si2").innerHTML= s.skill2;
+        // document.getElementById("si3").innerHTML= s.skill3;
+        // document.getElementById("si4").innerHTML= s.skill4;
+        // document.getElementById("si5").innerHTML= s.skill5;
         document.getElementById("Gradname").innerHTML= s.collegename;
         document.getElementById("Gradcourse").innerHTML= s.collegecourse;
         document.getElementById("Graddate").innerHTML= s.collegedate;
@@ -82,7 +85,25 @@ window.addEventListener("load",()=>{
 
 
   
-        }   
+        }  
+
+    }
+
+    if(p!=null)
+    {
+      debugger;
+      var array =[];
+      
+      for(var j=0;j<p.length;j++)
+      {
+
+        var value = p[j];
+        str = `<span>${value}</span>`
+        array.push(str);
+        
+
+      }
+      document.getElementById("skillincrease").innerHTML=array.join('');
     }
 
     

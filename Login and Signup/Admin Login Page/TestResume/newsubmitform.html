@@ -12,6 +12,7 @@
 
    <link rel="stylesheet" href="formresume.css">
    <script src="dataput.js"></script>
+   <script src="skill.js"></script>
 
 </head>
 
@@ -219,7 +220,7 @@
 
 
 
-
+                  <!-- Dynamic skills -->
 
 
 
@@ -227,8 +228,18 @@
                      <label><b>Skill's</b></label>
                      <!-- <input type="text" class="input"> -->
                   </div>
+                  <div class="inputfield" data-aos="flip-up">
+                  <input type="text"  class="input" id="Skills1" name="SkillValue[]" placeholder="Skills1" required>
+                  
+                  <input type="button" class="input" onclick="addskills()"  value="+">
+                  <input type="button" class="input"  onclick="subskills()"  style="display: none" id="minusSkills"
+                  value="-"><br>
+                  </div>
 
-                  <div class="inputfield">
+                  <div id="skillIncrease">
+
+                  </div>
+                  <!-- <div class="inputfield">
                      <label>Skill 1.</label>
                      <input type="text" class="input" name="skill-1" required>
                   </div>
@@ -249,7 +260,7 @@
                   <div class="inputfield">
                      <label>Skill 5.</label>
                      <input type="text" class="input" name="skill-5">
-                  </div>
+                  </div> -->
 
 
 

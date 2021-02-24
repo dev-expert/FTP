@@ -4,8 +4,20 @@ function storedata(){
     
     var formdata=document.forms.formmid;
     var formelements = new FormData(formdata);
+
+
     
-    
+    var skills = document.getElementsByName("SkillValue[]");
+    var skill=[];
+    for (i = 0; i < skills.length; i++) {
+        
+         var data=skills[i].value;
+         skill.push(data);
+       
+    }
+    if(skill!=null){
+        localStorage.setItem("skills",JSON.stringify(skill));
+    }
 
     // Contact Information
     var objective=formelements.get("objective");
