@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://Amigo:123@cluster0.4unbc.mongodb.net/DemoData?retryWrites=true&w=majority";
+var url = "";
 
 app.get('/mongoDB1', function (req, res) {
     MongoClient.connect(url, function (err, db) {
@@ -15,7 +15,7 @@ app.get('/mongoDB1', function (req, res) {
 // const express = require('express');
 // const app = express();
 // var MongoClient = require('mongodb').MongoClient;
-// var url = "mongodb+srv://Amigo:123@cluster0.4unbc.mongodb.net/DemoData?retryWrites=true&w=majority";
+// var url = "";
 
 // DISPLAYING COLLECTION
 app.get('/mongoDB2', function (req, res) {
