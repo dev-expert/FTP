@@ -1,5 +1,28 @@
+let i=1;
+function addFl()
+{
+if(i<=6)
+{
+var sk = document.getElementById("add");
+
+var newS = document.createElement("input");
+newS.setAttribute("type","text");
+newS.setAttribute("id","add"+i);
+newS.setAttribute("placeholder","add"+(i++));
+var pos = sk.childElementCount;
+sk.insertBefore(newS,sk.childNodes[pos]);
+}
+else
+{
+alert("Max skill limit is 6");
+}
+}
 function login() {
+
     debugger;
+
+ 
+    //till here
 
     var name1 = document.getElementById('name1').value;
     var user = document.getElementById('email').value;
@@ -67,10 +90,20 @@ function login() {
     var cer3 = document.getElementById('cer3').value;
     var cer4 = document.getElementById('cer4').value;
 
-    var arc11 = document.getElementById('ach1').value;
-    var arc12 = document.getElementById('ach1info').value;
-    var arc21 = document.getElementById('ach2').value;
-    var arc22 = document.getElementById('ach2info').value;
+    //var arc11 = document.getElementById('ach1').value;
+    //var arc12 = document.getElementById('ach1info').value;
+    //var arc21 = document.getElementById('ach2').value;
+   // var arc22 = document.getElementById('ach2info').value;
+
+    var arr = [];
+for(var j =1;j<i;j++)
+{
+arr[j-1] = document.getElementById("add"+j).value;
+}
+
+localStorage.setItem("qwe", JSON.stringify(arr));
+
+
 
     var org1 = document.getElementById('org1').value;
     var org12 = document.getElementById('org1info').value;
@@ -116,9 +149,9 @@ function login() {
     localStorage.setItem("cert", JSON.stringify(cert));
 
 
-    var ach = { arc11: arc11, arc12: arc12, arc21: arc21, arc22: arc22 }
+    // var ach = {  arc12: arc12,  arc22: arc22 }
 
-    localStorage.setItem("ach", JSON.stringify(ach))
+    // localStorage.setItem("ach", JSON.stringify(ach))
 
     var org = {
         org1: org1, org12: org12
@@ -127,7 +160,7 @@ function login() {
     localStorage.setItem("org", JSON.stringify(org))
 
     var bp = {
-        bp1: bp1, bp2: bp2,bp3: bp3,bp4: bp4,bp5: bp5,bp6: bp6,bp7: bp7 ,bp8: bp8  }
+        bp1: bp1, bp2: bp2,bp3: bp3,bp4: bp4,bp5: bp5,bp6: bp6,bp7: bp7 ,bp8: bp8}
    
     localStorage.setItem("bp", JSON.stringify(bp))
 }

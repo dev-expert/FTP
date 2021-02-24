@@ -58,11 +58,23 @@ document.getElementById("certi1info").innerHTML = cert.cer2;
 document.getElementById("certi2").innerHTML = cert.cer3;
 document.getElementById("certi2info").innerHTML = cert.cer4;
 
-var ach=JSON.parse(localStorage.getItem("ach"))
-document.getElementById("ach1").innerHTML = ach.arc11;
-document.getElementById("ach1info").innerHTML = ach.arc12;
-document.getElementById("ach2").innerHTML = ach.arc21;
-document.getElementById("ach2info").innerHTML = ach.arc22;
+var ach=JSON.parse(localStorage.getItem("qwe"))
+
+// document.getElementById("ach1").innerHTML = ach.arc11;
+// document.getElementById("ach1info").innerHTML = ach.arc12;
+// document.getElementById("ach2").innerHTML = ach.arc21;
+// document.getElementById("ach2info").innerHTML = ach.arc22;
+
+
+let l = ach.length;
+//alert(l);
+//var temp;
+for(var i =1;i<=l;i++)
+{
+
+document.getElementById("ach"+i).style.display = "block";
+document.getElementById("ach"+i).innerHTML = ach[i-1];
+}
 
 var org=JSON.parse(localStorage.getItem("org"))
 document.getElementById("org1").innerHTML = org.org1;
@@ -77,3 +89,9 @@ document.getElementById("duration3").innerHTML = bp.bp5;
 document.getElementById("duration32").innerHTML = bp.bp6;
 document.getElementById("git").innerHTML = bp.bp7;
 document.getElementById("birth").innerHTML = bp.bp8;
+var old = [];
+var old = JSON.parse(localStorage.getItem("achievements"));
+console.log(old);
+// for (var i = 0; i < bp[0].achive; i++) {
+// document.getElementById(`achievement_${i+1}`).innerHTML = old[i]
+// }
