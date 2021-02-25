@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Register</title>
+    <style>
+      #one {
+        
+        margin-left: 33%;
+        margin-right: 33%;
+      }
+     
+      #btn {
+        background-color: red;
+      }
+    </style>
+    <script src="js.js"></script>
+  </head>
+  <body>
+    <div id="one">
+      <center>
+        <h1>WELCOME</h1>
+        <i class="fa fa-smile-o" style="font-size: 48px; color: yellow"></i>
+        <br />
+        <h2>Register here</h2>
+        <br />
+        <i class="fa fa-envelope" style="font-size: 36px"></i>
+        Email:<input type="email" id="email1" /> <br /><br />
+
+        <i class="fa fa-lock" style="font-size: 48px; color: green"></i>
+        Password:<input type="password" id="pwd1" />
+        <br />
+        <i class="fa fa-lock" style="font-size: 48px; color: red"></i>
+        confirm password:<input type="password" id="password" />
+        <br />
+        <i class="fa fa-user" style="font-size: 48px; color: blue"></i>
+        <label>User Type:</label>
+        <select id="access">
+          <option value="false">User</option>
+          <option value="true">Admin</option>
+        </select>
+        <br />
+        <br />
+        <i class="fa fa-registered" style="font-size: 48px; color: green"></i>
+
+        <button onclick="che()" id="btnadmin">Register</button>
+      </center>
+    </div>
+  </body>
+</html>
