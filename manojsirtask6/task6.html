@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=parseInt(prompt("Enter no of rotations:"))
+        let a=parseInt(prompt("Enter array size:"))
+        n=n%a;
+        let arr=[];
+        for(i=0;i<a;i++){
+            arr[i]=parseInt(prompt("Enter elements:"))
+        }
+        for(i=a-n;i<a;i++){
+            document.write(arr[i]);
+        }
+        for(i=0;i<a-n;i++){
+            document.write(arr[i]);
+        }
+
+    </script>
+</body>
+</html>
