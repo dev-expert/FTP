@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <script src="main.js"></script>
 
+
 </head>
 <body>
     <section id = "main">
@@ -65,14 +66,24 @@
         <section id = "right">
             <section>
                 <h2>SKILLS</h2>
-            <section id = "skills">
+            <!-- <section id = "skills">
                 <br><br>
-                            <div class ="skills" ><script>document.write(old.s1 );</script></div>
-                            <div class ="skills" ><script>document.write(old.s2 );</script></div>
-                            <div class ="skills" ><script>document.write(old.s3 );</script></div>                            
-                            <div class ="skills" ><script>document.write(old.s4 );</script></div>
-                            <div class ="skills" ><script>document.write(old.s5 );</script></div>
-                            <div class ="skills" ><script>document.write(old.s6 );</script></div>
+                            <div class ="skills" id="skill1"><script>document.write(old1[0] );</script></div>
+                            <div class ="skills" id="skill2"><script>document.write(old1[1] );</script></div>
+                            <div class ="skills" id="skill3"><script>document.write(old1[2]  );</script></div>                            
+                            <div class ="skills" id="skill4"><script>document.write(old1[3]  );</script></div>
+                            <div class ="skills" id="skill5"><script>document.write(old1[4]  );</script></div>
+                            <div class ="skills" id="skill6"><script>document.write(old1[5]  );</script></div>
+                        </section> -->
+
+                          <section id = "skills">
+                <br><br>
+                            <li class ="skills" id="skill1" >;sodug</li>
+                            <li class ="skills" id="skill2" ></li>
+                            <div class ="skills" id="skill3" ></div>                            
+                            <div class ="skills" id="skill4" ></div>
+                            <div class ="skills" id="skill5" ></div>
+                            <div class ="skills" id="skill6" ></div>
                         </section>
                 <section id = "acheive">
                     <h2>ACHIEVEMENTS</h2>
@@ -119,5 +130,16 @@
     </div>
 
     </section>
+    <script>
+        old1 = JSON.parse(localStorage.getItem("skills"));
+    let l = old1.length;
+    for( i =1;i<=l;i++)
+    {
+    
+        document.getElementById("skill"+i).style.display = "block";
+        document.getElementById("skill"+i).innerHTML = old1[i-1];
+    }
+    </script>
 </body>
+
 </html>
