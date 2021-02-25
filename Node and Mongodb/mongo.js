@@ -3,12 +3,14 @@ var url = "mongodb+srv://user:pass@mahi.bsizi.mongodb.net/myFirstDatabase?retryW
 const express = require('express')
 const app = express();
 const port = 3000;
-app.use(express.urlencoded({extended: false }));
+// app.use(express.urlencoded({extended: false }));
+app.use(express.json());
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-//Inserting Data in The Database
 
+
+//Inserting Data in The Database
 
 // MongoClient.connect(url, function(err, db) {
 //     if (err) throw err;
@@ -40,12 +42,23 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 
 //Posting Data  -Error
+app.post("/",function(req,res){
+ 
+    res.send("Post is working :"+ req.body.name);
+    console.log("Working.");
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("mydb");
+      var myobj = { name: req.body.name, address: req.body.address };
+      dbo.collection("customers").insertOne(myobj, function(err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+        db.close();
+      });
+    });
 
-// app.post('/mongo',function(res,req){
-//   console.log('POST request to the homepage');
-//   res.send("Hello");
-//   db.close();
-// })
+});
+
 
 
 // Finding a single elememt from the Database
@@ -91,15 +104,15 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 //Deleting a Entire Database
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("mydb");
-  dbo.collection("data").drop(function(err, delOK) {
-    if (err) throw err;
-    if (delOK) console.log("Collection deleted");
-    db.close();
-  });
-}); 
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   var dbo = db.db("mydb");
+//   dbo.collection("data").drop(function(err, delOK) {
+//     if (err) throw err;
+//     if (delOK) console.log("Collection deleted");
+//     db.close();
+//   });
+// }); 
 
 
 

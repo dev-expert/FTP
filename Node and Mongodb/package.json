@@ -13,7 +13,7 @@
     "start": "nodemon mongo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Aric",
   "license": "ISC",
   "description": ""
 }
