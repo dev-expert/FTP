@@ -14,7 +14,7 @@ app.get('/alien/:name', function (req, res) {
     res.send('Hey ' + name)
 })
 
-app.listen(9000, function (req, res) {
+app.listen(8000, function (req, res) {
     console.log('Running..')
 })
 app.get("/name", function (req, res) {
@@ -30,13 +30,13 @@ app.get("/name", function (req, res) {
 
 app.get("/obj", function (req, res) {
     const obj = {
-        name1: "Sujata Singh",
+        name1: "Shubham Agrawal",
         age1: 22,
         name2: "Himanshu Singh",
         age2: 23,
         name3: "Anmol Jha",
         age3: 21,
-        name4: "Subham",
+        name4: "Akash",
         age4: 22
     }
     res.send(obj)
