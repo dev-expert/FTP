@@ -1,0 +1,5 @@
+var cal= require('./module1.js')
+var result=cal.add(4,5)
+var result1=cal.sub(10,4)
+console.log(result)
+console.log(result1)
