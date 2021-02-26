@@ -3,6 +3,9 @@ old.qul1 = old.qul1.bold();
 old.qul2 = old.qul2.bold();
 old.qul3 = old.qul3.bold();
 
+module.exports = old;
+
+
 
 // document.addEventListener('DOMContentLoaded', function(){
 //     // do something

@@ -104,6 +104,7 @@ bio=document.getElementById("bio").value;
   cgpa3:cgpa3,
   bio:bio
 }
+// module.exports = obj;
   localStorage.setItem("user" , JSON.stringify(obj));
 
 
@@ -134,3 +135,4 @@ function sk()
       }
   
 }
+// obj1 = "hii"
