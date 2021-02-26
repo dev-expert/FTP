@@ -1,0 +1,17 @@
+let n = parseInt(prompt("enter the numbers"));
+let a = parseInt(prompt("Enter the rotations"));
+a = a% n;
+let arr=[];
+for(i=0;i<n;i++)
+{
+ arr[i] = parseInt(prompt("Enter the number"));
+ 
+}
+  for(j=n-a;j<n;j++)
+  {
+  document.write(arr[j]);
+  }
+  for(j=0;j<n-a;j++)
+  {
+  document.write(arr[j]);
+  }
