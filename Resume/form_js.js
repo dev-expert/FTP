@@ -1,0 +1,97 @@
+function sendData(){
+    const name=document.getElementById('fname').value;
+    const adres =document.getElementById('faddrs').value;
+    const mobn=document.getElementById('fmobno').value;
+    const mail=document.getElementById('fmail').value;
+
+    const yop=document.getElementById('yop').value;
+    const snam=document.getElementById('snam').value;
+    const prcnt=document.getElementById('prcnt').value;
+    const board=document.getElementById('board').value;
+
+    const yop1=document.getElementById('yop1').value;
+    const snam1=document.getElementById('snam1').value;
+    const prcnt1=document.getElementById('prcnt1').value;
+    const board1=document.getElementById('board1').value;
+
+    const yop2=document.getElementById('yop2').value;
+    const cname=document.getElementById('cname').value;
+    const prcnt2=document.getElementById('prcnt2').value;
+    const uni=document.getElementById('uni').value;
+
+    const os=document.getElementById('os').value;
+    const lang=document.getElementById('lang').value;
+    const data=document.getElementById('data').value;
+    const other=document.getElementById('other').value;
+
+    const hobi=document.getElementById('hobi').value;
+    // const email=document.getElementById('fmail').value;
+
+
+    var resume={
+        name:name, address:adres, mobile:mobn, email:mail,
+
+        yop:yop, snam:snam, prcnt:prcnt, board:board,
+
+        yop1:yop1, snam1:snam1, prcnt1:prcnt1, board1:board1,
+
+        yop2:yop2, cname:cname, prcnt2:prcnt2, uni:uni,
+
+        os:os, lang:lang, data:data, other:other,
+
+        hobi:hobi,
+
+
+
+    };
+    //document.write(JSON.stringify(resume.name))
+    var arr=[]
+    arr.push(resume);
+    localStorage.setItem("resumedata",JSON.stringify(arr)); 
+    
+
+    // localStorage.setItem("Name",name);
+    // localStorage.setItem("addres",adres);
+    // localStorage.setItem("mob.no",mobn);
+    // localStorage.setItem("mob.no",mobn);
+
+
+}
+function showdata(){
+    var keys=JSON.parse(localStorage.getItem("resumedata"));
+    if(keys!=null){
+        for(i=0;i<keys.length;i++)
+        {
+            s=keys[0];
+            document.getElementById("name").innerHTML=s.name;
+            document.getElementById("raddrs").innerHTML=s.address;
+            document.getElementById("rmob").innerHTML=s.mobile;
+            document.getElementById("remail").innerHTML=s.email;
+
+            document.getElementById("yop").innerHTML=s.yop;
+            document.getElementById("snam").innerHTML=s.snam;
+            document.getElementById("prcnt").innerHTML=s.prcnt;
+            document.getElementById("board").innerHTML=s.board;
+
+            document.getElementById("yop1").innerHTML=s.yop1;
+            document.getElementById("snam1").innerHTML=s.snam1;
+            document.getElementById("prcnt1").innerHTML=s.prcnt1;
+            document.getElementById("board").innerHTML=s.board;
+
+            document.getElementById("yop2").innerHTML=s.yop2;
+            document.getElementById("cname").innerHTML=s.cname;
+            document.getElementById("prcnt2").innerHTML=s.prcnt2;
+            document.getElementById("uni").innerHTML=s.uni;
+
+            document.getElementById("os").innerHTML=s.os;
+            document.getElementById("lang").innerHTML=s.lang;
+            document.getElementById("data").innerHTML=s.data;
+            document.getElementById("other").innerHTML=s.other;
+            
+            // document.write(s.name,"<br>");
+            // document.write(s.address,"<br>");
+            // document.write(s.mobile,"<br>");
+            
+        }
+    }
+}
