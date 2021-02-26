@@ -16,7 +16,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 //     if (err) throw err;
 //     var dbo = db.db("mydb");
 //     var myobj = { name: "Ofiice", address: "Bestech" };
-//     dbo.collection("customers").insertOne(myobj, function(err, res) {
+    // dbo.collection("customers").insertOne(myobj, function(err, res) {
 //       if (err) throw err;
 //       console.log("1 document inserted");
 //       db.close();

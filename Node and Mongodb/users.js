@@ -5,7 +5,10 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!'));
+
+
+connect(insert);
 
 function connect(callback){
     MongoClient.connect(url, function (err, db) {
@@ -27,21 +30,33 @@ function insert(dbo,callback){
       if (err) throw err;
       console.log("1 document inserted");
     
-      callback(dbo,show);
+      callback(dbo,deleteData);
     
 
     });
   };
 
 
-function show(dbo){
+
+        
+function deleteData(dbo,callback)
+{
+
+        myquery = { address: 'Appwrk1' };
+          dbo.collection("customers").deleteOne(myquery, function(err, obj) {
+            if (err) throw err;
+            console.log("1 document deleted");
+          });
+          callback(dbo,show);
+
+     };
+
+             
+         function show(dbo){
           dbo.collection("customers").find().toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
-
+            // callback(dbo,deleteData);
         
-        })}
+        })} 
         
-        
-
-connect(insert);
