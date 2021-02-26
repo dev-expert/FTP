@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignUp</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <script src="signup.js"></script>
+</head>
+<body>
+    <div class="loginmaindiv">
+      <div class="logindiv1">
+      <img src="login1.jpg">
+      </div>
+      <div class="logindiv2">
+        
+            <div class="insignUp">
+                <form  class="form-group" id="myform">
+                  
+                    <h1>SignIn</h1>
+                   <p style="color: gray;"><u>Please enter your credentials to Login </u></p>
+                    
+                    
+                    <input type="text"  placeholder="Email" id="email"><br>
+                    <p id="Eerr"></p>
+                    
+                    <input type="password"  placeholder="Password" id="pass" ><br>
+                    <p id="perr"></p>
+                    
+                    
+                    <input type="button" class="btn btn-success"  value="Login" onclick="login()">
+                    
+                    <input type="submit" class="btn btn-info"  value="Forget Password">
+
+                </form>
+                <p class="login">Not registered ? <a href="signup.html">Create an Account</a></p>
+            </div>
+            <!-- <div class="login">
+                <p>Not registered ? <a href="signup.html">Create an Account</a></p></div>
+            
+        </div> -->
+      </div>
+    </div>
+   
+</body>
+</html>

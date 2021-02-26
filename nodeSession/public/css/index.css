@@ -1,0 +1,288 @@
+body{
+    font-family: sans-serif;
+
+}
+
+span{
+    color:#4CAF50;
+}
+.heading{
+    font-size: 30px;
+    text-align: center;
+    line-height: 0.6;
+    flex-wrap: wrap;
+}
+
+.right li{
+    float: right;
+}
+ ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#4CAF50;
+  }
+  
+   li {
+    float: left;
+  }
+  
+   li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+  }
+  
+
+  li label{
+      padding: 10px;
+      font-size: 20px;
+  }
+  
+   li a:hover {
+    background-color: white;
+    color: black;
+  }
+  .mainDiv{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  li button{
+      margin-top: 10px;
+      font-size: 20px;
+  }
+ 
+ .form1{
+     min-width: 30%;
+     background-color: white;
+     border: 1px solid green;
+     min-height: 30vh;
+     border-radius: 25px;
+     color:#4CAF50;
+     text-align: center;
+     margin-left:206px;
+     margin-top: 20px;
+     
+     }
+  
+     .marqueeDiv{
+background-color: red;
+
+     }
+     marquee{
+         font-size: 24px;
+
+     }
+ 
+    .footer {
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        min-height: 40px;
+     }
+     label{
+         padding-top: 10px;
+     }
+     .button{
+        display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-top: 10px;
+         
+     }
+
+    
+     .Div2{
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .InnerDiv2{
+       background-color:black;
+        width: 50%;
+        color: white;
+        box-shadow: 5px 10px 18px #888888;
+ padding: 10px;
+ display: flex;
+    }
+    .Div3{
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .InnerDiv3{
+        background-color:whitesmoke;
+        width: 50%;
+         box-shadow: 5px 10px 18px #888888;
+         padding: 10px;
+         display: flex;
+     }
+     .InnerDiv3 h3{
+         color: #28B4A3;
+     }
+     .LeftDiv3{
+         min-width: 50%;
+         color: black;
+         word-wrap: break-word;
+     }
+     #skill{
+         display: flex;
+         flex-wrap: wrap;
+     }
+     .skills span{
+        background-color: grey;
+        padding: 6px 9px;
+        color: white;
+        border-radius: 6px;
+        margin: 5px;
+         
+     }
+     .leftDiv2{
+        min-width: 50%;
+        color:white;
+        word-wrap: break-word;
+    }
+    
+    .rightDiv2{
+        min-width: 50%;
+        word-wrap: break-word;
+    }
+    .rightDiv3{
+        min-width: 50%;
+        word-wrap: break-word;
+    }
+    
+    .Div1{
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+    .InnerDiv1{
+        margin-top: 20px;
+       background-color:#2F3B44;
+        width: 50%;
+        color: white;
+        box-shadow: 5px 10px 18px #888888;
+       padding: 10px;
+       display: flex;
+       
+    }
+    .leftDiv1{
+        min-width: 80%;
+        color:white;
+        word-wrap: break-word;
+    }
+    .rightDiv1{
+        min-width: 20%;
+    }
+    .rightDiv1 img{
+        width: 100%;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px solid green;
+    }
+    .loginmaindiv{
+        max-height: 50%;
+        display: flex;
+        
+    }
+    .logindiv1{
+        width: 50%;
+        
+    }
+    .logindiv1 img{
+        width: 100%;
+    height: 800px;
+    
+    }
+    .logindiv2{
+        background-color: whitesmoke;
+        width: 50%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .insignUp{
+        width: 70%;
+        text-align: center;
+        background-color: whitesmoke;
+        
+    }
+    #myform input{
+        padding: 9px;
+        margin-top: 13px;
+        width: 60%;
+        border-radius: 25px;
+        outline: none;
+    
+    }
+    .insignUp input{
+        padding: 9px;
+        margin-top: 13px;
+        margin-bottom: 10px;
+        min-width: 10%;
+        border-radius: 25px;
+        outline: none;
+    
+    }
+    
+    
+    .insignUp p{
+        color: red;
+    }
+    #admincheck{
+        width: 0%;
+    }
+    table, th {
+        border: 1px solid black;
+        
+        color: white;
+        font-size: 21px;
+        padding: 10px;
+        margin-top: 20px;
+      }
+        tr,td{
+         border: 1px solid black;
+        color: black;
+        font-size: 21px;
+      }
+      th{
+          background-color: #4CAF50;
+      }
+      .tablediv{
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+
+          
+      }
+      #t01 tr:nth-child(even) {
+        background-color: #eee;
+      }
+      #t01 tr:nth-child(odd) {
+       background-color: #fff;
+      }
+     #details{
+         display: none;
+     }
+     .row{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+     #calform{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
