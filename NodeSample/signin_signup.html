@@ -1,0 +1,142 @@
+<html class="no-js">
+
+<head>
+    <title>Sign IN / Sign UP Form</title>
+    <style>
+        body {
+            padding-top: 10vh;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+            width: 30%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .signin_form,
+        .signup_form {
+            text-align: center;
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 10px;
+            background-color: #f0f2f5;
+        }
+
+        input[type=text],
+        [type=text],
+        [type=number],
+        select {
+            width: 15vw;
+            padding: 12px 20px;
+            /* margin: 1px 0; */
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+
+        input[type=submit] {
+            font-size: 12px;
+            height: 5vh;
+            width: 15vw;
+            border: 2px solid balck;
+            background-color: #1877f2;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: white;
+            color: #1877f2;
+            border-color: #1877f2;
+            transform: scale(1.1);
+            transition: 1s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="signup_form" class="signup_form">
+        <form>
+            <h1> ADD DOCUMENTS IN DATA BASE</h1>
+            <p>
+                <label for="user_name_signup_label" class="user_name_signup_label"> Your Name</label><br>
+                <input id="user_name_signup" name="user_name_signup" required="required" type="text"
+                    placeholder="Akash Sharma" />
+            </p>
+            <p>
+                <label for="user_id_signup_label" class="user_id_signup_label">Your Id</label><br>
+                <input id="user_id_signup" name="user_id_signup" required="required" type="number" placeholder="3" />
+            </p>
+            <p>
+                <label for="user_age_signup_label" class="user_age_signup_label">Your Age</label><br>
+                <input id="user_age_signup" name="user_age_signup" required="required" type="number"
+                    placeholder="eg. 21" />
+            </p>
+            <p class="signup_button">
+                <input type="submit" value="Submit" onclick="register()" />
+            </p>
+            <p class="list_button">
+                <input type="submit" value="Get List" onclick="getlist()" />
+            </p>
+        </form>
+    </div>
+    <table>
+        <tbody id="displaydata"></tbody>
+    </table>
+    <script>
+        // FUNCTION FOR ESTABLISHING CONNECTION
+        function register() {
+            var name = document.getElementById("user_name_signup").value;
+            var id = document.getElementById("user_id_signup").value;
+            var age = document.getElementById("user_age_signup").value;
+            var data = { username: name, userid: id, userage: age };
+
+            fetch("http://localhost:5000/register", {
+                method: "POST", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+        // FUNCTION FOR FETCHING DOCUMENTS FORM COLLECTION
+        function getlist() {
+            var data;
+            fetch("http://localhost:5000/getlist", {
+                method: "GET", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                    let myString = "";
+                    data.forEach((element) => {
+                        let key = Object.keys(element)[1];
+                        myString += `<tr>
+<td>UserName</td>
+<td>${element[key]}</td></tr>`;
+                    });
+
+                    document.getElementById("displaydata").innerHTML = myString;
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+
+</html>

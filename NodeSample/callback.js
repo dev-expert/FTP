@@ -1,5 +1,12 @@
+const express = require('express');
+const app = express();
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb+srv://Amigo:123@democluster.4unbc.mongodb.net/demoDataBase?retryWrites=true&w=majority";
+
+app.listen(8080, function (req, res) {
+    console.log('Running Server');
+});
+
 // DISPLAYING CONNECTION ESTABLISHMENT
 function connect(callback) {
     MongoClient.connect(url, function (err, db) {
@@ -23,7 +30,7 @@ function display(dbo, callback) {
 
 // INSERTING DOCUMENT IN COLLECTION
 function insert(dbo, callback) {
-    var myobj = { name: "Anmol_Jha", id: "5", age: "22" };
+    var myobj = { name: "Shubham_Sharma", id: "2", age: "19" };
     dbo.collection("demoCollection").insertOne(myobj, function (err, res) {
         if (err) throw err;
         console.log("1 Document Inserted");
@@ -34,13 +41,26 @@ function insert(dbo, callback) {
 
 // DELETING DOCUMENT FROM THE COLLECTION
 function remove(dbo) {
-    /*Delete the first customers with the Name: "Anmol_Jha":*/
-    var myquery = { name: 'Anmol_Jha"' };
-    dbo.collection("demoCollection").deleteOne(myquery, function (err, obj) {
+    MongoClient.connect(url, function (err, db) {
         if (err) throw err;
-        console.log("1 Document Deleted");
-        //db.close();
+        var dbo = db.db("demoDataBase");
+        /*Delete the first Document with the Name: "Shubham_Sharma"*/
+        var myquery = { name: 'Himanshu_Singh' };
+        dbo.collection("demoCollection").deleteOne(myquery, function (err, obj) {
+            if (err) throw err;
+            console.log("1 Document Deleted");
+            //db.close();
+        });
     });
 }
 
-var res = connect(display);
+
+app.get('/callback', function (req, res) {
+    connect(display);
+    res.send("Heyyyy......");
+})
+
+
+app.get('/', function (req, res) {
+    res.send("Working Site");
+})
