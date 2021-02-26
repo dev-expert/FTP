@@ -1,0 +1,211 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Sheet</title>
+    <link rel="stylesheet" href="indexCSS.css">
+    <!-- <script src="program.js"> </script> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+   
+    <script src="mongo.js"></script>
+</head>
+
+<body>
+    <div class="color1">
+        <h1>ENTER RESUME DETAILS</h1>
+        <form action="resume.html" method="get" id="form">
+            <div class="frow">
+                <div>
+                    <label for="name">
+                        <h4>Name :</h4>
+                    </label>
+                    <input type="text" name="name" id="name" required placeholder="username">
+                </div>
+                <div>
+                    <label for="email">
+                        <h4> Email :</h4>
+                    </label>
+                    <input type="email" name="email" id="email" required placeholder="email">
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <label for="phonenumber">
+                        <h4>Phone Number :</h4>
+                    </label>
+                    <input type="number" name="phonenumber" id="phone" required placeholder="Mobile no">
+                </div>
+                <div>
+                    <label for="Address">
+                        <h4>Address :</h4>
+                    </label>
+                    <input type="text" name="Address" id="Address" required placeholder="address">
+                </div>
+            </div>
+            <div class="row3">
+
+                <div>
+                    <label>
+                        <h4>Certification :</h4>
+                        <input type="text" id="cert1" class="cert"><br>
+                        <input type="text" id="cert2" class="cert">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <h4>Hobbies :</h4>
+                        <input type="text" id="hobb1" class="hobb"><br>
+                        <input type="text" id="hobb2" class="hobb">
+                    </label>
+                </div>
+            </div>
+            <div class="row4">
+                <div id="skills">
+                    <h4> Skills :</h4>
+                    <button type="button" onclick="addFl()"> Add Skill</button>
+                    <!-- <label>
+                
+                <input type="text" id="skill1" class="skinput "><br>
+                <input type="text" id="skill2" class="skinput"><br>
+                <input type="text" id="skill3" class="skinput"><br>
+                <input type="text" id="skill4" class="skinput"><br>
+                <input type="text" id="skill5" class="skinput">
+            </label> -->
+
+                </div>
+                <div>
+                    <label>
+                        <h4>Languages :</h4>
+                        <input type="text" id="lang1" class="langa"><br>
+                        <input type="text" id="lang2" class="langa"><br>
+                        <input type="text" id="lang3" class="langa"><br>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row5">
+                <div>
+                    <label>
+                        <h4> Education :</h4>
+                        <input type="text" id="educ1" placeholder="College name"><br>
+                        <input type="text" id="source1" placeholder=" Course &Cgpa"><br><br>
+                        <input type="text" id="educ2" placeholder=" College name"><br>
+                        <input type="text" id="source2" placeholder="Course &Cgpa"><br><br>
+                        <input type="text" id="educ3" placeholder="College name"><br>
+                        <input type="text" id="source3" placeholder=" Course &Cgpa"><br>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <h4>Projects :</h4>
+                        <input type="text" id="projs1" placeholder="Title"> <br>
+                        <input type="text" id="web1" placeholder="Description"> <br><br>
+                        <input type="text" id="projs2" placeholder=" Title"> <br>
+                        <input type="text" id="web2" placeholder="Description"> <br><br>
+                        <input type="text" id="projs3" placeholder="Title"> <br>
+                        <input type="text" id="web3" placeholder="Description">
+                    </label>
+                </div>
+            </div>
+            <div class="row6">
+                <div>
+                    <label>
+                        <h4>About :</h4>
+                        </style>
+                        <input type="text" id="about" name="about" class="cert">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <h4>Activities :</h4>
+                        <input type="text" id="acti1" class="cert"> <br>
+                        <input type="text" id="acti2" class="cert"><br>
+                    </label>
+                </div>
+            </div>
+            <br>
+            <button type="reset" class="button1">Reset</button>&emsp;
+            <button type="Submit" class="button1" onclick="login()">Submit</button>
+    </div>
+    </form>
+    <script>
+
+        let i = 1;
+        function login() {
+            debugger;
+            var about1 = document.getElementById("about").value;
+            var email = document.getElementById("email").value;
+            var name1 = document.getElementById("name").value;
+            var phn1 = document.getElementById("phone").value;
+            var arr = [];
+            for (var j = 1; j < i; j++) {
+                arr[j - 1] = document.getElementById("skill" + j).value;
+            }
+
+            localStorage.setItem("skills", JSON.stringify(arr));
+
+            // var skill = document.getElementById("skill1").value;
+            // var skil = document.getElementById("skill2").value;
+            // var ski = document.getElementById("skill3").value;
+            // var sk = document.getElementById("skill4").value;
+            // var s = document.getElementById("skill5").value;
+            var hobbs = document.getElementById("hobb1").value;
+            var hobb = document.getElementById("hobb2").value;
+            var certf = document.getElementById("cert1").value;
+            var cert = document.getElementById("cert2").value;
+            var lang = document.getElementById("lang1").value;
+            var lan = document.getElementById("lang2").value;
+            var la = document.getElementById("lang3").value;
+            var educ = document.getElementById("educ1").value;
+            var edu = document.getElementById("educ2").value;
+            var ed = document.getElementById("educ3").value;
+            var address = document.getElementById("Address").value;
+            var name = document.getElementById("source1").value;
+            var nam = document.getElementById("source2").value;
+            var na = document.getElementById("source3").value;
+            var proje = document.getElementById("projs1").value;
+            var proj = document.getElementById("projs2").value;
+            var pro = document.getElementById("projs3").value;
+            var activi = document.getElementById("acti1").value;
+            var activ = document.getElementById("acti2").value;
+            var websit = document.getElementById("web1").value;
+            var websi = document.getElementById("web2").value;
+            var webs = document.getElementById("web3").value;
+
+            obj = {
+                about: about1, name: name1, 
+                //skill1: skill, skill2: skil, skill3: ski,skill4: sk, skill5: s, 
+                cert1: certf, cert2: cert, phone: phn1, hobb1: hobbs,
+                hobb2: hobb, lang1: lang, lang2: lan, lang3: la, educ1: educ, educ2: edu,
+                educ3: ed, email: email, Address: address, source1: name, source2: nam,
+                source3: na, projs1: proje, projs2: proj, projs3: pro, acti1: activi,
+                acti2: activ, web1: websit, web2: websi, web3: webs
+
+            }
+
+            localStorage.setItem("user", JSON.stringify(obj))
+        }
+        function addFl() {
+            if (i <= 6) {
+                var sk = document.getElementById("skills");
+
+                var newS = document.createElement("input");
+                newS.setAttribute("type", "text");
+                newS.setAttribute("id", "skill" + i);
+                newS.setAttribute("placeholder", "skill" + (i++));
+                var pos = sk.childElementCount;
+                sk.insertBefore(newS, sk.childNodes[pos]);
+            }
+            else {
+                alert("Max skill limit is 6");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
