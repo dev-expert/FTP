@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="fname" />
+  <button onclick="putdata()">Export Data</button>
+  <button onclick="getdata()">Import Data</button>
+  <table id="table" style="display: none;">
+    <th>UserName</th>
+    <th>ID</th>
+    <th>Age</th>  
+    <tbody id="displaydata"></tbody>
+  </table>
+
+
+  <!-- script start -->
+
+  <script>
+    function putdata() {
+      var name = document.getElementById("fname").value;
+      var data = { username: name };
+
+      fetch("http://localhost:5000/exportdata", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+
+    function getdata() {
+      document.getElementById("table").style.display = "block";
+      var data;
+      fetch("http://localhost:5000/importdata", {
+        method: "GET", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+          let myString = "";
+          data.forEach((element) => {
+            let baseName = Object.keys(element)[1];
+            let baseId = Object.keys(element)[2];
+            let baseAge = Object.keys(element)[3];
+            myString += `<tr>
+
+<tr>
+<td>${element[baseName]}</td>
+<td>${element[baseId]}</td>
+<td>${element[baseAge]}</td>
+</tr>`;
+          });
+
+          document.getElementById("displaydata").innerHTML = myString;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+
+  </script>
+
+  <!-- SCRIPT END -->
+</body>
+
+</html>
