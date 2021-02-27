@@ -30,6 +30,7 @@ app.get('/:name', (req, res) => {
     });
 });
 
+
 app.listen(2020, () => {
     console.log('server is listening on port 2020');
 });
@@ -46,3 +47,11 @@ app.post("/resume", function (req, res) {
     })
 
 });
+// app.get('/getdata', async(req, response) => {
+//     await con.collection('customers').find({}).toArray((error, result) => {
+//     if (error) {
+//     return response.status(500).send(error);
+//     }
+//     response.send(result);
+//     });
+//     })

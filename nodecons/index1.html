@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 </head>
 
-<body >
+<body>
     <div class="color1">
         <h1>ENTER RESUME DETAILS</h1>
         <form action="resume.html" method="get" id="form">
@@ -133,7 +133,7 @@
 
         let i = 1;
         function login() {
-        
+
             var about1 = document.getElementById("about").value;
             var email = document.getElementById("email").value;
             var name1 = document.getElementById("name").value;
@@ -174,7 +174,7 @@
             var webs = document.getElementById("web3").value;
 
             obj = {
-                about: about1, name: name1, 
+                about: about1, name: name1,
                 //skill1: skill, skill2: skil, skill3: ski,skill4: sk, skill5: s, 
                 cert1: certf, cert2: cert, phone: phn1, hobb1: hobbs,
                 hobb2: hobb, lang1: lang, lang2: lan, lang3: la, educ1: educ, educ2: edu,
@@ -184,12 +184,15 @@
 
             }
             fetch("http://localhost:2020/resume", {
-method: "POST",
-headers: {
-"Content-Type": "application/json",
-},
-body: JSON.stringify(obj),
-})
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+            })
+                .then(data => {
+                    console.log("Succes :", data);
+                })
 
             // localStorage.setItem("user", JSON.stringify(obj))
         }
@@ -209,10 +212,6 @@ body: JSON.stringify(obj),
             }
         }
 
-        function loaddata(){
-
-           
-}
 
     </script>
 </body>
