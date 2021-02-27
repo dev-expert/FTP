@@ -6,6 +6,8 @@ const productSchema = Schema({
     email: String,
     number: String,
     pass: String,
+},{
+    strict:false
 })
 const productmodel = mongoose.model("data", productSchema);
 

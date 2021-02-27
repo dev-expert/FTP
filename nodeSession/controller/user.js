@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 var fs = require("fs");
 var path = require("path");
-
+const resumeModel = require("../model/resume");
 router.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../views", 'index.html'));
 });
@@ -20,17 +20,9 @@ router.get("/", (req, res) => {
 
 // });
 
-router.get("/login", (req, res) => {
-
-    res.sendFile(path.join(__dirname, "../views", 'login.html'));
-});
 
 
-router.get("/signup:admin", (req, res) => {
 
-
-    res.render("signup.ejs", { data: "" });
-})
 router.post("/signup", async (req, res) => {
     console.log("Signuapi called");
     const store = await new product(req.body)
@@ -53,7 +45,18 @@ router.get("/delete/:email", async (req, res) => {
 
     const response = await product.deleteOne({ email: email });
 
-    res.json(response);
+    res.json({res:true});
+
+});
+router.get("/cv", (req, res) => {
+
+    
+    resumeModel.find({}).then((result) => {
+        res.json(result);
+        //    res.render("admin.ejs",{show : result});
+    }).catch(err => {
+        res.send(err);
+    })
 
 });
 router.get("/admin", (req, res) => {
@@ -67,11 +70,20 @@ router.get("/admin", (req, res) => {
     })
 
 });
-router.post("/delete", (req, res) => {
-    product.deleteMany({ email: req.body.email }).then(result => {
-        console.log("product deleted");
-    })
-})
+router.post("/cv",async(req,res)=>{
+    console.log("cvapi called");
+    const store = await new resumeModel(req.body)
+    try {
+        await store.save();
+        res.json({ saved: true })
+    }
+    catch (err) {
+        res.send(err);
+    }
+
+
+});
+
 
 
 // router.post("/data", (req, res) => {
