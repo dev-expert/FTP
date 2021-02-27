@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+
+</head>
+
+<body onload="checkUser()">
+
+    <div>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href=" URL.html">URL</a></li>
+            <li><a href="form1.html">CV</a></li>
+            <li id="userData" style="display: none;"><a href="UserData.html">User Data</a></li>
+            <li><a href="Calculator.html">Calculator</a></li>
+
+            <li style="float:right"><a class="active" onclick="logout()">Logout</a></li>
+        </ul>
+
+    </div>
+
+    <label>Enter the Url to Add</label>
+    <br>
+    <input type="url" id="urlInput">
+    <br>
+    <br>
+    <button onclick="addUrl()">Add URL</button>
+    <br>
+    <br>
+    <button onclick="DeleteUrl()">Delete</button>
+    <br>
+    <label>URL are: </label>
+    <br>
+    <br>
+
+    <ul id="list"></ul>
+
+    <script>
+
+        let arr = [];
+        let i = 0;
+
+        let dearr = [];
+        let flag = 0;
+
+        function addUrl() {
+            var str = document.getElementById("urlInput").value;
+
+            if (str != "") {
+                var q = isValidUrl(str);
+                if (!q) {
+                    alert("Enter a valid URL ");
+                    return;
+                }
+            }
+            else {
+                alert("Enter URL ");
+                return;
+            }
+
+            if (arr.indexOf(str) < 0) {
+                arr[i++] = str;
+            }
+            else {
+                alert("Added");
+                return;
+            }
+
+
+            var ul = document.getElementById("list");
+            var li = document.createElement("li");
+
+            li.appendChild(document.createTextNode(str));
+
+            var checkbox = document.createElement("Input");
+            checkbox.setAttribute("type", "checkbox");
+            //checkbox.setAttribute("id","checkk");
+            //var c = document.getElementById("checkk");
+            /*if(c.check == true)
+            {
+                alert(str);
+            }*/
+
+            checkbox.addEventListener('click', function () {
+                //if (document.getElementsByClassName('ch').checked === true)
+                //remove.push(ulist.node);
+                alert(str);
+            });
+
+            li.appendChild(checkbox);
+
+
+            var button = document.createElement("button");
+            button.innerHTML = "Delete";
+            button.addEventListener("click", function () {
+                /*var div = this.parentElement;
+                div.style.display = "none";
+                */
+                ul.removeChild(li);
+
+                var b = arr.indexOf(str);
+                alert(b);
+                arr.slice(b - 1, 1);
+            });
+
+            li.appendChild(button);
+            ul.appendChild(li);
+        }
+
+        /*function DeleteUrl()
+        {
+            dearr.forEach(z)
+            {
+                list.removeChild(z);
+            }
+        }
+        */
+
+
+
+        function isValidUrl(str) {
+            var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+            return pattern.test(str);
+        }
+
+        function checkUser() {
+            var email = localStorage.getItem("currUser");
+            if (!email) {
+                location.replace("login.html");
+            }
+            else {
+                checkCurUser();
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("currUser");
+            location.replace("login.html");
+        }
+        function checkCurUser() {
+            var person = JSON.parse(localStorage.getItem("person1"));
+            var email1 = localStorage.getItem("currUser");
+            var q = person.find(x => x.email == email1);
+
+            if (q.Admin == "true") {
+                document.getElementById("userData").style.display = "block";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

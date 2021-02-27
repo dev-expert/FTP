@@ -9,48 +9,72 @@
     <link rel="stylesheet" href="log.css">
 </head>
 
-<body>
+<body >
+    <center>
+        <div class="q">
+            <br>
+            <h1>Login</h1>
+            <br><br>
+            <label>Email </label>
+            <br>
+            <input type="email" placeholder="Email" id="email">
+            <br>
+            <br>
 
-    <body>
-        <center>
-            <div class="q">
-                <br>
-                <h1>Login</h1>
-                <br><br>
-                <label>Email </label>
-                <br>
-                <input type="email" placeholder="Email" id="email">
-                <br>
-                <br>
+            <label>Password</label>
+            <br>
+            <input type="password" placeholder="password" id="password">
+            <br><br><br><br>
+            <button onclick="window.location.href='signup.html';">Sign up</button>
+            <!-- <button id="login" onclick="loginPerson()">Login</button> -->
+            <button id="login" onclick="loadData()">Login</button>
 
-                <label>Password</label>
-                <br>
-                <input type="password" placeholder="password" id="password">
-                <br><br><br><br>
-                <button onclick="window.location.href='signup.html';">Sign up</button>
-                <button id="login" onclick="loginPerson()">Login</button>
+        </div>
+    </center>
 
-            </div>
-        </center>
-    </body>
 
     <script>
-
-        function loginPerson()
-        {
+        function loginPerson() {
             var email1 = document.getElementById("email").value;
             var password1 = document.getElementById("password").value;
-            
-            var person = JSON.parse(localStorage.getItem("person1"));
-            
-            var q = person.find(x=>x.email == email1)
-            
-            if(password1 == q.password)
-            {
-                localStorage.setItem("currUser",email1);
-                location.replace("home.html");
-            }
-            
+
+            //var person = JSON.parse(localStorage.getItem("person1"));
+
+            //     var q = person.find(x => x.email == email1)
+
+            //     if (password1 == q.password) {
+            //         localStorage.setItem("currUser", email1);
+            //         location.replace("home.html");
+            //     }
+
         }
-        </script>
+
+        var obj;
+        function loadData() {
+            var email1 = document.getElementById("email").value;
+            var password1 = document.getElementById("password").value;
+
+            obj = {email:email1,password:password1};
+
+            fetch("http://localhost:8090/login",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify(obj),
+            })
+            .then((response) => {return response.json()})
+
+            .then((data) => {
+                //console.log("Success :", data)
+                localStorage.setItem("currUser", data.email1);
+                location.replace("home.html");
+            })
+            .catch((error) => {
+                console.error("Error :",error);
+            });
+        }
+    </script>
+</body>
+
 </html>

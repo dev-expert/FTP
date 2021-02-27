@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #table {
+            position: absolute;
+            top: 20%;
+            margin-left: 30%;
+            padding: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: solid 1px black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        table {
+            box-shadow: 5px 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 30%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: 0px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1c611e;
+        }
+
+        #body1 {
+            background-color: rgb(224, 218, 210);
+        }
+
+        #center {
+
+            background-color: rgb(235, 222, 196);
+            margin: 15% 20% 0 20%;
+            width: 60%;
+            border: 5px solid hsl(27, 100%, 50%);
+            padding: 50px;
+        }
+
+        .input {
+            border-radius: 6%;
+            height: 25px;
+            width: 100%;
+        }
+
+        .subdiv {
+            padding: 10%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+
+
+</head>
+
+<body onload="checkUser(),showData()">
+
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="URL.html">URL</a></li>
+        <li><a href="form1.html">CV</a></li>
+        <li id="userData" style="display: block;"><a href="UserData.html">User Data</a></li>
+        <li><a href="Calculator.html">Calculator</a></li>
+
+        <li style="float:right"><a class="active" onclick="logout()">Logout</a></li>
+    </ul>
+
+
+    <center>
+        <div id="table" style="display: block;">
+
+            <table id="myTable">
+                <tr style="background-color:#4CAF50">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Type of User</th>
+                    <th>Select</th>
+                </tr>
+                <tbody id="data">
+                </tbody>
+            </table><br>
+            <button onclick="deleteData()">Delete</button><br>
+        </div>
+
+        <script>
+            function showData() {
+
+
+                var data1 = document.getElementById("data");
+
+
+                fetch("http://localhost:8090/admin")
+                    .then(resposne => resposne.json())
+                    .then(data => {
+                        console.log(data)
+                        var i = 0
+                        for (var i = 0; i < data.length; i++) {
+                            var row = data1.insertRow(i);
+                            var cell = row.insertCell(0);
+                            cell.innerHTML = data[i].name;
+
+                            var cell1 = row.insertCell(1);
+                            cell1.innerHTML = data[i].email;
+
+                            var cell2 = row.insertCell(2);
+                            cell2.innerHTML = data[i].number;
+
+                            var cell3 = row.insertCell(3);
+                            if (data[i].Admin == "true")
+                                cell3.innerHTML = "Admin";
+
+                            else
+                            {
+                                cell3.innerHTML = "User";
+                            }
+                            var cell4 = row.insertCell(4);
+                            
+
+                            var checkbox = document.createElement("Input");
+                            checkbox.setAttribute("type", "checkbox");
+                            checkbox.setAttribute("name", "check");
+
+                            cell4.appendChild(checkbox);
+                        }
+
+                    })
+
+            }
+
+            function deleteData() {
+                var table = document.getElementById("myTable");
+                var obj = JSON.parse(localStorage.getItem("person1"));
+                /*
+                var data = document.getElementById("data");
+                for(var i = 0;i<len;i++)
+                {
+                    var check = data.rows[i].cells[4].data;
+                    if((table.rows[i].cells[4].data).checked == true)
+                    {
+                        alert(i);
+                    }
+                }
+                */
+
+                var checkboxs = table.getElementsByTagName("Input");
+
+                for (var i = 0; i < checkboxs.length; i++) {
+                    if (checkboxs[i].checked == true) {
+                        table.deleteRow(i + 1);
+                        obj.splice(i, 1);
+                        i--;
+                    }
+                }
+
+                localStorage.setItem("person1", JSON.stringify(obj));
+
+            }
+
+
+
+            function checkUser() {
+                var email = localStorage.getItem("currUser");
+                if (!email) {
+                    location.replace("login.html");
+                }
+                else {
+                    checkCurUser();
+                }
+            }
+
+            function logout() {
+                localStorage.removeItem("currUser");
+                location.replace("login.html");
+            }
+            function checkCurUser() {
+                var person = JSON.parse(localStorage.getItem("person1"));
+                var email1 = localStorage.getItem("currUser");
+                var q = person.find(x => x.email == email1);
+
+                //if (q.Admin == "true") {
+                    document.getElementById("userData").style.display = "block";
+                //}
+            }
+
+        </script>
+
+</body>
+
+</html>

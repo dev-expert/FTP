@@ -62,11 +62,15 @@
             var password1 = document.getElementById("password").value;
             var repass1 = document.getElementById("repass").value;
             var a = document.getElementById("user1").value;
-            
-            var obj = { name: name1, number: number1, 
-                email: email1, password: password1,
-            Admin:a };
 
+
+            var obj = {
+                name: name1, number: number1,
+                email: email1, password: password1,
+                Admin: a
+            };
+
+            /*
             var old = JSON.parse(localStorage.getItem("person1"));
 
             if (!old) {
@@ -81,6 +85,25 @@
                 old.push(obj);
             }
             localStorage.setItem("person1", JSON.stringify(old));
+            */
+
+            fetch("http://localhost:8090/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+            })
+                 .then(response => {
+                     debugger;
+                     return response.json()
+                 })
+                .then(data => {
+                    console.log("Succes :", data);
+                })
+            .catch(err => console.error(err));
+
+
         }
 
     </script>

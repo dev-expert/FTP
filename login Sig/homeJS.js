@@ -104,9 +104,9 @@ function checkCurUser()
     var q = person.find(x=>x.email == email1);
     document.getElementById("username1").innerHTML = q.name;
 
-    if(q.Admin == "true")
+    if(q.Admin == "false")
     {
-        document.getElementById("userData").style.display = "block";
+        document.getElementById("userData").style.display = "none";
     }
 }
 

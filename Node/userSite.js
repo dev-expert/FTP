@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 
 var MongoClient = require('mongodb').MongoClient;
+const { response } = require("express");
 var url = "mongodb+srv://him:him@cluster1.nq5zu.mongodb.net/demoData?retryWrites=true&w=majority";
 
 var dbo;
@@ -39,23 +40,37 @@ app.post("/signup", function (req, res) {
         console.log("1 document inserted");
     })
 
+    res.send(q);
 });
 
 
 
-app.get("/login", function (req, res) {
-    dbo.collection("user_data").find().toArray(function (err, result) {
+app.post("/login", (req, response) => {
+
+    var q = req.body;
+    console.log(q);
+    //.toArray(
+    dbo.collection("user_data").findOne(q, function (err, result) {
         if (err) throw err;
 
-        //console.log(result);
+        console.log(result);
 
-        res.send("result");
-        res.json(result);
+        //res.send
+
+        //res.end("my result");
+        response.json(result);
     })
 })
 
 
-//     app.get("/admin", function (req, res) {
+app.get("/admin", function (req, res) {
 
-// })
+    dbo.collection("user_data").find().toArray(function (err, result) {
+        if (err) throw err;
+
+        console.log(result);
+        res.json(result);
+    })
+
+})
 
