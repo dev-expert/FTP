@@ -1,7 +1,7 @@
 <html class="no-js">
 
 <head>
-    <title>Sign IN / Sign UP Form</title>
+    <title>Sign UP Form</title>
     <style>
         body {
             padding-top: 10vh;
@@ -83,8 +83,14 @@
             </p>
         </form>
     </div>
-    <table>
-        <tbody id="displaydata"></tbody>
+    <table border="1px" id="displaydata" style="display: none;">
+        <tbody>
+            <tr>
+                <th>UserName</th>
+                <th>ID</th>
+                <th>Age</th>
+            </tr>
+        </tbody>
     </table>
     <script>
         // FUNCTION FOR ESTABLISHING CONNECTION
@@ -92,7 +98,7 @@
             var name = document.getElementById("user_name_signup").value;
             var id = document.getElementById("user_id_signup").value;
             var age = document.getElementById("user_age_signup").value;
-            var data = { username: name, userid: id, userage: age };
+            var data = { name: name, id: id, age: age };
 
             fetch("http://localhost:5000/register", {
                 method: "POST", // or 'PUT'
@@ -111,6 +117,11 @@
         }
         // FUNCTION FOR FETCHING DOCUMENTS FORM COLLECTION
         function getlist() {
+
+            var a = document.getElementById("signup_form");
+            a.style.display = 'none';
+            document.getElementById("displaydata").style.display = "block";
+
             var data;
             fetch("http://localhost:5000/getlist", {
                 method: "GET", // or 'PUT'
@@ -125,9 +136,20 @@
                     let myString = "";
                     data.forEach((element) => {
                         let key = Object.keys(element)[1];
-                        myString += `<tr>
-<td>UserName</td>
-<td>${element[key]}</td></tr>`;
+                        let key1 = Object.keys(element)[2];
+                        let key2 = Object.keys(element)[3];
+                        myString += `<table>
+                                            <tr>
+                                                <th>UserName</th>
+                                                <th>ID</th>
+                                                <th>Age</th>
+                                            </tr>
+                                            <tr>
+                                                <td>${element[key]}</td>
+                                                <td>${element[key1]}</td>
+                                                <td>${element[key2]}</td>
+                                            </tr>
+                                    </table>`;
                     });
 
                     document.getElementById("displaydata").innerHTML = myString;

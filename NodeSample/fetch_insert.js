@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const BodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = "mongodb+srv://Amigo:123@democluster.4unbc.mongodb.net/demoDataBase?retryWrites=true&w=majority";
@@ -9,11 +9,11 @@ const DATABASE_NAME = "demoDataBase";
 
 var app = express();
 app.use(cors());
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 var database, collection;
 
-//connection start
+//CONNECTION START
 app.listen(5000, () => {
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
 if(error) {
@@ -25,7 +25,7 @@ console.log("Connected to `" + DATABASE_NAME + "`!");
 });
 });
 
-// export data
+// DATA EXPORT
 app.post("/register", (request, response) => {
 collection.insert(request.body, (error, result) => {
 if(error) {
@@ -37,7 +37,7 @@ response.json(true);
 });
 
 
-// import data
+// DATA IMPORT
 app.get("/getlist", (request, response) => {
 collection.find({}).toArray((error, result) => {
 if(error) {
