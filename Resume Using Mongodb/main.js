@@ -1,9 +1,14 @@
-old = JSON.parse(localStorage.getItem("user"));
-old.qul1 = old.qul1.bold();
-old.qul2 = old.qul2.bold();
-old.qul3 = old.qul3.bold();
+const express = require('express');
+const cors = require('cors');
 
-module.exports = old;
+const app = express();
+app.use(express.json());
+
+old = require("./mongodata");
+console.log(old);
+
+
+
 
 
 

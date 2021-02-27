@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="resume.css">
+    <!-- <script src="resume.js"></script> -->
+
 </head>
 <body>
 <h1>Resume Building Form</h1> 
 <!-- Creating a Form -->
-<form action="main.html">  
+<form action="main.html" method="get">  
     <div class = info > 
 <label name><h4>First Name :</h4> </label>
-<input type="text"  id="fname" required placeholder="First Name" required>
+<input type="text"  id="fname" class = "" placeholder="First Name" class = "">
 
 <label ><h4>Last Name :</h4> </label>
-<input type="text" name="" id="lname" required placeholder="Lastname" required>
+<input type="text" name="" id="lname" class = "" placeholder="Lastname" class = "">
 <br><br>
 <break></break>
 
 
 <label ><h4>Role :</h4> </label>
-<input type="text" name="role" id="role" required placeholder="role" required>
+<input type="text" name="role" id="role" class = "" placeholder="role" class = "">
 
 <label ><h4>Bio :</h4> </label>
-<input type="text" name="" id="bio" required placeholder="bio" required>
+<input type="text" name="" id="bio" class = "" placeholder="bio" class = "">
 
 <break></break>
 
@@ -35,28 +37,28 @@
 
 
 <label ><h4>Email :</h4> </label>
-<input type="email" name="" id="email" required placeholder="Email" required>
+<input type="email" name="" id="email" class = "" placeholder="Email" class = "">
 
 <label ><h4>Mobile :</h4> </label>
-<input type="text" name="" id="mobile" required placeholder="Mobile number" required>
+<input type="text" name="" id="mobile" class = "" placeholder="Mobile number" class = "">
 
 <break></break>
 
 
 <label ><h4>Linkedin :</h4> </label>
-<input type="text" name="" id="linkedin" required placeholder="Linkedin" required>
+<input type="text" name="" id="linkedin" class = "" placeholder="Linkedin" class = "">
 
 <label ><h4>Location :</h4> </label>
-<input type="text" name="" id="loc2" required placeholder="Location" required>
+<input type="text" name="" id="loc2" class = "" placeholder="Location" class = "">
 
 <break></break>
 
 
  <label ><h4>Github :</h4> </label>
-<input type="text" name="" id="github" required placeholder="Github" required>
+<input type="text" name="" id="github" class = "" placeholder="Github" class = "">
 
 <label ><h4>Instagram :</h4> </label>
-<input type="text" name="" id="instagram" required placeholder="Instagram" required>
+<input type="text" name="" id="instagram" class = "" placeholder="Instagram" class = "">
 
 
     </div>
@@ -77,10 +79,10 @@
 
         <label ><h4> Institute Name:</h4> </label>
 
-         <input type="text" name="School" id="school1" required>
+         <input type="text" name="School" id="school1" class = "">
         <label ><h4>CGPA :</h4> </label>
 
-         <input type="number" name="cgpa1" id="cgpa1" required><br>
+         <input type="number" name="cgpa1" id="cgpa1" class = ""><br>
       
         </div>
         <div class="edu">
@@ -97,11 +99,11 @@
         <break></break>
 
         <label ><h4> Institute Name:</h4> </label>
-       <input type="text" name="School" id="school2" required>
+       <input type="text" name="School" id="school2" class = "">
 
        <label ><h4>CGPA :</h4> </label>
 
-       <input type="number" name="cgpa2" id="cgpa2" required><br>
+       <input type="number" name="cgpa2" id="cgpa2" class = ""><br>
 
        
     </div> 
@@ -118,11 +120,11 @@
         <break></break>
 
         <label ><h4> Institute Name:</h4> </label>
-       <input type="text" name="School" id="school3" required>
+       <input type="text" name="School" id="school3" class = "">
 
        <label ><h4>CGPA :</h4> </label>
 
-         <input type="number" name="cgpa3" id="cgpa3" required><br>
+         <input type="number" name="cgpa3" id="cgpa3" class = ""><br>
 
         </div> 
 
@@ -133,24 +135,24 @@
         <!-- <b>Projects</b><br> -->
         <label ><h4> Projects1:</h4> </label>
 
-        <input type="text"  id="pro1" required>
+        <input type="text"  id="pro1" class = "">
         <label><h4> Info:</h4> </label>
 
-         <input type="text"  id="pro12" required><br>
+         <input type="text"  id="pro12" class = ""><br>
         <break></break>
         <label ><h4> Projects2:</h4> </label>
 
-        <input type="text"  id="pro2" required>
+        <input type="text"  id="pro2" class = "">
         <label><h4> Info:</h4> </label>
 
-        <input type="text"  id="pro22" required><br>
+        <input type="text"  id="pro22" class = ""><br>
         <break></break>
         <label ><h4> Projects3:</h4> </label>
 
-        <input type="text"  id="pro3" required>
+        <input type="text"  id="pro3" class = "">
         <label><h4> Info:</h4> </label>
 
-      <input type="text"  id="pro32" required><br>
+      <input type="text"  id="pro32" class = ""><br>
     </div>
 
 
@@ -162,89 +164,206 @@
     <!-- <div class="skills">
        
         <label><h4> Skill1:</h4> </label>
-        <input type="text" id = "sk1" required>
+        <input type="text" id = "sk1" class = "">
         <label><h4> Skill2:</h4> </label>
 
-        <input type="text" id = "sk2" required>
+        <input type="text" id = "sk2" class = "">
         <break></break>
 
         <label><h4> Skill3:</h4> </label>
 
-        <input type="text" id = "sk3"><br required>
+        <input type="text" id = "sk3"><br class = "">
         <label><h4> Skill4:</h4> </label>
-        <input type="text" id = "sk4" required>
+        <input type="text" id = "sk4" class = "">
         <break></break>
 
         <label><h4> Skill5:</h4> </label>
-        <input type="text" id = "sk5" required>
+        <input type="text" id = "sk5" class = "">
         <label><h4> Skill6:</h4> </label>
-        <input type="text" id = "sk6" required><br><br>
+        <input type="text" id = "sk6" class = ""><br><br>
 </div> -->
         <div class="ach">
         <label><h4>Achievement 1 : </h4> </label>
-        <input type="text" id="ac1" required> 
+        <input type="text" id="ac1" class = ""> 
 
         <label><h4>Achievement 2 : </h4> </label>
-        <input type="text" id="ac2" required>
+        <input type="text" id="ac2" class = "">
         <break></break>
 
         <label><h4>Achievement 3 : </h4> </label>
-        <input type="text" id="ac3" required><br><br>
+        <input type="text" id="ac3" class = ""><br><br>
     </div>
 
     <div class="org">
         <label><h4>Organisation 1 : </h4> </label>
 
-         <input type="text" id="o1" required>
+         <input type="text" id="o1" class = "">
 
          <label><h4>Organisation 2 :</h4> </label>
 
-         <input type="text" id="o2" required><br>
+         <input type="text" id="o2" class = ""><br>
     </div>
 
     <div class="cer">
         <label><h4>CERTIFICATE 1:</h4> </label>
 
-         <input type="text" id="c1" required>
+         <input type="text" id="c1" class = "">
 
          <label><h4>CERTIFICATE 2:</h4> </label>
-        <input type="text" id="c2" required>
+        <input type="text" id="c2" class = "">
         <break></break>
 
         <label><h4>CERTIFICATE 3 :</h4> </label>
 
-       <input type="text" id="c3" required><br><br>
+       <input type="text" id="c3" class = ""><br><br>
 
     </div>
 
     <div class="lang">
         <label><h4>Language 1 : </h4> </label>
-        <input type="text" id="l1" required>
+        <input type="text" id="l1" class = "">
         <label><h4>Language 2 : </h4> </label>
-        <input type="text" id="l2" required>
+        <input type="text" id="l2" class = "">
         <break></break>
         <label><h4>Language 3 : </h4> </label>
-        <input type="text" id="l3" required>
+        <input type="text" id="l3" class = "">
         <label><h4>Language 4 : </h4> </label>
-        <input type="text" id="l4" required><br><br>
+        <input type="text" id="l4" class = ""><br><br>
     </div>
     <div class="hob">
         <label><h4> Hobbie 1 : </h4> </label>
-        <input type="text" id="h1" required>
+        <input type="text" id="h1" class = "">
         <label><h4> Hobbie 2 : </h4> </label>
-         <input type="text" id="h2" required>
+         <input type="text" id="h2" class = "">
          <break></break>
         <label><h4> Hobbie 3 : </h4> </label>
-        <input type="text" id="h3" required>
+        <input type="text" id="h3" class = "">
         <label><h4> Hobbie 4 : </h4> </label>
-      <input type="text" id="h4" required> <br><br>
+      <input type="text" id="h4" class = ""> <br><br>
     </div>
 
 
         <button type="submit" value="submit" onclick="add()"> Submit</button>
 
     </form>
-    <script src="resume.js"></script>
 
 </body>
+<script>
+    
+function add()
+{
+fname1 = document.getElementById("fname").value;
+lname = document.getElementById("lname").value;
+ email = document.getElementById("email").value;
+school1 = document.getElementById("school1").value;
+school2 = document.getElementById("school2").value;
+school3 = document.getElementById("school3").value;
+qual1 = document.getElementById("qual1").value;
+qual2 = document.getElementById("qual2").value;
+qual3 = document.getElementById("qual3").value;
+mobile = document.getElementById("mobile").value;
+role = document.getElementById("role").value;
+lnkin = document.getElementById("linkedin").value;
+loc1 = document.getElementById("loc2").value;
+ins1 = document.getElementById("instagram").value;
+git1 = document.getElementById("github").value;
+proj1 = document.getElementById("pro1").value;
+proj2= document.getElementById("pro2").value;
+proj3= document.getElementById("pro3").value;
+
+proj12 = document.getElementById("pro12").value;
+proj22= document.getElementById("pro22").value;
+proj32= document.getElementById("pro32").value;
+// ski1=document.getElementById("sk1").value;
+// ski2=document.getElementById("sk2").value;
+// ski3=document.getElementById("sk3").value;
+// ski4=document.getElementById("sk4").value;
+// ski5=document.getElementById("sk5").value;
+// ski6=document.getElementById("sk6").value;
+Ach1=document.getElementById("ac1").value;
+Ach2=document.getElementById("ac2").value;
+Ach3=document.getElementById("ac3").value;
+o1=document.getElementById("o1").value;
+o2=document.getElementById("o2").value;
+l1=document.getElementById("l1").value;
+l2=document.getElementById("l2").value;
+l3=document.getElementById("l3").value;
+l4=document.getElementById("l4").value;
+h1=document.getElementById("h1").value;
+h2=document.getElementById("h2").value;
+h3=document.getElementById("h3").value;
+h4=document.getElementById("h4").value;
+c1=document.getElementById("c1").value;
+c2=document.getElementById("c2").value;
+c3=document.getElementById("c3").value;
+cgpa1=document.getElementById("cgpa1").value;
+cgpa2=document.getElementById("cgpa2").value;
+cgpa3=document.getElementById("cgpa3").value;
+bio=document.getElementById("bio").value;
+
+
+
+ obj = {
+  fn : fname1,
+  ln: lname,
+  mail : email,
+  scl1: school1,
+  scl2: school2,
+  scl3: school3,
+  qul1 : qual1,
+  qul2 : qual2,
+  qul3 : qual3,
+  mbl: mobile,
+  rol : role,
+  lnk : lnkin,
+  loc : loc1,
+  git:git1,
+  ins:ins1,
+  pro1:proj1,
+  pro3:proj3,
+  pro2:proj2,
+  // s1 : ski1,
+  // s2 : ski2,
+  // s3 : ski3,
+  // s4 : ski4,
+  // s5 : ski5,
+  // s6 : ski6,
+  ac1:Ach1,
+  ac2:Ach2,
+  ac3:Ach3,
+  l1:l1,
+  l2:l2,
+  l3:l3,
+  l4:l4,
+  o1:o1,
+  o2:o2,
+  h1:h1,
+  h2:h2,
+  h3:h3,
+  h4:h4,
+  c1:c1,
+  c2:c2,
+  c3:c3,
+  pro12:proj12, 
+  pro32:proj32,
+  pro22:proj22,
+  cgpa1:cgpa1,
+  cgpa2:cgpa2,
+  cgpa3:cgpa3,
+  bio:bio
+}
+
+fetch("http://localhost:2020/resume", {
+  method: "POST",
+  headers: {
+  "Content-Type": "application/json",
+  },
+  body: JSON.stringify(obj),
+  })
+  .then(data => {
+      console.log("Succes :", data);
+     })
+  
+    }
+</script>
 </html>
