@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="resumeform.css">
+    <script  type="module" src="insertpost.js"></script>
+
+</head>
+
+<body>
+    <div class="main-container">
+
+    <div class="resumecontainer">
+        <header>
+            <h1>Resume Generator</h1>
+        </header>
+
+        <div class="form-conatiner">
+            <form class="resume-form" action="display.html" get" target="_self " id="userform">
+              
+
+                    <div class="ps detail-col">
+                        <div>
+                            <!-- <u>
+                                <h2>Details:</h2>
+                            </u> -->
+                            <label for="Firstname">FirstName:</label>
+                            <input type="text" id="firstname">
+                        </div>
+
+                        <div>
+                            <label for="lastname">LastName:</label>
+                            <input type="text" name="lastname" id="lastname">
+
+                        </div>
+
+
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email">
+
+                        </div>
+
+                        <div>
+                            <label for="number">Mobile number:</label>
+                            <input type="number" name="number" id="number">
+
+                        </div>
+
+                        <div>
+                            <label for="address">Address:</label>
+                            <input type="address" name="address" id="address">
+
+                        </div>
+
+                        <div>
+                            <label for="url">Linkedin:</label>
+                            <input type="url" name="url" id="url">
+
+                        </div>
+
+                        <div>
+                            <label for="url1">Github:</label>
+                            <input type="url1" name="url1" id="url1">
+
+                        </div>
+
+
+
+
+                        <div>
+                            <label for="hobbies">Hobbies:</label></br>
+                            <input type="hobbies" name="hobbies" id="hobbies"></br>
+                            <input type="hobbies" name="hobbies" id="hobbies1"></br>
+                            <input type="hobbies" name="hobbies" id="hobbies2"></br>
+                            <input type="hobbies" name="hobbies" id="hobbies3">
+
+                        </div>
+
+                        <div id="skills"> 
+                            <label for="skill">Skills:</label></br>
+                            <!-- <input type="skills" name="skills" id="skill"/></br> -->
+
+                            <!-- <input type="skills" name="skills" id="skills1"/></br>
+                            <input type="skills" name="skills" id="skills2"/></br>
+                            <input type="skills" name="skills" id="skills3"> -->
+                            <button type="button" onclick="addFl()">Add skill</button>
+                        </div>
+
+                        <div>
+                            <label for="languages">Languages:</label></br>
+                            <input type="languages" name="languages" id="languages"></br>
+                            <input type="languages" name="languages" id="languages1"></br>
+                            <input type="languages" name="languages" id="languages2">
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="edu">
+                        <div>
+                            <u>
+                                <h2>Education:</h2>
+                            </u>
+                        </div>
+
+                        <div>
+
+
+                            Course1:<input type="education" name="education" id="education">
+                            College:<input type="college" name="college" id="college">
+                            Stream:<input type="stream" name="stream" id="stream">
+                            Year:<input type="year" name="year" id="year">
+                            Place:<input type="place" name="place" id="place">
+
+                        </div>
+
+                        <div>
+                            Course2:<input type="education" name="education" id="education1">
+                            College:<input type="college" name="college" id="college1">
+                            Stream:<input type="stream" name="stream" id="stream1">
+                            Year:<input type="year" name="year" id="year1">
+                            Place:<input type="place" name="place" id="place1">
+
+                        </div>
+
+                        <div>
+                            Course3:<input type="education" name="education" id="education2">
+                            College:<input type="college" name="college" id="college2">
+                            Stream:<input type="stream" name="stream" id="stream2">
+                            Year:<input type="year" name="year" id="year2">
+                            Place:<input type="place" name="place" id="place2">
+
+                        </div>
+
+                    </div>
+
+                    <div class="pro">
+                        <u>
+                            <h2>Projects:</h2>
+                        </u>
+
+
+                        <div>
+
+                            Project1:<input type="project" name="project" id="project">
+                            Description:<input type="desc" name="desc" id="desc">
+                            Project2:<input type="project" name="project" id="project1">
+                            Description:<input type="desc" name="desc" id="desc1">
+
+                        </div>
+
+                        <div>
+                            <label for="organi">Organisations:</label>
+                            <input type="text" name="organi" id="organi">
+
+                        </div>
+
+                        <div>
+                        </br><input type="submit" onclick="login()" value="Generate My Resume" >
+
+
+                        </div>
+                    </div>
+
+              
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+    <script>
+        let i=1;
+        function login() {
+            debugger;
+            var mail = document.getElementById("email").value;
+            var fname = document.getElementById("firstname").value;
+            var lname = document.getElementById("lastname").value;
+            var pnum = document.getElementById("number").value;
+            var addr = document.getElementById("address").value;
+            var ur = document.getElementById("url").value
+            var url = document.getElementById("url1").value
+
+            var arr = [];
+            for(var j =1;j<i;j++)
+            {
+            arr[j-1] = document.getElementById("skills"+j).value;
+            }
+
+            // var skill = document.getElementById("skills").value;
+            // var skill1 = document.getElementById("skills1").value;
+            // var skill2 = document.getElementById("skills2").value;
+            // var skill3 = document.getElementById("skills3").value;
+            var hobbie = document.getElementById("hobbies").value;
+            var hobbie1 = document.getElementById("hobbies1").value;
+            var hobbie2 = document.getElementById("hobbies2").value;
+            var hobbie3 = document.getElementById("hobbies3").value;
+            var language = document.getElementById("languages").value;
+            var language1 = document.getElementById("languages1").value;
+            var language2 = document.getElementById("languages2").value;
+
+            var edu = document.getElementById("education").value;
+            var clg = document.getElementById("college").value;
+            var strm = document.getElementById("stream").value;
+            var yr = document.getElementById("year").value;
+            var plc = document.getElementById("place").value;
+
+            var edu1 = document.getElementById("education1").value;
+            var clg1 = document.getElementById("college1").value;
+            var strm1 = document.getElementById("stream1").value;
+            var yr1 = document.getElementById("year1").value;
+            var plc1 = document.getElementById("place1").value;
+
+            var edu2 = document.getElementById("education2").value;
+            var clg2 = document.getElementById("college2").value;
+            var strm2 = document.getElementById("stream2").value;
+            var yr2 = document.getElementById("year2").value;
+            var plc2 = document.getElementById("place2").value;
+
+            var pro = document.getElementById("project").value;
+            var des = document.getElementById("desc").value;
+            var pro1 = document.getElementById("project1").value;
+            var des1 = document.getElementById("desc1").value;
+
+            var org = document.getElementById("organi").value;
+
+
+
+            obj = {
+                email: mail, firstname: fname, lastname: lname, number: pnum, address: addr, url: ur, url1: url,
+                // skills: skill, skills1: skill1, skills2: skill2, skills3: skill3,
+                hobbies: hobbie, hobbies1: hobbie1, hobbies2: hobbie2, hobbies3: hobbie3,
+                languages: language, languages1: language1, languages2: language2,
+                education: edu, college: clg, stream: strm, year: yr, place: plc,
+                education1: edu1, college1: clg1, stream1: strm1, year1: yr1, place1: plc1,
+                education2: edu2, college2: clg2, stream2: strm2, year2: yr2, place2: plc2,
+                project: pro, desc: des, project1: pro1, desc1: des1,
+                organi: org
+            }
+
+            fetch("http://localhost:8090/signup", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+                })
+                // .then(response => {
+                // debugger;
+                // return response.json()
+                // })
+                .then(data => {
+                console.log("Succes :", data);
+                })
+                //.catch(err => console.error(err));
+
+
+                }
+
+            // localStorage.setItem("user", JSON.stringify(obj))
+            // localStorage.setItem("skills", JSON.stringify(arr))
+        
+
+            function addFl()
+            {
+            if(i<=6)
+            {
+            var sk = document.getElementById("skills");
+
+            var newS = document.createElement("input");
+            newS.setAttribute("type","text");
+            newS.setAttribute("id","skills"+i);
+            newS.setAttribute("placeholder","skills"+(i++));
+            var pos = sk.childElementCount;
+            sk.insertBefore(newS,sk.childNodes[pos]);
+            }
+            else
+            {
+            alert("Max skill limit is 6");
+            }
+            }
+
+            function loadData(){
+            fetch('http://localhost:2020/')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
+            }
+           
+
+    </script>
+
+</body>
+
+</html>
