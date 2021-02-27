@@ -31,13 +31,13 @@ var getdata = () => {
         .then((response) => response.json())
         .then((obj) => {
             console.log("Success:", obj);
-            let myString = "";
-            obj.forEach((element) => {
-                let key = Object.keys(element)[1];
-                myString += `<tr>
-<td>Name</td>
-<td>${element[key]}</td></tr>`;
-            });
+//             let myString = "";
+//             obj.forEach((element) => {
+//                 let key = Object.keys(element)[1];
+//                 myString += `<tr>
+// <td>Name</td>
+// <td>${element[key]}</td></tr>`;
+//             });
 
             document.getElementById("displaydata").innerHTML = myString;
         })
