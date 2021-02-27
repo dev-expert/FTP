@@ -1,53 +1,69 @@
 let AllUsers = [];
 let currentuser = [];
-//function to login 
+
+var keys,data;
+  fetch("http://localhost:5000/importdata", {
+    method: "GET", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      keys=data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+///function to login
 function setAction() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  var keys = JSON.parse(localStorage.getItem("users"));
-  var flag = 0;
-  if (keys != null) {
-    for (i = 0; i < keys.length; i++) {
-      var s = keys[i];
-      console.log(s.email);
-      if (s.email === email && s.password === password) {
-        flag = 1;
-        if (s.usertype == "superuser") {
-          var currentuserobj = {
-            name:s.name,
-            email: s.email,
-            password: s.password,
-            usertype:s.usertype
-          };
-          currentuser.push(currentuserobj);
-          localStorage.setItem("presentuser", JSON.stringify(currentuser));
-          superlogin();
+      var flag = 0;
+      if (keys != null) {
+        for (i = 0; i < keys.length; i++) {
+          var s = keys[i];
+          console.log(s.email);
+          if (s.email === email && s.password === password) {
+            flag = 1;
+            if (s.usertype == "superuser") {
+              var currentuserobj = {
+                name: s.name,
+                email: s.email,
+                password: s.password,
+                usertype: s.usertype,
+              };
+              currentuser.push(currentuserobj);
+              localStorage.setItem("presentuser", JSON.stringify(currentuser));
+              superlogin();
+            }
+            if (s.usertype == "normaluser") {
+              var currentuserobj = {
+                name: s.name,
+                email: s.email,
+                password: s.password,
+                usertype: s.usertype,
+              };
+              currentuser.push(currentuserobj);
+              localStorage.setItem("presentuser", JSON.stringify(currentuser));
+              normallogin();
+            }
+            break;
+          }
         }
-        if (s.usertype == "normaluser") {
-          var currentuserobj = {
-            name:s.name,
-            email: s.email,
-            password: s.password,
-            usertype:s.usertype
-          };
-          currentuser.push(currentuserobj);
-          localStorage.setItem("presentuser", JSON.stringify(currentuser));
-          normallogin();
+        if (flag == 0) {
+          alert("WRONG USERNAME OR PASSWORD");
         }
-        break;
+      } else {
+        alert("Not A Registered User");
       }
-    }
-    if (flag == 0) {
-      alert("WRONG USERNAME OR PASSWORD");
-    }
-  } else {
-    alert("Not A Registered User");
-  }
 }
-//
 
+////function to register
 
-//function to register
 function register() {
   var rname = document.getElementById("usernamesignup").value;
   var remail = document.getElementById("emailsignup").value;
@@ -61,7 +77,6 @@ function register() {
     console.log(usertype);
   }
   var flag = 0;
-  var keys = JSON.parse(localStorage.getItem("users"));
   if (keys != null) {
     for (i = 0; i < keys.length; i++) {
       var s = keys[i];
@@ -71,7 +86,7 @@ function register() {
       }
     }
   }
-  console.log(flag);
+ console.log(flag);
   if (flag == 1) {
     alert("USER ALREADY REGISTERED");
   } else {
@@ -81,18 +96,27 @@ function register() {
       email: remail,
       password: rpassword,
     };
-    AllUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    AllUsers.push(userdata);
-    localStorage.setItem("users", JSON.stringify(AllUsers));
+    fetch("http://localhost:5000/exportdata", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userdata),
+    })
+      .then((response) => response.json())
+      .then((userdata) => {
+        console.log("Success:", userdata);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     alert("Registered Successfully");
   }
 }
 
-//
-
 // after admin login this function will run
 function superlogin() {
-  window.open('admin homepage.html');
+  window.open("admin homepage.html");
 }
 
 //
@@ -102,7 +126,7 @@ function normallogin() {
   window.open("user_homepage.html");
 }
 
-//function for responsive design 
+//function for responsive design
 function myFunction() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
@@ -119,13 +143,13 @@ function myFunction() {
 function validate() {
   var keys = JSON.parse(localStorage.getItem("presentuser"));
   if (keys != null) {
-    var q=document.getElementById("hidearea");
-    var name=keys[0].name;
-    document.getElementById("username").innerHTML=name;
-    document.getElementById("username1").innerHTML=name;
-    var w=document.getElementById("hideloader");
-    q.style.display="block";
-    w.style.display="none";
+    var q = document.getElementById("hidearea");
+    var name = keys[0].name;
+    document.getElementById("username").innerHTML = name;
+    document.getElementById("username1").innerHTML = name;
+    var w = document.getElementById("hideloader");
+    q.style.display = "block";
+    w.style.display = "none";
     return true;
   } else {
     window.open("index.html", "_self");
@@ -133,13 +157,13 @@ function validate() {
 }
 function validateadmin() {
   var keys = JSON.parse(localStorage.getItem("presentuser"));
-  if (keys != null && keys[0].usertype=="superuser") {
-    var q=document.getElementById("hidearea");
-    var name=keys[0].name;
-    document.getElementById("username").innerHTML=name;
-    var w=document.getElementById("hideloader");
-    q.style.display="block";
-    w.style.display="none";
+  if (keys != null && keys[0].usertype == "superuser") {
+    var q = document.getElementById("hidearea");
+    var name = keys[0].name;
+    document.getElementById("username").innerHTML = name;
+    var w = document.getElementById("hideloader");
+    q.style.display = "block";
+    w.style.display = "none";
     return true;
   } else {
     window.open("index.html", "_self");
@@ -147,7 +171,6 @@ function validateadmin() {
 }
 
 //
-
 
 // onclick logout
 function logoff() {
@@ -157,7 +180,7 @@ function logoff() {
 
 //
 
-// display normal users table 
+// display normal users table
 function users() {
   var keys = JSON.parse(localStorage.getItem("users"));
   var str = "";
@@ -222,9 +245,7 @@ function showusers() {
   if (w.style.display != "none") {
     w.style.display = "none";
     users();
-  }
-  else{
-    w.style.display="block";
+  } else {
+    w.style.display = "block";
   }
 }
-//
