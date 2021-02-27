@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Client Data</title>
+</head>
+
+<body>
+    <h1>Please fill data in the form below:</h1>
+    <form method="POST">
+        <label>Name:<input type="text" name="client-name" id='name' required></label>
+        <br>
+        <label>Email:<input type="text" name="client-email" id="email" required></label>
+        <br>
+        <label>Comment:<br><textarea name="comment" id="comment" ></textarea></label>
+        <br>
+        <p id='displaydata'></p>
+        <input type="button" value="putdata" onclick="putdata()">
+        <input type="button" value="getdata" onclick="getdata()">
+    </form>
+    <script src="fun.js"></script>
+
+
+</body>
+
+</html>
