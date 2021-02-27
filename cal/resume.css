@@ -1,0 +1,29 @@
+.header{
+    padding: 2px;
+    text-align: center;
+    background: #6e1111;
+    color: rgb(250, 245, 248);
+    font-size: 30px;
+    
+   
+}
+input {
+ border-radius: 5px;
+ box-shadow:3px 3px 1px grey;
+ margin:auto ;
+ width: 70%px;
+ 
+  }
+   .container{ 
+       
+     background-color: rgb(84, 151, 168);
+      position: relative; 
+       margin : auto;  
+     width:50%;
+     /* box-shadow: rgb(71, 70, 64);  */
+
+ } 
+.layout{
+    background-color: rgb(84, 151, 168);
+}
+ 

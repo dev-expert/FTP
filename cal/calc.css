@@ -1,0 +1,15 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.container{
+    background-image: url('image1.jpg');
+    
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+
+}
