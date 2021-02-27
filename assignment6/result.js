@@ -1,10 +1,18 @@
 
 
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async() => {
+debugger;
+myresume();
+})
+async function myresume(){
 
-
-    var value = JSON.parse(localStorage.getItem("User"));
+    //var value = JSON.parse(localStorage.getItem("User"));
+    
+  var response = await fetch('http://localhost:8080/cv');
+  const getData = await response.json();
+  var element = getData.length-1;
+  const value = getData[element];
     console.log(value);
     var keys = Object.keys(value); 
     for (i = 0; i < keys.length; i++) {
@@ -54,15 +62,14 @@ window.addEventListener('load', () => {
 
             case "Projects":
 
-                var alldata = JSON.parse(localStorage.getItem("User"));
    
-                var projectdata=alldata["Projects"];
+                var projectdata=value["Projects"]; 
                 var projectKey = Object.keys(projectdata);
                 str="";
                 Project=[];
                 for(j=0;j<projectKey.length;j++){
-                    var value=projectdata[projectKey[j]];
-                    str = `<p>${value}</p>`;
+                    var val=projectdata[projectKey[j]];
+                    str = `<p>${val}</p>`;
                     Project.push(str);
                  
                 }
@@ -75,15 +82,14 @@ window.addEventListener('load', () => {
 
             case "Skills":
             
-                var alldata = JSON.parse(localStorage.getItem("User"));
    
-                var skilldata=alldata["Skills"];
+                var skilldata=value["Skills"];
                 var skillkey = Object.keys(skilldata);
                 str="";
                 skill=[];
                 for(k=0;k<skillkey.length;k++){
-                    var value=skilldata[skillkey[k]];
-                    str = `<span>${value}</span>`;
+                    var skillVal=skilldata[skillkey[k]];
+                    str = `<span>${skillVal}</span>`;
                     skill.push(str);
                  
                 }
@@ -162,4 +168,5 @@ window.addEventListener('load', () => {
     }
 
 
-})
+}
+

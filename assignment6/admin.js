@@ -9,11 +9,13 @@ window.addEventListener("load", async () => {
 })
 
 async function refreshHTML() {
+  debugger;
   var response = await fetch('http://localhost:8080/admin');
   const getData = await response.json();
   console.log(getData);
 
   let str = "";
+  if(getData.length>0){
   getData.forEach(element => {
 
 
@@ -23,20 +25,32 @@ async function refreshHTML() {
         <td>${element.firstname}</td>
         <td>${element.email}</td>
         <td>${element.number}</td>
-        <td><button type="button" onclick="deleteOnebyOne('${element.email}') "class="delete-btn">Delete</button></td>
+        <td><button type="button" onclick="deleteOnebyOne('${element.email}')" class=" btn-danger">Delete</button></td>
       </tr>`
 
   });
   document.getElementById("fetch").innerHTML = str;
+}
+else{
+  
+  document.getElementById("fetch").innerHTML = "";
+  document.getElementById("empty").innerHTML = "product not found";
+}
+
 
 }
 
 async function deleteOnebyOne(e) {
   debugger;
-
+  if(confirm(`Are you sure to delete ${e}`)){
   // var url = JSON.parse(localStorage.getItem("admin"));
-  await fetch('http://localhost:8080/delete/' + e);
-
+  const response =await fetch('http://localhost:8080/delete/' + e);
+ const res= await response.json();
+console.log(res);
   refreshHTML();
+}
+  else{
+    refreshHTML();
+  }
 }
 

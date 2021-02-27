@@ -261,7 +261,7 @@ background-color: red;
           background-color: #4CAF50;
       }
       .tablediv{
-          height: 100vh;
+          min-height: 10%;
           display: flex;
           justify-content: center;
 

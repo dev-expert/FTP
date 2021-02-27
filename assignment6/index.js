@@ -1,5 +1,4 @@
-function information() {
-    
+async function information() {
 
     if (confirm("Are you Sure to save the details") == true) {
         
@@ -46,8 +45,21 @@ function information() {
            
         }
         objArray.Skills=Skills;
+        debugger;
+        const store = await fetch("http://localhost:8080/cv", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(objArray)
+        });
+
+        const response =  await store.json();
+        if(response){
+            alert("data saved successfully");
+        }
         
-        localStorage.setItem("User",JSON.stringify(objArray));
 
     }
     else {

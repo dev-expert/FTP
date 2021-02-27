@@ -15,7 +15,7 @@ async function check() {
     var atpos = email.indexOf("@");
     var dotpos = email.lastIndexOf(".");
 
-
+     var checkbox = document.getElementById("check").checked;
     var count = 0;
     // for validation
     if (fname == "") {
@@ -61,7 +61,7 @@ async function check() {
     //if there is no error then count =0;
     if (count == 0) {
 
-        var elements = { firsrname: fname, email: email, number: number, pass: pass }
+        var elements = { firstname: fname, email: email, number: number, pass: pass , isAdmin : checkbox  }
 
         const store = await fetch("http://localhost:8080/signup", {
             method: "POST",
@@ -76,6 +76,7 @@ async function check() {
         const isRequestSuccess = await store.json();
         if (isRequestSuccess) {
             alert("signup successfully");
+            window.open("signup.html"); ///for refreshing the page
         }
 
     }
@@ -93,24 +94,27 @@ async function check() {
 
 
 
-function login() {
+ async function login() {
+    debugger;
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
-    var arradmin = JSON.parse(localStorage.getItem("admin"));
+    var response = await fetch('http://localhost:8080/admin');
+    const getData = await response.json();
+
     if (email != "") {
         count = 0;
-        arradmin.forEach((element) => {
+        getData.forEach((element) => {
 
             if (element.email == email) {
                 count = count + 1;
-                if (element.password == pass) {
+                if (element.pass == pass) {
 
 
                     alert("You successfully logged in");
 
 
 
-                    var admin = { name: element.name, email: email, password: pass, isAdmin: element.isAdmin };
+                    var admin = { name: element.firstname, email: email, password: pass ,isAdmin : element.isAdmin};
 
 
                     localStorage.setItem("login", JSON.stringify(admin)); //it will store the data in to local storage
@@ -138,9 +142,7 @@ function login() {
         document.getElementById("Eerr").innerHTML = "Please Enter your Email Id";
     }
 }
-function data() {
-    window.location.href = "admin.html";
-}
+  
 function myFunction() {
 
     let login = JSON.parse(localStorage.getItem("login"));
