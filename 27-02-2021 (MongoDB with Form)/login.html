@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="login-page" id="loginpage">
+        <div class="form" id="form">
+            <form class="registerform" id="registerform">
+                <input type="text" id="nme" placeholder="name" required />
+                <input type="password" id="passwd" placeholder="password" required />
+                <input type="text" id="email" placeholder="email address" required />
+                <button onclick="putdata()">create</button>
+                <!-- <p class="message">Already registered? <a href="#">Sign In</a></p> -->
+            </form>
+
+            <form class="loginform" id="loginform">
+                <input id="email_in" placeholder="email address" required />
+                <input type="password" id="passwd_in" placeholder="password" required />
+                <button onclick="login()">login</button>
+                <p class="message">Not registered? <a style="color: red" onclick="account()">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- script start -->
+
+    <script>
+        
+            var date = [];
+            fetch("http://localhost:5000", {
+                method: "GET", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    date = data;
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+
+
+        function account() {
+            var x = document.getElementById("loginform");
+            x.innerHTML = " ";
+            document.getElementById("registerform").style.display = "block";
+        }
+
+        function putdata() {
+            var Name = document.getElementById("nme").value;
+            var Password = document.getElementById("passwd").value;
+            var Email = document.getElementById("email").value;
+            var data = {
+                username: Name,
+                userpassword: Password,
+                usermail: Email
+            };
+
+            fetch("http://localhost:5000/exportdata", {
+                method: "POST", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+
+            alert("Account Created");
+        }
+
+        function login() {
+            debugger;
+            var mail_in = document.getElementById("email_in").value;
+            var passwd_in = document.getElementById("passwd_in").value;
+            var flag = 1;
+
+            for(var i = 0; i<= date.length; i++){
+                var s = date[i];
+                
+                if(mail_in == s.usermail && passwd_in == s.userpassword){
+                    var flag = 100;
+                    exit;
+                }
+            }
+
+            if(flag == 100){
+                alert("Logged In");
+            }
+
+            else{
+                alert("not ");
+            }
+        }
+
+        // function getdata() {
+        //     document.getElementById("table").style.display = "block";
+        //     var data;
+        //     fetch("http://localhost:5000/importdata", {
+        //         method: "GET", // or 'PUT'
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify(data),
+        //     })
+        //         .then((response) => response.json())
+        //         .then((data) => {
+        //             console.log("Success:", data);
+        //             let myString = "";
+        //             data.forEach((element) => {
+        //                 let baseName = Object.keys(element)[1];
+        //                 let baseId = Object.keys(element)[2];
+        //                 let baseAge = Object.keys(element)[3];
+        //                 myString += `<tr>
+
+        //                 <tr>
+        //                 <td>${element[baseName]}</td>
+        //                 <td>${element[baseId]}</td>
+        //                 <td>${element[baseAge]}</td>
+        //                 </tr>`;
+        //             });
+
+        //             document.getElementById("displaydata").innerHTML = myString;
+        //         })
+        //         .catch((error) => {
+        //             console.error("Error:", error);
+        //         });
+        // }
+
+    </script>
+
+    <!-- SCRIPT END -->
+</body>
+
+</html>
