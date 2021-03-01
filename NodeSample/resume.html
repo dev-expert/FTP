@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="resume_builder_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,320 +9,342 @@
     <title>Resume Builder</title>
     <style>
         /* INPUT FORM SECTION */
-/* INPUT STYILING */
-input{
-    width: 80%;
-    padding: 12px 20px;
-    margin: 1px 0;
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color:white;
-    text-align: center;
-    align-items: center;
-    justify-items: center;
- }
+        /* INPUT STYILING */
+        input {
+            width: 80%;
+            padding: 12px 20px;
+            margin: 1px 0;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: white;
+            text-align: center;
+            align-items: center;
+            justify-items: center;
+        }
 
- /* DIV STYLING */
-.basic, .education, .qualification, .projects, .skills, .proficiency, .language, .interest, .details{
-    border-radius: 20px;
-    background-color:#A9A9A9;
-    padding: 2px;
-    text-align: center;
-    width: 40vw;
-    align-items: center;
-    margin-left: 30vw;
-}
+        /* DIV STYLING */
+        .basic,
+        .education,
+        .qualification,
+        .projects,
+        .skills,
+        .proficiency,
+        .language,
+        .interest,
+        .details {
+            border-radius: 20px;
+            background-color: #A9A9A9;
+            padding: 2px;
+            text-align: center;
+            width: 40vw;
+            align-items: center;
+            margin-left: 30vw;
+        }
 
-/* BUTTON STYLING */
-.button{
-    text-align: center;
-}
-.submit_button{
-    font-weight: 900;
-    height: 5vh;
-    min-width: 10vw;
-    border: 2px solid balck;
-    background-color:#3e7bbe;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.submit_button:hover{
-    background-color: white;
-    color: #3e7bbe;
-    border-color: #3e7bbe;
-    transform: scale(1.1);
-    transition: 1s;   
-}
-.reset_button{
-    font-weight: 900;
-    height: 5vh;
-    min-width: 10vw;
-    border: 2px solid balck;
-    background-color:#3e7bbe;
-    border-radius: 4px;
-    cursor: pointer   
-}
-.reset_button:hover{
-    background-color: white;
-    color: #3e7bbe;
-    border-color: #3e7bbe;
-    transform: scale(1.1);
-    transition: 1s; 
-}
+        /* BUTTON STYLING */
+        .button {
+            text-align: center;
+        }
 
-/* RESUME SECTION STARTS */
-.resume_preview{
-    /* margin: 900px; */
-    width: 40vw
-}
+        .submit_button {
+            font-weight: 900;
+            height: 5vh;
+            min-width: 10vw;
+            border: 2px solid balck;
+            background-color: #3e7bbe;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-.one_out, .contact_out{
-    display: flex;
-}
+        .submit_button:hover {
+            background-color: white;
+            color: #3e7bbe;
+            border-color: #3e7bbe;
+            transform: scale(1.1);
+            transition: 1s;
+        }
 
-#image_out{
-    width: 15vw;
-    height: auto;
-}
+        .reset_button {
+            font-weight: 900;
+            height: 5vh;
+            min-width: 10vw;
+            border: 2px solid balck;
+            background-color: #3e7bbe;
+            border-radius: 4px;
+            cursor: pointer
+        }
 
-.one_one_out{
-    margin-left: 10%;
-}
+        .reset_button:hover {
+            background-color: white;
+            color: #3e7bbe;
+            border-color: #3e7bbe;
+            transform: scale(1.1);
+            transition: 1s;
+        }
 
-#name_out{
-    font-size: 60px;
-    font-weight: 800;
-}
+        /* RESUME SECTION STARTS */
+        .resume_preview {
+            /* margin: 900px; */
+            width: 40vw
+        }
 
-#tag_out{
-    color: rgb(26, 56, 156);
-    font-size: 25px;
-}
+        .one_out,
+        .contact_out {
+            display: flex;
+        }
 
-#call_out, #mailid_out, #linked_out{
-    width: 25px;
-    height: 25px;
-}
+        #image_out {
+            width: 15vw;
+            height: auto;
+        }
 
-#phone_out, #mail_out{
-    margin-right: 5vw;
-    margin-bottom: 2vh;
-    margin-top: 5vh;
-    display: flex;
-}
+        .one_one_out {
+            margin-left: 10%;
+        }
 
-#linkedin_id_out{
-    display: flex;
-}
+        #name_out {
+            font-size: 60px;
+            font-weight: 800;
+        }
 
-#linkedin_id_out{
-    margin-top: 3vh;
-}
+        #tag_out {
+            color: rgb(26, 56, 156);
+            font-size: 25px;
+        }
 
-.two{
-    display: flex;
-}
+        #call_out,
+        #mailid_out,
+        #linked_out {
+            width: 25px;
+            height: 25px;
+        }
 
-#basic_two_out{
-    width: 15vw;
-    margin-top: 2%;
-}
+        #phone_out,
+        #mail_out {
+            margin-right: 5vw;
+            margin-bottom: 2vh;
+            margin-top: 5vh;
+            display: flex;
+        }
 
-#base_about_out{
-    width: 80%;
-    margin-left: 12%;
-    margin-top: 2%;
-    padding-top: 1%;
-    border-top: 3px solid rgb(26, 56, 156);
-}
+        #linkedin_id_out {
+            display: flex;
+        }
 
-#about_text_out{
-    color: rgb(26, 56, 156);
-}
+        #linkedin_id_out {
+            margin-top: 3vh;
+        }
 
-#edu_logo_out{
-    width: 30px;
-    height: 30px;
-    display: block;
-    margin: auto;
-}
+        .two {
+            display: flex;
+        }
 
-.education_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        #basic_two_out {
+            width: 15vw;
+            margin-top: 2%;
+        }
 
-#bachelor_edu_out, #twelve_edu_out, #ten_edu_out{
-    display: flex;
-    font-size: 20px;
-}
+        #base_about_out {
+            width: 80%;
+            margin-left: 12%;
+            margin-top: 2%;
+            padding-top: 1%;
+            border-top: 3px solid rgb(26, 56, 156);
+        }
 
-#bachelor_edu_name_out, #tweleve_edu_name_out, #ten_edu_name_out{
-    text-align: left;
-    width: 50vw;
-}
+        #about_text_out {
+            color: rgb(26, 56, 156);
+        }
 
-#bachelor_edu_status_out, #twelve_edu_status_out, #ten_edu_status_out{
-    width: 50vw;
-}
+        #edu_logo_out {
+            width: 30px;
+            height: 30px;
+            display: block;
+            margin: auto;
+        }
 
-#quali_logo_out{
-    max-width: 40px;
-    max-height: 40px;
-    display: block;
-    margin: auto;
-}
+        .education_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-.qualifications_out{
-    margin-top: 10vw;
-}
+        #bachelor_edu_out,
+        #twelve_edu_out,
+        #ten_edu_out {
+            display: flex;
+            font-size: 20px;
+        }
 
-#quali_text_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        #bachelor_edu_name_out,
+        #tweleve_edu_name_out,
+        #ten_edu_name_out {
+            text-align: left;
+            width: 50vw;
+        }
 
-#project_logo_out{
-    max-width: 40px;
-    max-height: 40px;
-    display: block;
-    margin: auto;
-}
+        #bachelor_edu_status_out,
+        #twelve_edu_status_out,
+        #ten_edu_status_out {
+            width: 50vw;
+        }
 
-.project_out{
-    margin-top: 10vw;
-}
+        #quali_logo_out {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: auto;
+        }
 
-#project_text_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        .qualifications_out {
+            margin-top: 10vw;
+        }
 
-#skill_logo_out{
-    max-width: 40px;
-    max-height: 40px;
-    display: block;
-    margin: auto;
-}
+        #quali_text_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-.skill_out{
-    margin-top: 10vw;
-}
+        #project_logo_out {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: auto;
+        }
 
-#skill_text_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        .project_out {
+            margin-top: 10vw;
+        }
 
-#proficiency_logo_out{
-    max-width: 40px;
-    max-height: 40px;
-    display: block;
-    margin: auto;
-}
+        #project_text_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-.proficiency_out{
-    margin-top: 10vw;
-}
+        #skill_logo_out {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: auto;
+        }
 
-#proficiency_text_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        .skill_out {
+            margin-top: 10vw;
+        }
 
-#language_logo_out{
-    max-width: 40px;
-    max-height: 40px;
-    display: block;
-    margin: auto;
-}
+        #skill_text_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-.language_out{
-    margin-top: 10vw;
-}
+        #proficiency_logo_out {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: auto;
+        }
 
-#language_text_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        .proficiency_out {
+            margin-top: 10vw;
+        }
 
-#interest_logo_out{
-    max-width: 40px;
-    max-height: 40px;
-    display: block;
-    margin: auto;
-}
+        #proficiency_text_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-.interest_out{
-    margin-top: 10vw;
-}
+        #language_logo_out {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: auto;
+        }
 
-#interest_text_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        .language_out {
+            margin-top: 10vw;
+        }
 
-.detail_out_out{
-    margin-bottom: 10%;
-}
+        #language_text_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-#detail_logo_out{
-    width: 30px;
-    height: 30px;
-    display: block;
-    margin: auto;
-}
+        #interest_logo_out {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: auto;
+        }
 
-.detail_out{
-    border-top: 3px solid rgb(26, 56, 156);
-    width: 80%;
-    margin-left: 10%;
-}
+        .interest_out {
+            margin-top: 10vw;
+        }
 
-#detail_edu_out{
-    display: flex;
-    font-size: 20px;
-}
+        #interest_text_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
 
-#detail_edu_name_out{
-    text-align: left;
-    width: 50vw;
-}
+        .detail_out_out {
+            margin-bottom: 10%;
+        }
 
-#detail_edu_status_out{
-    width: 50vw;
-}
-.print_button{
-    /* text-align: center;
+        #detail_logo_out {
+            width: 30px;
+            height: 30px;
+            display: block;
+            margin: auto;
+        }
+
+        .detail_out {
+            border-top: 3px solid rgb(26, 56, 156);
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        #detail_edu_out {
+            display: flex;
+            font-size: 20px;
+        }
+
+        #detail_edu_name_out {
+            text-align: left;
+            width: 50vw;
+        }
+
+        #detail_edu_status_out {
+            width: 50vw;
+        }
+
+        .print_button {
+            /* text-align: center;
     align-items: center;
     justify-items: center; */
-    margin-left: 350px;
-    font-weight: 900;
-    height: 5vh;
-    min-width: 10vw;
-    border: 2px solid balck;
-    background-color:#3e7bbe;
-    border-radius: 4px;
-    cursor: pointer;
-}
+            margin-left: 350px;
+            font-weight: 900;
+            height: 5vh;
+            min-width: 10vw;
+            border: 2px solid balck;
+            background-color: #3e7bbe;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-.print_button:hover{
-    background-color: white;
-    color: #3e7bbe;
-    border-color: #3e7bbe;
-    transform: scale(1.1);
-    transition: 1s;   
-}
-
+        .print_button:hover {
+            background-color: white;
+            color: #3e7bbe;
+            border-color: #3e7bbe;
+            transform: scale(1.1);
+            transition: 1s;
+        }
     </style>
 </head>
 
@@ -583,12 +604,10 @@ input{
         <br>
         <div class="button">
             <button id="reset" class="reset_button" type="reset">Reset</button>
-            <button id="submit" class="submit_button" type="button" onclick="hide_generate()">Submit</button>
+            <button id="submit" class="submit_button" type="button" onclick="register(); getresume()">Submit</button>
         </div>
 
     </form>
-
-
 
     <!-- RESUME SECTION -->
     <section class="resume_section" id="resume_section">
@@ -817,18 +836,110 @@ input{
                 <button id="print" class="print_button" type="button" onclick="window.print()">Print</button>
             </div>
         </form>
-        <!-- <form>
-            <div class="print_button" class="print_button">
-                <button onclick="window.print()">Dowload CV</button>
-            </div>
-        </form> -->
-
     </section>
+
+    <!-- SCRIPT -->
     <script>
         var loadFile = function (event) {
             var image = document.getElementById('image_out');
             image.src = URL.createObjectURL(event.target.files[0]);
         };
+
+        // VALIDATION
+        function checke(url, msg) {
+            r = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+            if (r.test(url.value) == false)
+                alert("Enter Valid Phone Number");
+            else;
+            // alert(" ");
+        }
+
+        function checkf(url, msg) {
+            r = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+            if (r.test(url.value) == false)
+                alert("Enter Valid Email Id");
+            else;
+            // alert(" ");
+        }
+
+        // FUNCTION FOR ESTABLISHING CONNECTION
+        function register() {
+            var u_name = document.getElementById("name_in").value;
+            var u_tag_line = document.getElementById("tag_in").value;
+            var u_phone = document.getElementById("phone_in").value;
+            var u_mail = document.getElementById("mail_in").value;
+            var u_linkedin = document.getElementById("linkedin_in").value;
+            var u_experience = document.getElementById("experience_in").value;
+            var u_age = document.getElementById("age_in").value;
+            var u_about = document.getElementById("about_in").value;
+            var u_bachelorcollege = document.getElementById("bachelor_college_name_in").value;
+
+
+
+
+
+
+
+            var data = {
+                name_in: u_name, tag_in: u_tag_line, phone_in: u_phone,
+                mail_in: u_mail, linkedin_in: u_linkedin, experience_in: u_experience,
+                age_in: u_age, about_in: u_about, bachelor_college_name_in: u_bachelorcollege
+            };
+
+            fetch("http://localhost:1000/register", {
+                method: "POST", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
+        // FUNCTION FOR FETCHING DOCUMENTS FORM COLLECTION
+        function getresume() {
+
+            var a = document.getElementById("form");
+            a.style.display = 'none';
+            document.getElementById("resume_preview").style.display = "block";
+
+            var data;
+            fetch("http://localhost:1000/getresume", {
+                method: "GET", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                    var keys = data;
+
+                    for (i = 0; i < keys.length; i++) {
+                        var s = keys[i];
+                        document.getElementById('name_out').innerHTML = s.name_in;
+                        document.getElementById('tag_out').innerHTML = s.tag_in;
+                        document.getElementById('call_num_out').innerHTML = s.phone_in;
+                        document.getElementById('gmail_id_out').innerHTML = s.mail_in;
+                        document.getElementById('linkedin_out').innerHTML = s.linkedin_in;
+                        document.getElementById('experience_out').innerHTML = s.experience_in;
+                        document.getElementById('age_out').innerHTML = s.age_in;
+                        document.getElementById('about_out').innerHTML = s.about_in;
+                        document.getElementById('bachelor_college_name_out').innerHTML = s.bachelor_college_name_in;
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
     </script>
 </body>
 
