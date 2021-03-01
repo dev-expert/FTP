@@ -1,0 +1,62 @@
+<script>
+// Edit your script here
+
+var n = prompt("Enter");
+var arr = []
+
+for(var i = 0;i<n;i++)
+{
+arr[i] = prompt("Enter");
+document.write(arr[i]+" ");
+}
+document.write("<br>")
+var flag = 0,fl =0,fr = 0;
+
+for(var i = 1;i<n-1;i++)
+{
+flag = arr[i];
+
+for(var j = 0;j<=i;j++)
+{
+if(arr[j]>flag && fl ==0 )
+{
+break;
+}
+if(j==i)
+{
+fl = 1;
+}
+
+}
+
+for(var j = i;j<n;j++)
+{
+if(arr[j]<flag && fl == 1 )
+{
+break;
+}
+if(j==n-2)
+{
+fr = 1;
+}
+
+
+}
+
+if(fl == 1 && fr == 1 )
+{
+document.write(arr[i]);
+break;
+}
+
+if(i==n-2 )
+{
+document.write("-1");
+}
+
+fl = 0;
+fr = 0;
+}
+
+</script>
+<!-- edit your html here -->
