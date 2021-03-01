@@ -5,12 +5,13 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
-var a;
+let a = [];
 
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb+srv://user:pass@mahi.bsizi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 var dbo;
 var query = { fn : "Mahendra" };
+const fs = require('fs');
 
 MongoClient.connect(url, function (err, db) {
     if (err) throw err;
@@ -23,14 +24,26 @@ MongoClient.connect(url, function (err, db) {
         console.log("runningg.......")
         // res.send(result);
         // console.log(result);
-      var  a = result;
-      console.log(result)
+      let  obj= result;
+      
+var data = JSON.stringify(obj);
+
+      // module.exports = a;
+      // console.log(result)
+      // console.log(obj)
+      fs.writeFile("./data.txt", data, (err) => { 
+        if (err) 
+          console.log(err); 
+        else { 
+          console.log("File written successfully\n"); 
+          console.log("The written has the following contents:"); 
+          console.log(fs.readFileSync("data.txt", "utf8")); 
+        } 
 
       });
 
-      console.log(a);
 });
-
+})
 
 
 
@@ -68,4 +81,3 @@ MongoClient.connect(url, function (err, db) {
 
 //       console.log("hii");
 
-    
