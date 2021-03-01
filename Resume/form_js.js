@@ -65,6 +65,7 @@ function sendData(){
     // localStorage.setItem("Name",name);
     // localStorage.setItem("addres",adres);
     // localStorage.setItem("mob.no",mobn);
+    
     // localStorage.setItem("mob.no",mobn);
 
 
