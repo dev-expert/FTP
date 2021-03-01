@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>App</title>
+  
+  </head>
+
+  <body>
+          <h2>Add Name</h2>
+
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="name" name="name" />
+        <input type="text" placeholder="pseudoName" name="pseudoName" />
+        <button type="submit">Submit</button>
+      </form>
+    
+
+  
+      
+        <button  type ="submit" id="update-button">Replace</button>
+       
+        <button type ="submit" id="delete-button" >Delete</button>
+      
+      <div id="message"></div>
+    
+
+   
+      <h2>List</h2>
+
+      <ul >
+        <% for(var i = 0; i < quotes.length; i++) {%>
+        <li>
+          <span><%= quotes[i].name %></span>:
+          <span><%= quotes[i].pseudoName %></span>
+        </li>
+        <% } %>
+      </ul>
+   
+      <script src="/main.js"></script>
+    
+  </body>
+</html>
