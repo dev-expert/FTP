@@ -32,7 +32,7 @@ app.post("/exportdata", (request, response) => {
             return response.status(500).send(error);
         }
         console.log("Data Sent");
-        response.json(true);
+        response.json(result);
     });
 });
 

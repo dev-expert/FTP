@@ -29,7 +29,7 @@
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log("Success:", data);
+            console.log("Success:", data.ops[0].username);
           })
           .catch((error) => {
             console.error("Error:", error);
