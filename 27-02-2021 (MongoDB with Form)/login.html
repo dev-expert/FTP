@@ -49,22 +49,22 @@
     <!-- script start -->
 
     <script>
-        
-            var date = [];
-            fetch("http://localhost:5000", {
-                method: "GET", // or 'PUT'
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    date = data;
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
-                });
+
+        // var date = [];
+        // fetch("http://localhost:5000", {
+        //     method: "GET", // or 'PUT'
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         date = data;
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error:", error);
+        //     });
 
 
         function account() {
@@ -102,27 +102,40 @@
         }
 
         function login() {
-            debugger;
-            var mail_in = document.getElementById("email_in").value;
-            var passwd_in = document.getElementById("passwd_in").value;
             var flag = 1;
+            var data;
+            fetch("http://localhost:5000/", {
+                method: "GET", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert("Hy");
+                    console.log("Success:");
+                    for (var i = 0; i <= data.length; i++) {
+                        var s = data[i];
+                        if (document.getElementById("email_in").value == s.usermail && document.getElementById("passwd_in").value == s.userpassword) {
+                            flag = 100;
+                            alert(flag);
+                        }
+                        else{
+                            alert(flag);
+                        }
+                    }
+                    alert("TEST");
 
-            for(var i = 0; i<= date.length; i++){
-                var s = date[i];
-                
-                if(mail_in == s.usermail && passwd_in == s.userpassword){
-                    var flag = 100;
-                    exit;
-                }
-            }
+                    if (flag == 100) {
+                        alert("Logged In");
+                    }
 
-            if(flag == 100){
-                alert("Logged In");
-            }
+                    else {
+                        alert("not ");
+                    }
 
-            else{
-                alert("not ");
-            }
+                })
         }
 
         // function getdata() {
