@@ -15,7 +15,7 @@ async function check() {
     var atpos = email.indexOf("@");
     var dotpos = email.lastIndexOf(".");
 
-     var checkbox = document.getElementById("check").checked;
+    var checkbox = document.getElementById("check").checked;
     var count = 0;
     // for validation
     if (fname == "") {
@@ -61,31 +61,81 @@ async function check() {
     //if there is no error then count =0;
     if (count == 0) {
 
-        var elements = { firstname: fname, email: email, number: number, pass: pass , isAdmin : checkbox  }
+        var elements = { firstname: fname, email: email, number: number, pass: pass, isAdmin: checkbox }
+        var response = await fetch('http://localhost:8080/admin');
+        const checkData = await response.json();
+        if (checkData.length == 0) {///for checking the duplicacy
 
-        const store = await fetch("http://localhost:8080/signup", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: JSON.stringify(elements)
-        });
-        debugger;
+            const store = await fetch("http://localhost:8080/signup", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
 
-        const isRequestSuccess = await store.json();
-        if (isRequestSuccess) {
-            alert("signup successfully");
-            window.open("signup.html"); ///for refreshing the page
+                },
+                body: JSON.stringify(elements)
+            });
+            debugger;
+
+            const isRequestSuccess = await store.json();
+            if (isRequestSuccess) {
+                alert("signup successfully");
+                document.getElementById("myform").reset(); ///for refreshing the page
+            }
+
+
+        }
+        else {
+
+
+            var elements = { firstname: fname, email: email, number: number, pass: pass, isAdmin: checkbox }
+
+
+            var checkcount = 0;
+            //find the element in to the array
+            checkData.forEach(element => {
+
+                if (element.email === email) {
+                    checkcount = checkcount + 1;
+
+                }
+
+
+            });
+            if (checkcount == 0) {
+                const store = await fetch("http://localhost:8080/signup", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+                    body: JSON.stringify(elements)
+                });
+                debugger;
+
+                const isRequestSuccess = await store.json();
+                if (isRequestSuccess) {
+                    alert("signup successfully");
+                    document.getElementById("myform").reset();///for refreshing the page
+                }
+            }
+            else {
+
+                alert("email is alreay exists");
+                window.open("signup.html");
+            }
+
+
         }
 
+
+
+
+
+
+
     }
 
-    else {
 
-        alert("email is alreay exists");
-        window.open("signup.html");
-    }
 
 
 
@@ -94,7 +144,7 @@ async function check() {
 
 
 
- async function login() {
+async function login() {
     debugger;
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
@@ -114,7 +164,7 @@ async function check() {
 
 
 
-                    var admin = { name: element.firstname, email: email, password: pass ,isAdmin : element.isAdmin};
+                    var admin = { name: element.firstname, email: email, password: pass, isAdmin: element.isAdmin };
 
 
                     localStorage.setItem("login", JSON.stringify(admin)); //it will store the data in to local storage
@@ -142,7 +192,7 @@ async function check() {
         document.getElementById("Eerr").innerHTML = "Please Enter your Email Id";
     }
 }
-  
+
 function myFunction() {
 
     let login = JSON.parse(localStorage.getItem("login"));

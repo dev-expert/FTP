@@ -45,6 +45,10 @@ async function information() {
            
         }
         objArray.Skills=Skills;
+        
+         const login_info=  JSON.parse(localStorage.getItem("login")); 
+         const login = login_info["email"];
+         objArray.login= login;
         debugger;
         const store = await fetch("http://localhost:8080/cv", {
             method: "POST",

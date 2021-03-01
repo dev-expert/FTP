@@ -7,14 +7,15 @@ myresume();
 })
 async function myresume(){
 
-    //var value = JSON.parse(localStorage.getItem("User"));
+    var login_info = JSON.parse(localStorage.getItem("login"));
+    var value = login_info["email"];
+
     
-  var response = await fetch('http://localhost:8080/cv');
+  var response = await fetch('http://localhost:8080/checkuser/'+value);
   const getData = await response.json();
-  var element = getData.length-1;
-  const value = getData[element];
-    console.log(value);
-    var keys = Object.keys(value); 
+const data = getData[getData.length-1];
+
+    var keys = Object.keys(data); 
     for (i = 0; i < keys.length; i++) {
 
 
@@ -23,23 +24,23 @@ async function myresume(){
         switch (key) {
 
             case "Name":
-                document.getElementById("username").innerHTML = value[key];
+                document.getElementById("username").innerHTML = data[key];
                 break;
             case "email":
-                document.getElementById("email").innerHTML = `<i class="fas fa-envelope-square"></i>  ` + value[key];
+                document.getElementById("email").innerHTML = `<i class="fas fa-envelope-square"></i>  ` + data[key];
                 break;
             case "ContactNo-":
-                document.getElementById("cont").innerHTML = `<i class="fas fa-phone"></i>  ` + value[key];
+                document.getElementById("cont").innerHTML = `<i class="fas fa-phone"></i>  ` + data[key];
                 break;
             case "Profile":
-                document.getElementById("professional").innerHTML = value[key];
+                document.getElementById("professional").innerHTML = data[key];
                 break;
             case "About":
-                document.getElementById("about").innerHTML = value[key];
+                document.getElementById("about").innerHTML = data[key];
                 break;
 
             case "image":
-                var str = value[key];
+                var str = data[key];
                 count=0;
                 
                 var lastIndex = str.lastIndexOf("\\");
@@ -51,19 +52,19 @@ async function myresume(){
                 break;
 
             case "Graduate":
-                document.getElementById("Grad").innerHTML = value[key];
+                document.getElementById("Grad").innerHTML = data[key];
                 break;
             case "Intermediate":
-                document.getElementById("Inter").innerHTML = value[key];
+                document.getElementById("Inter").innerHTML = data[key];
                 break;
             case "Highschool":
-                document.getElementById("High").innerHTML = value[key];
+                document.getElementById("High").innerHTML = data[key];
                 break;
 
             case "Projects":
 
    
-                var projectdata=value["Projects"]; 
+                var projectdata=data["Projects"]; 
                 var projectKey = Object.keys(projectdata);
                 str="";
                 Project=[];
@@ -83,7 +84,7 @@ async function myresume(){
             case "Skills":
             
    
-                var skilldata=value["Skills"];
+                var skilldata=data["Skills"];
                 var skillkey = Object.keys(skilldata);
                 str="";
                 skill=[];
@@ -99,69 +100,69 @@ async function myresume(){
 
             
                 case "CM":
-                    document.getElementById("CM").innerHTML = value[key];
+                    document.getElementById("CM").innerHTML = data[key];
                     break;
     
                 case "start":
-                    document.getElementById("start").innerHTML = value[key];
+                    document.getElementById("start").innerHTML = data[key];
                     break;
                 case "end":
-                    document.getElementById("end").innerHTML = value[key];
-                    break;
+                    document.getElementById("end").innerHTML = data[key];
+                     break;
                 case "Project":
-                    document.getElementById("Project").innerHTML = value[key];
+                    document.getElementById("Project").innerHTML = data[key];
                     break;
                     
                 case "C1":
-                    document.getElementById("C1").innerHTML = value[key];
+                    document.getElementById("C1").innerHTML = data[key];
                     break;
     
                 case "C2":
-                    document.getElementById("C2").innerHTML = value[key];
+                    document.getElementById("C2").innerHTML = data[key];
                     break;
                 case "C3":
-                    document.getElementById("C3").innerHTML = value[key];
+                    document.getElementById("C3").innerHTML = data[key];
                     break;
                 case "C4":
-                    document.getElementById("C4").innerHTML = value[key];
+                    document.getElementById("C4").innerHTML = data[key];
                     break;
                     
                 case "C5":
-                    document.getElementById("C5").innerHTML = value[key];
+                    document.getElementById("C5").innerHTML = data[key];
                     break;
                     
                 case "L1":
-                    document.getElementById("L1").innerHTML = value[key];
+                    document.getElementById("L1").innerHTML = data[key];
                     break;
     
                 case "L2":
-                    document.getElementById("L2").innerHTML = value[key];
+                    document.getElementById("L2").innerHTML = data[key];
                     break;
                 case "L3":
-                    document.getElementById("L3").innerHTML = value[key];
+                    document.getElementById("L3").innerHTML = data[key];
                     break;
                     
                     
                 case "I1":
-                    document.getElementById("I1").innerHTML = value[key];
+                    document.getElementById("I1").innerHTML = data[key];
                     break;
     
                 case "I2":
-                    document.getElementById("I2").innerHTML = value[key];
+                    document.getElementById("I2").innerHTML = data[key];
                     break;
                 case "I3":
-                    document.getElementById("I3").innerHTML = value[key];
+                    document.getElementById("I3").innerHTML = data[key];
                     break;
                     
                 case "S1":
-                    document.getElementById("S1").innerHTML =`<i class="fab fa-github-square"></i> `+ value[key];
+                    document.getElementById("S1").innerHTML =`<i class="fab fa-github-square"></i> `+ data[key];
                     break;
     
                 case "S2":
-                    document.getElementById("S2").innerHTML = `<i class="fab fa-facebook-f"></i> `+value[key];
+                    document.getElementById("S2").innerHTML = `<i class="fab fa-facebook-f"></i> `+data[key];
                     break;
                 case "S3":
-                    document.getElementById("S3").innerHTML = `<i class="fab fa-linkedin"></i> `+value[key];
+                    document.getElementById("S3").innerHTML = `<i class="fab fa-linkedin"></i> `+data[key];
                     break;
 
         }

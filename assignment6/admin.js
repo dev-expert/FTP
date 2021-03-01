@@ -20,13 +20,28 @@ async function refreshHTML() {
 
 
 
+    var admin = "User";
+    if (element.isAdmin==true){
+         admin = "Admin";
+    
+
     str += `
+    <tr>
+    <td>${element.firstname}</td>
+    <td>${element.email}</td>
+    <td>${admin}</td>
+    <td></td>
+  </tr>`
+    }
+    else{
+        str += `
         <tr>
         <td>${element.firstname}</td>
         <td>${element.email}</td>
-        <td>${element.number}</td>
-        <td><button type="button" onclick="deleteOnebyOne('${element.email}')" class=" btn-danger">Delete</button></td>
+        <td>${admin}</td> 
+        <td><button type="button" onclick="deleteOnebyOne('${element.email}') "class="btn-danger">Delete</button></td>
       </tr>`
+    }
 
   });
   document.getElementById("fetch").innerHTML = str;

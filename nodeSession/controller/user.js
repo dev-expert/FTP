@@ -48,6 +48,19 @@ router.get("/delete/:email", async (req, res) => {
     res.json({res:true});
 
 });
+router.get("/checkuser/:email", async (req, res) => {
+    const email = req.params.email;
+
+      await resumeModel.find({login:email}).then(result=>{
+
+        res.json(result);
+    }).catch(err=>{
+        if(err) throw err;
+    });
+
+
+});
+
 router.get("/cv", (req, res) => {
 
     
