@@ -11,12 +11,6 @@
 </head>
 
 <body>
-    <!-- <script>
-        old = JSON.parse(localStorage.getItem("user"));
-
-        // y = (old.find(x => x.fn)); 
-    </script> -->
-
     <div class="box">
         <center>
             <img src="photo.jpeg" width="200px" class="photo" height="220px">
@@ -24,13 +18,20 @@
         <div>
             <h2 class="font">CONTACT</h2>
             <ul><img src="phn.png" width="20px">
-                <script>document.write(old.phone)</script>
+                <label id="phone">
+
+                </label>
+
             </ul>
             <ul><img src="email.jpg" width="20px">
-                <script>document.write(old.email)</script>
+                <label id="email">
+
+                </label>
             </ul>
             <ul><img src="addres.jpg" width="20px">
-                <script>document.write(old.Address)</script>
+                <label id="address">
+
+                </label>
             </ul>
 
         </div>
@@ -51,10 +52,10 @@
 
             <ul>
                 <li>
-                    <script>document.write(old.cert1)</script>
+                    <label id="cert1"> </label>
                 </li>
                 <li>
-                    <script>document.write(old.cert2)</script>
+                    <label id="cert2"> </label>
                 </li>
 
             </ul>
@@ -63,10 +64,10 @@
             <h2 class="font">HOBBIES</h2>
             <ul>
                 <li>
-                    <script>document.write(old.hobb1)</script>
+                    <label id="hobb1"> </label>
                 </li>
                 <li>
-                    <script>document.write(old.hobb2)</script>
+                    <label id="hobb2"> </label>
                 </li>
 
             </ul>
@@ -75,13 +76,13 @@
             <h2 class="font"> LANGUAGES</h2>
             <ul>
                 <li>
-                    <script>document.write(old.lang1)</script>
+                    <label id="lang1"> </label>
                 </li>
                 <li>
-                    <script>document.write(old.lang2)</script>
+                    <label id="lang2"> </label>
                 </li>
                 <li>
-                    <script>document.write(old.lang3)</script>
+                    <label id="lang3"> </label>
                 </li>
             </ul>
         </div>
@@ -89,7 +90,7 @@
     <div class="box1">
         <div>
             <h1 class="color">
-                <script>document.write(old.name)</script>
+                <label id="name"> mad</label>
             </h1>
         </div>
 
@@ -100,7 +101,7 @@
 
             <h3 class="color1">ABOUT</h3>
             <div class=about>
-                <script>document.write(old.about)</script>
+                <label id="about"> </label>
             </div>
 
         </div>
@@ -108,18 +109,18 @@
             <h3 class="color">EDUCATION</h3>
             <ul>
                 <li>
-                    <script>document.write(old.educ1)</script>
+                    <label id="educ1"> </label>
                 </li>
-                <script>document.write(old.source1)</script>
+                <label id="source1"> </label>
                 <br>
                 <li>
-                    <script>document.write(old.educ2)</script>
+                    <label id="educ2"> </label>
                 </li>
-                <script>document.write(old.source2)</script><br>
+                <label id="source2"> </label>
                 <li>
-                    <script>document.write(old.educ3)</script>
+                    <label id="educ3"> </label>
                 </li>
-                <script>document.write(old.source3)</script><br>
+                <label id="source3"> </label>
             </ul>
 
 
@@ -132,33 +133,33 @@
                 <li>
                     <div>
                         <h4>
-                            <script>document.write(old.projs1)</script>
+                            <label id="projs1"> </label>
                         </h4>
                     </div>
 
                     <div>
-                        <script>document.write(old.web1)</script>
+                        <label id="web1"> </label>
                     </div>
 
                 </li><br>
                 <li>
                     <div>
                         <h4>
-                            <script>document.write(old.projs2)</script>
+                            <label id="projs2"> </label>>
                         </h4>
                     </div>
                     <div>
-                        <script>document.write(old.web2)</script>
+                        <label id="web2"> </label>
                     </div>
                 </li><br>
                 <li>
                     <div>
                         <h4>
-                            <script>document.write(old.projs3)</script>
+                            <label id="projs3"> </label>
                         </h4>
                     </div>
                     <div>
-                        <script>document.write(old.web3)</script>
+                        <label id="web3"> </label>
                     </div>
 
                 </li><br>
@@ -169,31 +170,40 @@
             <h3 class="color">ACTIVITIES</h3>
             <ul>
                 <li>
-                    <script>document.write(old.acti1)</script>
+                    <label id="acti1"> </label> 
                 </li><br>
 
                 <li>
-                    <script>document.write(old.acti2)</script>
+                    <label id="acti2"> </label>
                 </li>
             </ul>
         </div>
 
 
     </div>
-    <script>
 
-         alert("l");
-         debugger;
-         fetch('http://localhost:2030/getuserdata')
-                .then(response => response.json())
-                .then(data => console.log(data));
 
-        // for (var i = 1; i <= l; i++) {
+    <script src="resume.js"></script>
 
-        //     document.getElementById("lenskill" + i).style.display = "block";
-        //     document.getElementById("lenskill" + i).innerHTML = skill[i - 1];
-        // }
 
+    <!-- <script>
+        // fetch('http://localhost:2030/getuserdata')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         document.getElementById("phone") = data.phone
+        //         document.getElementById("name") = data.name
+        //         document.getElementById("email") = data.email
+        //         document.getElementById("address") = data.Address
+
+
+
+
+
+        //     });
+
+
+        
 
         // .then(response => {
         // debugger;
@@ -231,9 +241,7 @@
                 console.error("Error:", error);
             })
             */
+    </script> -->
+</body>
 
-            alert("Hii")
-            
-    </script>
-   </body>
 </html>

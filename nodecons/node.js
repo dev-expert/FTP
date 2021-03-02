@@ -16,21 +16,6 @@ MongoClient.connect(url, function (err, db) {
     console.log("data connected ")
 });
 
-// app.get('/', (req, res) => {
-//     res.json({
-//         message: 'Hello World'
-//     });
-// });
-
-// app.get('/:name', (req, res) => {
-//     let name = req.params.name;
-
-//     res.json({
-//         message: `Hello ${name}`
-//     });
-// });
-
-
 app.listen(2030, () => {
     console.log('server is listening on port 2020');
 });
@@ -53,6 +38,6 @@ app.get('/getuserdata', async(req, response) => {
     return response.status(500).send(error);
     }
     console.log(result);
-    response.send("result");
+    response.send(result);
     });
     })
