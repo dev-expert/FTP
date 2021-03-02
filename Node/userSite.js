@@ -74,3 +74,14 @@ app.get("/admin", function (req, res) {
 
 })
 
+app.post("/findUser",function(req,res){
+    var q = req.body;
+    console.log(q);
+    dbo.collection("user_data").findOne(q, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        
+        res.json(result);
+    })
+})
+

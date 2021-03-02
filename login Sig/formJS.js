@@ -8,9 +8,12 @@ function basicData1() {
     var dis1 = document.getElementById('dis1').value;
     var li = document.getElementById('li').value;
 
-    
+    var obj1 = {
+        name: name1, email: user, phone: phn1,
+        Address: add, link: li, dis: dis, dis1: dis1
+    };
 
-    //localStorage.setItem("person11", JSON.stringify(obj1));
+    localStorage.setItem("person11", JSON.stringify(obj1));
 
     var arr = [];
     for(var j =1;j<i;j++)
@@ -86,58 +89,6 @@ function basicData1() {
         var cer = { cer1: cer1, cer2: cer2, cer3: cer3, cer4: cer4 }
         localStorage.setItem("cer", JSON.stringify(cer));
 
-
-        var obj1 = {
-            name: name1, email: user, phone: phn1,
-            Address: add, link: li, dis: dis, dis1: dis1,
-            lan1: lan1, lan2: lan2,int1: int1, int2: int2, int3: int3,
-            edu11: edu11, edu12: edu12, edu13: edu13, edu21: edu21, edu22: edu22, edu23: edu23,
-            edu31: edu31, edu32: edu32, edu33: edu33,pro11: pro11, pro12: pro12, pro21: pro21, pro22: pro22, pro31: pro31,
-            pro32: pro32, pro41: pro41, pro42: pro42,cer1: cer1, cer2: cer2, cer3: cer3, cer4: cer4
-        };
-
-        fetch("http://localhost:9090/form", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(obj1),
-            })
-                 .then(response => {
-                     debugger;
-                     return response.json()
-                 })
-                .then(data => {
-                    console.log("Succes :", data);
-                })
-            .catch(err => console.error(err));
-
-
-
-
-            /*var arr = [];
-            for(var j =1;j<i;j++)
-            {
-                arr[j-1] =  document.getElementById("skill"+j).value;
-            }
-        
-            fetch("http://localhost:9090/skill", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(arr),
-            })
-                 .then(response => {
-                     debugger;
-                     return response.json()
-                 })
-                .then(data => {
-                    console.log("Succes :", data);
-                })
-            .catch(err => console.error(err));
-            */
-            
     //forSkill();
     location.replace("main1.html");
 }

@@ -67,7 +67,7 @@
 
             .then((data) => {
                 //console.log("Success :", data)
-                localStorage.setItem("currUser", data.email1);
+                localStorage.setItem("currUser", data.email);
                 location.replace("home.html");
             })
             .catch((error) => {

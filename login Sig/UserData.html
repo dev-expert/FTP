@@ -150,21 +150,20 @@
                             cell2.innerHTML = data[i].number;
 
                             var cell3 = row.insertCell(3);
-                            if (data[i].Admin == "true")
+                            if (data[i].Admin == "true") {
                                 cell3.innerHTML = "Admin";
-
-                            else
-                            {
-                                cell3.innerHTML = "User";
                             }
-                            var cell4 = row.insertCell(4);
-                            
 
-                            var checkbox = document.createElement("Input");
-                            checkbox.setAttribute("type", "checkbox");
-                            checkbox.setAttribute("name", "check");
+                            else {
+                                cell3.innerHTML = "User";
+                                var cell4 = row.insertCell(4);
+                                var checkbox = document.createElement("Input");
+                                checkbox.setAttribute("type", "checkbox");
+                                checkbox.setAttribute("name", "check");
 
-                            cell4.appendChild(checkbox);
+                                cell4.appendChild(checkbox);
+                            }
+
                         }
 
                     })
@@ -222,7 +221,7 @@
                 var q = person.find(x => x.email == email1);
 
                 //if (q.Admin == "true") {
-                    document.getElementById("userData").style.display = "block";
+                document.getElementById("userData").style.display = "block";
                 //}
             }
 

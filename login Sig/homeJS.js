@@ -1,58 +1,58 @@
 //var table = document.getElementById("myTable");
 //document.getElementById("body1").style.display = "block";
 
-    var obj = JSON.parse(localStorage.getItem("person1"));
+var obj = JSON.parse(localStorage.getItem("person1"));
 
-    var data = document.getElementById("data");
+var data = document.getElementById("data");
 
-    let len = obj.length;
-    //str="";
-    for (var i = 0; i < len; i++) {
-        /*str+=`
-        <tr>
-        <td>${obj[i].name}</td>
-        <td>${obj[i].email}</td>
-        <td>${obj[i].number}</td>
-        <td>${obj[i].password}</td>
-        <td>${obj[i].Admin}</td>
-        </tr>`
-        */
+let len = obj.length;
+//str="";
+for (var i = 0; i < len; i++) {
+    /*str+=`
+    <tr>
+    <td>${obj[i].name}</td>
+    <td>${obj[i].email}</td>
+    <td>${obj[i].number}</td>
+    <td>${obj[i].password}</td>
+    <td>${obj[i].Admin}</td>
+    </tr>`
+    */
 
-        var row = data.insertRow(i);
-        var cell = row.insertCell(0);
-        cell.innerHTML = obj[i].name;
+    var row = data.insertRow(i);
+    var cell = row.insertCell(0);
+    cell.innerHTML = obj[i].name;
 
-        var cell1 = row.insertCell(1);
-        cell1.innerHTML = obj[i].email;
+    var cell1 = row.insertCell(1);
+    cell1.innerHTML = obj[i].email;
 
-        var cell2 = row.insertCell(2);
-        cell2.innerHTML = obj[i].number;
+    var cell2 = row.insertCell(2);
+    cell2.innerHTML = obj[i].number;
 
-        var cell3 = row.insertCell(3);
-        if (obj[i].Admin == "true")
-            cell3.innerHTML = "Admin";
+    var cell3 = row.insertCell(3);
+    if (obj[i].Admin == "true")
+        cell3.innerHTML = "Admin";
 
-        else
-            cell3.innerHTML = "User";
+    else
+        cell3.innerHTML = "User";
 
-        var cell4 = row.insertCell(4);
-        /*
-        var button = document.createElement("button");
-        button.innerHTML = "Delete" + i;
-        button.addEventListener("click", function () {
-            alert(button.innerHTML);
-        });
-    
-        cell4.append(button);
-        */
+    var cell4 = row.insertCell(4);
+    /*
+    var button = document.createElement("button");
+    button.innerHTML = "Delete" + i;
+    button.addEventListener("click", function () {
+        alert(button.innerHTML);
+    });
+ 
+    cell4.append(button);
+    */
 
 
-        var checkbox = document.createElement("Input");
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("name", "check");
+    var checkbox = document.createElement("Input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("name", "check");
 
-        cell4.appendChild(checkbox);
-    }
+    cell4.appendChild(checkbox);
+}
 
 
 //document.getElementById("data").innerHTML=str;
@@ -91,23 +91,40 @@ function checkUser() {
     if (!email) {
         location.replace("login.html");
     }
-    else
-    {
+    else {
         checkCurUser();
-    } 
+    }
 }
 
-function checkCurUser()
-{
-    var person = JSON.parse(localStorage.getItem("person1"));
-    var email1 = localStorage.getItem("currUser");
-    var q = person.find(x=>x.email == email1);
-    document.getElementById("username1").innerHTML = q.name;
+function checkCurUser() {
 
-    if(q.Admin == "false")
-    {
-        document.getElementById("userData").style.display = "none";
-    }
+
+    //var person = JSON.parse(localStorage.getItem("person1"));
+    var email1 = localStorage.getItem("currUser");
+    // var q = person.find(x=>x.email == email1);
+    // document.getElementById("username1").innerHTML = q.name;
+
+    obj = { email: email1 };
+
+    fetch("http://localhost:8090/findUser", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+    })
+        .then((response) => { return response.json() })
+
+        .then((data) => {
+            document.getElementById("username1").innerHTML = data.name;
+            if (data.Admin == "false") {
+                document.getElementById("userData").style.display = "none";
+                
+            }
+        })
+        .catch((error) => {
+            console.error("Error :", error);
+        });
 }
 
 function logout() {
@@ -120,11 +137,10 @@ function showUser() {
     var a = document.getElementById("table");
     if (a.style.display == "block") {
         a.style.display = "none";
-        
-
     }
     else {
         a.style.display = "block";
-        
- 1   }
+
+        1
+    }
 }
