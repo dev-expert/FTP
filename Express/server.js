@@ -22,13 +22,21 @@ app.get("/", (req, res) => {
 
 
 
-app.post("/", () => {
+app.post("/", (res, req) => {
     res.send("POST-Hello World");
 })
 
 app.listen("8080", () => {
     console.log("Server Started");
+
 })
+
 
 //Routing Methods
 //Get, Put, Post, Delete
+
+
+//What is rest api
+//Representastion State Transfer
+//It is an architectural style as well as an approach for communications purpose that is often used in various web service development.
+

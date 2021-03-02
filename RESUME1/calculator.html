@@ -1,0 +1,152 @@
+<html>
+
+<head>
+
+    <title>CALCULATOR</title>
+    <style>
+        #center {
+
+            background-color: rgb(173, 169, 158);
+            margin: 15% 20% 0 20%;
+            width: 60%;
+            border: 5px solid hsl(27, 74%, 51%);
+            padding: 50px;
+        }
+
+        .input {
+            border-radius: 6%;
+            height: 25px;
+            width: 100%;
+        }
+
+        .subdiv {
+            padding: 10%;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(206, 102, 102);
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: whitesmoke;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: rgb(243, 194, 103);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="table.html">HOME</a></li>
+        <li><a href="url.html">URL</a></li>
+        <li><a href="calculator.html">CALCULATOR</a></li>
+        <li><a href="index1.html">RESUME GENERATOR</a></li>
+        <li><a href="home.html">REGISTER/LOGIN</a></li>
+        <li style="float:right"><a class="active" href="javascript:logoff()">LOG OFF</a></li>
+    </ul>
+    <div id="center">
+        <div class="subdiv">
+            <table border="1" align="center">
+                <tr>
+                    <td colspan="2"><label>First Value:</label></td>
+                    <td colspan="3"><input type="number" id="fname" class="input"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><label>Second Value:</label></td>
+                    <td colspan="3"><input type="number" id="sname" class="input"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Result:</label>
+                    </td>
+                    <td colspan="3">
+                        <input type="text" id="result" value="Result" class="input"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button onclick="calculator(1)">Add</button></td>
+                    <td><button onclick="calculator(2)">Substract</button></td>
+                    <td><button onclick="calculator(3)">Multiply</button></td>
+                    <td><button onclick="calculator(4)">Divide</button></td>
+                    <td><button onclick="calculator(5)">Clear</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+    <script>
+        function calculator(n) {
+            if (document.getElementById("fname").value == "" || document.getElementById("sname").value == "") {
+                alert("enter some value");
+            }
+            else {
+                var x = document.getElementById("fname").value;
+                var y = document.getElementById("sname").value;
+                if (parseInt(n) == 1) {
+                    document.getElementById("result").value = parseInt(x) + parseInt(y);
+                }
+                if (parseInt(n) == 2) {
+                    if (x > y) {
+                        document.getElementById("result").value = x - y;
+                    }
+                    else {
+                        alert("First Value Should be Greater than Second.!!!");
+                        document.getElementById("fname").value = "";
+                        document.getElementById("sname").value = "";
+                        document.getElementById("result").value = "";
+                    }
+                }
+                if (parseInt(n) == 3) {
+                    document.getElementById("result").value = x * y;
+                }
+                if (parseInt(n) == 4) {
+                    if (x > y) {
+                        document.getElementById("result").value = x / y;
+                    }
+                    else {
+                        alert("First Value Should be Greater than Second.!!!");
+                        document.getElementById("fname").value = "";
+                        document.getElementById("sname").value = "";
+                        document.getElementById("result").value = "";
+                    }
+                }
+                if (parseInt(n) == 5) {
+                    document.getElementById("fname").value = "";
+                    document.getElementById("sname").value = "";
+                    document.getElementById("result").value = "";
+                }
+            }
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

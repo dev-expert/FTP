@@ -1,0 +1,37 @@
+#myTable1{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30vh;
+}
+
+table, td, th{
+    border: 1px solid black;
+    padding: 15px;
+}
+table{
+    border-collapse: collapse;
+}
+
+.buttons{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button{
+    padding: 15px;
+    width: 10%;
+    border-radius: 10px;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(34, 84, 150);
+    color: white;
+}
+
+button:hover{
+    background-color: teal;
+    transform: translate(20px);
+}
