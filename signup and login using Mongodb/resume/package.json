@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongod": "^2.0.0",
+    "mongodb": "^3.6.4",
+    "nodemon": "^2.0.7"
+  },
+  "name": "hello",
+  "version": "1.0.0",
+  "main": "mongodata.js",
+  "scripts": {
+    "start": "nodemon mongodata.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

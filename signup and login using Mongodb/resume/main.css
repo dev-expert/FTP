@@ -102,7 +102,7 @@ body{
     border : 1px solid black;
 
 }
-#mail,#loc,#git{
+#mail,#loc,#git,#mbl,#lnk,#ins{
     height: 33.33%;
     background-color: rgb(141, 134, 134);
     font-size: large;

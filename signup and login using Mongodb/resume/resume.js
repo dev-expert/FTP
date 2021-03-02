@@ -1,7 +1,6 @@
 var arr = [];
 i = 1;
 
-debugger;
 function add()
 {
 fname1 = document.getElementById("fname").value;
@@ -104,33 +103,47 @@ bio=document.getElementById("bio").value;
   cgpa3:cgpa3,
   bio:bio
 }
-  localStorage.setItem("user" , JSON.stringify(obj));
-
-
-    for(var j =1;j<i;j++)
-    {
-        arr[j-1] =  document.getElementById("skill"+j).value;
-    }
-    localStorage.setItem("skills" , JSON.stringify(arr));
+fetch("http://localhost:2020/resume", {
+  method: "POST",
+  headers: {
+  "Content-Type": "application/json",
+  },
+  body: JSON.stringify(obj),
+  })
+  .then(data => {
+                  console.log("Succes :", data);
+                  })
+  
 }
-function sk()
-{
+// module.exports = obj;
+  // localStorage.setItem("user" , JSON.stringify(obj));
+
+
+    // for(var j =1;j<i;j++)
+    // {
+    //     arr[j-1] =  document.getElementById("skill"+j).value;
+    // }
+    // localStorage.setItem("skills" , JSON.stringify(arr));
+// }
+// function sk()
+// {
   
   
-      if(i<=6)
-      {
-      var sk = document.getElementById("skills");
+//       if(i<=6)
+//       {
+//       var sk = document.getElementById("skills");
       
-      var newS = document.createElement("input");
-      newS.setAttribute("type","text");
-      newS.setAttribute("id","skill"+i);
-      newS.setAttribute("placeholder","skill"+(i++));
-      var pos = sk.childElementCount;
-      sk.insertBefore(newS,sk.childNodes[pos]);
-      }
-      else
-      {
-          alert("Max skill limit is 6");
-      }
+//       var newS = document.createElement("input");
+//       newS.setAttribute("type","text");
+//       newS.setAttribute("id","skill"+i);
+//       newS.setAttribute("placeholder","skill"+(i++));
+//       var pos = sk.childElementCount;
+//       sk.insertBefore(newS,sk.childNodes[pos]);
+//       }
+//       else
+//       {
+//           alert("Max skill limit is 6");
+//       }
   
-}
+// }
+// obj1 = "hii"

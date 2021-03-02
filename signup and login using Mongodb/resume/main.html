@@ -1,72 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
     <link rel="stylesheet" href="main.css">
-    <script src="main.js"></script>
+    <script src="main1.js"></script>
+
+    <!-- <script type="text/javascript">
+    window.onload=()=>{
+        var old = [];
+
+        (async () => {
+            console.log('before start');
+
+            let response = await fetch("http://localhost:2020/main");
+
+            if (response.ok) {
+                let old2 = await response.json();
+                old = old2[0];
+                document.getElementById("name").innerHTML=old[0];
+                console.log(old);
+
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
+
+            console.log('after start');
+        })();
+    }
+    </script> -->
 
 
 </head>
+
 <body>
-    <section id = "main">
+
+    <!-- <form method="GET"> -->
+    <section id="main">
         <section id="header">
             <!-- <div id = "pic"> <img src="img.jpeg" alt="" class="s"> -->
-                <div id="pic">
-                <div id = "name"><script>document.write(old.fn + " " + old.ln);</script> </div>
-                <div id = "role"><script>document.write(old.rol);</script></div>
-                <div id = "bio"><script>document.write(old.bio);</script></div>
-</div>
-            
+            <div id="pic">
+                <div id="name">
+                    <script>
+                        
+                        document.write(old.fn + " " + old.ln);
+                    </script>
+                </div>
+                <div id="role">
+                    <script>
+                        document.write(old.rol);
+                    </script>
+                </div>
+                <div id="bio">
+                    <script>
+                        document.write(old.bio);
+                    </script>
+                </div>
             </div>
-          
-          
-         
+
+            </div>
+
+
+
         </section>
-        <section id = "detail">
+        <section id="detail">
             <div id="detail-left">
 
-                <div id="mail"> <img src="./gmail.png" width="20px"> <script>document.write("&nbsp;"+old.mail);</script></div>
-                <div id="loc"><img src="./placeholder.png" width="20px"><script>document.write("&nbsp;" + old.loc);</script></div>
-                <div id="git"><img src="./github.png" width="20px"><script>document.write("&nbsp;" + old.git);</script></div>
+                <div id="mail"> <img src="./gmail.png" width="20px">
+                    <script>
+                        document.write("&nbsp;" + old.mail);
+                    </script>
+                </div>
+                <div id="loc"><img src="./placeholder.png" width="20px">
+                    <script>
+                        document.write("&nbsp;" + old.loc);
+                    </script>
+                </div>
+                <div id="git"><img src="./github.png" width="20px">
+                    <script>
+                        document.write("&nbsp;" + old.git);
+                    </script>
+                </div>
             </div>
             <div id="detail-right">
-                <div id="mail"><img src="./smartphone.png" width="20px"><script>document.write("&nbsp;" + old.mbl);</script></div>
-                <div id="loc"><img src="./linkedin (1).png" width="20px"><script>document.write( "&nbsp;" + old.lnk);</script></div>
-                <div id="git"><img src="./instagram.png" width="20px"><script>document.write("&nbsp;" + old.ins);</script></div>
+                <div id="mbl"><img src="./smartphone.png" width="20px">
+                    <script>
+                        document.write("&nbsp;" + old.mbl);
+                    </script>
+                </div>
+                <div id="lnk"><img src="./linkedin (1).png" width="20px">
+                    <script>
+                        document.write("&nbsp;" + old.lnk);
+                    </script>
+                </div>
+                <div id="ins"><img src="./instagram.png" width="20px">
+                    <script>
+                        document.write("&nbsp;" + old.ins);
+                    </script>
+                </div>
             </div>
 
 
         </section>
         <div id="body">
-        <section id = "left">
-            <section>
-                <h2>EDUCATION</h2>
-                            <div class ="education" ><script>document.write( old.qul1 +" : <br><br>");document.write( old.scl1 + "<br>");document.write("cgpa:" + old.cgpa1)</script></div>
-                            <div class ="education" ><script>document.write( old.qul3 +" : <br><br>");document.write( old.scl3);document.write("<br>cgpa:" + old.cgpa2)</script></div>
-                            <div class ="education" ><script>document.write( old.qul2 +" : <br><br>");document.write( old.scl2);document.write("<br>cgpa:" + old.cgpa3)</script></div>
+            <section id="left">
+                <section>
+                    <h2>EDUCATION</h2>
+                    <div id = "edu1" class="education">
+                        <script>
+                            document.write(old.qul1 + " : <br><br>");
+                            document.write(old.scl1 + "<br>");
+                            document.write("cgpa:" + old.cgpa1)
+                        </script>
+                    </div>
+                    <div class="education" id = "edu3">
+                        <script>
+                            document.write(old.qul3 + " : <br><br>");
+                            document.write(old.scl3);
+                            document.write("<br>cgpa:" + old.cgpa3)
+                        </script>
+                    </div>
+                    <div class="education" id = "edu2">
+                        <script>
+                            document.write(old.qul2 + " : <br><br>");
+                            document.write(old.scl2);
+                            document.write("<br>cgpa:" + old.cgpa2)
+                        </script>
+                    </div>
 
-                <section id = "projects">
-                    <h2>PROJECTS</h3>
-                    <div class ="Projects" ><script>document.write("Project1: " + old.pro1 +"<br></br>");</script></div>
-                    <div class ="info" ><script>document.write(" - " + old.pro12 +"<br></br>");</script></div>
-                    <div class ="Projects" ><script>document.write("Project2: " + old.pro2 +"<br></br>");</script></div>
-                    <div class ="info" ><script>document.write(" - " + old.pro22 +"<br></br>");</script></div>
-                    <div class ="Projects" ><script>document.write("Project3: " + old.pro3 +"<br></br>");</script></div>
-                    <div class ="info" ><script>document.write(" - " + old.pro32 +"<br></br>");</script></div>
+                    <section id="projects">
+                        <h2>PROJECTS</h3>
+                            <div class="Projects" id = "pro1">
+                                <script>
+                                    document.write("Project1: " + old.pro1 + "<br></br>");
+                                </script>
+                            </div>
+                            <div class="info" id = "pro12">
+                                <script>
+                                    document.write(" - " + old.pro12 + "<br></br>");
+                                </script>
+                            </div>
+                            <div class="Projects" id = "pro2">
+                                <script>
+                                    document.write("Project2: " + old.pro2 + "<br></br>");
+                                </script>
+                            </div>
+                            <div class="info" id = "pro22">
+                                <script>
+                                    document.write(" - " + old.pro22 + "<br></br>");
+                                </script>
+                            </div>
+                            <div class="Projects" id = "pro3">
+                                <script>
+                                    document.write("Project3: " + old.pro3 + "<br></br>");
+                                </script>
+                            </div>
+                            <div class="info" id = "pro32">
+                                <script>
+                                    document.write(" - " + old.pro32 + "<br></br>");
+                                </script>
+                            </div>
 
 
 
+                    </section>
                 </section>
-            </section>
 
-        </section>
-        <section id = "right">
-            <section>
-                <h2>SKILLS</h2>
-            <!-- <section id = "skills">
+            </section>
+            <section id="right">
+                <section>
+                    <h2>SKILLS</h2>
+                    <!-- <section id = "skills">
                 <br><br>
                             <div class ="skills" id="skill1"><script>document.write(old1[0] );</script></div>
                             <div class ="skills" id="skill2"><script>document.write(old1[1] );</script></div>
@@ -76,61 +183,126 @@
                             <div class ="skills" id="skill6"><script>document.write(old1[5]  );</script></div>
                         </section> -->
 
-                          <section id = "skills">
-                <br><br>
-                            <li class ="skills" id="skill1" >;sodug</li>
-                            <li class ="skills" id="skill2" ></li>
-                            <div class ="skills" id="skill3" ></div>                            
-                            <div class ="skills" id="skill4" ></div>
-                            <div class ="skills" id="skill5" ></div>
-                            <div class ="skills" id="skill6" ></div>
-                        </section>
-                <section id = "acheive">
-                    <h2>ACHIEVEMENTS</h2>
-                    <div><script>document.write("Achievement 1: " + old.ac1 +"<br></br>");</script></div>   
-                     <div><script>document.write("Achievement 2: " + old.ac2 +"<br></br>");</script></div>
-                    <div><script>document.write("Achievement 3:" + old.ac3 +"<br></br>");</script></div>
+                    <section id="skills">
+                        <br><br>
+                        <li class="skills" id="skill1">;sodug</li>
+                        <li class="skills" id="skill2"></li>
+                        <div class="skills" id="skill3"></div>
+                        <div class="skills" id="skill4"></div>
+                        <div class="skills" id="skill5"></div>
+                        <div class="skills" id="skill6"></div>
+                    </section>
+                    <section id="acheive">
+                        <h2>ACHIEVEMENTS</h2>
+                        <div id = "ac1">
+                            <script>
+                                document.write("Achievement 1: " + old.ac1 + "<br></br>");
+                            </script>
+                        </div>
+                        <div id = "ac2">
+                            <script>
+                                document.write("Achievement 2: " + old.ac2 + "<br></br>");
+                            </script>
+                        </div>
+                        <div id = "ac3">
+                            <script>
+                                document.write("Achievement 3:" + old.ac3 + "<br></br>");
+                            </script>
+                        </div>
 
-                </section>
-                <section>
-                    <h2>ORGANIZATIONS</h2>
-                    <div><script>document.write( old.o1 +"<br></br>");</script></div> 
-                    <div><script>document.write( old.o2 +"<br></br>");</script></div>   
-  
-                </section>
-                <section>
-                    <h2>CERTIFICATES</h2> 
-                    <div><script>document.write( old.c1 +"<br></br>");</script></div>
-                    <div><script>document.write( old.c2 +"<br></br>");</script></div>   
-                    <div><script>document.write( old.c3 +"<br></br>");</script></div>   
-                    
-                </section>
-                <h2>LANGUAGES</h2><br>
-                <section id = "lang">
-                    <div class="lang"><script>document.write( old.l1 +"<br></br>");</script></div>
-                    <div class="lang"><script>document.write( old.l2 +"<br></br>");</script></div>   
-                    <div class="lang"><script>document.write( old.l3 +"<br></br>");</script></div>   
-                    <div class="lang"><script>document.write( old.l4 +"<br></br>");</script></div>   
-   
+                    </section>
+                    <section>
+                        <h2>ORGANIZATIONS</h2>
+                        <div id="o1">
+                            <script>
+                                document.write(old.o1 + "<br></br>");
+                            </script>
+                        </div>
+                        <div id="o2">
+                            <script>
+                                document.write(old.o2 + "<br></br>");
+                            </script>
+                        </div>
 
+                    </section>
+                    <section>
+                        <h2>CERTIFICATES</h2>
+                        <div id="c1">
+                            <script>
+                                document.write(old.c1 + "<br></br>");
+                            </script>
+                        </div>
+                        <div id="c2">
+                            <script>
+                                document.write(old.c2 + "<br></br>");
+                            </script>
+                        </div>
+                        <div id="c3">
+                            <script>
+                                document.write(old.c3 + "<br></br>");
+                            </script>
+                        </div>
+
+                    </section>
+                    <h2>LANGUAGES</h2><br>
+                    <section id="lang">
+                        <div class="lang" id="l1">
+                            <script>
+                                document.write(old.l1 + "<br></br>");
+                            </script>
+                        </div>
+                        <div class="lang" id="l2">
+                            <script>
+                                document.write(old.l2 + "<br></br>");
+                            </script>
+                        </div>
+                        <div class="lang" id="l3">
+                            <script>
+                                document.write(old.l3 + "<br></br>");
+                            </script>
+                        </div>
+                        <div class="lang" id="l4">
+                            <script>
+                                document.write(old.l4 + "<br></br>");
+                            </script>
+                        </div>
+
+
+                    </section>
+                    <h2>INTERESTS</h2>
+                    <section id="hob">
+                        <br>
+                        <div class="hob" id="h1">
+                            <script>
+                                document.write(old.h1 + "<br></br>");
+                            </script>
+                        </div>
+                        <div class="hob" id="h2">
+                            <script>
+                                document.write(old.h2 + "<br></br>");
+                            </script>
+                        </div>
+                        <div class="hob" id="h3">
+                            <script>
+                                document.write(old.h3 + "<br></br>");
+                            </script>
+                        </div>
+                        <div class="hob" id="h4">
+                            <script>
+                                document.write(old.h4 + "<br></br>");
+                            </script>
+                        </div>
+
+
+                    </section>
                 </section>
-                <h2>INTERESTS</h2>
-                <section id="hob">
-                    <br>
-                     <div class="hob"><script>document.write( old.h1 +"<br></br>");</script></div>
-                     <div class="hob"><script>document.write( old.h2 +"<br></br>");</script></div>   
-                     <div class="hob"><script>document.write( old.h3 +"<br></br>");</script></div>   
-                     <div class="hob"><script>document.write( old.h4 +"<br></br>");</script></div>   
-    
- 
-                 </section>
+
             </section>
+        </div>
+        <!-- </form> -->
 
-        </section>
-    </div>
 
-    </section>
-    <script>
+        <!-- <script>
         old1 = JSON.parse(localStorage.getItem("skills"));
     let l = old1.length;
     for( i =1;i<=l;i++)
@@ -139,7 +311,14 @@
         document.getElementById("skill"+i).style.display = "block";
         document.getElementById("skill"+i).innerHTML = old1[i-1];
     }
-    </script>
+
+
+
+
+
+    </script> -->
+
+        
 </body>
 
 </html>
