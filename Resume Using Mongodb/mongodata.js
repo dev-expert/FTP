@@ -28,37 +28,33 @@ app.listen(2020, () => {
 });
 
 
-// app.post("/resume", function (req, res) {
-//     console.log("Hello")
-//     var q = req.body;
+app.post("/resume", function (req, res) {
+    console.log("Hello")
+    var q = req.body;
 
-//     console.log("Post is working :" + q);
+    console.log("Post is working :" + q);
 
 
-//     dbo.collection("customers").insertOne(q, function (err, res) {
-//         if (err) throw err;
-//         console.log("1 document inserted");
-//     })
+    dbo.collection("customers").insertOne(q, function (err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+    })
 
-// });
+});
 var abc = [];
 var result;
-app.get('/resume',function(req,res){
-   
-      var query = { fn : "Mahendra" };
+app.get('/main',function(req,res){
+    var query = { fn : "Mahendra" };
+
         dbo.collection("customers").find(query).toArray(function(err, result) {
 
-        if (err) throw err;
-        console.log("runningg.......")
-         abc = result;
-         module.exports = abc;
+              old = result;
         res.send(result);
         console.log(result);
 
       });
     }
     );
-
     // module.exports = "Mahi";
     // module.exports = abc;
     

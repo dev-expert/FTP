@@ -6,8 +6,39 @@ app.use(express.json());
 
 app.use(cors());
 
-var fs = require('fs');
-var content = fs.readFileSync('data.txt','utf8');
-var obj = JSON.parse(content);
-old = obj[0];
-console.log(old)
+
+
+
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb+srv://user:pass@mahi.bsizi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var dbo;
+MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    dbo = db.db("mydb");
+    console.log("data connected ")
+});
+
+
+
+app.listen(2020, () => {
+    console.log('server is listening on port 2020');
+});
+
+
+
+var abc = [];
+var result;
+app.get('/main',function(req,res){
+    var query = { fn : "Mahendra" };
+
+        dbo.collection("customers").find(query).toArray(function(err, result) {
+
+              old = result;
+        res.send(result);
+        // console.log(result);
+
+      });
+    }
+    );
+
