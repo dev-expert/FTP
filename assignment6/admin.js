@@ -2,14 +2,14 @@
 window.addEventListener("load", async () => {
   // var url = JSON.parse(localStorage.getItem("admin"));
 
-  debugger;
+  
   refreshHTML();
 
 
 })
 
 async function refreshHTML() {
-  debugger;
+  
   var response = await fetch('http://localhost:8080/admin');
   const getData = await response.json();
   console.log(getData);
@@ -56,7 +56,7 @@ else{
 }
 
 async function deleteOnebyOne(e) {
-  debugger;
+
   if(confirm(`Are you sure to delete ${e}`)){
   // var url = JSON.parse(localStorage.getItem("admin"));
   const response =await fetch('http://localhost:8080/delete/' + e);

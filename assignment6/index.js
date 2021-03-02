@@ -49,7 +49,7 @@ async function information() {
          const login_info=  JSON.parse(localStorage.getItem("login")); 
          const login = login_info["email"];
          objArray.login= login;
-        debugger;
+    
         const store = await fetch("http://localhost:8080/cv", {
             method: "POST",
             headers: {
@@ -80,7 +80,6 @@ var arr=[];
 let buttonCount =1;
 function addinput(){
    
-    
 buttonCount++;
 str = `<label for="lname">Project ${buttonCount}:</label><br>
 <input type="text" name="ProjectValue[]" placeholder="Project ${buttonCount}"required>
@@ -103,7 +102,7 @@ document.getElementById("projectIncrease").innerHTML=arr.join('');
 
 let subCount;
 function subInput(){
-  
+
   
   arr.pop();
   

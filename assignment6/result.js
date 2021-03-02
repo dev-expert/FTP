@@ -2,7 +2,6 @@
 
 
 window.addEventListener('load', async() => {
-debugger;
 myresume();
 })
 async function myresume(){
@@ -13,6 +12,7 @@ async function myresume(){
     
   var response = await fetch('http://localhost:8080/checkuser/'+value);
   const getData = await response.json();
+ if (getData.length>0){
 const data = getData[getData.length-1];
 
     var keys = Object.keys(data); 
@@ -168,6 +168,10 @@ const data = getData[getData.length-1];
         }
     }
 
-
+ }
+ else{
+     document.getElementById("cv").style.display="none";
+     document.getElementById("notfound").style.display="block";
+ }
 }
 

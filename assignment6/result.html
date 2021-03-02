@@ -16,7 +16,7 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="index.css">
-    
+
     <script src="index.js"></script>
     <script src="signup.js"></script>
     <script src="result.js"></script>
@@ -28,7 +28,7 @@
         <p class="heading">Protfolio<span>.Com</span></p>
     </div>
     <div class="navDiv">
-    
+
         <ul>
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="result.html">CV</a></li>
@@ -36,114 +36,123 @@
             <li><a href="practice.html">Calculator</a></li>
             <li><a href="list.html">URL</a></li>
             <li><a href="admin.html" id="details" style="display: none;">USERS</a></li>
-    
-    
-          
+
+
+
             <li style="float: right;"><a href="login.html" id="logout" style="display: none;"
                     onclick="logout()">LOGOUT</a></li>
             <li style="float: right; color: black;"><label id="name"></label></li>
             <li style="float: right;"><label>Welcome ,</label></li>
-          
-    
+
+
         </ul>
-    
+
     </div>
-    
-    <div class="Div1">
 
-        <div class="InnerDiv1">
-            <div class="leftDiv1">
+    <div id="cv" style="display: block;">
+        <div class="Div1">
 
-                <p id="username" style="font-size: 30px;"></p>
-                <p id="professional" style="color: #28B4A3;"></p>
-                <p id="about"></p>
-            </div>
-            <div class="rightDiv1">
-                
+            <div class="InnerDiv1">
+                <div class="leftDiv1">
 
-                    <img  src="" alt="not display" id="image">
-            
+                    <p id="username" style="font-size: 30px;"></p>
+                    <p id="professional" style="color: #28B4A3;"></p>
+                    <p id="about"></p>
+                </div>
+                <div class="rightDiv1">
+
+
+                    <img src="" alt="not display" id="image">
+
+                </div>
             </div>
         </div>
-    </div>
-    <div class="Div2">
+        <div class="Div2">
 
-        <div class="InnerDiv2">
-            <div class="leftDiv2">
+            <div class="InnerDiv2">
+                <div class="leftDiv2">
 
-                <p id="email"></p>
-                <p id="cont"></p>
-            </div>
-            <div class="rightDiv2">
+                    <p id="email"></p>
+                    <p id="cont"></p>
+                </div>
+                <div class="rightDiv2">
 
-                <p id="S1"></p>
-                <p id="S2"></p>
-                <p id="S3"></p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="Div3">
-        <div class="InnerDiv3">
-
-            <div class="LeftDiv3">
-                <h3 ><u>Education</u></h3>
-                <p><b>Graduate</b></p>
-                <p id="Grad"></p>
-                <p><b>Intermediate</b></p>
-                <p id="Inter"></p>
-                <p><b>Highscool</b></p>
-                <p id="High"></p>
-
-                <h3><u>Work Experience</u></h3>
-                <p id="CM"></p>
-                <p id="start"></p>
-                <p id="end"></p>
-                <p id="Project"></p>
-                <h3><u>Certification</u></h3>
-                <p id="C1"></p>
-                <p id="C2"></p>
-                <p id="C3"></p>
-                <p id="C4"></p>
-                <p id="C5"></p>
-            </div>
-
-            <div class="rightDiv3">
-                <div class="skills">
-
-                    <h3><u>Skills</u></h3>
-                    <div id="skill"></div>
-                    
-                   
+                    <p id="S1"></p>
+                    <p id="S2"></p>
+                    <p id="S3"></p>
                 </div>
 
-
-                <h3><u>Projects</u></h3>
-                <p id="Projects"></p>
-
-                <h3><u>Languages</u></h3>
-                <p id="L1"></p>
-                <p id="L2"></p>
-                <p id="L3"></p>
-
-
-                <h3><u>Interests</u></h3>
-                <p id="I1"></p>
-                <p id="I2"></p>
-                <p id="I3"></p>
-
             </div>
+
         </div>
 
+        <div class="Div3">
+            <div class="InnerDiv3">
+
+                <div class="LeftDiv3">
+                    <h3><u>Education</u></h3>
+                    <p><b>Graduate</b></p>
+                    <p id="Grad"></p>
+                    <p><b>Intermediate</b></p>
+                    <p id="Inter"></p>
+                    <p><b>Highscool</b></p>
+                    <p id="High"></p>
+
+                    <h3><u>Work Experience</u></h3>
+                    <p id="CM"></p>
+                    <p id="start"></p>
+                    <p id="end"></p>
+                    <p id="Project"></p>
+                    <h3><u>Certification</u></h3>
+                    <p id="C1"></p>
+                    <p id="C2"></p>
+                    <p id="C3"></p>
+                    <p id="C4"></p>
+                    <p id="C5"></p>
+                </div>
+
+                <div class="rightDiv3">
+                    <div class="skills">
+
+                        <h3><u>Skills</u></h3>
+                        <div id="skill"></div>
+
+
+                    </div>
+
+
+                    <h3><u>Projects</u></h3>
+                    <p id="Projects"></p>
+
+                    <h3><u>Languages</u></h3>
+                    <p id="L1"></p>
+                    <p id="L2"></p>
+                    <p id="L3"></p>
+
+
+                    <h3><u>Interests</u></h3>
+                    <p id="I1"></p>
+                    <p id="I2"></p>
+                    <p id="I3"></p>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="button">
+
+            <button type="submit" class="btn btn-success" onclick="login()">Download</button>
+            </form>
+        </div>
     </div>
+    <div id="notfound" style="display: none;">
+        <div id="notfoundinner">
 
-
-    <div class="button">
-
-        <button type="submit" class="btn btn-success" onclick="login()">Download</button>
-        </form>
+            <h1>CV NOT FOUND</h1>
+            <img src="./cv_not_found.gif" alt="">
+        </div>
     </div>
     <footer>
         <div class="footer">
@@ -151,11 +160,11 @@
         </div>
 
     </footer>
-<script>
-    function login(){
-        window.location.href="D:/git-practice/Githubpractice/assignment3/signup.html";
-    }
-</script>
+    <script>
+        function login() {
+            window.location.href = "D:/git-practice/Githubpractice/assignment3/signup.html";
+        }
+    </script>
 </body>
 
 </html>

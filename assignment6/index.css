@@ -94,6 +94,7 @@ background-color: red;
          align-items: center;
          justify-content: center;
          margin-top: 10px;
+         margin-bottom: 80px;
          
      }
 
@@ -285,4 +286,23 @@ background-color: red;
         display: flex;
         justify-content: center;
         align-items: center;
+     }
+     footer{
+        position: fixed;
+        
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color:  #4CAF50;
+        color: white;
+        text-align: center;
+     }
+    
+    #notfound{
+        margin-top:10%;
+        text-align: center;
+         width: 100%;
+         min-height: 100%;
+
+         
      }
