@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <header>
+            <div id="buttons">
+     
+                <a href="resume/resume.html">Create ur CV</a>
+                <a href="./W3SCHOOLS Template/index.html">URL Handler Form</a>
+        </div>
+        </header>
+    </div>
+    
+<h1>Hello User</h1>
+    
+
+<button type="submit" id="logout" name="logout" onclick="logout()">Logout</button>
+
+</body>
+<script>
+   function logout(){
+        
+        location.replace("login.html");
+    }
+</script>
+<style>
+        body{
+            background-image: url(bg1.jpg);
+            /* background-color: bisque; */
+            
+
+        }
+    
+    /* div{
+        background-color: rgba(255,255,255,0.5);
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        /* padding : 10px;
+        width: 40%;
+        background: linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(0, 0, 0, 0.7)) */
+
+      
+
+    /* } */ */
+    button{
+        border-radius: 10px;
+    }
+    #logout{
+        position: absolute;
+        top: 40px;
+        right:0%;
+
+    }
+    header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7));
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
+    header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    /* background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7)); */
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
+    h1{
+        margin-top: 40px;
+    }
+    a{
+        padding: auto;
+        color: black;
+        background-color: blanchedalmond;
+    }
+</style>
+</html>

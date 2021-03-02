@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" href="login.css"> -->
+</head>
+<body>
+    <div id="header">
+        <header>
+            <div id="buttons">
+                <a href="https://www.w3schools.com/html/default.asp">HTML</a>
+                <a href="https://www.w3schools.com/css/default.asp">CSS</a>
+                <a href="https://www.w3schools.com/js/default.asp">JAVASCRIPT</a>
+                <a href="https://www.w3schools.com/sql/default.asp">SQL</a>
+                <a href="https://www.w3schools.com/python/default.asp">PYTHON</a>
+                <a href="https://www.w3schools.com/php/default.asp">PHP</a>
+                <a href="https://www.w3schools.com/bootstrap/bootstrap_ver.asp">BOOTSTRAP</a>
+                <a href="https://www.w3schools.com/howto/default.asp">HOW TO</a>
+                <a href="https://www.w3schools.com/w3css/default.asp">W3.CSS</a>
+                <a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a>
+        </div>
+        </header>
+    </div>
+    <form class="main">
+        <h1>LOGIN PAGE</h1><br>
+    Email<input type="email" id="email" required><br><br>
+    
+    Password<input type="password" class="password" id = "password" required><br><br>
+    <button type="button" onclick="checking()">Login</button>
+    <p>Dont have a account Please Signup</p>
+    <button type="submit" ><a href="signup.html">Signup</a></button>
+</form>
+
+
+<script>
+function checking()
+{
+    let user = document.getElementById("email").value;
+   let key = document.getElementById("password").value
+   old = JSON.parse(localStorage.getItem("admin"));
+            if(!old)
+            {
+                old = []
+            }
+        if(    y = (old.find(x => x.email == user)))
+        
+            {
+                if(key == y.pass2)
+                {
+                    if(y.role == "user")
+                    {
+                    alert("Hello user")
+                    // window.open("user-page.html")
+                    location.replace("user-page.html")
+
+
+                    }
+                    else{
+                        alert("Hello admin")
+                    // window.open("admin-page.html")
+                    localStorage.setItem("currUser",user);
+
+                        location.replace("admin-page1.html")
+
+                        
+                    }
+                }
+                else {
+                    alert("Enter again");
+                }
+            }
+        else{
+            alert("please Register first")
+        }
+   
+
+}
+
+
+</script>
+<style>
+    body{
+        background-image: url(bg4.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-left: 25%;
+        color:white;
+    }
+    .main{
+    /* background-color: rgba(189, 187, 187, 0.4); */
+    padding-left: 250px;
+    width: 40%;
+    border-radius: 25px;
+    background: linear-gradient(to right bottom,rgba(255, 255, 255, 0.7),rgba(0, 0, 0, 0.7));
+    margin-top: 15%;
+}
+input,button{
+    border-radius: 20px;
+
+}
+
+header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7));
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
+
+</style>
+
+</body>
+</html>
