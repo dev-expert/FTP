@@ -14,20 +14,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var database, collection;
 
 //CONNECTION START
-app.listen(5000, () => {
+app.listen(1000, () => {
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
 if(error) {
 throw error;
 }
 database = client.db(DATABASE_NAME);
-collection = database.collection("demoCollection");
+collection = database.collection("demoSignINSignUP");
 console.log("Connected to `" + DATABASE_NAME + "`!");
 });
 });
 
 // DATA EXPORT
-app.post("/register", (request, response) => {
-collection.insert(request.body, (error, result) => {
+app.post("/regis", (request, response) => {
+collection2.insert(request.body, (error, result) => {
 if(error) {
 return response.status(500).send(error);
 }
@@ -38,11 +38,24 @@ response.json(true);
 
 
 // DATA IMPORT
-app.get("/getlist", (request, response) => {
-collection.find({}).toArray((error, result) => {
-if(error) {
-return response.status(500).send(error);
-}
-response.send(result);
-});
+// app.get("/getlist", (request, response) => {
+// collection.find({}).toArray((error, result) => {
+// if(error) {
+// return response.status(500).send(error);
+// }
+// response.send(result);
+// });
+// });
+
+
+
+
+// SIGN IN
+app.get("/signin", (request, response) => {
+    collection2.find({}).toArray((error, result) => {
+        if (error) {
+            return response.status(500).send(error);
+        }
+        response.send(result);
+    });
 });

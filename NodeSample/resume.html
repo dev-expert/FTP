@@ -457,10 +457,10 @@
                 <input id="quali_2"><br>
                 <input id="quali_3"><br>
                 <input id="quali_4"><br>
-                <input id="quali_5"><br>
+                <!-- <input id="quali_5"><br>
                 <input id="quali_6"><br>
                 <input id="quali_7"><br>
-                <input id="quali_8"><br>
+                <input id="quali_8"><br> -->
             </div>
 
         </div>
@@ -501,9 +501,6 @@
             <input id="skills_in_1"><br>
             <input id="skills_in_2"><br>
             <input id="skills_in_3"><br>
-            <input id="skills_in_4"><br>
-            <input id="skills_in_5"><br>
-            <input id="skills_in_6"><br>
         </div>
 
         <br>
@@ -873,17 +870,40 @@
             var u_age = document.getElementById("age_in").value;
             var u_about = document.getElementById("about_in").value;
             var u_bachelorcollege = document.getElementById("bachelor_college_name_in").value;
+            var u_bachelormarks = document.getElementById("bachelors_marks_in").value;
+            var u_srsecname = document.getElementById("senior_secondry_college_name_in").value;
+            var u_srsecmarks = document.getElementById("senior_secondrys_marks_in").value;
+            var u_tenname = document.getElementById("matriculation_college_name_in").value;
+            var u_tenmarks = document.getElementById("matriculations_marks_in").value;
 
+            var u_quali1 = document.getElementById("quali_1").value;
+            var u_quali2 = document.getElementById("quali_2").value;
+            var u_quali3 = document.getElementById("quali_3").value;
+            var u_quali4 = document.getElementById("quali_4").value;
 
-
-
-
-
+            var u_project1 = document.getElementById("project_in_1").value;
+            var u_project2 = document.getElementById("project_in_2").value;
+            var u_project3 = document.getElementById("project_in_3").value;
+            var u_project4 = document.getElementById("project_in_4").value;
+            var u_project5 = document.getElementById("project_in_5").value;
+            var u_project6 = document.getElementById("project_in_6").value;
+            var u_project7 = document.getElementById("project_in_7").value;
 
             var data = {
                 name_in: u_name, tag_in: u_tag_line, phone_in: u_phone,
                 mail_in: u_mail, linkedin_in: u_linkedin, experience_in: u_experience,
-                age_in: u_age, about_in: u_about, bachelor_college_name_in: u_bachelorcollege
+                age_in: u_age, about_in: u_about,
+                bachelor_college_name_in: u_bachelorcollege, bachelors_marks_in: u_bachelormarks,
+                senior_secondry_college_name_in: u_srsecname, senior_secondrys_marks_in: u_srsecmarks,
+                matriculation_college_name_in: u_tenname, matriculations_marks_in: u_tenmarks,
+                quali_1: u_quali1, quali_2: u_quali2, quali_3: u_quali3, quali_4: u_quali4,
+                project_in_1: u_project1,
+                project_in_2: u_project2,
+                project_in_3: u_project3,
+                project_in_4: u_project4,
+                project_in_5: u_project5,
+                project_in_6: u_project6,
+                project_in_7: u_project7
             };
 
             fetch("http://localhost:1000/register", {
@@ -922,8 +942,10 @@
                     console.log("Success:", data);
                     var keys = data;
 
-                    for (i = 0; i < keys.length; i++) {
-                        var s = keys[i];
+                    
+                        var s = keys[keys.length-1];
+
+                        // BASIC INFO
                         document.getElementById('name_out').innerHTML = s.name_in;
                         document.getElementById('tag_out').innerHTML = s.tag_in;
                         document.getElementById('call_num_out').innerHTML = s.phone_in;
@@ -933,7 +955,27 @@
                         document.getElementById('age_out').innerHTML = s.age_in;
                         document.getElementById('about_out').innerHTML = s.about_in;
                         document.getElementById('bachelor_college_name_out').innerHTML = s.bachelor_college_name_in;
-                    }
+                        document.getElementById('bachelors_marks_out').innerHTML = s.bachelors_marks_in,
+                            document.getElementById('senior_secondry_college_name_out').innerHTML = s.senior_secondry_college_name_in;
+                        document.getElementById('senior_secondrys_marks_out').innerHTML = s.senior_secondrys_marks_in;
+                        document.getElementById('matriculation_college_name_out').innerHTML = s.matriculation_college_name_in;
+                        document.getElementById('matriculations_marks_out').innerHTML = s.matriculations_marks_in;
+
+                        // QUALIFICATION INFO
+                        document.getElementById('quali_out_1').innerHTML = s.quali_1;
+                        document.getElementById('quali_out_2').innerHTML = s.quali_2;
+                        document.getElementById('quali_out_3').innerHTML = s.quali_3;
+                        document.getElementById('quali_out_4').innerHTML = s.quali_4;
+
+                        // PROJECTS INFO
+                        document.getElementById('project_out_1').innerHTML = s.project_in_1;
+                        document.getElementById('project_out_2').innerHTML = s.project_in_2;
+                        document.getElementById('project_out_3').innerHTML = s.project_in_3;
+                        document.getElementById('project_out_4').innerHTML = s.project_in_4;
+                        document.getElementById('project_out_5').innerHTML = s.project_in_5;
+                        document.getElementById('project_out_6').innerHTML = s.project_in_6;
+                        document.getElementById('project_out_7').innerHTML = s.project_in_7;
+                    
                 })
                 .catch((error) => {
                     console.error("Error:", error);
