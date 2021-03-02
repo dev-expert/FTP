@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="checkUser()">
+    <div class="header">
+        
+        <div class="header-right">
+         <button type="submit"><a class="active" href="webpage/index.html">URL PAGE</a></button>
+        <button type="submit"><a class="active" href="./resumebuilder/index1.html">CV PAGE</a></button>   
+          
+         
+        </div>
+      </div>
+      
+      
+    <div class="size">
+    <table id="myTable" >
+        <tr style="background-color:chocolate;">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Type of User</th>
+        </tr>
+        <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+        <button onclick="deleteData()">Delete</button>
+        <button onclick="logout()">LOGOUT</button>
+        
+        
+        
+          
+    </body>
+<style>
+    
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+  width: 100%;
+  
+ 
+}
+
+/* .header a.logo {
+  font-size: 25px;
+  font-weight: bold;                                                                                                                                        '' 
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+} */
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* .header-right {
+    float: none;
+  } */
+}
+    table , td{
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: khaki;
+       
+    }
+    body{
+        /* margin: auto; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+         /* width: 300px; */
+        height: 100vh;
+    }
+    .size{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+</style>
+<script> 
+//var table = document.getElementById("myTable");
+
+var obj = JSON.parse(localStorage.getItem("normaluser"));
+
+var data = document.getElementById("data");
+
+let len = obj.length;
+//str="";
+for (var i = 0; i < len; i++) {
+    /*str+=`
+    <tr>
+    <td>${obj[i].name}</td>
+    <td>${obj[i].email}</td>
+    <td>${obj[i].number}</td>
+    <td>${obj[i].password}</td>
+    <td>${obj[i].Admin}</td>
+    </tr>`
+    */
+
+    var row = data.insertRow(i);
+    var cell = row.insertCell(0);
+    cell.innerHTML = obj[i].name;
+
+    var cell1 = row.insertCell(1);
+    cell1.innerHTML = obj[i].email;
+
+    
+
+    var cell2 = row.insertCell(2);
+    if (obj[i].usertype == "superuser")
+        cell2.innerHTML = "Admin";
+
+    else
+        cell2.innerHTML = "User";
+
+    var cell3 = row.insertCell(3);
+    /*
+    var button = document.createElement("button");
+    button.innerHTML = "Delete" + i;
+    button.addEventListener("click", function () {
+        alert(button.innerHTML);
+    });
+
+    cell4.append(button);
+    */
+
+
+    var checkbox = document.createElement("Input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("name", "check");
+
+    cell3.appendChild(checkbox);
+
+}
+function checkUser()
+{
+//document.getElementById("body1").style.display= "none";
+var email = localStorage.getItem("currUser");
+if(!email)
+{
+location.replace("login.html");
+}
+}
+
+function logout()
+{
+localStorage.removeItem("currUser");
+location.replace("login.html");
+}
+
+//document.getElementById("data").innerHTML=str;
+
+function deleteData() {
+  var result = confirm("Are you sure to delete?");
+    //debugger;
+    if(result)
+    {
+    var table = document.getElementById("myTable");
+    var obj = JSON.parse(localStorage.getItem("superuser"));
+    /*
+    var data = document.getElementById("data");
+    for(var i = 0;i<len;i++)
+    {
+        var check = data.rows[i].cells[4].data;
+        if((table.rows[i].cells[4].data).checked == true)
+        {
+            alert(i);
+        }
+    }
+    */
+
+    var checkboxs = table.getElementsByTagName("Input");
+    
+    for (var i = 0; i < checkboxs.length; i++) {
+        //var check = data.rows[i].cells[4].data;
+        if (checkboxs[i].checked == true) {
+            //alert(i);
+            table.deleteRow(i+1);
+            obj.splice(i,1);
+            i--;
+        }
+    }
+    
+    localStorage.setItem("superuser",JSON.stringify(obj));
+
+}
+}
+function logout()
+{
+    localStorage.removeItem("currUser");
+    location.replace("login.html");
+}
+</script>
+</html>

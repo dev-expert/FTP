@@ -1,0 +1,147 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="cent">
+    
+    <div>
+        <h1>LOGIN  PAGE</h1>
+        <label for="email"> Email : </label>
+        <input type="email" name="email" id="email" required placeholder="email">
+    
+        <br>
+    <label for="password"> Password :
+        <input type="password" name="password" id="password" required  >
+    </label>
+   <br>
+    <button type="submit" class="log1" onclick="finalq()">login  </button>
+</div>
+    <!-- <button type="submit" class="log1" onclick="login2()">login  </button> -->
+   <style>
+       body{
+           background-color: white;
+           display: flex;
+           justify-content: center;
+           background-image: url(bg.jpg);
+           
+       }
+       .cent{
+           background-color: rgba(34, 165, 34, 0.2);
+           border: 1px solid black;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           height: 400px;
+           margin-top: 200px;
+           width: 400px;
+           border-radius: 20px;
+         
+       }
+       /* .log1{
+           margin-left: 150px;
+       } */
+       input {
+           border-radius: 25px;
+           margin: 10px;
+       }
+       button{
+           border-radius: 25px;
+           margin-left: 40%;
+       }
+   </style>
+   <script>
+
+function login1()
+{
+    var user = document.getElementById('email').value;
+    var pass = document.getElementById('password').value;
+    
+//    var person = JSON.parse(localStorage.getItem("superuser"));
+   var q = person.find(x=>x.email == user)
+   if(pass == q.password)
+   {
+    localStorage.setItem("currUser",user);
+       window.open("teacherpage.html");
+   }
+   else{
+       alert("Wrong Password or u need to register first");
+   }
+    
+    
+}
+function login2()
+{
+    var user = document.getElementById('email').value;
+    var pass = document.getElementById('password').value;
+
+//    var user1 = JSON.parse(localStorage.getItem("normaluser"));
+   var q = user1.find(x=>x.email == user)
+   if(pass == q.password)
+   {
+       window.open("studentpage.html");
+   }
+   else{
+       alert("Wrong Password or u need to register first");
+   }
+
+    
+    
+}
+
+function finalq()
+{
+    var user1 = document.getElementById('email').value;
+    var user = JSON.parse(localStorage.getItem("normaluser"));
+    var person = JSON.parse(localStorage.getItem("superuser"));
+    var user = document.getElementById('email').value;
+    var pass = document.getElementById('password').value; 
+    /*if(person.find(x=>x.email == user1))
+    {
+        login1();
+    }
+    if(user.find(x=>x.email == user1))
+    {
+        login2();
+    }
+    */
+    fetch('http://localhost:3000/getuserdata')
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data)
+            // data = JSON.password(data);
+            for (i = 0; i < data.length; i++) {
+                        s = data[i];
+                        var useremail1 = s.email;
+                        var userpassword1 = s.password;
+                        if (useremail1 == user && userpassword1 == pass) {
+                
+                            // alert("welcome to user world");
+                            //     window.open("studentpage.HTML");
+                            if (s.usertype == "superuser") {
+                                alert("welcome to admin world");
+                                localStorage.setItem("currUser", useremail1);
+                                window.open("teacherpage.html");
+                            }
+                            else {
+                                alert("welcome to user world");
+                                window.open("studentpage.html");
+                            }
+                            
+
+                        }
+                    }
+        });
+
+}
+    </script>
+  
+</body>
+
+</html>

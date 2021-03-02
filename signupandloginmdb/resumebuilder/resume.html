@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav Resume</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+        old = JSON.parse(localStorage.getItem("user"));
+        
+        // y = (old.find(x => x.fn)); 
+            </script>
+   
+    <div class="box">
+    <center>
+        <img src="photo.jpeg" width="200px" class="photo" height="220px">
+    </center>
+        <div>
+            <h2 class="font">CONTACT</h2>
+            <ul><img src="phn.png" width="20px"> <script>document.write(old.phone)</script></ul>
+            <ul><img src="email.jpg" width="20px"><script>document.write(old.email)</script></ul>
+            <ul><img src="addres.jpg" width="20px"><script>document.write(old.Address)</script></ul>
+
+        </div>
+        <div>
+            <h2 class="font">SKILLS</h2>
+            <ul> 
+            <li> <script>document.write(old.skill1)</script></li>
+            <li> <script>document.write(old.skill2)</script></li>
+            <li> <script>document.write(old.skill3)</script></li>
+            <li> <script>document.write(old.skill4)</script></li>
+            <li> <script>document.write(old.skill5)</script></li>
+            
+            </ul>
+            
+        </div>
+        <div>
+            <h2 class="font">CERTIFICATION</h2>
+            
+            <ul> 
+            <li> <script>document.write(old.cert1)</script></li>
+            <li><script>document.write(old.cert2)</script></li>
+            
+            </ul>
+        </div>
+        <div>
+            <h2 class="font">HOBBIES</h2>
+            <ul> 
+                <li> <script>document.write(old.hobb1)</script></li>
+                <li> <script>document.write(old.hobb2)</script></li>
+                
+                </ul>
+        </div>
+        <div>
+            <h2 class="font"> LANGUAGES</h2>
+            <ul> 
+                <li> <script>document.write(old.lang1)</script></li>
+                <li> <script>document.write(old.lang2)</script></li>
+                <li> <script>document.write(old.lang3)</script></li>
+            </ul>
+        </div>
+    </div>
+    <div class="box1">
+        <div>
+            <h1 class="color">
+            <script  >document.write(old.name)</script>
+        </h1> 
+        </div>
+        
+
+        
+        <!-- <h1 class="color"><input type="text" id="name" style="width: auto; height: height; font-size: 30px; "></h1> -->
+        <div>
+        
+            <h3 class="color1">ABOUT</h3>
+            <div class=about>
+            <script>document.write(old.about)</script>
+        </div>
+            
+        </div> 
+        <div>
+            <h3 class="color">EDUCATION</h3>
+                <ul> 
+                    <li><script>document.write(old.educ1)</script></li>
+                    <script>document.write(old.source1)</script>
+                    <br>
+                     <li><script>document.write(old.educ2)</script></li>
+                    <script>document.write(old.source2)</script><br>
+                    <li><script>document.write(old.educ3)</script></li>
+                    <script>document.write(old.source3)</script><br>
+                </ul>
+            
+            
+            
+        </div>
+        <hr>
+        <div>
+            <h3 class="color">PROJECTS</h3>
+            <ul>
+                <li> 
+                    <div>
+                       <h4> <script>document.write(old.projs1)</script></h4>
+                    </div>
+                    
+                    <div>
+                        <script>document.write(old.web1)</script>
+                    </div>
+                   
+                </li><br>
+                <li> 
+                    <div>
+                        <h4><script>document.write(old.projs2)</script></h4>
+                    </div>
+                    <div>
+                        <script>document.write(old.web2)</script>
+                    </div>
+                </li><br>
+                <li> 
+                    <div>
+                        <h4><script>document.write(old.projs3)</script></h4>
+                    </div>
+                    <div>
+                        <script>document.write(old.web3)</script>
+                    </div>
+                    
+                </li><br>
+            </ul>
+        </div><hr>
+        <div>
+            <h3 class="color">ACTIVITIES</h3>
+            <ul> <li><script>document.write(old.acti1)</script></li><br>
+                
+            <li><script>document.write(old.acti2)</script></li>
+            </ul>
+        </div>
+        
+
+    </div>
+  
+    <!-- <script>
+        check();
+        function getParams(){
+        var idx = document.URL.indexOf('?');
+        var params = new Array();
+        
+        if (idx != -1) {
+        var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+        for (var i=0; i<pairs.length; i++){
+        nameVal = pairs[i].split('=');
+        params[nameVal[0]] = nameVal[1];
+        }
+        }
+        return params;
+        }
+        function check()
+        {
+        params=getParams();
+        
+        firstname = unescape(params["name"]);
+        About = unescape(params["about"]);
+        dob = unescape(params["age"]);
+        gender=unescape(params["gender"])
+        phone= unescape(params["phone"]);
+        address=unescape(params["address"]);
+        email=unescape(params["email"]);
+        linkedin=unescape(params["linkedin"]);
+        document.getElementById("name").value=firstname;
+        document.getElementById("about").value=About;
+        document.getElementById("dob").value=dob;
+        document.getElementById("email").value=email;
+        document.getElementById("gender").value=gender;
+        document.getElementById("num").value=phone;
+        document.getElementById("address").value=address;
+        document.getElementById("linkedin").value=linkedin;
+        var imageurl=JSON.parse(localStorage.getItem("imageurl"));
+        
+        }
+        </script> -->
+</body>
+</html>

@@ -1,0 +1,67 @@
+body{
+
+    font-family: 'Roboto', sans-serif ;
+    display: flex ;
+    padding: 0%;
+    margin: 0%;
+    flex-direction:column  ;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-left: 15%;
+    background-image: url(download\ \(2\).jpg);
+    background-size: cover;
+    
+}
+input:hover{
+    background-color: darkred;
+
+}
+.skinput, .langa {
+    margin-left: 0.2rem;
+    margin-top: 10px;
+}
+.cert, .hobb {
+    margin-left: 0.2rem;
+    margin-top: 10px;
+}
+
+
+button:hover{
+    background-color:greenyellow;
+
+}
+.button1{
+    font-size: 20px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg,#0162c8,#55e7fc);
+    margin-left: 3rem;
+}
+.color1{
+    border: 2px solid black;
+    background-color: rgb(255, 196, 196);
+    border-radius: 20px;
+    width: 600px;
+}
+h1{
+    color: rgb(210, 30, 30);
+    text-decoration: underline;
+    text-align: center;
+}
+/* .flexd{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
+.frow{
+    display: flex;
+    justify-content: space-around;
+}
+
+.row3,.row5,.row6,.row4,.row2{
+    display: flex;
+    justify-content: space-around;
+}
