@@ -16,22 +16,22 @@ MongoClient.connect(url, function (err, db) {
     console.log("data connected ")
 });
 
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello World'
-    });
-});
+// app.get('/', (req, res) => {
+//     res.json({
+//         message: 'Hello World'
+//     });
+// });
 
-app.get('/:name', (req, res) => {
-    let name = req.params.name;
+// app.get('/:name', (req, res) => {
+//     let name = req.params.name;
 
-    res.json({
-        message: `Hello ${name}`
-    });
-});
+//     res.json({
+//         message: `Hello ${name}`
+//     });
+// });
 
 
-app.listen(2020, () => {
+app.listen(2030, () => {
     console.log('server is listening on port 2020');
 });
 
@@ -47,11 +47,12 @@ app.post("/resume", function (req, res) {
     })
 
 });
-// app.get('/getdata', async(req, response) => {
-//     await con.collection('customers').find({}).toArray((error, result) => {
-//     if (error) {
-//     return response.status(500).send(error);
-//     }
-//     response.send(result);
-//     });
-//     })
+app.get('/getuserdata', async(req, response) => {
+    await dbo.collection('customers').find().toArray((error, result) => {
+    if (error) {
+    return response.status(500).send(error);
+    }
+    console.log(result);
+    response.send("result");
+    });
+    })

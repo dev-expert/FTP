@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         old = JSON.parse(localStorage.getItem("user"));
 
         // y = (old.find(x => x.fn)); 
-    </script>
+    </script> -->
 
     <div class="box">
         <center>
@@ -182,13 +182,17 @@
     </div>
     <script>
 
-        // alert(l);
+         alert("l");
+         debugger;
+         fetch('http://localhost:2030/getuserdata')
+                .then(response => response.json())
+                .then(data => console.log(data));
 
-        for (var i = 1; i <= l; i++) {
+        // for (var i = 1; i <= l; i++) {
 
-            document.getElementById("lenskill" + i).style.display = "block";
-            document.getElementById("lenskill" + i).innerHTML = skill[i - 1];
-        }
+        //     document.getElementById("lenskill" + i).style.display = "block";
+        //     document.getElementById("lenskill" + i).innerHTML = skill[i - 1];
+        // }
 
 
         // .then(response => {
@@ -201,8 +205,9 @@
         //.catch(err => console.error(err));
 
 
+        /*
         var obj;
-        fetch("http://localhost:8086/getdata", {
+        fetch("http://localhost:2030/getuserdata", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -224,7 +229,11 @@
             })
             .catch((error) => {
                 console.error("Error:", error);
+            })
+            */
 
+            alert("Hii")
+            
     </script>
    </body>
 </html>
