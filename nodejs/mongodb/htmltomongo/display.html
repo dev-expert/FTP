@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resume.css">
+    <script src="resume.js"></script>
+    
+</head>
+
+<body>
+
+    
+    <script>
+        old = JSON.parse(localStorage.getItem("user"));
+        
+            </script>
+    <div class="left">
+    <center>
+            <img src="1.jpg" width="150px" class="image" >
+</center>
+    <div class="details">
+        
+        <img src="mail1.jpg" width=20px alt="" srcset=""></br>
+        <script>document.write(old.email)</script></br></br>
+
+        <img src="mob1.png" width=20px alt="" srcset=""></br>
+        <script>document.write(old.number)</script></br>
+       
+        <img src="map.jpg" width=20px alt="" srcset=""></br>
+        <script>document.write(old.address)</script></br>
+
+        <img src="in.png" width=20px alt="" srcset=""></br>
+        <script>document.write(old.url)</script></br>
+
+        <img src="git.png" width=20px alt="" srcset=""></br>
+        <script>document.write(old.url1)</script>
+        
+        
+    </div>
+
+    <div class="skills" >
+        <h4>Skills:</h4>
+        <div class="vl"></div>
+       
+        
+        <ul>
+       <li style="display: none;" id="lenskill1"></li>   
+        <li style="display: none;" id="lenskill2"> </li>
+       <li style="display: none;" id="lenskill3"> </li>
+       <li style="display: none;" id="lenskill4"></li>
+    </ul> 
+    </div>
+    
+    <!-- <div class="languages"> -->
+        
+        <h4 style="color:#34495e ; ">Languages:</h4>
+        <div class="vl"></div>
+        <ol>
+            <li><script>document.write(old.languages)</script></br></li>
+           <li><script>document.write(old.languages1)</script></br></li>
+           <li><script>document.write(old.languages2)</script></br></li>
+           
+           </ol>
+    <!-- </div> -->
+
+    <div class="hobbies">
+        
+        <h4>Interests:</h4>
+        <div class="vl"></div>
+        <ol>
+        <li><script>document.write(old.hobbies)</script></br></li>
+       <li><script>document.write(old.hobbies1)</script></br></li>
+       <li><script>document.write(old.hobbies2)</script></br></li>
+       <li><script>document.write(old.hobbies3)</script></br></li>
+       </ol>
+    </div>
+</div>
+<div class="right">
+    <div class="name">
+     <script>
+     document.write(old.firstname+"&nbsp"+old.lastname)
+    </script>
+    </div>
+        <div class="education">
+            
+            <h4>Education:</h4>
+            <div class="vl"></div>
+            <h4>
+                <script>
+                    document.write(old.education)
+                </script>
+            </h4>
+
+           <h5>
+            <script>
+                document.write(old.college)
+            </script>
+           </br> 
+        </h5>
+
+           <script>
+            document.write(old.stream+"<br>")
+                document.write(old.year+"<br>")
+                document.write(old.place)
+            </script></br>
+
+           <h4>
+            <script>
+                document.write(old.education1)
+            </script>
+           </h4>
+
+            <h5>
+                <script>
+                    document.write(old.college1)
+                </script>
+            </br></h5>
+            <h5>
+                
+            </h5>
+            <script>
+                document.write(old.stream1+"<br>")
+                    document.write(old.year1+"<br>")
+                    document.write(old.place1)
+                </script></br>
+
+            <h4>
+                <script>
+                    document.write(old.education2)
+                </script>
+            </br></h4>
+            <h5>
+                <script>
+                    document.write(old.college2)
+                </script>
+            </br>
+            </h5>
+            <script>
+                document.write(old.stream2+"<br>")
+                    document.write(old.year2+"<br>")
+                    document.write(old.place2)
+                </script></br>
+            </div>
+            <div class="projects">
+                
+                <h4>Projects:</h4>
+                <div class="vl"></div>
+                <h5>
+                    <script>
+                        document.write(old.project)
+                    </script>
+                </h5>
+                <script>
+                    document.write(old.desc)
+                </script>
+                <h5>
+                    <script>
+                        document.write(old.project1)
+                    </script>
+                </h5>
+                <script>
+                    document.write(old.desc1)
+                </script> 
+                </div>
+                <div class="certi">
+                    
+                    <h4>Certifications:</h4>
+                    <div class="vl"></div>
+                    <script>
+                        document.write(old.organi)
+                    </script>
+                </div>
+    </div>
+    <script>
+        var skill = JSON.parse(localStorage.getItem("skills"));
+        let l = skill.length;
+        // alert(l);
+        var temp;
+        for(var i =1;i<=l;i++)
+        {
+
+        document.getElementById("lenskill"+i).style.display = "block";
+        document.getElementById("lenskill"+i).innerHTML = skill[i-1];
+}
+    </script>
+
+</body>
+</html>
