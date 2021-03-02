@@ -14,7 +14,7 @@ console.log("Success:", data);
 keys=data;
 });
 function addobj() {
-
+    debugger;
     var email = document.getElementById("email1").value;
     var passwrd = document.getElementById("passwrd1").value;
     var usertype;
@@ -42,10 +42,13 @@ function addobj() {
             }
 
         }
+        var isexit=0;
 
         if (flag == 1) {
             alert(" Account Already exit");
-            window.open("Registration1.html", "_self")
+            isexit=1;
+            
+            
         }
         else {
 
@@ -74,12 +77,18 @@ function addobj() {
                 .catch((error) => {
                     console.error("Error:", error);
                 });
+                alert("Registred succesfully");
         }
-        alert("Registred succesfully");
+        
 
     }
+    if(isexit==1){
+        window.open("Registration1.html","_self")
+    }
+    else
+    {
     window.open("loginpage1.html", "_self");
-
+    }
 }
 
 
@@ -99,7 +108,8 @@ function viewdata() {
                 if (s.usertype == "Superuser") {
                     var userobj = {
                         email: s.email,
-                        password: s.password
+                        password: s.password,
+                        usertype:s.usertype
                     };
                     currentuser = JSON.parse(localStorage.getItem("loginuser") || "[]");
                     currentuser.push(userobj);
@@ -109,7 +119,8 @@ function viewdata() {
                 if (s.usertype == "Normaluser") {
                     var userobj = {
                         email: s.email,
-                        password: s.password
+                        password: s.password,
+                        usertype:s.usertype
                     };
                     currentuser = JSON.parse(localStorage.getItem("loginuser") || "[]");
                     currentuser.push(userobj);

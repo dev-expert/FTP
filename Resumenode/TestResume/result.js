@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-  debugger;
+  
   var data, k;
   fetch("http://localhost:5000/resumeshow", {
     method: "GET", // or 'PUT'

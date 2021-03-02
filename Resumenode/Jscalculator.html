@@ -96,6 +96,16 @@ function divide(){
     document.getElementById("result").value=result;
 }
 
+function home(){
+    var keys=JSON.parse(localStorage.getItem("loginuser"));
+    if(keys[0].usertype=="Superuser")
+    {
+        window.open("webpage.html","_self");
+    }
+    else{
+        window.open("webpage2.html","_self");
+    }
+}
 
 
 
@@ -105,7 +115,7 @@ function divide(){
 
     <div class="formsubmit">
         <ul >
-           <li><a href="../webpage.html">Home</a></li>
+           <li><a href="javascript:home()">Home</a></li>
            
            <li><a href="../Jscalculator.html">Calculator</a></li>
            <li><a href="../index.html">Url</a></li>
