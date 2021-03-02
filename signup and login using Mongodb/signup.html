@@ -23,7 +23,7 @@
                 <a href="https://www.w3schools.com/jquery/default.asp">JQUERY</a>
         </div>
         </header>
-    <form action="login.html" class="main">
+    <form action="login.html" class="main" method="POST">
         <h1>SIGNUP FORM</h1><br>
         Name<input type="text"  id = "name" required><br><br>
         Email: <input type="email" id = "email" required><br><br>
@@ -53,20 +53,35 @@
                 email : user,
                 role : role
             }
-            old = JSON.parse(localStorage.getItem("admin"));
-            if(!old)
-            {
-                old = []
-            }
-            if(old.find(x => x.email == user))
-            {
-                alert ("Present");
-            }
-            else{
-                old.push(obj);
-            }
-            localStorage.setItem("admin",JSON.stringify(old));
-        }
+        //     old = JSON.parse(localStorage.getItem("admin"));
+        //     if(!old)
+        //     {
+        //         old = []
+        //     }
+        //     if(old.find(x => x.email == user))
+        //     {
+        //         alert ("Present");
+        //     }
+        //     else{
+        //         old.push(obj);
+        //     }
+        //     localStorage.setItem("admin",JSON.stringify(old));
+        // }
+
+        fetch("http://localhost:2021/resume", {
+  method: "POST",
+  headers: {
+  "Content-Type": "application/json",
+  },
+  body: JSON.stringify(obj),
+  })
+  .then(data => {
+      console.log("Succes :", data);
+     })
+  
+    }
+
+
         // function admin(){
             
         //     user = document.getElementById("email").value;
