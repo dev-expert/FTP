@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Document</title>
+</head>
+<body>
+<h1>Mongo dbv</h1>
+<input type="text" id="fname" />
+<button onclick="putdata()">Export Data</button>
+<button onclick="getdata()">Import Data</button>
+<table border="1">
+<tbody id="displaydata"></tbody>
+</table>
+
+
+<!-- script start -->
+
+<script>
+var str = "";
+function putdata() {
+var name = document.getElementById("fname").value;
+var data = { username: name };
+
+fetch("http://localhost:5000/exportdata", {
+method: "POST", // or 'PUT'
+headers: {
+"Content-Type": "application/json",
+},
+body: JSON.stringify(data),
+})
+.then((response) => response.json())
+.then((data) => {
+console.log("Success:", data.ops[0].username);
+})
+.catch((error) => {
+console.error("Error:", error);
+});
+}
+
+function getdata() {
+var data;
+fetch("http://localhost:5000/importdata", {
+method: "GET", // or 'PUT'
+headers: {
+"Content-Type": "application/json",
+},
+body: JSON.stringify(data),
+})
+.then((response) => response.json())
+.then((data) => {
+console.log("Success:", data);
+let myString = "";
+data.forEach((element) => {
+let key = Object.keys(element)[1];
+myString += `<tr>
+<td>UserName</td>
+<td>${element[key]}</td></tr>`;
+});
+
+document.getElementById("displaydata").innerHTML = myString;
+})
+.catch((error) => {
+console.error("Error:", error);
+});
+}
+
+</script>
+
+<!-- SCRIPT END -->
+</body>
+</html>

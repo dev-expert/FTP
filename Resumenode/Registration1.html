@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="loginpage.css">
+  <script src="reg.js"></script>
+  <script src='newjs.js'></script>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">SIGN UP</h1>
+    
+    
+    
+    <form id="login-form">
+      <input type="text" id="email1" id="username-field" class="login-form-field" placeholder="Email" >
+      <input type="password" id="passwrd1" id="password-field" class="login-form-field" placeholder="Password" >
+      <input type="button" value="Sign up" onclick="addobj()" id="login-form-submit"><br>
+      <label>If admin?Please check</label>
+      <label class="switch">
+        <input type="checkbox" id="usertype" >
+        <span class="slider round"></span>
+      </label>
+    </form>
+    <input type="button" value="If already user!" onclick="logins()" id="login-form-submit">
+  
+  
+  </main>
+</body>
+<script>
+  function logins()
+  {
+    window.open("loginpage1.html","_self")
+
+  }
+</script>
+
+</html>

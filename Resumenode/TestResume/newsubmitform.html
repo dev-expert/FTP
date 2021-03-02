@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>How to Create responsive Homepage</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="webpag.css">
+   <link rel="stylesheet" href="table.css">
+   <script src="submit.js"></script>
+
+   <link rel="stylesheet" href="formresume.css">
+   <script src="dataput.js"></script>
+   <script src="skill.js"></script>
+
+</head>
+
+<body onload="validate()">
+   
+   
+
+   <div class="formsubmit">
+   <ul >
+      <li><a href="../webpage2.html">Home</a></li>
+      
+      <li><a href="../Jscalculator.html">Calculator</a></li>
+      <li><a href="../index.html">Url</a></li>
+      
+     
+    
+   </ul>
+</div>
+   <header>
+   
+
+      
+
+         <form action="resume.html" method="POST" id="formmid" onsubmit="return storedata()">
+            <div class="wrapper">
+               <div class="title">
+                  Resume Form
+               </div>
+               <div class="form">
+                  <!-- basic details -->
+                  <div class="inputfield">
+                     <label><b>Basic Details</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+                  <div class="inputfield">
+                     <label>Objective</label>
+                     <textarea name="objective" type="text" class="input"></textarea>
+                  </div>
+
+                  <div class="inputfield">
+                     <label>First Name</label>
+                     <input name="First_Name" id="fname" class=input type="text" required />
+                  </div>
+                  <div class="inputfield">
+                     <label>Last Name</label>
+                     <input name="Last_Name" id="lname" class=input type="text" required />
+                  </div>
+                  <div class="inputfield">
+                     <label>GitHub Link</label>
+                     <input name="Github" type="text" class="input" required />
+                  </div>
+                  <div class="inputfield">
+                     <label>Linkedin ID</label>
+                     <input name="LinkedIn" type="text" class="input" required />
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Email Address</label>
+                     <input name="email" type="email" class="input" required />
+                  </div>
+                  <div class="inputfield">
+                     <label>Phone Number</label>
+                     <input name="Phone" type="number" class="input" required />
+                  </div>
+
+
+
+
+                  <div class="title">
+                     Education Details
+                  </div>
+
+                  <!-- <div class="inputfield">
+       <label>Address</label>
+       <textarea class="textarea"></textarea>
+    </div>  -->
+
+
+                  <div class="inputfield">
+                     <label><b>College Details</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>College Name</label>
+                     <input type="text" class="input" name="collegename" required>
+                  </div>
+                  <div class="inputfield">
+                     <label>Course & cgpa</label>
+                     <input type="text" class="input" name="collegecourse">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Date</label>
+                     <input type="text" class="input" name="collegedate">
+                  </div>
+
+
+                  <div class="inputfield">
+                     <label><b>XII Details</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>School Name</label>
+                     <input type="text" class="input" name="schoolname1">
+                  </div>
+                  <div class="inputfield">
+                     <label>Course</label>
+                     <input type="text" class="input" name="schoolcourse1">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Date</label>
+                     <input type="text" class="input" name="schooldate1">
+                  </div>
+
+                  <div class="inputfield">
+                     <label><b>X Details</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>School Name</label>
+                     <input type="text" class="input" name="schoolname">
+                  </div>
+                  <div class="inputfield">
+                     <label>Course</label>
+                     <input type="text" class="input" name="schoolcourse">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Date</label>
+                     <input type="text" class="input" name="schooldate">
+                  </div>
+
+
+                  <div class="inputfield">
+                     <label><b>Projects</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Projectname 1</label>
+                     <input type="text" class="input" name="projectname1" required>
+                  </div>
+                  <div class="inputfield">
+                     <label>Projectdis</label>
+                     <input type="text" class="input" name="projectdis1">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Projectdate</label>
+                     <input type="text" class="input" name="projectdate1">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Projectname .2</label>
+                     <input type="text" class="input" name="projectname2">
+                  </div>
+                  <div class="inputfield">
+                     <label>Projectdisc</label>
+                     <input type="text" class="input" name="projectdis2">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Projectdate</label>
+                     <input type="text" class="input" name="projectdate2">
+                  </div>
+
+
+
+                  <div class="inputfield">
+                     <label><b>Certifications</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Certificatename 1</label>
+                     <input type="text" class="input" name="Certiname1" required>
+                  </div>
+                  <div class="inputfield">
+                     <label>Certificatedis</label>
+                     <input type="text" class="input" name="Certidis1" maxlength="400px">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Certificatedate</label>
+                     <input type="text" class="input" name="Certidate1">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Certificatename .2</label>
+                     <input type="text" class="input" name="Certiname2">
+                  </div>
+                  <div class="inputfield">
+                     <label>Certificatedisc</label>
+                     <input type="text" class="input" name="Certidis2">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Certificatedate</label>
+                     <input type="text" class="input" name="Certidate2">
+                  </div>
+
+
+
+                  <!-- Dynamic skills -->
+
+
+
+                  <div class="inputfield">
+                     <label><b>Skill's</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+                  <div class="inputfield" data-aos="flip-up">
+                  <input type="text"  class="input" id="Skills1" name="SkillValue[]" placeholder="Skills1" required>
+                  
+                  <input type="button" class="input" onclick="addskills()"  value="+">
+                  <input type="button" class="input"  onclick="subskills()"  style="display: none" id="minusSkills"
+                  value="-"><br>
+                  </div>
+
+                  <div id="skillIncrease">
+
+                  </div>
+                  <!-- <div class="inputfield">
+                     <label>Skill 1.</label>
+                     <input type="text" class="input" name="skill-1" required>
+                  </div>
+                  <div class="inputfield">
+                     <label>Skill 2.</label>
+                     <input type="text" class="input" name="skill-2">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Skill 3.</label>
+                     <input type="text" class="input" name="skill-3">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Skill 4.</label>
+                     <input type="text" class="input" name="skill-4">
+                  </div>
+                  <div class="inputfield">
+                     <label>Skill 5.</label>
+                     <input type="text" class="input" name="skill-5">
+                  </div> -->
+
+
+
+                  <div class="inputfield">
+                     <label><b>Training</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Company Name</label>
+                     <input type="text" class="input" name="Trainingname">
+                  </div>
+                  <div class="inputfield">
+                     <label>Discription</label>
+                     <input type="text" class="input" name="Trainingdis">
+                  </div>
+
+
+                  <div class="inputfield">
+                     <label><b>Hobbies</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Hobbie 1</label>
+                     <input type="text" class="input" name="Hobbi1">
+                  </div>
+                  <div class="inputfield">
+                     <label>Hobbie 2</label>
+                     <input type="text" class="input" name="Hobbi2">
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Hobbie 3</label>
+                     <input type="text" class="input" name="Hobbi3">
+                  </div>
+
+
+                  <div class="inputfield">
+                     <label><b>Languages Known</b></label>
+                     <!-- <input type="text" class="input"> -->
+                  </div>
+
+                  <div class="inputfield">
+                     <label>Languuage1</label>
+                     <input type="text" class="input" name="lang1">
+                  </div>
+                  <div class="inputfield">
+                     <label>Language2</label>
+                     <input type="text" class="input" name="lang2">
+                  </div>
+
+
+
+
+
+
+                  <!-- <div class="inputfield terms">
+       <label class="check">
+         <input type="checkbox">
+         <span class="checkmark"></span>
+       </label>
+       <p>Agreed to terms and conditions</p>
+    </div>  -->
+                  <div class="inputfield">
+                     <input type="submit" value="Genrate Resume" class="btn">
+                  </div>
+               </div>
+            </div>
+
+         </form>
+      </div>
+   </header>
+</body>
+
+</html>
+
+</body>
+
+</html>
