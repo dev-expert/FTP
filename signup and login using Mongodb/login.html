@@ -39,8 +39,52 @@
 function checking()
 {
     let user = document.getElementById("email").value;
-   let key = document.getElementById("password").value
-   old = JSON.parse(localStorage.getItem("admin"));
+   let key = document.getElementById("password").value;
+
+   fetch("http://localhost:2021/login")
+    .then(res => res.text())
+    .then(text =>{
+
+        console.log(text)
+   const old = JSON.parse(text)
+console.log(old) 
+if(!old)
+            {
+                old = []
+            }
+        if(    y = (old.find(x => x.email == user)))
+        
+            {
+                if(key == y.pass2)
+                {
+                    if(y.role == "user")
+                    {
+                    alert("Hello user")
+                    // window.open("user-page.html")
+                    location.replace("user-page.html")
+
+
+                    }
+                    else{
+                        alert("Hello admin")
+                    // window.open("admin-page.html")
+                    localStorage.setItem("currUser",user);
+
+                        location.replace("admin-page1.html")
+
+                        
+                    }
+                }
+                else {
+                    alert("Enter again");
+                }
+            }
+        else{
+            alert("please Register first")
+        }  } )
+
+
+//    old = JSON.parse(localStorage.getItem("admin"));
             if(!old)
             {
                 old = []

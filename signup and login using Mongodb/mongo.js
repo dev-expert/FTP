@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 
 app.listen(2021, () => {
-    console.log('server is listening on port 2020');
+    console.log('server is listening on port 2021');
 });
 
 
@@ -32,7 +32,7 @@ app.post("/resume", function (req, res) {
     console.log("Hello")
     var q = req.body;
 
-    console.log("Post is working :" + q);
+    // console.log("Post is working :" + q);
 
 
     dbo.collection("Signupform").insertOne(q, function (err, res) {
@@ -43,14 +43,18 @@ app.post("/resume", function (req, res) {
 });
 var abc = [];
 var result;
-app.get('/main',function(req,res){
-    var query = { email : "mahendragudipadu@gmail.com" };
 
-        dbo.collection("Signupform").find(query).toArray(function(err, result) {
+
+app.get('/login',function(req,res){
+    // var query = { email : "mahendragudipadu@gmail.com" };
+    dbo.collection("Signupform").find({}).toArray( function(err, result) {
+
+        // dbo.collection("Signupform").find.toArray(function(err, result) {
 
               old = result;
         res.send(result);
-        console.log(result);
+        // console.log("Hii")
+        // console.log(result);
 
       });
     }
