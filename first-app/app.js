@@ -20,7 +20,7 @@ MongoClient.connect(url, function(err, db) {
   });
 }
 
-function insert(dbo,callback){
+function insert(dbo,callb){
     
 // MongoClient.connect(url, function(err, db) {
 //     if (err) throw err;
@@ -29,6 +29,7 @@ function insert(dbo,callback){
     dbo.collection("customers").insertOne(myobj, function(err, res) {
       if (err) throw err;
       console.log("1 document inserted");
+      // res.send(myobj);
       callback(dbo,post);
     });
 
@@ -95,11 +96,11 @@ function deleteone(dbo){
 
 }
 
-/*app.listen(3000,function(req,res)
+app.listen(3030,function(req,res)
 {
     console.log("Working");
 });
-*/
+
 connect(insert);
 
 
@@ -109,8 +110,7 @@ connect(insert);
 
 
 
-// app.listen(9000, function (req, res) {
-//     console.log('Running..')
+
 // })
 
 
