@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>document</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src="register.js"></script>
+</head>
+<body>
+    
+    <div id="login-box">
+        <div class="left">
+          <h1><b>SIGN UP HERE!</b></h1>
+          <form name="signup" method ="POST" > 
+          <input type="text" id="name" placeholder="Username" aria-required="true" autofocus required="required"/>
+          <input type="email" id="email" placeholder="E-mail"  aria-required="true"required="required"/>
+          <input type="text" id="contact_no" placeholder="Phone Number" aria-required="true" required="required" />
+          <input type="date" id="dob" placeholder="dd/mm/yyyy" aria-required="true"required="required"/>
+          <input type="password" id="password" placeholder="Password" aria-required="true"required="required"/>
+          <input type="password" id="password2" placeholder="Retype password" aria-required="true"required="required"/>
+          <input type="checkbox" onclick="Toggle()"> 
+           <sub>Show Password</sub>
+  
+          <select id="user_type" aria-placeholder="User Type" >
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+           
+           
+          </select>
+          <input type="button" id="submit" value="Sign Up" onclick="return check()" />
+          
+         
+        </div>
+        
+        <div class="right">
+          <span class="loginwith">Sign up with<br />social network</span>
+          
+          <button class="social-signin facebook">Log in with facebook</button>
+          <button class="social-signin twitter">Log in with Twitter</button>
+          <button class="social-signin google">Log in with Google+</button>
+          <label>Already a user?Login.<input type="button" id="btn_login" value="Login" onclick="redirect()"/></label>
+        </div>
+        <div class="or">OR</div>
+        </div></form>
+      </div>
+</body>
+</html>

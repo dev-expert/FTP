@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="login.js"></script>
+</head>
+<body>
+    <div id="login-box">
+        <div class="left">
+          <h1><b>Log In Here!!</b></h1>
+          <form name="login" > 
+          
+          <input type="text" id="email" placeholder="E-mail"  />
+          <input type="password" id="password" placeholder="Password" />
+          
+          <div id="remember">
+            <input type="checkbox" value="lsRememberMe" id="rememberMe"
+                   style="display: inline-block;">
+            <label>Remember me</label>
+        </div>
+        <input type="checkbox" onclick="Toggle()"> 
+        <sub>Show Password</sub>
+          
+          <input type="button" id="sbt-login" value="Login"  onclick="check()" />
+          
+          
+        </div>
+        
+        <div class="right">
+          <span class="loginwith">Sign up with<br />social network</span>
+          
+          <button class="social-signin facebook">Log in with facebook</button>
+          <button class="social-signin twitter">Log in with Twitter</button>
+          <button class="social-signin google">Log in with Google+</button>
+          <label>New User?Sign Up.<input type="button" id="submit" value="Sign Up" onclick="redirect()" /></label><br>
+        </div>
+        <div class="or">OR</div>
+        </div></form>
+      </div>
+</body>
+</html>

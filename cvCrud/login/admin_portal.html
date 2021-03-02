@@ -1,0 +1,57 @@
+
+<html lang="en">
+<head>
+
+	<title>Document</title>
+	<link rel="stylesheet" href="admin_portal.css">
+	<script src="admin_portal.js"></script>
+</head>
+<fieldset display:inline-block>
+	<legend class="legend">
+	  List of Users</legend>  
+<body onload="display_name()">
+	<div class="header">
+		<h1>Welcome</h1>
+		<p>Admin Panel
+
+		</p>
+	  </div>
+	  
+	  <div class="navbar">
+		<a href="#" class="active">Home</a>
+		
+		<a href="#" id="username"></a>
+		<a href="#" class="right" onclick="redirect()">Log Out</a>
+	  </div>
+
+	</div>
+	<div class="row">
+		<div class="side">
+		</div>
+		<div class="main">
+<div class="button">
+ <button value="call" value="Display Users" onclick="call()">Display Users</button></div>
+
+
+
+	<table>
+		<thead>
+						  <tr>
+							<th class="head">Username</th>
+							<th class="head">Email</th>
+							<th class="head">Contact</th>
+							<th class="head">Date of Birth</th>
+							<th class="head">Role</th>
+							<th  class ="head">Action</th>
+						  </tr>
+		</thead>
+		<tbody id="dtable">
+			</tbody>
+		</table>
+		</div>
+		<div class="footer">
+			<h2>Rights Reserved</h2>
+		  </div>
+
+</body>
+</html>

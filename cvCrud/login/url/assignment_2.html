@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+	<TITLE> Assignment2 </TITLE>
+	<link rel="stylesheet" href="admin_portal.css">
+	<SCRIPT src="assignment_2.js">
+	
+
+	</SCRIPT>
+</HEAD>
+<BODY onload="open_page()">
+	<div class="header">
+		<h1>Welcome</h1>
+		<p>User Panel
+
+		</p>
+	  </div>
+	  
+	  <div class="navbar">
+		<a href="#" class="active" onclick="home()">Home</a>
+		<a href="#" class="active" onclick="cv()">CV </a>
+		<a href="#" class="active" onclick="cal()">Calculator</a>
+		<a href="#" class="active" onclick="url()">URL</a>
+		
+		<a href="#" id="username"></a>
+		<a href="#" class="right" onclick="redirect()">Log Out</a>
+	  </div>
+
+	</div>
+	<div class="row">
+		<div class="side">
+		</div>
+	<div>
+	<form>
+	<INPUT type="text"  id="txt1" />
+	
+	<INPUT type="button" value="Add Row" onclick="addRow()"  />
+    <INPUT type="button" value="Delete Row" onclick="deleteRow()" />
+	<INPUT type="button"  value="Select All" onclick="selectAll()" />
+	<INPUT type="button"  value="DeSelect All" onclick="deselectAll()" />
+	
+	</form>
+</div>
+<div>
+	<TABLE id="dataTable" width="350px" border="1">
+		<tbody id="dataTable">
+		
+		</tbody>
+	</TABLE>
+</div>
+</BODY>
+</HTML>

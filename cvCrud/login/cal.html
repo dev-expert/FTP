@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="admin_portal.css">
+<style>
+body {
+  border-color:black;
+  background-color:whitesmoke;
+  text-align: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body onload="open_page()">
+	<div class="header">
+		<h1>Welcome</h1>
+		<p>User Panel
+
+		</p>
+	  </div>
+	  
+	  <div class="navbar">
+		<a href="#" class="active" onclick="home()">Home</a>
+		<a href="#" class="active" onclick="cv()">CV </a>
+		<a href="#" class="active" onclick="cal()">Calculator</a>
+		<a href="#" class="active" onclick="url()">URL</a>
+		
+		<a href="#" id="username"></a>
+		<a href="#" class="right" onclick="redirect()">Log Out</a>
+	  </div>
+
+	</div>
+	<div class="row">
+		<div class="side">
+		</div>
+<form>
+<label for="input1">Input1:</label>
+<input type="text" id="input1"><br>
+<label for="input2">Input2:</label>
+<input type="text" id="input2"><br>
+
+Output:<input type="text" id="result" ><br>
+<input type="button" onclick="Add()" value="Add">
+<input type="button" onclick="Subtract()" value="Subtract">
+<input type="button" onclick="Multiply()" value="Multiply">
+<input type="button" onclick="Divide()" value="Divide">
+
+
+</form>
+<script>
+
+function Add()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+  var c=a+b;
+  document.getElementById("result").value=c;
+}
+function Subtract()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+var c=a-b;
+
+document.getElementById("result").value=c;
+}
+function Multiply()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+var c=a*b;
+document.getElementById("result").value=c;
+}
+ 
+function Divide()
+{
+var a=Number(document.getElementById("input1").value);
+var b=Number(document.getElementById("input2").value);
+var c=a/b;
+document.getElementById("result").value=c;
+}
+function open_page()
+	{
+		
+			
+		var login=JSON.parse(localStorage.getItem("df"));
+		//  var a=login[0];
+		//  var name=login[name];
+		//  document.getElementById("username").innerHTML=name;
+		 
+		
+		 if(login===null)
+		 {
+			window.location.href="login.html";
+		 }
+		 var uname=login["name"];
+		 
+		 document.getElementById("username").innerText=uname;
+			
+		
+	}
+	function redirect()
+		{
+			localStorage.removeItem("df");
+			window.location.href = "file:///C:/Users/APPWRK/Documents/Login/register.html";
+			
+			window.history.forward();
+   			 setTimeout("preventBack()", 0);
+    		window.onunload=function(){null};
+		}
+		function cv()
+{
+	window.location.href="C:/Users/APPWRK/Documents/resume/resume.html";
+}
+function url()
+{
+window.location.href="C:/Users/APPWRK/Documents/Login/url/assignment_2.html";
+}
+function cal()
+{
+	window.location.href="C:/Users/APPWRK/Documents/Login/cal.html";
+}
+function home()
+{
+	window.location.href="C:/Users/APPWRK/Documents/Login/user_portal.html";
+}
+
+
+</script>
+</body>
