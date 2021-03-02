@@ -1,0 +1,51 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.head {
+    display: flex;
+    justify-content: center;
+    color: cornflowerblue;
+}
+
+.container {
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.heading {
+    border: 5px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    text-decoration: underline;
+}
+
+.calfirst_div {
+    float: left;
+    width: 40%;
+    height: 100%;
+    justify-content: flex-start;
+    padding-left: 50px;
+}
+
+.btn {
+    align-self: flex-end;
+}
+
+.calsecond_div {
+    padding-right: 50px;
+    display: flex;
+    float: left;
+    width: 60%;
+    justify-content: flex-end;
+}

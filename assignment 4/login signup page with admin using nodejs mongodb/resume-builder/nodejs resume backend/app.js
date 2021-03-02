@@ -46,23 +46,6 @@ app.get('/getdata', async(req, response) => {
     });
 })
 
-//for the signup
-app.post('/signup', async(req, res) => {
-    await con.collection('persons').insertOne(req.body);
-    res.send('data recieved:\n' + JSON.stringify(req.body));
-});
-
-//for login
-app.get('/login', async(req, response) => {
-    await con.collection('persons').find({}).toArray((error, result) => {
-        if (error) {
-            return response.status(500).send(error);
-        }
-
-        response.send(result);
-    });
-})
-
 
 //deleting the collection 
 
