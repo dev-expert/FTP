@@ -21,8 +21,8 @@
             </form>
 
             <form class="loginform" id="loginform">
-                <input id="email_in" placeholder="email address" required />
-                <input type="password" id="passwd_in" placeholder="password" required />
+                <input id="email_in" placeholder="email address" />
+                <input type="password" id="passwd_in" placeholder="password" />
                 <button onclick="login()">login</button>
                 <p class="message">Not registered? <a style="color: red" onclick="account()">Create an account</a></p>
             </form>
@@ -102,6 +102,7 @@
         }
 
         function login() {
+            alert("inside Login")
             var flag = 1;
             var data;
             fetch("http://localhost:5000/", {
@@ -113,29 +114,36 @@
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    alert("Hy");
+                    alert("Inside then");
                     console.log("Success:");
                     for (var i = 0; i <= data.length; i++) {
                         var s = data[i];
                         if (document.getElementById("email_in").value == s.usermail && document.getElementById("passwd_in").value == s.userpassword) {
                             flag = 100;
-                            alert(flag);
+                            alert("for if");
+                            temp(flag);
+                            localStorage.setItem("fireWall", 1);
+                            location.replace("admin.html");
                         }
-                        else{
-                            alert(flag);
+                        else {
+                            alert("for else");
                         }
                     }
-                    alert("TEST");
-
-                    if (flag == 100) {
-                        alert("Logged In");
-                    }
-
-                    else {
-                        alert("not ");
-                    }
-
+                    alert("Before call");
+                    temp(flag);
                 })
+            alert("after then");
+        }
+
+        function temp(flag) {
+            alert("Inside Function");
+            if (flag == 100) {
+                alert("Logged In");
+            }
+
+            else {
+                alert("not Logged In");
+            }
         }
 
         // function getdata() {
