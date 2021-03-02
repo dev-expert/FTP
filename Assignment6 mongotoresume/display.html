@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resume.css">
+    <script src="resume.js"></script>
+    
+</head>
+
+<body>
+
+    
+    <script>
+        fetch("http://localhost:8090/cv")
+        .then(response => response.json())
+        .then(data => { 
+            document.getElementById("email").innerHTML= data[data.length-1].email;
+            document.getElementById("number").innerHTML= data[data.length-1].number;
+            document.getElementById("address").innerHTML= data[data.length-1].address;
+            document.getElementById("url").innerHTML= data[data.length-1].url;
+            document.getElementById("url1").innerHTML= data[data.length-1].url1;
+            document.getElementById("languages").innerHTML= data[data.length-1].languages;
+            document.getElementById("languages1").innerHTML= data[data.length-1].languages1;
+            document.getElementById("languages2").innerHTML= data[data.length-1].languages2;
+            document.getElementById("hobbies").innerHTML= data[data.length-1].hobbies;
+            document.getElementById("hobbies1").innerHTML= data[data.length-1].hobbies1;
+            document.getElementById("hobbies2").innerHTML= data[data.length-1].hobbies2;
+            document.getElementById("hobbies3").innerHTML= data[data.length-1].hobbies3;
+            document.getElementById("firstname").innerHTML= data[data.length-1].firstname;
+            document.getElementById("lastname").innerHTML= data[data.length-1].lastname;
+            document.getElementById("education").innerHTML= data[data.length-1].education;
+            document.getElementById("college").innerHTML= data[data.length-1].college;
+            document.getElementById("stream").innerHTML= data[data.length-1].stream;
+            document.getElementById("year").innerHTML= data[data.length-1].year;
+            document.getElementById("place").innerHTML= data[data.length-1].place;
+            document.getElementById("education1").innerHTML= data[data.length-1].education1;
+            document.getElementById("college1").innerHTML= data[data.length-1].college1;
+            document.getElementById("stream1").innerHTML= data[data.length-1].stream1;
+            document.getElementById("year1").innerHTML= data[data.length-1].year1;
+            document.getElementById("place1").innerHTML= data[data.length-1].place1;
+            document.getElementById("education2").innerHTML= data[data.length-1].education2;
+            document.getElementById("college2").innerHTML= data[data.length-1].college2;
+            document.getElementById("stream2").innerHTML= data[data.length-1].stream2;
+            document.getElementById("year2").innerHTML= data[data.length-1].year2;
+            document.getElementById("place2").innerHTML= data[data.length-1].place2;
+            document.getElementById("project").innerHTML= data[data.length-1].project;
+            document.getElementById("desc").innerHTML= data[data.length-1].desc;
+            document.getElementById("project1").innerHTML= data[data.length-1].project1;
+            document.getElementById("desc1").innerHTML= data[data.length-1].desc1;
+            document.getElementById("organi").innerHTML= data[data.length-1].organi;
+
+        });
+
+
+        
+            </script>
+    <div class="left">
+    <center>
+            <img src="1.jpg" width="150px" class="image" >
+</center>
+    <div class="details">
+        
+        <img src="mail1.jpg" width=20px alt="" srcset=""></br>
+        <label id="email"> </label></br></br>
+
+        <img src="mob1.png" width=20px alt="" srcset=""></br>
+        <label id="number"> </label></br>
+       
+        <img src="map.jpg" width=20px alt="" srcset=""></br>
+        <label id="address"> </label></br>
+
+        <img src="in.png" width=20px alt="" srcset=""></br>
+        <label id="url"> </label></br>
+
+        <img src="git.png" width=20px alt="" srcset=""></br>
+        <label id="url1"> </label>
+        
+        
+    </div>
+
+    <div class="skills" >
+        <h4>Skills:</h4>
+        <div class="vl"></div>
+       
+        
+        <ul>
+       <li style="display: none;" id="lenskill1"></li>   
+        <li style="display: none;" id="lenskill2"> </li>
+       <li style="display: none;" id="lenskill3"> </li>
+       <li style="display: none;" id="lenskill4"></li>
+    </ul> 
+    </div>
+    
+  
+        
+        <h4 style="color:#34495e ; ">Languages:</h4>
+        <div class="vl"></div>
+        <ol>
+            <li> <label id="languages"> </label></br></li>
+           <li><label id="languages1"> </label></br></li>
+           <li><label id="languages2"> </label></br></li>
+           
+           </ol>
+
+    <div class="hobbies">
+        
+        <h4>Interests:</h4>
+        <div class="vl"></div>
+        <ol>
+        <li> <label id="hobbies"> </label></br></li>
+       <li><label id="hobbies1"> </label></br></li>
+       <li><label id="hobbies2"> </label></br></li>
+       <li><label id="hobbies3"> </label></br></li>
+       </ol>
+    </div>
+</div>
+<div class="right">
+    <div class="name">
+        <label id="firstname"> </label> 
+        <script>
+        document.write("&nbsp;")</script>
+        <label id="lastname"> </label> 
+     
+    </div>
+        <div class="education">
+            
+            <h4>Education:</h4>
+            <div class="vl"></div>
+            <h4>
+                <label id="education"> </label> 
+                
+            </h4>
+
+           <h5>
+            <label id="college"> </label>
+            
+           </br> 
+        </h5>
+        <label id="stream"> </label></br>
+        <label id="year"> </label></br>
+        <label id="place"> </label>
+
+           </br>
+
+           <h4>
+            <label id="education1"> </label>
+            
+           </h4>
+
+            <h5>
+                <label id="college1"> </label>
+                
+            </br></h5>
+            <h5>
+                
+            </h5>
+            <label id="stream1"> </label></br>
+            <label id="year1"> </label></br>
+            <label id="place1"> </label>
+            </br>
+
+            <h4>
+                <label id="education2"> </label>
+                
+            </br></h4>
+            <h5>
+                <label id="college2"> </label>
+                
+            </br>
+            </h5>
+            <label id="stream2"> </label></br>
+            <label id="year2"> </label></br>
+            <label id="place2"> </label>
+            </br>
+            </div>
+            <div class="projects">
+                
+                <h4>Projects:</h4>
+                <div class="vl"></div>
+                <h5>
+                    <label id="project"> </label>
+                    
+                </h5>
+                <label id="desc"> </label>
+                
+                <h5>
+                    <label id="project1"> </label>
+                    
+                </h5>
+                <label id="desc1"> </label>
+            
+                </div>
+                <div class="certi">
+                    
+                    <h4>Certifications:</h4>
+                    <div class="vl"></div>
+                    <label id="organi"> </label>
+        
+                </div>
+    </div>
+    <!-- <script>
+        var skill = JSON.parse(localStorage.getItem("skills"));
+        let l = skill.length;
+        // alert(l);
+        var temp;
+        for(var i =1;i<=l;i++)
+        {
+
+        document.getElementById("lenskill"+i).style.display = "block";
+        document.getElementById("lenskill"+i).innerHTML = skill[i-1];
+}
+    </script> -->
+
+</body>
+</html>
