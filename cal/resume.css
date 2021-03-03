@@ -1,7 +1,7 @@
 .header{
     padding: 2px;
     text-align: center;
-    background: #6e1111;
+    background-image: linear-gradient(to right, green, yellow,rgb(156, 20, 72),Brown);
     color: rgb(250, 245, 248);
     font-size: 30px;
     
@@ -16,7 +16,7 @@ input {
   }
    .container{ 
        
-     background-color: rgb(84, 151, 168);
+     background-color: rgb(195, 206, 209);
       position: relative; 
        margin : auto;  
      width:50%;
@@ -24,6 +24,9 @@ input {
 
  } 
 .layout{
-    background-color: rgb(84, 151, 168);
+    background-image: linear-gradient(to right, green, yellow,rgb(156, 20, 72),Brown);
 }
- 
+input:hover[type="submit"] 
+{
+    background: red;
+}

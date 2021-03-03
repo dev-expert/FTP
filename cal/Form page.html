@@ -14,7 +14,7 @@
     <!-- <div class ="container"> -->
     <h1>Resume</h1>
   </div>
-    <form action="RESUME.html"  onclick="store()">
+    <form action="RESUME.html"  onsubmit="store()">
       <div class ="container">
           <table>
             <tr>
@@ -22,7 +22,7 @@
           <td><label for="lname">Last Name:</label></td>
           </tr>
           <tr>
-           <td><input  type="text" id="fname" name="fname" ></td>
+           <td><input  type="text" id="fname" name="fname"required ></td>
           <td> <input type="text" id="lname" name="lname" ></td>
         </tr>
         <tr>
@@ -30,7 +30,7 @@
             <td><label for="Martial">Martial Status</label></td>
         </tr>
         <tr>
-          <td> <input type ="text" id="Dob" name="Birth"/></td>
+          <td> <input type ="date" id="Dob" name="Birth"required/></td>
           <td>  <input type ="text" id="Martial" name="Status"/></td>
         </tr>  
         <tr>
@@ -38,7 +38,7 @@
         <td><label for="ph no.">Mobile no.:</label>
           </tr>
           <tr>
-           <td><input type="Email" id="Email" name="email"/></td>
+           <td><input type="Email" id="Email" name="email"required/></td>
            <td> <input type="number" id="Mobile" name="Mobile no."/></td> 
           </tr>
           <tr>
@@ -50,6 +50,13 @@
          <td>
           <input type ="text" id="Place" name="city"/></td>
         </tr>
+        <tr>
+          <td><label for="Upload">Upload Your Picture></label></td>
+        
+      </tr>
+    <tr>
+      <td> <input type="file" id="Pic" ></td>
+    </tr>        
           <tr>
             <td><h1>Education Detail</h1></td>
             </tr>
@@ -70,7 +77,7 @@
                 <td> <label for="Univ">University</label></td>
               </tr>
               <tr>
-                <td><input type="text" id="Degr" name="Degr" /></td>
+                <td><input type="text" id="Degree" name="Degr" /></td>
                 <td><input type="text" id="Univ" name="Univ" /></td>
             </tr>
             <tr>
@@ -88,7 +95,7 @@
    
             </tr>
             <tr>
-              <td><input type="num" id="Ye" name="Ye" /></td>
+              <td><input type="number" id="Ye" name="Ye" /></td>
               <td><input type="text" id="School" name="School" /></td>
             </tr>
             <tr>
@@ -108,15 +115,15 @@
           
             </tr>
             <tr>
-            <td><br></td>
-          </tr>
+              <td><br></td>
+            </tr>
             <tr>
               <td><label for="Yea">Year</label></td>
-              <td><label for="School/Institute">College/Institute</label></td>
+              <td><label for="School/Institute">School</label></td>
    
             </tr>
             <tr>
-              <td><input type="numbe" id="Yea" name="Yea" /></td>
+              <td><input type="number" id="Yea" name="Yea" /></td>
               <td><input type="text" id="sch" name="Sch" /></td>
             </tr>
             <tr>
@@ -137,16 +144,41 @@
         
           </tr>
           <tr>
-            <td><label for="Academic achieviements">Academic achieviements</label></td>
-          </tr>  
+            <td><h2>Project Details</h2></td>
+          </tr>
+        
           <tr>
+            <td> <label for="Project">Project Name</label></td>
+          </tr> 
+          <tr>
+            <td><input type ="text" id="Project" name="Project"/></td>
+          </tr>
+          <tr>
+            <td> <label for="Environment">Environment</label></td>
+          </tr>
+          <tr>
+            <td><input type ="text" id="Env" name="Environment"/></td>
+          </tr>
+          <tr>
+            <td> <label for="Language">Language</label></td>
+          </tr>
+          <tr>
+            <td><input type ="text" id="Lang" name="Language"/></td>
+          </tr>
+          <tr>
+            <td> <label for="Desc">Description</label></td>
+          </tr>
+        
+            <td><input type ="text" id="Desc" name="Description"/></td>
+          </tr>
+
             <td><h1>Achievements</h1></td>
           </tr>
           <tr>
             <td><h4>Academic Achievement</h4></td>
           </tr>
           <tr>
-            <td><input type ="text" id="Academic1 " name="Academic"/></td>
+            <td><input type ="text" id="Academic1" name="Academic"/></td>
             <td> <input type ="text" id="Academic2" name="Academic"/></td>
           </tr>
           <tr>
@@ -198,9 +230,9 @@
               </td>
             </tr>
             <tr>
-              <td><input type ="text" id="language Proficiency" name="Proficiency"/>
+              <td><input type ="text" id="language1" name="Proficiency"/>
               </td>
-              <td><input type ="text" id="language Proficiency" name="Proficiency"/>
+              <td><input type ="text" id="language2" name="Proficiency"/>
               </td>
             </tr>
           
