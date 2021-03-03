@@ -21,6 +21,7 @@ app.listen(5000, () => {
         }
         database = client.db(DATABASE_NAME);
         collection = database.collection("personnel");
+        collection_resume = database.collection("resume");
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 });
@@ -36,10 +37,28 @@ app.post("/exportdata", (request, response) => {
     });
 });
 
+app.post("/resumedata", (request, response) => {
+    collection_resume.insert(request.body, (error, result) => {
+        if(error) {
+            return response.status(500).send(error);
+        }
+        console.log("Data Sent");
+        response.json(result);
+    });
+});
 
 // import data
 app.get("/importdata", (request, response) => {
     collection.find({}).toArray((error, result) => {
+        if(error) {
+            return response.status(500).send(error);
+        }
+        response.send(result);
+    });
+});
+
+app.get("/getresumedata", (request, response) => {
+    collection_resume.find({}).toArray((error, result) => {
         if(error) {
             return response.status(500).send(error);
         }
