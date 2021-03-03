@@ -63,7 +63,9 @@ async function check() {
 
         var elements = { firstname: fname, email: email, number: number, pass: pass, isAdmin: checkbox }
         var response = await fetch('http://localhost:8080/admin');
+
         const checkData = await response.json();
+        console.log(checkData);
         if (checkData.length == 0) {///for checking the duplicacy
 
             const store = await fetch("http://localhost:8080/signup", {
@@ -92,6 +94,7 @@ async function check() {
 
             var checkcount = 0;
             //find the element in to the array
+
             checkData.forEach(element => {
 
                 if (element.email === email) {
@@ -148,91 +151,103 @@ async function login() {
     debugger;
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
-    var response = await fetch('http://localhost:8080/admin');
-    const getData = await response.json();
+    var check = {
+        email: email,
+        pass: pass,
+    }
+    if (email != "" && pass!="") {
+        var response = await fetch('http://localhost:8080/checkuser', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
 
-    if (email != "") {
-        count = 0;
-        getData.forEach((element) => {
-
-            if (element.email == email) {
-                count = count + 1;
-                if (element.pass == pass) {
-
-
-                    alert("You successfully logged in");
-
-
-
-                    var admin = { name: element.firstname, email: email, password: pass, isAdmin: element.isAdmin };
-
-
-                    localStorage.setItem("login", JSON.stringify(admin)); //it will store the data in to local storage
-
-
-
-
-                    window.location.href = `index.html?`;
-
-                }
-                else {
-                    document.getElementById("perr").innerHTML = "Please Enter your correct password";
-                }
-            }
-
-
+            },
+            body: JSON.stringify(check)
         });
-        if (count == 0) {
+        console.log(response);
+        const getData = await response.json();
+        if (getData.length > 0) {
+            let [data] = getData;
+
+            if (data.pass == pass) {
+
+
+                alert("You successfully logged in");
+
+
+
+                var admin = { name: data.firstname, email: email, password: pass, isAdmin: data.isAdmin };
+
+
+                localStorage.setItem("login", JSON.stringify(admin)); //it will store the data in to local storage
+
+
+
+
+                window.location.href = `index.html`;
+
+            }
+            else {
+                document.getElementById("perr").innerHTML = "Please Enter your correct password";
+            }
+        }
+
+
+
+        else {
             alert("You can't login ,Signup first");
         }
     }
-
-
-    else {
-        document.getElementById("Eerr").innerHTML = "Please Enter your Email Id";
+    else{
+         if(email=="")
+            document.getElementById("Eerr").innerHTML=" Please Enter your email Id"
+            else
+            
+            document.getElementById("perr").innerHTML=" Please Enter your password"
     }
 }
 
-function myFunction() {
 
-    let login = JSON.parse(localStorage.getItem("login"));
-    if (login == null) {
-        window.location.href = "login.html";
-    }
+    function myFunction() {
 
-    var name = login["name"];
-    var isAdmin = login["isAdmin"];
-    // if (url != -1) {
-    //     var pairs = document.URL.substring(url + 1, document.URL.length).split('&');
+        let login = JSON.parse(localStorage.getItem("login"));
+        if (login == null) {
+            window.location.href = "login.html";
+        }
 
-
-    //     for (var i = 0; i < pairs.length; i++) {
-    //         nameVal = pairs[i].split('=');
-    //         params[nameVal[0]] = nameVal[1];
-    //     }
-
-    // }
+        var name = login["name"];
+        var isAdmin = login["isAdmin"];
+        // if (url != -1) {
+        //     var pairs = document.URL.substring(url + 1, document.URL.length).split('&');
 
 
+        //     for (var i = 0; i < pairs.length; i++) {
+        //         nameVal = pairs[i].split('=');
+        //         params[nameVal[0]] = nameVal[1];
+        //     }
 
-    document.getElementById("name").innerText = name;
-    var x = document.getElementById("logout");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    }
+        // }
 
 
-    if (isAdmin == true) {
-        var x = document.getElementById("details");
+
+        document.getElementById("name").innerText = name;
+        var x = document.getElementById("logout");
         if (x.style.display === "none") {
             x.style.display = "block";
         }
+
+
+        if (isAdmin == true) {
+            var x = document.getElementById("details");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            }
+        }
+
+
+
     }
-
-
-
-}
-function logout() {
-    localStorage.removeItem("login");
-    window.location.href = "login.html";
-}
+    function logout() {
+        localStorage.removeItem("login");
+        window.location.href = "login.html";
+    }

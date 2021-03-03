@@ -48,6 +48,14 @@ router.get("/delete/:email", async (req, res) => {
     res.json({res:true});
 
 });
+router.get("/deleteResume/:id", async (req, res) => {
+    const id = req.params.id;
+
+    const response = await resumeModel.deleteOne({ _id: id });
+
+    res.json({res:true});
+
+});
 router.get("/checkuser/:email", async (req, res) => {
     const email = req.params.email;
 
@@ -57,6 +65,20 @@ router.get("/checkuser/:email", async (req, res) => {
     }).catch(err=>{
         if(err) throw err;
     });
+
+
+});
+
+
+router.post("/checkuser", async (req, res) => {
+
+    const email = req.body.email;
+    const pass = req.body.pass;
+    console.log(email); 
+      const response= await product.find({$and:[{email:email},{pass:pass}]})
+      
+      res.json(response);
+      console.log(response);
 
 
 });
