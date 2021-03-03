@@ -18,10 +18,11 @@ function addobj() {
     var email = document.getElementById("email1").value;
     var passwrd = document.getElementById("passwrd1").value;
     var usertype;
-
+    var isok=0;
     if (email == "" && passwrd == "") {
         alert("Please Enter or Password");
         window.open("Registration1.html", "_self")
+        isok=1;
     }
     else {
         if (document.querySelector("#usertype:checked") !== null) {
@@ -82,7 +83,7 @@ function addobj() {
         
 
     }
-    if(isexit==1){
+    if(isok==1 || isexit==1){
         window.open("Registration1.html","_self")
     }
     else

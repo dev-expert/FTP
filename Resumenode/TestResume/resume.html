@@ -22,7 +22,7 @@
     <script src="dataput.js"></script>
 </head>
 
-<body >
+<body onload="validate()" >
     <div class="Div1">
 
         <div class="InnerDiv1">
@@ -150,5 +150,16 @@
 
 
 </body>
+<script>
+    function validate() {
+        var keys = JSON.parse(localStorage.getItem("loginuser"));
+        if (keys != null) {
+            return true;
+        }
+        else {
+            window.open("../loginpage1.html", "_self");
+        }
+    }
+</script>
 
 </html>
