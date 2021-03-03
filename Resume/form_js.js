@@ -1,4 +1,16 @@
+// IMAGE
+// var loadFile = function (event) {
+//     var image = document.getElementById('pic');
+//     image.src = URL.createObjectURL(event.target.files[0]);
+// };
+
+
+
 function sendData(){
+    const image = document.getElementById("pic_in").value;
+   // alert(image);
+    
+
     const name=document.getElementById('fname').value;
     // alert(name);
     const adres =document.getElementById('faddrs').value;
@@ -11,6 +23,9 @@ function sendData(){
     var formdetails= new FormData(formdata);
     const gender=formdetails.get("gender");
     const mrid=formdetails.get("mrid");
+
+    // const pic=document.getElementById('pic').value;
+    // alert(pic);
 
     const yop=document.getElementById('yop').value;
     const snam=document.getElementById('snam').value;
@@ -53,7 +68,7 @@ function sendData(){
 
         hobi:hobi, hobi1:hobi1, hobi2:hobi2, hobi3:hobi3,
 
-
+        image:image
 
     };
     //document.write(JSON.stringify(resume.name))
@@ -114,6 +129,8 @@ function showdata(){
 
 
             document.getElementById("name1").innerHTML=s.name;
+
+            document.getElementById("pic").src=s.image;
             
             // document.write(s.name,"<br>");
             // document.write(s.address,"<br>");
