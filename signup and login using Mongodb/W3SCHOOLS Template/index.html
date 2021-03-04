@@ -10,7 +10,7 @@
     <script src="url2.js"></script>
 
 </head>
-<body>
+<body onload="checkUser()">
     
     <div id="left">
         <!-- <header> -->
@@ -163,6 +163,19 @@ function deletemultipleurl(drr1){
     }
   }
   showurl();
+}
+
+function checkUser()
+{
+//document.getElementById("body1").style.display= "none";
+var email = localStorage.getItem("currUser");
+if(!email)
+{
+location.replace("../login.html");
+}
+users();
+
+
 }
 
     </script>  

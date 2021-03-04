@@ -7,8 +7,8 @@
     <title>Login Page</title>
     <!-- <link rel="stylesheet" href="login.css"> -->
 </head>
-<body>
-    <div id="header">
+<body onload="logout()">
+    <!-- <div id="header"> -->
         <header>
             <div id="buttons">
                 <a href="https://www.w3schools.com/html/default.asp">HTML</a>
@@ -62,13 +62,13 @@ if(!old)
                     alert("Hello user")
                     // window.open("user-page.html")
                     location.replace("user-page.html")
-
+                    localStorage.setItem("currUser",y.role);
 
                     }
                     else{
                         alert("Hello admin")
                     // window.open("admin-page.html")
-                    localStorage.setItem("currUser",user);
+                    localStorage.setItem("currUser",y.role);
 
                         location.replace("admin-page1.html")
 
@@ -120,6 +120,16 @@ if(!old)
             alert("please Register first")
         }
    
+
+}
+
+
+function logout()
+
+{
+localStorage.removeItem("currUser");
+document.getElementById("iframe").src="./login.html";
+users();
 
 }
 

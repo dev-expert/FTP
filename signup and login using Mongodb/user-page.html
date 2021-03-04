@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div id="header">
+<body onload="checkUser()">
+    <!-- <div id="header">
         <header>
             <div id="buttons">
      
@@ -16,11 +16,11 @@
         </div>
         </header>
     </div>
-    
+     -->
 <h1>Hello User</h1>
     
 
-<button type="submit" id="logout" name="logout" onclick="logout()">Logout</button>
+<!-- <button type="submit" id="logout" name="logout" onclick="logout()">Logout</button> -->
 
 </body>
 <script>
@@ -28,6 +28,20 @@
         
         location.replace("login.html");
     }
+
+    function checkUser()
+{
+//document.getElementById("body1").style.display= "none";
+var email = localStorage.getItem("currUser");
+if(!email)
+{
+location.replace("login.html");
+}
+users();
+
+
+}
+
 </script>
 <style>
         body{

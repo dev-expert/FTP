@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <header>
+            <div id="buttons">
+               
+                <button type="submit" onclick="resume()">Create ur CV</button>
+                
+                <button type="submit" onclick="urlhandler()">URL Handler Form</button>
+
+                <button type="submit"   onclick="logout()">Logout</button>
+
+
+        </div>
+        </header>
+        <div class="iframe">
+   <iframe id="iframe" src="login.html" > 
+    </iframe> 
+
+
+</div>
+      
+    <script>
+      
+
+function logout()
+
+{
+localStorage.removeItem("currUser");
+document.getElementById("iframe").src="./login.html";
+users();
+
+}
+function resume(){
+document.getElementById("iframe").src="./resume/resume.html";
+// document.getElementById("iframe").height = "100%";
+// document.getElementById("iframe").width = "100%";
+
+}
+function urlhandler(){
+document.getElementById("iframe").src="./W3SCHOOLS Template/index.html";
+// document.getElementById("iframe").height = "100%";
+// document.getElementById("iframe").width = "100%";
+
+}
+
+function logout()
+
+{
+localStorage.removeItem("currUser");
+document.getElementById("iframe").src="./login.html";
+users();
+
+}
+
+    </script>
+    <style>
+      #logout{
+            position: absolute;
+            top:40px;
+            right: 40px;
+        }
+        header{
+        position: absolute;
+        top: 0px;
+        color: black;
+    }
+    #buttons{
+    color: solid white;
+    font-family: cursive ;
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    background-color: #dce4dc;
+    background: linear-gradient(to right bottom,rgba(117, 231, 11, 0.7),rgba(10, 209, 10, 0.7));
+
+   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+    }
+    #iframe{
+        height: 650px ;
+        width: 100%;
+        margin-top: 34px;
+    }
+    </style>
+</body>
+</html>

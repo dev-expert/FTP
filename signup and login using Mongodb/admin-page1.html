@@ -9,15 +9,20 @@
 </head>
 <body  onload = "checkUser()"; onload="users()"   >
     <div id="header">
-        <header>
+        <!-- <header>
             <div id="buttons">
                
-                <button type="submit" ><a href="resume/resume.html">Create ur CV</a></button>
+                <button type="submit" onclick="resume()">Create ur CV</button>
+                
                 <button type="submit" ><a href="./W3SCHOOLS Template/index.html">URL Handler Form</a></button>
 
 
         </div>
-        </header>
+        </header> -->
+<!-- <div >
+   <iframe id="iframe" src="" height="0" width="0"> 
+    </iframe> 
+</div> -->
         <h1>Welcome Admin</h1><br>
         <h2>You can Edit the Users here</h2>
     </div>
@@ -41,7 +46,7 @@
         
     </div>
 
-    <button type="submit" id="logout" name="logout" onclick="logout()">Logout</button>
+    <!-- <button type="submit" id="logout" name="logout" onclick="logout()">Logout</button> -->
     <script>
         function users(){
             // var keys=JSON.parse(localStorage.getItem("admin"));
@@ -62,7 +67,7 @@
                 <td>${s.role}</td>
                 <td><input type="checkbox" name="tickdata" value="${s.email}"><button onclick="deleteuser('${s.email}')">Delete</button></td>
                 </tr>`
-                }
+                }                                                              
             }
             document.getElementById("displayallusers").innerHTML=str;   
         }) }
@@ -139,6 +144,12 @@ function logout()
 localStorage.removeItem("currUser");
 location.replace("login.html");
 users();
+
+}
+function resume(){
+document.getElementById("iframe").src="./resume/resume.html";
+document.getElementById("iframe").height = "100%";
+document.getElementById("iframe").width = "100%";
 
 }
      
