@@ -13,7 +13,7 @@ async function myresume() {
 
     var response = await fetch('http://localhost:8080/checkuser/' + value);
     console.log(response);
-    const getData =  await response.json();
+    const getData = await response.json();
     if (getData.length > 0) {
         const data = getData[getData.length - 1];
 
@@ -189,16 +189,16 @@ async function myresume() {
     }
 }
 
-// function del() {
+async function del(e) {
 
-//     if(confirm(`Are you sure to delete ${e}`)){
-//         // var url = JSON.parse(localStorage.getItem("admin"));
-//         const response =await fetch('http://localhost:8080/deleteResume/' + e);
-//        const res= await response.json();
-//       console.log(res);
-//         refreshHTML();
-//       }
-//         else{
-//           refreshHTML();
-//         }
-// }
+    if(confirm(`Are you sure to delete the cv`)){
+        // var url = JSON.parse(localStorage.getItem("admin"));
+        const response =await fetch('http://localhost:8080/deleteResume/' + e);
+       const res= await response.json();
+      console.log(res);
+        myresume();
+      }
+        else{
+          myresume();
+        }
+}

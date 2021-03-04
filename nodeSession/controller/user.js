@@ -74,11 +74,11 @@ router.post("/checkuser", async (req, res) => {
 
     const email = req.body.email;
     const pass = req.body.pass;
-    console.log(email); 
+    
       const response= await product.find({$and:[{email:email},{pass:pass}]})
       
       res.json(response);
-      console.log(response);
+    
 
 
 });
@@ -118,6 +118,11 @@ router.post("/cv",async(req,res)=>{
 
 
 });
+router.get("/deleteResume/:id",async(req,res)=>{
+ await resumeModel.deleteOne({_id:req.params.id});
+res.json({saved:true});
+
+})
 
 
 
