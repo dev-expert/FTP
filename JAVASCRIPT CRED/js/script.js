@@ -1,65 +1,84 @@
 let AllUsers = [];
 let currentuser = [];
 
-var keys,data;
-  fetch("http://localhost:5000/importdata", {
-    method: "GET", // or 'PUT'
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+var keys,data,email1,pwd1;
+fetch("http://localhost:5000/importdata", {
+  method: "GET", // or 'PUT'
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Success:", data);
+    keys=data;
   })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-      keys=data;
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 
 ///function to login
 function setAction() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-      var flag = 0;
-      if (keys != null) {
-        for (i = 0; i < keys.length; i++) {
-          var s = keys[i];
-          console.log(s.email);
-          if (s.email === email && s.password === password) {
-            flag = 1;
-            if (s.usertype == "superuser") {
-              var currentuserobj = {
-                name: s.name,
-                email: s.email,
-                password: s.password,
-                usertype: s.usertype,
-              };
-              currentuser.push(currentuserobj);
-              localStorage.setItem("presentuser", JSON.stringify(currentuser));
-              superlogin();
-            }
-            if (s.usertype == "normaluser") {
-              var currentuserobj = {
-                name: s.name,
-                email: s.email,
-                password: s.password,
-                usertype: s.usertype,
-              };
-              currentuser.push(currentuserobj);
-              localStorage.setItem("presentuser", JSON.stringify(currentuser));
-              normallogin();
-            }
-            break;
-          }
+  email1=email;
+  pwd1=password;
+  var checkdetails = {
+    email: email,
+    password: password,
+  };
+  fetch("http://localhost:5000/checkdata", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(checkdetails),
+  })
+    .then((response) => response.json())
+    .then((checkdetails) => {
+      console.log("Success:", checkdetails);
+      checkcredentials(checkdetails);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  }
+  function checkcredentials(key){
+  var flag = 0;
+  if (key != null) {
+      console.log(key.email);
+      if (key.email === email1 && key.password === pwd1) {
+        flag = 1;
+        if (key.usertype == "superuser") {
+          var currentuserobj = {
+            name: key.name,
+            email: key.email,
+            password: key.password,
+            usertype: key.usertype,
+          };
+          currentuser.push(currentuserobj);
+          localStorage.setItem("presentuser", JSON.stringify(currentuser));
+          superlogin();
         }
-        if (flag == 0) {
-          alert("WRONG USERNAME OR PASSWORD");
+        if (key.usertype == "normaluser") {
+          var currentuserobj = {
+            name: key.name,
+            email: key.email,
+            password: key.password,
+            usertype: key.usertype,
+          };
+          currentuser.push(currentuserobj);
+          localStorage.setItem("presentuser", JSON.stringify(currentuser));
+          normallogin();
         }
-      } else {
-        alert("Not A Registered User");
       }
+    if (flag == 0) {
+      alert("WRONG USERNAME OR PASSWORD");
+    }
+  } else {
+    alert("Not A Registered User");
+  }
 }
 
 ////function to register
@@ -86,7 +105,7 @@ function register() {
       }
     }
   }
- console.log(flag);
+  console.log(flag);
   if (flag == 1) {
     alert("USER ALREADY REGISTERED");
   } else {

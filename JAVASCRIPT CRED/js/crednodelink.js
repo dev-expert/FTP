@@ -37,6 +37,16 @@ app.post("/exportdata", (request, response) => {
     });
 });
 
+app.post("/checkdata", (request, response) => {
+    var Credentials = request.body;
+    collection.findOne(Credentials, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        response.json(result);
+    })
+});
+
+
 app.post("/resumedata", (request, response) => {
     collection_resume.insert(request.body, (error, result) => {
         if(error) {
@@ -46,8 +56,6 @@ app.post("/resumedata", (request, response) => {
         response.json(result);
     });
 });
-//hello shubham
-//jqbndjkeq
 
 
 // import data
