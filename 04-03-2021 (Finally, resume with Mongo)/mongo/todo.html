@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+
+    <header style="display: flex; justify-content: space-between;">
+        <div id="mySidenav" class="sidenav">
+            <a style="cursor: pointer;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a style="cursor: pointer;"
+                onclick="document.getElementById('form').style.display = 'block';document.getElementById('boxText').style.display = 'none' ;closeNav();">Resume
+                Generator</a>
+            <a style="cursor: pointer;" onclick="window.open('todo.html');">To Do URL</a>
+            <a style="cursor: pointer;" onclick="window.open('calculator.html');">Calculator</a>
+            <a style="cursor: pointer;" onclick="window.open('sample.html');">Sample Website</a>
+            <a style="cursor: pointer;" href="https://appwrk.com/contact/">Contact</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer; margin-left: 50px;" onclick="openNav()">&#9776;</span>
+
+        <h1>Resume Generator</h1>
+
+        <button id="button" onclick="deleteFireWall()">Log Out</button>
+    </header>
+
+
+    <div class="urlsection">
+        <input type="text" placeholder="https://example.com" id="url">
+        <button onclick="addurl()" id="myBtn">+</button>
+        <button id="myBtn1" onclick="deletemultipleurl(selectcheckbox(`tickurl`))">X</button>
+        <ul id="list"></ul>
+    </div>
+    <script src="todo.js"></script>
+</body>
+
+</html>

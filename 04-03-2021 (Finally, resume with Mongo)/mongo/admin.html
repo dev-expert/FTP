@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body id="bodyy">
+    <header style="display: flex; justify-content: space-between;">
+        
+        <div id="mySidenav" class="sidenav">
+            <a style="cursor: pointer;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a style="cursor: pointer;" onclick="database()">Database</a>
+            <a style="cursor: pointer;" onclick="window.open('index.html'); closeNav();">Resume Generator</a>
+            <a style="cursor: pointer;" href="#">Help</a>
+            <a style="cursor: pointer;" href="https://appwrk.com/contact/">Contact</a>
+          </div>
+        <span style="font-size:30px;cursor:pointer; margin-left: 50px;"  onclick="openNav()">&#9776;</span>
+
+        <h1 >Admin Dashboard</h1>
+        <button id="button" onclick="deleteFireWall()">Log Out</button>
+    </header>
+
+    <div class="mainBody" id="mainBody">
+        <h2>Welcome to Admin's Panel.</h2> <br>
+        <h2>Go to Side bar for more.</h2>
+    </div>
+
+    <table id="info">
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>User Type</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+
+    <!-- <footer>
+        <h1>©anmol1616jha</h1>
+    </footer> -->
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

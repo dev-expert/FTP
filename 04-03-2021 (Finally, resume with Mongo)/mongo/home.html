@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="home.css">
+  <script src="home.js"></script>
+</head>
+
+<body>
+  <div class="login-page" id="loginpage">
+    <div class="form" id="form">
+      <form class="registerform" id="registerform">
+        <input type="text" id="nme" placeholder="name" required />
+        <input type="password" id="passwd" placeholder="password" required />
+        <input type="text" id="email" placeholder="email address" required />
+        <div style="display: flex; justify-content: space-evenly;">
+          <span>User</span>
+          <input type="checkbox" id="switch" class="checkbox" /> 
+          <label for="switch" id="toggle" class="toggle" onclick="adminView()"> </label>
+          <span>Admin</span>
+        </div> <br>
+        <button onclick="putdata()">create</button>
+        <!-- <p class="message">Already registered? <a href="#">Sign In</a></p> -->
+      </form>
+
+      <form class="loginform" id="loginform">
+        <input id="email_in" placeholder="email address" required />
+        <input type="password" id="passwd_in" placeholder="password" required />
+        <button type="button" onclick="kuchbhi()">login</button>
+        <p class="message">Not registered? <a style="color: red" onclick="account()">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

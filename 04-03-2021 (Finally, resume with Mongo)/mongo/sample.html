@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sample.css">
+    <title>Dummy Webpage</title>
+
+    <script>
+        function wrong() {
+            alert("Wrong Answer");
+        }
+
+        function wrong2() {
+            alert("Wrong Answer");
+        }
+
+        function correct() {
+            alert("Correct Answer");
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <header style="display: flex; justify-content: space-between;">
+        <div id="mySidenav" class="sidenav">
+            <a style="cursor: pointer;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a style="cursor: pointer;"
+                onclick="document.getElementById('form').style.display = 'block';document.getElementById('boxText').style.display = 'none' ;closeNav();">Resume
+                Generator</a>
+            <a style="cursor: pointer;" onclick="window.open('todo.html');">To Do URL</a>
+            <a style="cursor: pointer;" onclick="window.open('calculator.html');">Calculator</a>
+            <a style="cursor: pointer;" onclick="window.open('sample.html');">Sample Website</a>
+            <a style="cursor: pointer;" href="https://appwrk.com/contact/">Contact</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer; margin-left: 50px;" onclick="openNav()">&#9776;</span>
+
+        <h1>Resume Generator</h1>
+
+        <button id="button" onclick="deleteFireWall()">Log Out</button>
+    </header>
+
+    <section class="main">
+        <div class="sidebar">
+            <div id="answer">
+                <h3>Hint :-<br></h3> He was an Italian astronomer, physicist and engineer, sometimes described as a
+                polymath, from Pisa. He has been called the "father of observational astronomy", the "father of modern
+                physics", the "father of the scientific method", and the "father of modern science". <br><br>
+                Born: 15 February 1564, Pisa, Italy<br><br>
+                Died: 8 January 1642, Arcetri<br><br>
+                Discovered: Ganymede, Europa, Io, Callisto, Rings of Saturn<br><br>
+                Known for: Analytical dynamics, Heliocentrism, Kinematics, Observational astronomy<br><br>
+            </div>
+        </div>
+
+        <div class="mainpage">
+            <div id="question">
+                <h2>Who is known as Father of Physics?</h2>
+            </div>
+
+            <div id="image">
+                <table border="0" style="text-align: center;">
+                    <tr>
+                        <td style="padding: 10px;"><img id="one" onclick="wrong()" src="einstein.jpg" alt="First"></td>
+                        <td style="padding: 10px;"><img id="two" onclick="wrong()" src="newton.jpg" alt="Second"></td>
+                        <td style="padding: 10px;"><img id="three" onclick="correct()" src="galilio.jpg" alt="Third">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Albert Einstein</td>
+                        <td>Sir Issac Newton</td>
+                        <td>Galileo Galilei</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p style="text-align: center; padding: 4vh;">©anmol1616jha</p>
+    </footer>
+
+
+
+</body>
+
+</html>

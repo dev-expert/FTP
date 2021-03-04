@@ -1,0 +1,561 @@
+
+*{
+    margin: 0;
+    padding: 0%;
+ 
+}
+
+body{
+    overflow-x: hidden;
+}
+
+header{
+    background-color: rgb(165, 109, 109);
+    height: 10vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.main{
+    display: flex;
+}
+
+.sidebar{
+    background-color: rgb(146, 187, 141);
+    height: 80vh;
+    width: 20vw;
+}
+
+.mainpage{
+    background-color: rgb(255, 255, 255);
+    height: 80vh;
+    width: 80vw;
+}
+
+footer{
+    background-color: rgb(165, 109, 109);
+    height: 10vh;
+    width: 100vw;
+}
+
+table{
+    width: 100%;
+}
+
+td{
+    width: 33%;
+}
+
+#question{
+    text-align: center;
+    margin: 5%;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    transition: 1s;
+    cursor: pointer;
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+
+#answer{
+    margin: 2%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#section {
+    display: none;
+}
+
+header {
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-bottom: 10px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-bottom: 10px;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::-webkit-input-placeholder {
+    /* Edge */
+    color: rgb(0, 0, 0);
+    padding-left: 2%;
+    letter-spacing: 3px;
+    opacity: 0.7;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer */
+    color: rgb(0, 0, 0);
+    padding-left: 2%;
+    letter-spacing: 3px;
+    opacity: 0.7;
+}
+
+::placeholder {
+    color: rgb(0, 0, 0);
+    padding-left: 2%;
+    letter-spacing: 3px;
+    opacity: 0.7;
+}
+
+#basic_txt,
+#education_txt,
+#qualification_head,
+#project_desc,
+#skills_desc,
+#proficiency_desc,
+#language_desc,
+#interest_desc,
+#details_desc {
+    text-align: center;
+    background-color: rgb(105, 124, 187);
+}
+
+.basic,
+.education,
+.qualification,
+.projects,
+.skills,
+.proficiency,
+.language,
+.interest,
+.details {
+    display: block;
+    margin: auto;
+    margin-bottom: 5%;
+    width: 50vw;
+    border: 0px;
+    border-top: 0;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 0px 10px rgb(105, 124, 187);
+    box-sizing: border-box;
+    background-color: rgb(212, 212, 226);
+}
+
+.name,
+.tag,
+.phone,
+.mail,
+.linkedin,
+.experience,
+.age,
+.about {
+    margin-left: 10%;
+}
+
+.master,
+.bachelor,
+.twelveth,
+.tenth {
+    margin-left: 10%;
+}
+
+#quali,
+#qualification_txt,
+#project_in,
+#project_txt,
+#skills_in,
+#skills_txt,
+#proficiency_in,
+#proficiency_txt,
+#language_in,
+#language_txt,
+#interest_in,
+#interest_txt {
+    margin-left: 10%;
+}
+
+input {
+    margin-bottom: 2%;
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+input:focus {
+    transform: scale(1.1);
+}
+
+.father,
+.birthday,
+.gender,
+.maritial {
+    margin-left: 10%;
+}
+
+#male,
+#female,
+#other {
+    width: 20px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+#reset,
+#submit {
+    width: 10vw;
+    height: 5vh;
+    font-size: 25px;
+}
+
+#reset {
+    background-color: rgb(0, 174, 255);
+    border: 0px;
+    cursor: pointer;
+}
+
+#submit {
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(0, 174, 255);
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/*************RESUME******************/
+.one_out,
+.contact_out {
+    display: flex;
+}
+
+#image_out {
+    width: 15vw;
+    height: auto;
+}
+
+.one_one_out {
+    margin-left: 10%;
+}
+
+#nme_out {
+    font-size: 60px;
+    font-weight: 800;
+}
+
+#tag_out {
+    color: rgb(26, 56, 156);
+    font-size: 25px;
+}
+
+#call_out,
+#mailid_out,
+#linked_out {
+    width: 25px;
+    height: 25px;
+}
+
+#phone_out,
+#mail_out {
+    margin-right: 1vw;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
+    display: flex;
+}
+
+#linkedin_id_out {
+    display: flex;
+}
+
+#linkedin_id_out {
+    color: blueviolet;
+    margin-top: 3vh;
+}
+
+.two {
+    display: flex;
+}
+
+#basic_two_out {
+    width: 15vw;
+    margin-top: 2%;
+}
+
+#base_about_out {
+    width: 80%;
+    margin-left: 12%;
+    margin-top: 2%;
+    padding-top: 1%;
+    border-top: 3px solid rgb(26, 56, 156);
+}
+
+#about_text_out {
+    color: rgb(26, 56, 156);
+}
+
+#edu_logo_out {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
+}
+
+.education_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#bachelor_edu_out,
+#twelve_edu_out,
+#ten_edu_out {
+    display: flex;
+    font-size: 20px;
+}
+
+#bachelor_edu_name_out,
+#tweleve_edu_name_out,
+#ten_edu_name_out {
+    text-align: left;
+    width: 50vw;
+}
+
+#bachelor_edu_status_out,
+#twelve_edu_status_out,
+#ten_edu_status_out {
+    width: 50vw;
+}
+
+#quali_logo_out {
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.qualifications_out {
+    margin-top: 10vw;
+}
+
+#quali_text_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#project_logo_out {
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.project_out {
+    margin-top: 10vw;
+}
+
+#project_text_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#skill_logo_out {
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.skill_out {
+    margin-top: 10vw;
+}
+
+#skill_text_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#proficiency_logo_out {
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.proficiency_out {
+    margin-top: 10vw;
+}
+
+#proficiency_text_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#language_logo_out {
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.language_out {
+    margin-top: 10vw;
+}
+
+#language_text_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#interest_logo_out {
+    max-width: 40px;
+    max-height: 40px;
+    display: block;
+    margin: auto;
+}
+
+.interest_out {
+    margin-top: 10vw;
+}
+
+#interest_text_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+.detail_out_out {
+    margin-bottom: 10%;
+}
+
+#detail_logo_out {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
+}
+
+.detail_out {
+    border-top: 3px solid rgb(26, 56, 156);
+    width: 80%;
+    margin-left: 10%;
+}
+
+#detail_edu_out {
+    display: flex;
+    font-size: 20px;
+}
+
+#detail_edu_name_out {
+    text-align: left;
+    width: 50vw;
+}
+
+#detail_edu_status_out {
+    width: 50vw;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100px;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+button:hover,
+button:active,
+button:focus {
+    background: #43A047;
+}
+
+#boxText {
+    width: 100%;
+    text-align: center;
+    margin-top: 200px;
+    background-color: #43A047;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
