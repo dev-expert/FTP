@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="checkUser()">
     <header>
         <div class="header1" >
            <h1> It is a header</h1>
@@ -102,6 +102,14 @@
             lik.removeChild(lik.childNodes[0]);
         
         }
+
+        function checkUser() {
+        //document.getElementById("body1").style.display= "none";
+        var email = localStorage.getItem("currUser");
+        if (!email) {
+            location.replace("/login.html");
+        }
+    }
     </script>
 
         </div>

@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,84 +8,102 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
 
 </head>
+
 <body>
-    <form  action="login.html" method="POST"> 
+    <header>
+        <h1> SIGNUP PAGE</h1>
+    </header>
+    <form action="login.html" method="POST">
         <div class="style1">
             <div class="name">
-                <h1> SIGNUP PAGE</h1>
-        <label for="name"class="color"> First Name :
-            <input type="text" name="name" id="firstname"  required  > 
-        </label>
-        </div>
-        <br>
-        <div>
-        <label for="name" class="color" > Last Name :
-            <input type="text" name="name" id="lastname" required  >
-        </label>
-        </div>
-        <br>
-        <div>
-            <label for="date"class="color"> Date of Birth :
-                <input type="date" name="date" id="date" required  >
-            </label>
+
+                <label for="name" class="color"> First Name :
+                    <input type="text" name="name" id="firstname" required>
+                </label>
             </div>
-        <br>
-        <div>
-            <label for="email"class="color"> Email : </label>
-            <input type="email" name="email" id="email" required placeholder="email">
+            <br>
+            <div>
+                <label for="name" class="color"> Last Name :
+                    <input type="text" name="name" id="lastname" required>
+                </label>
+            </div>
+            <br>
+            <div>
+                <label for="date" class="color"> Date of Birth :
+                    <input type="date" name="date" id="date" required>
+                </label>
+            </div>
+            <br>
+            <div>
+                <label for="email" class="color"> Email : </label>
+                <input type="email" name="email" id="email" required placeholder="email">
+            </div>
+            <br>
+            <div>
+                <label for="password" class="color"> Password :
+                    <input type="password" name="password" id="password" required>
+                </label>
+            </div>
+            <br>
+
+            Role:
+            <select id="role">
+                <option value="user"> Teacher</option>
+                <option value="admin">Student </option>
+
+            </select>
+            <button type="submit" class="log1" onclick=" reg()">Signup</button>
         </div>
-        <br>
-        <div>
-        <label for="password"class="color"> Password :
-            <input type="password" name="password" id="password" required  >
-        </label>
-        </div>
-        <br>
-        
-        Role:
-        <select id="role">
-            <option value = "user" > Teacher</option>
-            <option value = "admin" >Student </option>
-           
-        </select>
-        <button type="submit" class="log1" onclick=" reg()" >Signup</button>
-    </div>
     </form>
     <style>
-        body{
+        body {
             background-color: antiquewhite;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url(bg.jpg);
-            
-            
+           
+
+
         }
-        .style1{
+
+        .style1 {
             border: 1px solid black;
-            border-radius: 15%;
-            width:400px;
+            border-radius: 5%;
+            width: 400px;
             height: 400px;
-            position:relative;
+            position: relative;
             top: 25px;
             margin-top: 25px;
             background-color: rgba(30, 210, 120, 0.4);
 
-          
+
         }
-        .name{
+
+        .name {
             margin-top: 25px;
         }
-        form{
+
+        form {
             padding-top: 25px;
         }
-        
-        input{
+
+        input {
             border-radius: 25px;
         }
-    </style>    <script src="signup.js"> </script>
+        header{
+            background-color:black;
+                /* padding: 20px 10px; */
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                color: deeppink;
+                text-align: center;
+        }
+    </style>
+    <script src="signup.js"> </script>
 
 
 </body>
+
 </html>

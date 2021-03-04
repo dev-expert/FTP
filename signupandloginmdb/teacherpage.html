@@ -12,7 +12,7 @@
         <div class="header-right">
          <button type="submit"><a class="active" href="webpage/index.html">URL PAGE</a></button>
         <button type="submit"><a class="active" href="./resumebuilder/index1.html">CV PAGE</a></button>   
-          
+        <button onclick="logout()" class="act" >LOGOUT</button> 
          
         </div>
       </div>
@@ -20,7 +20,7 @@
       
     <div class="size">
     <table id="myTable" >
-        <tr style="background-color:chocolate;">
+        <tr style="background-color:deeppink;">
             <th>Name</th>
             <th>Email</th>
             <th>Type of User</th>
@@ -30,7 +30,7 @@
         </table>
     </div>
         <button onclick="deleteData()">Delete</button>
-        <button onclick="logout()">LOGOUT</button>
+        
         
         
         
@@ -47,7 +47,7 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: black;
   padding: 20px 10px;
   width: 100%;
   position: absolute;
@@ -64,25 +64,21 @@ body {
   line-height: 25px;
   border-radius: 4px;
   width: 100%;
+ 
   
  
 }
+.act{
+  /* background-color: dodgerblue;
+  color: white; */
+  height: 50px;
+  text-align: right;
+  position:absolute;
+  right: 0%;
+  margin-right: 5px;
+  flex-wrap: wrap;
 
-/* .header a.logo {
-  font-size: 25px;
-  font-weight: bold;                                                                                                                                        '' 
 }
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
 .header-right {
   float: right;
   width: 100%;
@@ -95,14 +91,11 @@ body {
     text-align: left;
   }
   
-  /* .header-right {
-    float: none;
-  } */
 }
     table , td{
         border: 1px solid black;
         border-radius: 5px;
-        background-color: khaki;
+        background-color:darkgrey ;
        
     }
     body{
@@ -132,15 +125,7 @@ var data = document.getElementById("data");
 let len = obj.length;
 //str="";
 for (var i = 0; i < len; i++) {
-    /*str+=`
-    <tr>
-    <td>${obj[i].name}</td>
-    <td>${obj[i].email}</td>
-    <td>${obj[i].number}</td>
-    <td>${obj[i].password}</td>
-    <td>${obj[i].Admin}</td>
-    </tr>`
-    */
+    
 
     var row = data.insertRow(i);
     var cell = row.insertCell(0);

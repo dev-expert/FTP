@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body >
+    <header class="header1">
+        <!-- <button onclick="hii()">LOGIN PAGE</button> -->
+        <button onclick="urlpage()" class="active">URL PAGE</button>
+        <button onclick="resumepage()" type="submit"><a class="active">CV PAGE</a></button>
+        <button onclick="logout()" class="act">LOGOUT</button>
+    </header>
+    <iframe id="iframe1" class="iframe1" src="./login.html"></iframe>
+
+
+    
+
+</body>
+<script>
+    function hii() {
+        document.getElementById("iframe1").src = "./login.html";
+    }
+    function urlpage() {
+        document.getElementById("iframe1").src = "./webpage/index.html";
+    }
+
+    function resumepage() {
+        document.getElementById("iframe1").src = "./resumebuilder/index1.html"
+    }
+
+
+    
+
+    function logout() {
+        localStorage.removeItem("currUser");
+        document.getElementById("iframe1").src = "./login.html";
+    }
+
+</script>
+<style>
+   
+    .iframe1 {
+        /* margin-top: 30px; */
+        position:absolute;
+        top : 60px;
+        width: 100%;
+        height: 90%;
+    }
+    .header1{
+        overflow: hidden;
+        background-color: black;
+        /* padding: 20px 10px; */
+        width: 95%;
+        position: absolute;
+        top: 0px;
+    }
+    .header1{
+        /* float: left; */
+        /* color: black; */
+        /* text-align: center; */
+        padding: 12px;
+        /* text-decoration: none; */
+        /* font-size: 18px; */
+        line-height: 40px;
+        /* border-radius: 4px; */
+        width: 98.5%;
+        position: absolute;
+       
+    }
+
+    .act {
+        /* height: 50px; */
+        text-align: right;
+        position: absolute;
+        right: 1%;
+        /* margin-right: 5px; */
+        flex-wrap: wrap;
+
+    }
+</style>
+
+
+</html>

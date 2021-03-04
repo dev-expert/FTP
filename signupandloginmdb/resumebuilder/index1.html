@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="checkUser()">
     <div class="color1">
         <h1>ENTER RESUME DETAILS</h1>
         <form action="resume.html" method="get" id="form">
@@ -173,6 +173,13 @@
 
             localStorage.setItem("user", JSON.stringify(obj))
         }
+        function checkUser() {
+        //document.getElementById("body1").style.display= "none";
+        var email = localStorage.getItem("currUser");
+        if (!email) {
+            location.replace("/login.html");
+        }
+    }
     </script>
 </body>
 
