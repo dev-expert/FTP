@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
         integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
@@ -26,6 +25,7 @@
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
     <script src="signup.js"></script>
+    <script src="result.js"></script>
 
 
 </head>
@@ -48,7 +48,7 @@
             <li><a href="admin.html" id="details" style="display: none;">USERS</a></li>
 
 
-          
+
             <li style="float: right;"><a href="login.html" id="logout" style="display: none;"
                     onclick="logout()">LOGOUT</a></li>
             <li style="float: right; color: black;"><label id="name"></label></li>
@@ -69,26 +69,27 @@
             <form action="result.html" method="POST" onsubmit="return information()">
                 <h2>Personal Details <span><i class="fas fa-user"></i></span></h2>
                 <label>Fullname:</label><br>
-                <input type="text" id="lname" name="name[]" placeholder="Enter your name here" required><br>
+                <input type="text" id="Name" name="name[]" placeholder="Enter your name here" required><br>
                 <input type="hidden" name="key[]" value="Name">
                 <label>Email:</label><br>
                 <input type="text" id="email" name="name[]" placeholder="Enter your email here" required><br>
                 <input type="hidden" name="key[]" value="email">
                 <label>Contact no:</label><br>
-                <input type="text" id="Contactno." name="name[]" placeholder="Enter your Contact here" required><br>
+                <input type="text" id="ContactNo-" name="name[]" placeholder="Enter your Contact here" required><br>
                 <input type="hidden" name="key[]" value="ContactNo-">
                 <label> professional Profile:</label><br>
-                <input type="text" id="proP" name="name[]" placeholder="Enter  Professional Profile here" required><br>
+                <input type="text" id="Profile" name="name[]" placeholder="Enter  Professional Profile here"
+                    required><br>
                 <input type="hidden" name="key[]" value="Profile">
 
                 <label>About Yourself: </label><br>
-                <textarea name="name[]" style="width:200px; height:50px;"
+                <textarea id="About" name="name[]" style="width:200px; height:50px;"
                     placeholder="Ex-Seeking a position in the well established organization. " id="aboutY"
                     required></textarea>
                 <input type="hidden" name="key[]" value="About"><br>
-
+                
                 <label for="myfile">Select Image:</label>
-                <input type="file" name="name[]" required><br>
+                <input type="file" name="name[]" id="image" required><br>
                 <input type="hidden" value="image" name="key[]"><br>
 
 
@@ -102,7 +103,7 @@
             <input type="text" id="Intermediate" name="name[]" placeholder="Enter your details here" required><br>
             <input type="hidden" name="key[]" value="Intermediate">
             <label>High School:</label><br>
-            <input type="text" id="High School" name="name[]" placeholder="Enter your details here" required><br>
+            <input type="text" id="Highschool" name="name[]" placeholder="Enter your details here" required><br>
             <input type="hidden" name="key[]" value="Highschool">
             <label>Graduate:</label><br>
             <input type="text" id="Graduate" name="name[]" placeholder="Enter your details here" required><br>
@@ -123,8 +124,7 @@
             <input type="text" id="Project1" name="ProjectValue[]" placeholder="Project1" required>
             <input type="hidden" name="Project[]" value="Project1">
             <input type="button" onclick="addinput()" class="btn-success" value="+">
-            <input type="button" onclick="subInput()" class="btn-danger" style="display: none" id="minus"
-                value="-"><br>
+            <input type="button" onclick="subInput()" class="btn-danger" style="display: none" id="minus" value="-"><br>
             <label id="projectIncrease"></label>
 
         </div>
@@ -153,30 +153,30 @@
 
             <h2>Work Experience <span><i class="fas fa-briefcase"></i></span></h2>
             <label for="fname">Company Name:</label><br>
-            <input type="text" name="name[]" required><br>
+            <input type="text" name="name[]" required id="CM"><br>
             <input type="hidden" name="key[]" value="CM">
             <label for="lname">Date start:</label><br>
-            <input type="date" name="name[]" required><br>
+            <input type="date" name="name[]" required id="start"><br>
             <input type="hidden" name="key[]" value="start">
             <label for="fname">End Date:</label><br>
-            <input type="date" name="name[]" required><br>
+            <input type="date" name="name[]" required id="end"><br>
             <input type="hidden" name="key[]" value="end">
             <label for="lname">Title:</label><br>
-            <input type="text" name="name[]" required><br>
+            <input type="text" name="name[]" required id="Project"><br>
             <input type="hidden" name="key[]" value="Project"><br>
 
             <h2>Certification <span><i class="far fa-file-certificate"></i></span></h2>
-            <input type="text" name="name[]" placeholder="Certificate 1" required><br><br>
+            <input type="text" name="name[]" placeholder="Certificate 1" id="C1" required><br><br>
             <input type="hidden" name="key[]" value="C1">
-            <input type="text" name="name[]" placeholder="Certificate 2" required><br><br>
+            <input type="text" name="name[]" placeholder="Certificate 2" id="C2" required><br><br>
             <input type="hidden" name="key[]" value="C2">
-            <input type="text" name="name[]" placeholder="Certificate 3" required><br><br>
+            <input type="text" name="name[]" placeholder="Certificate 3" id="C3" required><br><br>
             <input type="hidden" name="key[]" value="C3">
 
-            <input type="text" name="name[]" placeholder="Certificate 4" required><br><br>
+            <input type="text" name="name[]" placeholder="Certificate 4" id="C4" required><br><br>
             <input type="hidden" name="key[]" value="C4">
 
-            <input type="text" name="name[]" placeholder="Certificate 5" required><br><br>
+            <input type="text" name="name[]" placeholder="Certificate 5" id="C5" required><br><br>
             <input type="hidden" name="key[]" value="C5">
 
 
@@ -189,27 +189,27 @@
 
 
             <h2>Languages <span><i class="fas fa-language"></i></span></h2>
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="L1" required><br><br>
             <input type="hidden" name="key[]" value="L1">
-            <input type="text" id="Skills2" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="L2" required><br><br>
             <input type="hidden" name="key[]" value="L2">
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" required id="L3"><br><br>
             <input type="hidden" name="key[]" value="L3">
 
             <h2>Interests <span><i class="fas fa-chart-line"></i></span></h2>
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="I1" required><br><br>
             <input type="hidden" name="key[]" value="I1">
-            <input type="text" id="Skills2" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="I2" required><br><br>
             <input type="hidden" name="key[]" value="I2">
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="I3" required><br><br>
             <input type="hidden" name="key[]" value="I3">
 
             <h2>Social Account <span><i class="fas fa-user-circle"></i></i></span></h2>
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="S1" required><br><br>
             <input type="hidden" name="key[]" value="S1">
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="S2" required><br><br>
             <input type="hidden" name="key[]" value="S2">
-            <input type="text" name="name[]" required><br><br>
+            <input type="text" name="name[]" id="S3" required><br><br>
             <input type="hidden" name="key[]" value="S3">
 
 

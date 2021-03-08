@@ -123,8 +123,11 @@ router.get("/deleteResume/:id",async(req,res)=>{
 res.json({saved:true});
 
 })
-
-
+router.get("/editResume/:id", async(req,res)=>{
+    let id = req.params.id;
+  const data = await resumeModel.find({_id:id});
+  res.json(data);
+});
 
 // router.post("/data", (req, res) => {
 
@@ -138,6 +141,7 @@ res.json({saved:true});
 //         console.log("data not saved");
 //     })
 // })
+
 
 
 

@@ -176,7 +176,7 @@ async function myresume() {
         res += `
     <button type="button" class="btn btn-success"  onclick="login()">Download</button>
     
-    <button type="button" class="btn btn-info" style="margin-left: 10px;" onclick="edit()">Edit</button>
+    <button type="button" class="btn btn-info" style="margin-left: 10px;" onclick="edit('${data._id}')">Edit</button>
     
     <button type="button" class="btn btn-danger" style="margin-left: 10px;" onclick="del('${data._id}')">Delete</button>`
 
@@ -199,6 +199,22 @@ async function del(e) {
         myresume();
       }
         else{
+          myresume();
+        }
+}
+async function edit(e) {
+
+    if(confirm(`Are you sure to edit the cv`)){
+        // var url = JSON.parse(localStorage.getItem("admin"));
+
+        // const response =await fetch('http://localhost:8080/editResume/' + e);
+        // const data = await  response.json();
+        // show_value(data);
+        window.location.href="index.html?id="+e;
+
+    
+      } 
+        else{ 
           myresume();
         }
 }
