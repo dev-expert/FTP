@@ -1,3 +1,21 @@
+var fire;
+
+for (var i = 0; i < localStorage.length; i++){
+    if(localStorage.key(i) == "fireWall")
+        fire = 1;
+    
+    else;
+}
+
+if(fire == 1);
+
+else{
+    alert("Session Expired. Login AGAIN");
+    location.replace("home.html");
+}
+
+
+
 let arr=[];
 var ul = document.getElementById("list");
 var input = document.getElementById("url");
@@ -96,5 +114,10 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
+}
+
+function deleteFireWall(){
+  localStorage.removeItem("fireWall");
+  location.replace("home.html");
 }
 // END (DELETE USING CHECKBOX INPUT DATA)
