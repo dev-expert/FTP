@@ -1,28 +1,28 @@
 let arr = [];
 
-var data,keys;
+var data, keys,enailT,passwordT;
 fetch("http://localhost:5000/importdata", {
-method: "GET", // or 'PUT'
-headers: {
-"Content-Type": "application/json",
-},
-body: JSON.stringify(data),
+    method: "GET", // or 'PUT'
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
 })
-.then((response) => response.json())
-.then((data) => {
-console.log("Success:", data);
-keys=data;
-});
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Success:", data);
+        keys = data;
+    });
 function addobj() {
     debugger;
     var email = document.getElementById("email1").value;
     var passwrd = document.getElementById("passwrd1").value;
     var usertype;
-    var isok=0;
+    var isok = 0;
     if (email == "" && passwrd == "") {
         alert("Please Enter or Password");
         window.open("Registration1.html", "_self")
-        isok=1;
+        isok = 1;
     }
     else {
         if (document.querySelector("#usertype:checked") !== null) {
@@ -43,13 +43,13 @@ function addobj() {
             }
 
         }
-        var isexit=0;
+        var isexit = 0;
 
         if (flag == 1) {
             alert(" Account Already exit");
-            isexit=1;
-            
-            
+            isexit = 1;
+
+
         }
         else {
 
@@ -60,7 +60,7 @@ function addobj() {
 
 
             };
-            
+
             // arr = JSON.parse(localStorage.getItem("obj1") || "[]");
             // arr.push(obj1);
             // localStorage.setItem("obj1", JSON.stringify(arr));
@@ -78,39 +78,74 @@ function addobj() {
                 .catch((error) => {
                     console.error("Error:", error);
                 });
-                alert("Registred succesfully");
+            alert("Registred succesfully");
         }
-        
+
 
     }
-    if(isok==1 || isexit==1){
-        window.open("Registration1.html","_self")
+    if (isok == 1 || isexit == 1) {
+        window.open("Registration1.html", "_self")
     }
-    else
-    {
-    window.open("loginpage1.html", "_self");
+    else {
+        window.open("loginpage1.html", "_self");
     }
+}
+
+function loginch() {
+    
+    
+    var email = document.getElementById("email2").value;
+    var password = document.getElementById("passwrd2").value;
+    emailT = email;
+    passwordT = password;
+    var checkdetails = {
+        email: email,
+        passwrd: password,
+    };
+    fetch("http://localhost:5000/checkdata", {
+        method: "POST", // or 'PUT'
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(checkdetails),
+    })
+        .then((response) => response.json())
+        .then((checkdetails) => {
+            console.log("Success:", checkdetails);
+            viewdata(checkdetails);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+
+
+
+
+
+
 }
 
 
 
-function viewdata() {
+function viewdata(key) {
 
-    var email = document.getElementById("email2").value;
-    var password = document.getElementById("passwrd2").value;
+    // var email = document.getElementById("email2").value;
+    // var password = document.getElementById("passwrd2").value;
+
     // var keys = JSON.parse(localStorage.getItem("obj1"));
     var flag = 0;
-    if (keys != null) {
-        for (i = 0; i < keys.length; i++) {
-            var s = keys[i];
+    if (key != null) {
+        
+
+            var s = key;
             console.log(s.email);
-            if (s.email === email && s.passwrd === password) {
+            if (s.email === emailT && s.passwrd === passwordT) {
                 flag = 1;
                 if (s.usertype == "Superuser") {
                     var userobj = {
                         email: s.email,
-                        password: s.password,
-                        usertype:s.usertype
+                        password: s.passwrd,
+                        usertype: s.usertype
                     };
                     currentuser = JSON.parse(localStorage.getItem("loginuser") || "[]");
                     currentuser.push(userobj);
@@ -120,8 +155,8 @@ function viewdata() {
                 if (s.usertype == "Normaluser") {
                     var userobj = {
                         email: s.email,
-                        password: s.password,
-                        usertype:s.usertype
+                        password: s.passwrd,
+                        usertype: s.usertype
                     };
                     currentuser = JSON.parse(localStorage.getItem("loginuser") || "[]");
                     currentuser.push(userobj);
@@ -129,9 +164,8 @@ function viewdata() {
 
                     nlogin();
                 }
-                break;
             }
-        }
+        
         if (flag == 0) {
             alert("Wrong Password");
             window.open("loginpage1.html", "_self")

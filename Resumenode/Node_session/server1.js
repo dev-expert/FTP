@@ -39,6 +39,18 @@ app.post("/exportdata", (request, response) => {
 });
 
 
+app.post("/checkdata", (request, response) => {
+    var Credentials = request.body;
+    collection.findOne(Credentials, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        response.json(result);
+    })
+});
+
+
+
+
 // import data
 app.get("/importdata", (request, response) => {
     collection.find({}).toArray((error, result) => {
