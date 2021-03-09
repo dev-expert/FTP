@@ -1,7 +1,6 @@
 <html class="no-js">
 
 <head>
-    <script src="signin_signup_script.js"></script>
     <title>Sign UP/ Sign IN Form</title>
     <style>
         body {
@@ -125,7 +124,7 @@
                 <input id="password" name="password" type="password" placeholder="951753" required="required" />
             </p>
             <p class="signin_button">
-                <input type="submit" value="SignIN" onclick="add()">
+                <input type="button" value="SignIN" onclick="signin()">
             </p>
             <p class="create_new_account_button">
                 <input type="button" value="Create Account" id="new_account" onclick="hide()" />
@@ -167,26 +166,12 @@
         </form>
     </div>
     <script>
-
-        // SIGN IN
-        var data, keys;
-        fetch("http://localhost:1000/signin", {
-            method: "GET", // or 'PUT'
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Success:", data);
-                keys = data;
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-
-
+        // HIDE FORM
+        function hide() {
+            var a = document.getElementById("signin_form");
+            a.style.display = 'none';
+            document.getElementById("signup_form").style.display = "block";
+        }
 
         // FUNCTION FOR ESTABLISHING CONNECTION
         function register() {
@@ -211,73 +196,41 @@
                     console.error("Error:", error);
                 });
         }
-        // FUNCTION FOR FETCHING DOCUMENTS FORM COLLECTION
-        // function getlist() {
+        
+        // SIGN IN FUNCTION
 
-        //     var a = document.getElementById("signup_form");
-        //     a.style.display = 'none';
-        //     document.getElementById("displaydata").style.display = "block";
-
-        //     var data;
-        //     fetch("http://localhost:5000/getlist", {
-        //         method: "GET", // or 'PUT'
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(data),
-        //     })
-        //         .then((response) => response.json())
-        //         .then((data) => {
-        //             console.log("Success:", data);
-        //             let myString = "";
-        //             data.forEach((element) => {
-        //                 let key = Object.keys(element)[1];
-        //                 let key1 = Object.keys(element)[2];
-        //                 let key2 = Object.keys(element)[3];
-        //                 myString += `<table>
-        //                                     <tr>
-        //                                         <th>UserName</th>
-        //                                         <th>ID</th>
-        //                                         <th>Age</th>
-        //                                     </tr>
-        //                                     <tr>
-        //                                         <td>${element[key]}</td>
-        //                                         <td>${element[key1]}</td>
-        //                                         <td>${element[key2]}</td>
-        //                                     </tr>
-        //                             </table>`;
-        //             });
-
-        //             document.getElementById("displaydata").innerHTML = myString;
-        //         })
-        //         .catch((error) => {
-        //             console.error("Error:", error);
-        //         });
-        // }
-        // function signin() {
-        //     debugger;
-        //     var data;
-        // }
-
-
-        function add() {
-            for (var i = 0; i <= keys.length; i++) {
-                var s = keys[i];
-                if (document.getElementById("email").value == s.emailsignup && document.getElementById("password").value == s.passwordsignup && s.user_type == "true") {
-                    window.open("resume.html");
-                }
-                else if (document.getElementById("email").value == s.emailsignup && document.getElementById("password").value == s.passwordsignup && s.user_type == "false") {
-                    window.open("https://iakashsharma.netlify.app/");
-                }
-                else {
-
-                    alert("Enter CORRECT CREDENTAILS");
-                }
-
-
-            }
+        function signin() {
+            var email1 = document.getElementById("email").value;
+            var password1 = document.getElementById("password").value;
+            var obj = { emailsignup: email1, passwordsignup: password1 };
+            fetch("http://localhost:1000/signin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+            })
+                .then((response) => { return response.json() })
+                .then((data) => {
+                    console.log(data);
+                    if (data.user_type == "true") {
+                        alert("WELCOME TO ADMIN VIEW");
+                        localStorage.setItem("firewall", "1");
+                        window.open("admin_dashboard.html");
+                    }
+                    else if (data.user_type == "false") {
+                        alert("WELCOME TO USER VIEW");
+                        localStorage.setItem("firewall2", "1");
+                        window.open("user_dashboard.html");
+                    }
+                    else {
+                        alert("Enter CORRECT CREDENTIAL");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error :", error);
+                });
         }
-
     </script>
 </body>
 

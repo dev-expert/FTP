@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var database, collection1, collection2;
 
 //CONNECTION START FOR BOTH SIGNIN SIGN UP AND RESUME
-app.listen(1000, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if (error) {
             throw error;
@@ -26,7 +25,7 @@ app.listen(1000, () => {
         collection2 = database.collection("demoSignINSignUP");
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
-});
+
 
 // DATA EXPORT FOR SIGN IN SIGN UP
 app.post("/regis", (request, response) => {
@@ -40,24 +39,32 @@ app.post("/regis", (request, response) => {
 });
 
 
-// DATA IMPORT
-// app.get("/getlist", (request, response) => {
-// collection.find({}).toArray((error, result) => {
-// if(error) {
-// return response.status(500).send(error);
-// }
-// response.send(result);
-// });
-// });
+//  DATA IMPORT FOR SIGN IN
+app.post("/signin", (request, response) => {
+    
+    var obj = request.body;
+    console.log(obj);
+    collection2.findOne(obj).then(result=>{
+        console.log(result);
+        response.json(result);
+    }).catch(err=>{
+        console.log(err);
+    })
+    //     if (err) throw err;
+    //     console.log(result);
+    //     response.json(result);
+    // })
+})
 
-//  DATA IMPORT FOR SIGN IN/SIGN UP
-app.get("/signin", (request, response) => {
-    collection2.find({}).toArray((error, result) => {
-        if (error) {
-            return response.status(500).send(error);
-        }
-        response.send(result);
-    });
+// DATA IMPORT TO LIST THE USERS
+app.get("/getL", (request, response) => {
+    console.log("get")
+collection2.find({}).toArray((error, result) => {
+if(error) {
+return response.status(500).send(error);
+}
+response.send(result);
+});
 });
 
 
@@ -82,3 +89,4 @@ app.get("/getresume", (request, response) => {
         response.send(result);
     });
 });
+app.listen(1000);
