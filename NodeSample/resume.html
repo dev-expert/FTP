@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -920,153 +921,149 @@
         </section>
     </div>
 
-        <!-- SCRIPT -->
-        <script>
-            var loadFile = function (event) {
-                var image = document.getElementById('image_out');
-                image.src = URL.createObjectURL(event.target.files[0]);
+    <!-- SCRIPT -->
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('image_out');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        // VALIDATION
+        function checke(url, msg) {
+            r = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+            if (r.test(url.value) == false)
+                alert("Enter Valid Phone Number");
+            else;
+            // alert(" ");
+        }
+
+        function checkf(url, msg) {
+            r = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+            if (r.test(url.value) == false)
+                alert("Enter Valid Email Id");
+            else;
+            // alert(" ");
+        }
+
+        // FUNCTION FOR ESTABLISHING CONNECTION
+        function register() {
+            var u_name = document.getElementById("name_in").value;
+            var u_tag_line = document.getElementById("tag_in").value;
+            var u_phone = document.getElementById("phone_in").value;
+            var u_mail = document.getElementById("mail_in").value;
+            var u_linkedin = document.getElementById("linkedin_in").value;
+            var u_experience = document.getElementById("experience_in").value;
+            var u_age = document.getElementById("age_in").value;
+            var u_about = document.getElementById("about_in").value;
+            var u_bachelorcollege = document.getElementById("bachelor_college_name_in").value;
+            var u_bachelormarks = document.getElementById("bachelors_marks_in").value;
+            var u_srsecname = document.getElementById("senior_secondry_college_name_in").value;
+            var u_srsecmarks = document.getElementById("senior_secondrys_marks_in").value;
+            var u_tenname = document.getElementById("matriculation_college_name_in").value;
+            var u_tenmarks = document.getElementById("matriculations_marks_in").value;
+
+            var u_quali1 = document.getElementById("quali_1").value;
+            var u_quali2 = document.getElementById("quali_2").value;
+            var u_quali3 = document.getElementById("quali_3").value;
+            var u_quali4 = document.getElementById("quali_4").value;
+
+            var u_project1 = document.getElementById("project_in_1").value;
+            var u_project2 = document.getElementById("project_in_2").value;
+            var u_project3 = document.getElementById("project_in_3").value;
+            var u_project4 = document.getElementById("project_in_4").value;
+            var u_project5 = document.getElementById("project_in_5").value;
+            var u_project6 = document.getElementById("project_in_6").value;
+            var u_project7 = document.getElementById("project_in_7").value;
+
+            var data = {
+                name_in: u_name, tag_in: u_tag_line, phone_in: u_phone,
+                mail_in: u_mail, linkedin_in: u_linkedin, experience_in: u_experience,
+                age_in: u_age, about_in: u_about,
+                bachelor_college_name_in: u_bachelorcollege, bachelors_marks_in: u_bachelormarks,
+                senior_secondry_college_name_in: u_srsecname, senior_secondrys_marks_in: u_srsecmarks,
+                matriculation_college_name_in: u_tenname, matriculations_marks_in: u_tenmarks,
+                quali_1: u_quali1, quali_2: u_quali2, quali_3: u_quali3, quali_4: u_quali4,
+                project_in_1: u_project1, project_in_2: u_project2, project_in_3: u_project3,
+                project_in_4: u_project4, project_in_5: u_project5, project_in_6: u_project6,
+                project_in_7: u_project7
             };
 
-            // VALIDATION
-            function checke(url, msg) {
-                r = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
-                if (r.test(url.value) == false)
-                    alert("Enter Valid Phone Number");
-                else;
-                // alert(" ");
-            }
-
-            function checkf(url, msg) {
-                r = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-                if (r.test(url.value) == false)
-                    alert("Enter Valid Email Id");
-                else;
-                // alert(" ");
-            }
-
-            // FUNCTION FOR ESTABLISHING CONNECTION
-            function register() {
-                var u_name = document.getElementById("name_in").value;
-                var u_tag_line = document.getElementById("tag_in").value;
-                var u_phone = document.getElementById("phone_in").value;
-                var u_mail = document.getElementById("mail_in").value;
-                var u_linkedin = document.getElementById("linkedin_in").value;
-                var u_experience = document.getElementById("experience_in").value;
-                var u_age = document.getElementById("age_in").value;
-                var u_about = document.getElementById("about_in").value;
-                var u_bachelorcollege = document.getElementById("bachelor_college_name_in").value;
-                var u_bachelormarks = document.getElementById("bachelors_marks_in").value;
-                var u_srsecname = document.getElementById("senior_secondry_college_name_in").value;
-                var u_srsecmarks = document.getElementById("senior_secondrys_marks_in").value;
-                var u_tenname = document.getElementById("matriculation_college_name_in").value;
-                var u_tenmarks = document.getElementById("matriculations_marks_in").value;
-
-                var u_quali1 = document.getElementById("quali_1").value;
-                var u_quali2 = document.getElementById("quali_2").value;
-                var u_quali3 = document.getElementById("quali_3").value;
-                var u_quali4 = document.getElementById("quali_4").value;
-
-                var u_project1 = document.getElementById("project_in_1").value;
-                var u_project2 = document.getElementById("project_in_2").value;
-                var u_project3 = document.getElementById("project_in_3").value;
-                var u_project4 = document.getElementById("project_in_4").value;
-                var u_project5 = document.getElementById("project_in_5").value;
-                var u_project6 = document.getElementById("project_in_6").value;
-                var u_project7 = document.getElementById("project_in_7").value;
-
-                var data = {
-                    name_in: u_name, tag_in: u_tag_line, phone_in: u_phone,
-                    mail_in: u_mail, linkedin_in: u_linkedin, experience_in: u_experience,
-                    age_in: u_age, about_in: u_about,
-                    bachelor_college_name_in: u_bachelorcollege, bachelors_marks_in: u_bachelormarks,
-                    senior_secondry_college_name_in: u_srsecname, senior_secondrys_marks_in: u_srsecmarks,
-                    matriculation_college_name_in: u_tenname, matriculations_marks_in: u_tenmarks,
-                    quali_1: u_quali1, quali_2: u_quali2, quali_3: u_quali3, quali_4: u_quali4,
-                    project_in_1: u_project1,
-                    project_in_2: u_project2,
-                    project_in_3: u_project3,
-                    project_in_4: u_project4,
-                    project_in_5: u_project5,
-                    project_in_6: u_project6,
-                    project_in_7: u_project7
-                };
-
-                fetch("http://localhost:1000/register", {
-                    method: "POST", // or 'PUT'
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
+            fetch("http://localhost:1000/register", {
+                method: "POST", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
                 })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        console.log("Success:", data);
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                    });
-            }
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
 
-            // FUNCTION FOR FETCHING DOCUMENTS FORM COLLECTION
-            function getresume() {
+        // FUNCTION FOR FETCHING DOCUMENTS FORM COLLECTION
+        function getresume() {
+            // HIDING FORM AND DISPLAYING RESUEME
+            var a = document.getElementById("form");
+            a.style.display = 'none';
+            document.getElementById("resume_preview").style.display = "block";
 
-                var a = document.getElementById("form");
-                a.style.display = 'none';
-                document.getElementById("resume_preview").style.display = "block";
+            var data;
+            fetch("http://localhost:1000/getresume", {
+                method: "GET", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                    var keys = data;
+                    var s = keys[keys.length - 1];
 
-                var data;
-                fetch("http://localhost:1000/getresume", {
-                    method: "GET", // or 'PUT'
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
+                    // BASIC INFO
+                    document.getElementById('name_out').innerHTML = s.name_in;
+                    document.getElementById('tag_out').innerHTML = s.tag_in;
+                    document.getElementById('call_num_out').innerHTML = s.phone_in;
+                    document.getElementById('gmail_id_out').innerHTML = s.mail_in;
+                    document.getElementById('linkedin_out').innerHTML = s.linkedin_in;
+                    document.getElementById('experience_out').innerHTML = s.experience_in;
+                    document.getElementById('age_out').innerHTML = s.age_in;
+                    document.getElementById('about_out').innerHTML = s.about_in;
+                    document.getElementById('bachelor_college_name_out').innerHTML = s.bachelor_college_name_in;
+                    document.getElementById('bachelors_marks_out').innerHTML = s.bachelors_marks_in;
+                    document.getElementById('senior_secondry_college_name_out').innerHTML = s.senior_secondry_college_name_in;
+                    document.getElementById('senior_secondrys_marks_out').innerHTML = s.senior_secondrys_marks_in;
+                    document.getElementById('matriculation_college_name_out').innerHTML = s.matriculation_college_name_in;
+                    document.getElementById('matriculations_marks_out').innerHTML = s.matriculations_marks_in;
+
+                    // QUALIFICATION INFO
+                    document.getElementById('quali_out_1').innerHTML = s.quali_1;
+                    document.getElementById('quali_out_2').innerHTML = s.quali_2;
+                    document.getElementById('quali_out_3').innerHTML = s.quali_3;
+                    document.getElementById('quali_out_4').innerHTML = s.quali_4;
+
+                    // PROJECTS INFO
+                    document.getElementById('project_out_1').innerHTML = s.project_in_1;
+                    document.getElementById('project_out_2').innerHTML = s.project_in_2;
+                    document.getElementById('project_out_3').innerHTML = s.project_in_3;
+                    document.getElementById('project_out_4').innerHTML = s.project_in_4;
+                    document.getElementById('project_out_5').innerHTML = s.project_in_5;
+                    document.getElementById('project_out_6').innerHTML = s.project_in_6;
+                    document.getElementById('project_out_7').innerHTML = s.project_in_7;
+
                 })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        console.log("Success:", data);
-                        var keys = data;
-                        var s = keys[keys.length - 1];
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
 
-                        // BASIC INFO
-                        document.getElementById('name_out').innerHTML = s.name_in;
-                        document.getElementById('tag_out').innerHTML = s.tag_in;
-                        document.getElementById('call_num_out').innerHTML = s.phone_in;
-                        document.getElementById('gmail_id_out').innerHTML = s.mail_in;
-                        document.getElementById('linkedin_out').innerHTML = s.linkedin_in;
-                        document.getElementById('experience_out').innerHTML = s.experience_in;
-                        document.getElementById('age_out').innerHTML = s.age_in;
-                        document.getElementById('about_out').innerHTML = s.about_in;
-                        document.getElementById('bachelor_college_name_out').innerHTML = s.bachelor_college_name_in;
-                        document.getElementById('bachelors_marks_out').innerHTML = s.bachelors_marks_in;
-                        document.getElementById('senior_secondry_college_name_out').innerHTML = s.senior_secondry_college_name_in;
-                        document.getElementById('senior_secondrys_marks_out').innerHTML = s.senior_secondrys_marks_in;
-                        document.getElementById('matriculation_college_name_out').innerHTML = s.matriculation_college_name_in;
-                        document.getElementById('matriculations_marks_out').innerHTML = s.matriculations_marks_in;
-
-                        // QUALIFICATION INFO
-                        document.getElementById('quali_out_1').innerHTML = s.quali_1;
-                        document.getElementById('quali_out_2').innerHTML = s.quali_2;
-                        document.getElementById('quali_out_3').innerHTML = s.quali_3;
-                        document.getElementById('quali_out_4').innerHTML = s.quali_4;
-
-                        // PROJECTS INFO
-                        document.getElementById('project_out_1').innerHTML = s.project_in_1;
-                        document.getElementById('project_out_2').innerHTML = s.project_in_2;
-                        document.getElementById('project_out_3').innerHTML = s.project_in_3;
-                        document.getElementById('project_out_4').innerHTML = s.project_in_4;
-                        document.getElementById('project_out_5').innerHTML = s.project_in_5;
-                        document.getElementById('project_out_6').innerHTML = s.project_in_6;
-                        document.getElementById('project_out_7').innerHTML = s.project_in_7;
-
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                    });
-            }
-
-        </script>
-        <script>
+    </script>
+    <script>
     // // VALIDATION OF ADMIN USER TYPE
     // var session = 0;
 
@@ -1087,7 +1084,7 @@
     //   localStorage.removeItem("firewall2");
     //   location.replace("signin_signup.html");
     // }
-        </script>
+    </script>
 </body>
 
 </html>

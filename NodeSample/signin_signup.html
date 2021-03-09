@@ -36,24 +36,6 @@
             background-color: white;
         }
 
-        input[type=submit] {
-            font-size: 12px;
-            height: 5vh;
-            width: 15vw;
-            border: 2px solid balck;
-            background-color: #1877f2;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type=submit]:hover {
-            background-color: white;
-            color: #1877f2;
-            border-color: #1877f2;
-            transform: scale(1.1);
-            transition: 1s;
-        }
-
         input[type=button] {
             font-size: 12px;
             height: 5vh;
@@ -157,7 +139,7 @@
                 </select>
             </p>
             <p class="signup_button">
-                <input type="submit" onclick="register()" />
+                <input type="button" value="Register"  onclick="register()" />
             </p>
             <!-- <p class="clear_button">
                 <input type="button" onclick="clearlocalstorage()" value="Delete All Users" />
@@ -196,7 +178,7 @@
                     console.error("Error:", error);
                 });
         }
-        
+
         // SIGN IN FUNCTION
 
         function signin() {

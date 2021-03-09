@@ -58,7 +58,7 @@ app.post("/signin", (request, response) => {
 
 // DATA IMPORT TO LIST THE USERS
 app.get("/getL", (request, response) => {
-    console.log("get")
+    console.log("getL")
 collection2.find({}).toArray((error, result) => {
 if(error) {
 return response.status(500).send(error);
