@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+ body{
+  padding:0;
+  margin:0;
+  /* background: rgb(120, 202, 184); */
+}
+
+.box{
+  position:absolute;
+  height:100%;
+  width:100%;
+  /* color:rgba(85, 43, 43, 0.918);
+  background:rgba(255, 255, 255, 0.925); */
+  padding:30px 0px;
+  
+}
+.box h1{
+  text-align:center;
+  margin:30px 0;
+  font-size:30px;
+  color: #742ECC;
+}
+.box input{
+  display:block;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  background:rgba(0,0,0,0.2);
+  color:rgb(34, 30, 30);
+  border:0;
+}
+/* .box input:focus,.box input:active,.box button:focus,.box button:active{
+  outline:none;
+} */
+.box button{
+  background:#742ECC;
+  border:0;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+  width:330px;
+  margin:20px auto;
+  display:block;
+  cursor:pointer;
+}
+.box button:active{
+  background:#27ae60;
+}
+.box p{
+  font-size:14px;
+  text-align:center;
+}
+.box p span{
+  cursor:pointer;
+  color:#742ECC;
+}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Sign Up</h1>
+        <input type="text" placeholder="name" required>
+        <input type="email" placeholder="username/email" required>
+        <input type="password" placeholder="password" required>
+        <button>Sign Up</button>
+        <p>New user ? &nbsp; <span>Sign Up</span></p>
+      </div>
+</body>
+</html>
