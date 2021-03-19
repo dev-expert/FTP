@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "338882672801",
+    "firebase_url": "https://first-f505a-default-rtdb.firebaseio.com",
+    "project_id": "first-f505a",
+    "storage_bucket": "first-f505a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338882672801:android:895f51a1548c22596f58e0",
+        "android_client_info": {
+          "package_name": "com.sahan.login_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338882672801-kvnd7sl28vk59ecq8ubgrrs1j2hsqfcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtZ9VRwLNrlnoJZ2OMlm_1WHDc_ZAuqJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338882672801-kvnd7sl28vk59ecq8ubgrrs1j2hsqfcu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
