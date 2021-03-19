@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<source src="data.js" >
+</head>
+<body>
+    <div id="displayallusers">
+        HI
+    </div>
+    <script>
+        fetch("http://localhost:5555/login")
+.then(res => res.text())
+.then(text =>{
+    var keys = JSON.parse(text);
+
+// console.log(text)
+        // var str=text;
+        // for(i=0;i<keys.length;i++)
+        // {
+        //    document.write(
+        //        '${s.HI}')
+                                                                        
+        // }
+        x = keys[0]
+        document.getElementById("displayallusers").innerHTML=x.HI;   
+console.log("HI")
+        // document.write("Hello")  
+  }) 
+    </script>
+</body>
+</html>
