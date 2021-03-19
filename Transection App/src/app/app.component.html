@@ -1,0 +1,75 @@
+<div class="container">
+  <table class="table table-trapped table-bordered">
+    <thead>
+      <tr>
+        <!-- <th>Id</th> -->
+        <th>Type</th>
+        <th>Ammount</th>
+        <th>Description</th>
+        <!-- <th>Get User Info</th> -->
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of transectiontable">
+        <!-- <td>{{data.id}}</td> -->
+        <td>{{data.type}}</td>
+        <td>{{data.ammount}}</td>
+        <td>{{data.description}}</td>
+        <!-- <td><button class="btn btn-primary" (click)="getCurrentUser(data)">Get User</button></td> -->
+      </tr>
+    </tbody>
+  </table>
+  <!-- <button type="button" class="btn btn-primary" (click)="showModalFunction()" data-toggle="modal"
+    data-target="#myModal">
+    Add Transaction
+  </button> -->
+  <br>
+  <br>
+  <button class="btn btn-primary" (click)="open(content)">Add Transection</button>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Transection</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="method">Choose Method</label>
+          <select class="form-control" id="method"  [(ngModel)]="transectiontable.type" [ngModelOptions]="{standalone: true}" >
+            <option id="credit">Credit</option>
+            <option id="debit">Debit</option>
+          </select>
+        </div>
+          <div class="form-group">
+              <label for="ammount">Ammount</label>
+              <input type="number" ng class="form-control" id="ammount" placeholder="ex.5000"  [(ngModel)]="transectiontable.amount" [ngModelOptions]="{standalone: true}" >
+          </div>
+          <div class="form-group">
+              <label for="desc">Description</label>
+              <input type="text" class="form-control" id="text" placeholder="ex.Printing Cost"  [(ngModel)]="transectiontable.description"  [ngModelOptions]="{standalone: true}">
+          </div>
+
+      </form>
+  </div>
+  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="postModalData(); modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<pre>{{ closeResult }}</pre>
+
+<!-- <app-child  (parentFunction)="parentFunction($event)"></app-child> -->
+<!-- <h1>{{name}}</h1> -->
+
+<!-- <ul *ngFor="let x of data">
+  <li>
+      {{x.name}}{{x.age}}
+  </li>
+</ul> -->
