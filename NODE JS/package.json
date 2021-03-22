@@ -1,11 +1,11 @@
 {
-  "name": "node-js",
+  "name": "js",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.6.4"
+    "mongodb": "^3.6.4",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -13,5 +13,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
