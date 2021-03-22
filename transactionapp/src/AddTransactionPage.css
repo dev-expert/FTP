@@ -1,0 +1,18 @@
+/* .Div_AddTrans{
+    box-sizing: border-box;
+    text-align: center;
+    position :relative;
+    width:50%;
+
+} */
+div{
+    width :50%;
+    height :fixed;
+    background:#8e44ad;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position:relative;
+  }
