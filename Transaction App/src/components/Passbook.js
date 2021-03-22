@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import { response } from 'express'
 
+
+//Creating a Class Function
 class AxiosData extends Component {
     constructor(props) {
         super(props)
-    
+    // Declaring Variables
         this.state = {
              data : [],
              Balance : 0
         }
     }
     componentDidMount(){
-// axios.get("mongodb+srv://user:pass@mahi.bsizi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-// axios.get("https://jsonplaceholder.typicode.com/posts")
-axios.get("http://localhost:5555/get")
+axios.get("http://localhost:5555/get")                        //Using Axio store variables
 .then(response =>{
     console.log(response.data)
     const creditData = response.data.filter(x => x.TransactionType == "Credit");
@@ -43,13 +42,11 @@ tableStyle = {
                 <table style = {this.tableStyle}>
                     <tr>
                         <td style = {this.tableStyle}>Date</td>
-                        {/* <td style = {this.tableStyle}>TransactionType</td> */}
-                        
+                        <td style = {this.tableStyle}>Discription</td>
+
                         <td style = {this.tableStyle}>Debit</td>
                         <td style = {this.tableStyle}>Credit</td>
-                        {/* <td style = {this.tableStyle}>Amount</td> */}
                         <td style = {this.tableStyle}>Balance</td>
-                        <td style = {this.tableStyle}>Discription</td>
 
 
                     </tr>
@@ -57,26 +54,17 @@ tableStyle = {
                      data.length ?
                      data.reverse().map(data => <tr style = {this.tableStyle}>
                           <td style = {this.tableStyle}>{data.Date} </td>
-                           {/* <td style = {this.tableStyle}>{data.TransactionType}</td> */}
+                          <td style = {this.tableStyle}>{data.Discription}</td>
+
                            
                            <td style = {this.tableStyle}>{data.TransactionType == 'Debit' ? <>{data.Amount}</> : <p></p>}</td>
                            <td style = {this.tableStyle}>{data.TransactionType == 'Credit' ? <>{data.Amount}</> : <p></p>}</td>
 
-                            {/* <td style = {this.tableStyle}>{data.Amount}</td>  */}
                             <td style = {this.tableStyle}><>{data.TransactionType == 'Debit' ? <>{Number(data.Balance) - Number(data.Amount)}</> : <>{Number(data.Balance) + Number(data.Amount)}</>}</></td>
-                            <td style = {this.tableStyle}>{data.Discription}</td>
 
                             </tr>) : null
                  }
-                 {/* <tr>
-                        <td style = {{color: 'red' }}>Total Balance</td>
-                        <td ></td>
-                        <td ></td>
-                        <td style = {this.tableStyle}>{this.state.Balance}</td>
-                        <td ></td>
-
-
-                    </tr> */}
+                
                  </table>
             </div>
         )

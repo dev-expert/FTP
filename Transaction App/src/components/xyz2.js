@@ -7,10 +7,27 @@ const Posts = ({ posts, loading }) => {
 
   return (
     <ul className='list-group mb-4'>
-      {posts.map(post => (
-        <li key={post.id} className='list-group-item'>
-          {post.Amount}
-        </li>
+      {posts.reverse().map(post => (
+        // <li key={post.id} className='list-group-item'>
+        //   {post.Date}   {post.Amount}    {post.TransactionType}
+        // </li>
+<table>
+<tr>
+<td>{post.Date}</td>
+<td >{post.Discription}</td>
+<td>{post.TransactionType == 'Debit' ? <>{post.Amount}</> : <p></p>}</td>
+<td>{post.TransactionType == 'Credit' ? <>{post.Amount}</> : <p></p>}</td>
+<td><>{post.TransactionType == 'Debit' ? <>{Number(post.Balance) - Number(post.Amount)}</> : <>{Number(post.Balance) + Number(post.Amount)}</>}</></td>
+
+
+
+
+
+</tr>
+  
+</table>
+
+
       ))}
     </ul>
   );
