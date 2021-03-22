@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Pagination from "react-js-pagination";
+
 // import { response } from 'express'
 
 class AxiosData extends Component {
@@ -8,10 +10,12 @@ class AxiosData extends Component {
     
         this.state = {
              data : [],
-             Balance : 0
+             Balance : 0,
+             activePage: 15
+
         }
     }
-    componentDidMount(){
+    componentDidMount(){http://localhost:5555/get
 // axios.get("mongodb+srv://user:pass@mahi.bsizi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 // axios.get("https://jsonplaceholder.typicode.com/posts")
 axios.get("http://localhost:5555/get")
@@ -36,10 +40,28 @@ tableStyle = {
     fontFamily: "Arial",
     border : 'solid'
 }
+
+
+handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+  }
+
+
     render() {
         const {data } = this.state
         return (
             <div>
+
+                
+<div>
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={5}
+          totalItemsCount={45}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange.bind(this)}
+        />
                 <table style = {this.tableStyle}>
                     <tr>
                         <td style = {this.tableStyle}>Date</td>
@@ -78,6 +100,13 @@ tableStyle = {
 
                     </tr> */}
                  </table>
+
+
+
+      </div>
+
+
+
             </div>
         )
     }
