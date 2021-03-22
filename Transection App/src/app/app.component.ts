@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DatatableService } from './datatable.services';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,32 +10,67 @@ import { DatatableService } from './datatable.services';
 })
 export class AppComponent {
   title = 'Assignment';
-  // name = "";
-  // type;
-  // amount;
-  // description;
-
-  // parentFunction(data) {
-  //   console.log(data);
-  //   this.name=data.name;
-  // }
-  
+  // name: string = "";
+  // CLOSE RESULT REASON
   closeResult = '';
 
-  transectiontable: any = [
-    // { type: 'Credit', ammount: '500', description: 'Furniture Expences' },
-    // { type: 'Debit', ammount: '1500', description: 'Wallpaper Expences' },
-    // { type: 'Credit', ammount: '5500', description: 'Utencils Expences' },
-    // { type: 'Debit', ammount: '2500', description: 'Utility Expences' }
-  ];
+  // BALANCE MAINTAIN
+  b: any = [];
+  rb = 0;
 
-  constructor(private modalService: NgbModal, private _datatable: DatatableService ) { }
+  // TRANSACTION EXPORT
+  data1: any = {
+    type: "",
+    amount: "",
+    description: ""
+  };
+
+  // CURRENT TIME AND DATA
+  today = new Date();
+  todaysDataTime = '';
+
+  // IMPORT TRANSACTION
+  transectiontable: any = [];
+  constructor(private modalService: NgbModal, private _datatable: DatatableService) {
+    this.todaysDataTime = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+  }
 
   ngOnInit() {
-    this._datatable.getdata().subscribe(data =>this.transectiontable=data)
+    this._datatable.getdata().subscribe((res: any) => {
+      // this.transectiontable = res;
+      let rb: number = 0;
+      // BALANCE 
+      for (let a of res) {
+        a.type == "Credit" ? rb = rb + parseInt(a.amount) : 0;
+        a.type == "Debit" ? rb = rb - parseInt(a.amount) : 0;
+
+
+        // PUSSING DATA INTO TABLE
+        this.b.push({
+          amount: a.amount,
+          description: a.description,
+          type: a.type,
+          rb: rb
+        });
+
+      }
+
+      // RECENT ENTERED TRANSACTION
+      this.b = this.b.reverse();
+      console.log(this.b)
+
+    });
+
   }
-    
-      // this.transectiontable},}
+
+  // FUNCTION TO EXPORT TRANSACTION
+  postModalData() {
+    console.log(this.data1);
+    this._datatable.registeruser(this.data1);
+    this.b = [];
+    this.ngOnInit();
+
+  }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -53,25 +89,10 @@ export class AppComponent {
       return `with: ${reason}`;
     }
   }
-
-  // getCurrentUser(user){
-  //   console.log(user);
-
-  // showModalFunction() {
-  //   console.log('hello')
-  // }
-
-  postModalData() {
-    // console.log(".", this.transectiontable)
-    let item = {
-      ammount: this.transectiontable.amount,
-      description: this.transectiontable.description,
-      type: this.transectiontable.type
-    }
-    this._datatable.postdata().subscribe(data =>this.transectiontable=data)
-    this.transectiontable.push(item)
-  }
 }
+
+
+
 
 
 

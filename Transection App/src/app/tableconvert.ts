@@ -1,6 +1,5 @@
-export interface tabledatainterface{
-    type:string,
-    ammount:string,
-    description:string,
-   
-    }
+export interface tabledatainterface {
+    type: string,
+    amount: string,
+    description: string,
+}

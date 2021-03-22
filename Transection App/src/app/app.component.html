@@ -2,20 +2,23 @@
   <table class="table table-trapped table-bordered">
     <thead>
       <tr>
-        <!-- <th>Id</th> -->
+       <th>Transaction Time</th>
         <th>Type</th>
         <th>Ammount</th>
         <th>Description</th>
-        <!-- <th>Get User Info</th> -->
-      
+        <th>Remaining Balance</th>
+       
+
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of transectiontable">
-        <!-- <td>{{data.id}}</td> -->
+      <tr *ngFor="let data of b">
+        <td>{{todaysDataTime}}</td>
         <td>{{data.type}}</td>
-        <td>{{data.ammount}}</td>
+        <td>{{data.amount}}</td>
         <td>{{data.description}}</td>
+        <td>{{data.rb}}</td>
+        
         <!-- <td><button class="btn btn-primary" (click)="getCurrentUser(data)">Get User</button></td> -->
       </tr>
     </tbody>
@@ -26,11 +29,11 @@
   </button> -->
   <br>
   <br>
-  <button class="btn btn-primary" (click)="open(content)">Add Transection</button>
+  <button class="btn btn-primary" (click)="open(content)">Add Transaction</button>
 </div>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add Transection</h4>
+    <h4 class="modal-title" id="modal-basic-title">Add Transaction</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -40,35 +43,38 @@
       <form>
         <div class="form-group">
           <label for="method">Choose Method</label>
-          <select class="form-control" id="method"  [(ngModel)]="transectiontable.type" [ngModelOptions]="{standalone: true}" >
+          <select class="form-control" id="method" [(ngModel)]="data1.type" [ngModelOptions]="{standalone: true}">
             <option id="credit">Credit</option>
             <option id="debit">Debit</option>
           </select>
         </div>
-          <div class="form-group">
-              <label for="ammount">Ammount</label>
-              <input type="number" ng class="form-control" id="ammount" placeholder="ex.5000"  [(ngModel)]="transectiontable.amount" [ngModelOptions]="{standalone: true}" >
-          </div>
-          <div class="form-group">
-              <label for="desc">Description</label>
-              <input type="text" class="form-control" id="text" placeholder="ex.Printing Cost"  [(ngModel)]="transectiontable.description"  [ngModelOptions]="{standalone: true}">
-          </div>
+        <div class="form-group">
+          <label for="ammount">Ammount</label>
+          <input type="number" ng class="form-control" id="ammount" placeholder="ex.5000" [(ngModel)]="data1.amount"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <input type="text" class="form-control" id="text" placeholder="ex.Printing Cost"
+            [(ngModel)]="data1.description" [ngModelOptions]="{standalone: true}">
+        </div>
 
       </form>
-  </div>
-  
+    </div>
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="postModalData(); modal.close('Save click')">Save</button>
   </div>
 </ng-template>
 
-<pre>{{ closeResult }}</pre>
+<!-- <pre>{{ closeResult }}</pre>
+<router-outlet></router-outlet>
 
-<!-- <app-child  (parentFunction)="parentFunction($event)"></app-child> -->
-<!-- <h1>{{name}}</h1> -->
+<app-child  (parentFunction)="parentFunction($event)"></app-child>
+<h1>{{name}}</h1>
 
-<!-- <ul *ngFor="let x of data">
+<ul *ngFor="let x of data">
   <li>
       {{x.name}}{{x.age}}
   </li>
