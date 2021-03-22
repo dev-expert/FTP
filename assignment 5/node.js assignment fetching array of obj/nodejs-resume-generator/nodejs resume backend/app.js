@@ -53,14 +53,21 @@ app.post('/signup', async(req, res) => {
 });
 
 //for login
-app.get('/login', async(req, response) => {
-    await con.collection('persons').find({}).toArray((error, result) => {
-        if (error) {
-            return response.status(500).send(error);
-        }
+app.post('/login', async(req, response) => {
+    // await con.collection('persons').find({}).toArray((error, result) => {
+    //     if (error) {
+    //         return response.status(500).send(error);
+    //     }
 
-        response.send(result);
-    });
+    //     response.send(result);
+    // });
+    var q = req.body //obj recieved
+    console.log(q)
+    await con.collection('persons').findOne(q, function(err, result) {
+        if (err) throw err;
+        console.log(result + ' inside backend');
+        response.json(result);
+    })
 })
 
 

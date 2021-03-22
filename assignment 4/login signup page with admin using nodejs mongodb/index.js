@@ -64,47 +64,61 @@ var loginpg = () => {
     var loginemail_address = document.getElementById('email_address1').value;
     var loginpassword = document.getElementById('password1').value;
     var result;
+    var obj = {
+        email_address: loginemail_address,
+        password: loginpassword
+    };
 
 
     // var old1 = JSON.parse(localStorage.getItem('person'));
     //start
     fetch("http://localhost:8086/login", {
-            method: "GET",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(result),
+            body: JSON.stringify(obj),
         })
         .then((response) => response.json())
-        .then((result) => {
 
-            var keys = result;
+    .then((data) => {
+        console.log(data)
+            // document.getElementById("username1").innerHTML = data.name;
+        if (data.admin == "false") {
+            alert('welcome to the user')
+            window.open('normal_user.html')
 
-            console.log(keys);
-            for (i = 0; i < keys.length; i++) {
-                var s = keys[i];
-                console.log(s);
-                storedEmail = s.email_address;
-                storedPassword = s.password;
-                usertype = s.admin;
+        } else {
+            alert('welcome admin')
+            localStorage.setItem('persons', data.email_address);
+            window.open('admin.html');
+        }
+    })
 
-                if (storedEmail == loginemail_address && storedPassword == loginpassword) {
-                    if (usertype == 'true') {
-                        window.open('admin.html');
-                        localStorage.setItem('persons', storedEmail);
-                        break;
-                    } else {
-                        alert('welcome to the user')
-                        window.open('normal_user.html')
-                        break;
-                    }
+    // for (i = 0; i < keys.length; i++) {
+    //     var s = keys[i];
+    //     console.log(s);
+    //     storedEmail = s.email_address;
+    //     storedPassword = s.password;
+    //     usertype = s.admin;
 
-                }
-                //end
-            }
+    //     if (storedEmail == loginemail_address && storedPassword == loginpassword) {
+    //         if (usertype == 'true') {
+    //             window.open('admin.html');
+    //             localStorage.setItem('persons', storedEmail);
+    //             break;
+    //         } else {
+    //             alert('welcome to the user')
+    //             window.open('normal_user.html')
+    //             break;
+    //         }
+
+    //     }
+    //     //end
+    // }
 
 
-        });
+
 
 
     //end
