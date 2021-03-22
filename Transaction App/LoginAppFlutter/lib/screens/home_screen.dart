@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     crudObj.getData().then((result) {
       showndata = result;
+      super.initState();
     });
-    super.initState();
   }
 
   @override
@@ -84,24 +84,47 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         onPressed: () {
-          Navigator.of(context).pushReplacementNamed(AddTransactions.routeName);
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => AddTransactions()),
+          // );
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return AddTransactions();
+          }));
+
+          //Navigator.of(context).pushReplacementNamed(AddTransactions.routeName);
         },
         icon: Icon(Icons.add),
         label: Text('Add Transcation'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: _userList(),
+      body: (Container(
+        // color: Colors.black12,
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 80),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25), color: Colors.black12),
+        child: _userList(),
+      )),
     );
   }
 
   Widget _userList() {
-    var balance = 0;
-
+    int balance = 0;
     if (showndata != null) {
       return ListView.builder(
         itemCount: showndata.docs.length,
         padding: EdgeInsets.all(15.0),
         itemBuilder: (context, i) {
+          if (showndata.docs[i].data()['valueSelectedByUser'] == "Credit") {
+            balance =
+                balance + int.parse(showndata.docs[i].data()['amountValue']);
+          } else {
+            balance =
+                balance - int.parse(showndata.docs[i].data()['amountValue']);
+          }
+
+          String strbal = balance.toString();
+
           return new ListTile(
             title: Text(showndata.docs[i].data()['descriptionValue']),
             subtitle: Text('Amount : ' +
@@ -114,72 +137,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 showndata.docs[i].data()['month'] +
                 '/' +
                 showndata.docs[i].data()['year']),
-            trailing: Text('Balance' + '\n 00000'),
+            trailing: Text('Balance' + '\n' + strbal),
           );
         },
       );
     } else {
-      return Text('No Data');
+      return Text('');
     }
-    // body: Column(children: <Widget>[
-    //   Padding(
-    //     padding: const EdgeInsets.all(8.0),
-    //     child: Row(
-    //       children: <Widget>[
-    //         RaisedButton(
-    //           child: Text('Add transactions'),
-    //           onPressed: () {
-    //             Navigator.of(context)
-    //                 .pushReplacementNamed(AddTransactions.routeName);
-    //           },
-    //           shape: RoundedRectangleBorder(
-    //             borderRadius: BorderRadius.circular(30),
-    //           ),
-    //           color: Colors.black87,
-    //           textColor: Colors.white,
-    //         )
-    //       ],
-    //     ),
-    //   ),
-    //   Padding(
-    //     padding: const EdgeInsets.all(8.0),
-    //     child: Text(
-    //       "Balance Sheet",
-    //       textScaleFactor: 2,
-    //       style: TextStyle(fontWeight: FontWeight.bold),
-    //     ),
-    //   ),
-    //   Padding(
-    //       padding: const EdgeInsets.all(16.0),
-    //       child: Container(
-    //         _top(),
-    //       )),
-    // ]),
   }
-
-  // BuildContext top() {
-  //   Widget build(BuildContext context) {
-  //     return StreamBuilder<QuerySnapshot>(
-  //       stream: FirebaseFirestore.instance.collection("First").snapshots(),
-  //       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-  //         return new ListView(children: createChildren(snapshot));
-  //       },
-  //     );
-  //   }
-
-  // FirebaseFirestore.instance.collection("First").get().then((querySnapshot) {
-  //   querySnapshot.docs.forEach((result) {
-  //     FirebaseFirestore.instance
-  //         .collection("First")
-  //         .doc(result.id)
-  //         .collection("pets")
-  //         .get()
-  //         .then((querySnapshot) {
-  //       querySnapshot.docs.forEach((result) {
-  //         print(result.data());
-  //       });
-  //     });
-  //   });
-  // });
-  //}
 }

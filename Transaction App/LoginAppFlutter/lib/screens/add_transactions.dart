@@ -22,19 +22,14 @@ class _AddTransactionsState extends State<AddTransactions> {
     super.initState();
     _nameController = TextEditingController();
     _numberController = TextEditingController();
-    //_ref = FirebaseDatabase.instance.reference();
-    //var firestoreInstance = FirebaseFirestore.instance;
   }
 
   void _add() async {
+    int balance = 0;
+    await Firebase.initializeApp();
+
     String desc = _nameController.text;
     String amount = _numberController.text;
-
-    // Map<String, String> data = {
-    //   'desc': desc,
-    //   'amount': amount,
-    //   'type': _typeSelected,
-    // };
 
     Map<String, dynamic> data = {
       'time': DateTime.now().toUtc(),
@@ -45,54 +40,66 @@ class _AddTransactionsState extends State<AddTransactions> {
       'descriptionValue': desc,
       'valueSelectedByUser': dropdownValue,
     };
-    await Firebase.initializeApp();
-    FirebaseFirestore.instance.collection("First").add(data).then((value) {
-      if (amount == "" || desc == "") {
-        Widget okButton = FlatButton(
-          child: Text("OK"),
-          onPressed: () {
-            Navigator.of(context)
-                .pushReplacementNamed(AddTransactions.routeName);
-          },
-        );
-        // set up the AlertDialog
-        AlertDialog alert = AlertDialog(
-          content: Text("Kindly Add appropriate values"),
-          actions: [
-            okButton,
-          ],
-        );
-        // show the dialog
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return alert;
-          },
-        );
-      } else {
-        // set up the button
-        Widget okButton = FlatButton(
-          child: Text("OK"),
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-          },
-        );
-        // set up the AlertDialog
-        AlertDialog alert = AlertDialog(
-          content: Text("Transaction Added Successfully"),
-          actions: [
-            okButton,
-          ],
-        );
-        // show the dialog
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return alert;
-          },
-        );
-      }
-    });
+
+    Map<String, dynamic> blc = {
+      'balance': balance,
+    };
+
+    FirebaseFirestore.instance.collection("First").doc("balance").set(blc);
+
+    FirebaseFirestore.instance.collection("First").add(data).then(
+      (value) {
+        if (amount == "" || desc == "") {
+          Widget okButton = FlatButton(
+            child: Text("OK"),
+            onPressed: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(AddTransactions.routeName);
+            },
+          );
+          // set up the AlertDialog
+          AlertDialog alert = AlertDialog(
+            content: Text("Kindly Add appropriate values"),
+            actions: [
+              okButton,
+            ],
+          );
+          // show the dialog
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return alert;
+            },
+          );
+        } else {
+          // set up the button
+          Widget okButton = FlatButton(
+            child: Text("OK"),
+            onPressed: () {
+              //Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            },
+          );
+          // set up the AlertDialog
+          AlertDialog alert = AlertDialog(
+            content: Text("Transaction Added Successfully"),
+            actions: [
+              okButton,
+            ],
+          );
+          // show the dialog
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return alert;
+            },
+          );
+        }
+      },
+    );
 
     // _ref.push().set(data).then((value) {
     //   Navigator.pop(context);
@@ -111,7 +118,7 @@ class _AddTransactionsState extends State<AddTransactions> {
             ),
             textColor: Colors.white,
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+              Navigator.of(context).pop();
             },
           )
         ],
