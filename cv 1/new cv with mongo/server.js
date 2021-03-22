@@ -15,37 +15,53 @@ var database, collection;
 
 //connection start
 app.listen(5000, () => {
-MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
-if (error) {
-throw error;
-}
-database = client.db(DATABASE_NAME);
-collection = database.collection("signupdata");
-console.log("Connected to `" + DATABASE_NAME + "`!");
-});
+    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+        if (error) {
+            throw error;
+        }
+        database = client.db(DATABASE_NAME);
+        collection = database.collection("signupdata");
+        console.log("Connected to `" + DATABASE_NAME + "`!");
+    });
 });
 
 // export data
 app.post("/exportdata", (request, response) => {
-collection.insert(request.body, (error, result) => {
-if (error) {
-return response.status(500).send(error);
-}
-console.log("Data Sent");
-response.json(true);
-});
+    collection.insert(request.body, (error, result) => {
+        if (error) {
+            return response.status(500).send(error);
+        }
+        console.log("Data Sent");
+        response.json(true);
+    });
 });
 
 
+
+app.post("/importdata", (req, response) => {
+
+    var q = req.body;
+    console.log(q);
+    //.toArray(
+    collection.findOne(q, function (err, result) {
+        console.log("hii")
+        if (err) throw err;
+
+        console.log(result);
+
+
+        response.json(result);
+    })
+})
 // import data
-app.get("/importdata", (request, response) => {
-collection.find({}).toArray((error, result) => {
-if (error) {
-return response.status(500).send(error);
-}
-response.send(result);
-});
-});
+// app.get("/importdata", (request, response) => {
+// collection.find({}).toArray((error, result) => {
+// if (error) {
+// return response.status(500).send(error);
+// }
+// response.send(result);
+// });
+// });
 // // export data
 // app.post("/signupdata", (request, response) => {
 // collection.insert(request.body, (error, result) => {

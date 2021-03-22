@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this is pagination</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+  <button (click)="getuser()" class="btn btn-danger">getusers</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>gender</th>
+        <th>email</th>
+        <th>Picture</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data | paginate:{id:'listing_pagination',
+      itemsPerPage:10,
+      currentPage:page,
+      totalItems:totalrecords}">
+      <td>{{item.gender}}</td>
+      <td>{{item.name.first}}</td>
+      <td>{{item.email}}</td>
+      <td>
+        <img src="{{item.picture.medium}}">
+      </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div>
+  <pagination-controls  id="listing_pagination"
+                      (pageChange)="page =$event "
+                  
+                      maxSize="9"
+                    
+                     >
+</pagination-controls>
+</div>
+</body>
+</html>

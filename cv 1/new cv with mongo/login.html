@@ -62,25 +62,24 @@
             debugger;
             let useremail = document.getElementById('email').value;
             let userPw = document.getElementById('password').value;
+            let obj={emai:useremail,pass:userPw}
             var data;
             fetch("http://localhost:5000/importdata", {
-                method: "GET", // or 'PUT'
+                method: "post", // or 'PUT'
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(obj),
             })
                 .then((response) => response.json())
                 .then((data) => {
                     console.log("Success:", data);
-                    for (i = 0; i < data.length; i++) {
-                        s = data[i];
-                        var useremail1 = s.emai;
-                        var userpassword1 = s.pass;
-                        if (useremail1 == useremail && userpassword1 == userPw) {
-
-                            if (s.admin =="false") {
+                    
+                     
+                    
+                            if (data.admin =="false") {
                                 alert("welcome to user world");
+                                localStorage.setItem("currUser1", useremail);
                                 window.open("HT.HTML");
                             }
                             else {
@@ -89,12 +88,12 @@
                                 window.open("dis.html");
                             }
 
-                        }
                         
-                          
                         
-                    }
-                    alert("user not exit");
+                      //  alert("user not exit");
+                        
+                    
+                  
                     // keys = data;
 
                 })
