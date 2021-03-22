@@ -43,8 +43,11 @@ tableStyle = {
                 <table style = {this.tableStyle}>
                     <tr>
                         <td style = {this.tableStyle}>Date</td>
-                        <td style = {this.tableStyle}>TransactionType</td>
-                        <td style = {this.tableStyle}>Amount</td>
+                        {/* <td style = {this.tableStyle}>TransactionType</td> */}
+                        
+                        <td style = {this.tableStyle}>Debit</td>
+                        <td style = {this.tableStyle}>Credit</td>
+                        {/* <td style = {this.tableStyle}>Amount</td> */}
                         <td style = {this.tableStyle}>Balance</td>
                         <td style = {this.tableStyle}>Discription</td>
 
@@ -52,16 +55,20 @@ tableStyle = {
                     </tr>
                  {
                      data.length ?
-                     data.map(data => <tr style = {this.tableStyle}>
+                     data.reverse().map(data => <tr style = {this.tableStyle}>
                           <td style = {this.tableStyle}>{data.Date} </td>
-                           <td style = {this.tableStyle}>{data.TransactionType}</td>
-                            <td style = {this.tableStyle}>{data.Amount}</td> 
-                            <td style = {this.tableStyle}></td>
+                           {/* <td style = {this.tableStyle}>{data.TransactionType}</td> */}
+                           
+                           <td style = {this.tableStyle}>{data.TransactionType == 'Debit' ? <>{data.Amount}</> : <p></p>}</td>
+                           <td style = {this.tableStyle}>{data.TransactionType == 'Credit' ? <>{data.Amount}</> : <p></p>}</td>
+
+                            {/* <td style = {this.tableStyle}>{data.Amount}</td>  */}
+                            <td style = {this.tableStyle}><>{data.TransactionType == 'Debit' ? <>{Number(data.Balance) - Number(data.Amount)}</> : <>{Number(data.Balance) + Number(data.Amount)}</>}</></td>
                             <td style = {this.tableStyle}>{data.Discription}</td>
 
                             </tr>) : null
                  }
-                 <tr>
+                 {/* <tr>
                         <td style = {{color: 'red' }}>Total Balance</td>
                         <td ></td>
                         <td ></td>
@@ -69,7 +76,7 @@ tableStyle = {
                         <td ></td>
 
 
-                    </tr>
+                    </tr> */}
                  </table>
             </div>
         )

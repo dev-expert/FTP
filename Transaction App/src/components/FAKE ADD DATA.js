@@ -9,7 +9,6 @@ class Form extends Component {
 			Amount: '',
 			Discription: '',
 			TransactionType: 'Debit',
-            Balance : '',
     //   Date : '2021-03-17'
     Date : ''
 		}
@@ -54,26 +53,6 @@ class Form extends Component {
 		})
 	}
 
-
-    componentDidMount(){
-       
-        axios.get("http://localhost:5555/get")
-        .then(response =>{
-            const creditData = response.data.filter(x => x.TransactionType == "Credit");
-             const debitData = response.data.filter(x => x.TransactionType == "Debit");
-             let creditSum = creditData.reduce((accumulator, current) => Number(accumulator) + Number(current.Amount), 0);
-             let debitSum = debitData.reduce((accumulator, current) => Number(accumulator) + Number(current.Amount), 0);
-        
-                        this.setState({Balance: creditSum - debitSum })
-                        
-                    
-        })   
-        .catch (err =>{
-            console.log(err)
-        }) 
-        }
-
-
 	render() {
 		const {Date, Amount, Discription, TransactionType } = this.state
 		return (
@@ -112,9 +91,6 @@ class Form extends Component {
 					</select>
 				</div>
 				<button type="submit" onClick = {this.handleDateChange}>Submit</button>
-                {/* <h1>{this.state.Balance}</h1> */}
-                {/* <h1>{this.state.TransactionType == 'Debit' ? <>{Number(this.state.Balance) - Number(this.state.Amount)}</> : <>{this.state.Balance} + {this.state.Amount}</>}</h1> */}
-                
 			</form>
 		)
 	}
