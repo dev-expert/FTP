@@ -32,7 +32,7 @@ export class AppComponent {
   // IMPORT TRANSACTION
   transectiontable: any = [];
   constructor(private modalService: NgbModal, private _datatable: DatatableService) {
-    this.todaysDataTime = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+    this.todaysDataTime = formatDate(this.today, 'dd-MM-yyyy', 'en-US', '+0530');
   }
 
   ngOnInit() {
