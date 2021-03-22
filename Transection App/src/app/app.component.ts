@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { DatatableService } from './datatable.services';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,13 @@ export class AppComponent {
     // { type: 'Debit', ammount: '2500', description: 'Utility Expences' }
   ];
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private _datatable: DatatableService ) { }
+
+  ngOnInit() {
+    this._datatable.getdata().subscribe(data =>this.transectiontable=data)
+  }
+    
+      // this.transectiontable},}
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -61,6 +68,7 @@ export class AppComponent {
       description: this.transectiontable.description,
       type: this.transectiontable.type
     }
+    this._datatable.postdata().subscribe(data =>this.transectiontable=data)
     this.transectiontable.push(item)
   }
 }

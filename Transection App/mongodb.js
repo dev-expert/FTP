@@ -1,39 +1,69 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
-const ObjectId = require("mongodb").ObjectID;
-const CONNECTION_URL = "mongodb+srv://Amigo:123@democluster.4unbc.mongodb.net/demoDataBase?retryWrites=true&w=majority";
-const DATABASE_NAME = "demoDataBase";
+const express = require('express');
+const app = express();
 
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb+srv://Amigo:123@democluster.4unbc.mongodb.net/demoDataBase?retryWrites=true&w=majority";
 
-var app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-var database, collection1, collection2;
-
-//CONNECTION START FOR BOTH SIGNIN SIGN UP AND RESUME
-    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
-        if (error) {
-            throw error;
-        }
-        database = client.db(DATABASE_NAME);
-        collection1 = database.collection("demoResume");
-        console.log("Connected to `" + DATABASE_NAME + "`!");
-
-        collection2 = database.collection("demoSignINSignUP");
-        console.log("Connected to `" + DATABASE_NAME + "`!");
+app.get('/mongoDB1', function (req, res) {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        console.log("Database created!");
+        db.close();
     });
+})
 
-// DATA IMPORT TO LIST THE USERS
-app.get("/getL", (request, response) => {
-    console.log("getL")
-collection2.find({}).toArray((error, result) => {
-if(error) {
-return response.status(500).send(error);
-}
-response.send(result);
+// const express = require('express');
+// const app = express();
+// var MongoClient = require('mongodb').MongoClient;
+// var url = "mongodb+srv://Amigo:123@cluster0.4unbc.mongodb.net/DemoData?retryWrites=true&w=majority";
+
+// DISPLAYING COLLECTION
+app.get('/mongoDB2', function (req, res) {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("demoDataBase");
+        //Find all documents in DemoData Collection:
+        dbo.collection("demoCollection").find({}).toArray(function (err, result) {
+            if (err) throw err;
+            //console.log(result);
+            res.send(result);
+            db.close();
+        });
+    });
+})
+
+
+// APPENDING OBJECT TO THE COLLECTION
+app.get('/mongoDB3', function (req, res) {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("demoDataBase");
+        var myobj = { id: "4", name: "Rohit_Kumar_Shrivasta", age: "22" };
+        dbo.collection("demoCollection").insertOne(myobj, function (err, result) {
+            if (err) throw err;
+            res.send(result);
+            console.log("1 Document Inserted");
+            db.close();
+        });
+    });
+})
+
+
+// DELETEING OBJECT FROM THE COLLECTION
+app.get('/mongoDB4', function (req, res) {
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("demoDataBase");
+        /*Delete the first customers with the Name: "Rohit_Kumar_Shrivasta":*/
+        var myquery = { name: 'Rohit_Kumar_Shrivasta' };
+        dbo.collection("demoCollection").deleteOne(myquery, function (err, obj) {
+            if (err) throw err;
+            console.log("1 Document Deleted");
+            db.close();
+        });
+    });
+})
+
+app.listen(9000, function (req, res) {
+    console.log('Running Server');
 });
-});
-app.listen(1000);
