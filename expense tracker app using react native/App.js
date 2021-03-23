@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Divider} from 'react-native-elements';
 
 //components
 
@@ -32,16 +33,16 @@ function HomeScreen({navigation, route}) {
       description,
       type,
       datesday,
-      datesmonth,
-      datesyear,
+      // datesmonth,
+      // datesyear,
     } = route.params;
     let item = {
       amount: amount,
       description: description,
       type: type,
       datesday: datesday,
-      datesmonth: parseInt(datesmonth) + 1,
-      datesyear: datesyear,
+      // datesmonth: parseInt(datesmonth) + 1,
+      // datesyear: datesyear,
     };
 
     let newarramountay = [...list, item];
@@ -87,8 +88,10 @@ function HomeScreen({navigation, route}) {
                     <View key={index}>
                       <Text style={styles.firsttext}>
                         Date : {'   '}
-                        {item.datesday} - {item.datesmonth} -{item.datesyear}
-                        {'          '}
+                        {item.datesday}
+                        {'         '}
+                        {/* - {item.datesmonth} -{item.datesyear}
+                        {'          '} */}
                         Type : {item.type}
                       </Text>
                       <Text style={styles.firsttext}>
@@ -101,6 +104,7 @@ function HomeScreen({navigation, route}) {
                       </Text>
 
                       <View style={styles.sizebox}></View>
+                      <Divider style={{backgroundColor: 'black'}} />
                     </View>
                   ))
                 : null}
@@ -128,7 +132,19 @@ function DetailsScreen({navigation, route}) {
   const [amount, setAmount] = useState(0);
   const [description, setDescription] = useState(0);
   const [type, setType] = useState(0);
-  // const [dates, setdate] = useState(0);
+  const [datesday, setDate] = useState(datemonthyear);
+
+  var date = new Date().getDate().toLocaleString();
+  var month = new Date().getMonth().toLocaleString();
+  var year = new Date().getFullYear().toLocaleString();
+
+  var datemonthyear = (date + '-' + month + '-' + year).toLocaleString();
+
+  if (!datesday) {
+    setDate(datemonthyear);
+  }
+
+  console.log('date--month year-', datesday);
 
   return (
     <View style={styles.listView}>
@@ -169,9 +185,7 @@ function DetailsScreen({navigation, route}) {
                     amount: amount,
                     description: description,
                     type: type,
-                    datesday: new Date().getDate().toLocaleString(),
-                    datesmonth: new Date().getMonth().toLocaleString(),
-                    datesyear: new Date().getFullYear().toLocaleString(),
+                    datesday: datesday,
                   });
                 } else {
                   alert('you can not enter 0 ');
