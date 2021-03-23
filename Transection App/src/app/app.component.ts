@@ -32,10 +32,24 @@ export class AppComponent {
   // IMPORT TRANSACTION
   transectiontable: any = [];
   constructor(private modalService: NgbModal, private _datatable: DatatableService) {
-    this.todaysDataTime = formatDate(this.today, 'dd-MM-yyyy', 'en-US', '+0530');
+    this.todaysDataTime = formatDate(this.today, 'MM-dd-yyyy', 'en-US', '+0530');
   }
 
   ngOnInit() {
+    this.getDataFromApi()
+
+  }
+
+  // FUNCTION TO EXPORT TRANSACTION
+  async postModalData() {
+    console.log(this.data1);
+    await this._datatable.registeruser(this.data1)
+    this.b = [];
+    this.getDataFromApi()
+  }
+
+  // GET DATA
+  getDataFromApi() {
     this._datatable.getdata().subscribe((res: any) => {
       // this.transectiontable = res;
       let rb: number = 0;
@@ -60,16 +74,6 @@ export class AppComponent {
       console.log(this.b)
 
     });
-
-  }
-
-  // FUNCTION TO EXPORT TRANSACTION
-  postModalData() {
-    console.log(this.data1);
-    this._datatable.registeruser(this.data1);
-    this.b = [];
-    this.ngOnInit();
-
   }
 
   open(content) {
