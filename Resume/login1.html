@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
 
     <style>
  body{
@@ -57,6 +57,7 @@
 .box p{
   font-size:14px;
   text-align:center;
+
 }
 .box p span{
   cursor:pointer;
@@ -67,10 +68,47 @@
 <body>
     <div class="box">
         <h1>Login</h1>
-        <input type="email" placeholder="username/email" required>
-        <input type="password" placeholder="password" required>
-        <button>login</button>
-        <p>New user ? &nbsp; <span>Sign Up</span></p>
+        <input type="email" placeholder="email" id="email" required>
+        <input type="password" placeholder="password" id="pass" required>
+        <button  onclick="sendlog()">login</button>
+        <p>New user ? &nbsp; <span> <a href="signup.html"> Sign Up</a></span></p>
       </div>
 </body>
 </html>
+
+<script>
+  function sendlog(){
+var email = document.getElementById("email").value;
+var password = document.getElementById("pass").value;
+if(email==''|| password=='')
+  {
+    alert("fill details") ;
+    return;
+  }
+var arr= [];
+arr=JSON.parse(localStorage.getItem('signupda'));
+document.getElementById("email").value="";
+document.getElementById("pass").value="";
+for(var i=0;i<arr.items.length;i++)
+{ 
+	i=parseInt(i);
+    if(email==(arr.items[i]["emailid"]) && password==(arr.items[i]["password"]))
+	{
+		if(arr.items[i]["isadmin"])
+		{
+		
+			alert("Login as Admin");
+			window.location.href=("home.html");
+			return;
+		}
+		else{
+			alert("Login as User");
+      window.location.href=("home.html");
+		     return;	
+		}	
+	}
+}
+alert('Username or password is invalid');	
+}
+
+</script>

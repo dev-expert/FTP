@@ -15,6 +15,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 var database, collection;
 //connection start
 app.listen(4000, () => {
+
   MongoClient.connect(
     connection_url,
     { useNewUrlParser: true },
@@ -23,11 +24,13 @@ app.listen(4000, () => {
         throw error;
       }
       database = client.db(database_name);
-      collection = database.collection("sample");
+      collection = database.collection("register");
       console.log("Connected to " + database_name + "!");
     }
   );
 });
+
+
 
 // export data
 app.post("/exportdata", (request, response) => {
@@ -39,6 +42,8 @@ app.post("/exportdata", (request, response) => {
     response.json(true);
   });
 });
+
+
 
 // import data
 app.get("/importdata", (request, response) => {

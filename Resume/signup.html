@@ -1,77 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signup</title>
 
-    <style>
- body{
-  padding:0;
-  margin:0;
-  /* background: rgb(120, 202, 184); */
-}
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-image: url(sign.png);
+      /* background: rgb(120, 202, 184); */
+    }
 
-.box{
-  position:absolute;
-  height:100%;
-  width:100%;
-  /* color:rgba(85, 43, 43, 0.918);
+    .box {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      /* color:rgba(85, 43, 43, 0.918);
   background:rgba(255, 255, 255, 0.925); */
-  padding:30px 0px;
-  
-}
-.box h1{
-  text-align:center;
-  margin:30px 0;
-  font-size:30px;
-  color: #742ECC;
-}
-.box input{
-  display:block;
-  width:300px;
-  margin:20px auto;
-  padding:15px;
-  background:rgba(0,0,0,0.2);
-  color:rgb(34, 30, 30);
-  border:0;
-}
-/* .box input:focus,.box input:active,.box button:focus,.box button:active{
+      padding: 30px 0px;
+
+    }
+
+    .box h1 {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 30px;
+      color: #742ECC;
+    }
+
+    .box input {
+      display: block;
+      width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      color: rgb(34, 30, 30);
+      border: 0;
+    }
+
+    /* .box input:focus,.box input:active,.box button:focus,.box button:active{
   outline:none;
 } */
-.box button{
-  background:#742ECC;
-  border:0;
-  color:#fff;
-  padding:10px;
-  font-size:20px;
-  width:330px;
-  margin:20px auto;
-  display:block;
-  cursor:pointer;
-}
-.box button:active{
-  background:#27ae60;
-}
-.box p{
-  font-size:14px;
-  text-align:center;
-}
-.box p span{
-  cursor:pointer;
-  color:#742ECC;
-}
-    </style>
+    .box button {
+      background: #742ECC;
+      border: 0;
+      color: #fff;
+      padding: 10px;
+      font-size: 20px;
+      width: 330px;
+      margin: 20px auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    .box button:active {
+      background: #27ae60;
+    }
+
+    .box p {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .box p span {
+      cursor: pointer;
+      color: #742ECC;
+    }
+  </style>
+  <!-- <script src="signup.js"> -->
+
+  <!-- </script> -->
 </head>
+
 <body>
-    <div class="box">
-        <h1>Sign Up</h1>
-        <input type="text" placeholder="name" required>
-        <input type="email" placeholder="username/email" required>
-        <input type="password" placeholder="password" required>
-        <button>Sign Up</button>
-        <p>New user ? &nbsp; <span>Sign Up</span></p>
-      </div>
+
+  <div class="box">
+    <form>
+
+      <h1>Sign Up</h1>
+      <input type="text" placeholder="name" id="name" required>
+      <input type="emailid" placeholder="emailid" id="emailid" required>
+      <input type="passwordword" placeholder="passwordword" id="password" required>
+      <label for="check" style="padding-left: 45%; ">Is Admin </label>
+      <input type="checkbox" id="check">
+      <button onclick="sendData()">Sign Up</button>
+      <p>Old User ? &nbsp; <span> <a href="login1.html"> Login</a></span></p>
+    </form>
+  </div>
+
 </body>
+
 </html>
+<script>
+  function sendData() {
+    // debugger;
+    // for checking unique email;
+    
+    arr = JSON.parse(localStorage.getItem('signupda'));
+    
+    var email = document.getElementById("emailid").value;
+    var pass = document.getElementById("password").value;
+    var name = document.getElementById("name").value;
+   
+    for (var i = 0; i < arr.items.length; i++) {
+      i = parseInt(i);
+      if (email == (arr.items[i]["emailid"])) {
+        
+          alert("email already exists");
+          return;
+        }
+      }
+
+      if(email=='' || name==''|| pass=='' ){
+        alert("fill details");
+        return;
+      }
+
+        if (document.getElementById("check").checked) {
+
+          let name = document.getElementById("name").value;
+          var emailidd = document.getElementById("emailid").value;
+          var passwordworde = document.getElementById("password").value;
+          if (localStorage.getItem("signupda") === null) {
+            var admin = {};
+            var items = [];
+            admin.items = items;
+
+            var item = {
+              "name": name,
+              "emailid": emailidd,
+              "password": passwordworde,
+              "isadmin": true
+            }
+
+            admin.items.push(item);
+          }
+          else {
+            var admin = JSON.parse(localStorage.getItem("signupda"));
+            var item = {
+              "name": name,
+              "emailid": emailidd,
+              "password": passwordworde,
+              "isadmin": true
+            }
+
+            admin.items.push(item);
+
+          }
+          localStorage.setItem('signupda', JSON.stringify(admin))
+          alert("register successfully");
+          window.location.href=("login1.html");
+        }
+        else {
+          var name = document.getElementById("name").value;
+          var emailidd = document.getElementById("emailid").value;
+          var passwordworde = document.getElementById("password").value;
+          if (localStorage.getItem("signupda") === null) {
+            var admin = {};
+            var items = [];
+            admin.items = items;
+            var item = {
+              "name": name,
+              "emailid": emailidd,
+              "password": passwordworde,
+              "isadmin": false
+            }
+            admin.items.push(item);
+          }
+          else {
+            var admin = JSON.parse(localStorage.getItem("signupda"));
+            var item = {
+              "name": name,
+              "emailid": emailidd,
+              "password": passwordworde,
+              "isadmin": false
+            }
+
+            admin.items.push(item);
+          }
+          localStorage.setItem('signupda', JSON.stringify(admin));
+          alert("register successfully");
+          window.location.href=("login1.html");
+        }
+        document.getElementById("name").value = "";
+        document.getElementById("emailid").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("check").value = "";
+      }
+</script>
