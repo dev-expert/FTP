@@ -4,10 +4,8 @@ import {useState} from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   ScrollView,
   TextInput,
-  Dimensions,
   TouchableOpacity,
   Picker,
 } from 'react-native';
@@ -18,93 +16,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Buttons from './components/Button';
 
-const screens = Dimensions.get('window');
-
 //styling part of components
-const styles = StyleSheet.create({
-  bodyContainer: {
-    flex: 1,
-  },
-  buttonContainer: {
-    height: '100%',
-    paddingTop: '3%',
-  },
-  listView: {
-    height: screens.height,
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  scrool: {
-    borderColor: '#000',
-
-    borderRadius: 20,
-    borderTopLeftRadius: 20,
-    borderTopStartRadius: 20,
-    borderColor: 'black',
-    height: '70%',
-    width: '95%',
-    backgroundColor: 'lightblue',
-
-    marginTop: '2.5%',
-  },
-  topbar: {
-    width: '100%',
-    height: '8%',
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'white',
-    fontSize: 25,
-    fontStyle: 'italic',
-    fontWeight: 'bold',
-  },
-  input: {
-    borderColor: '#000',
-    borderWidth: 1,
-    borderRadius: 5,
-    margin: 15,
-  },
-  inputheading: {
-    margin: 15,
-  },
-  formbuttonwrap: {
-    flexDirection: 'row',
-    flex: 1,
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    marginTop: 15,
-  },
-  formbutton: {
-    borderColor: '#000',
-    width: screens.width / 2 - 50,
-    height: '15%',
-    borderRadius: 35,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  formbuttontext: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  sizebox: {
-    padding: 8,
-  },
-  mainbalance: {
-    fontWeight: 'bold',
-    fontStyle: 'italic',
-    fontSize: 20,
-  },
-  cont: {
-    alignItems: 'center',
-    backgroundColor: 'lightblue',
-  },
-  firsttext: {
-    justifyContent: 'space-around',
-  },
-});
+import styles from './components/homeStylesheet';
 
 function HomeScreen({navigation, route}) {
   let [list, setList] = useState([]);
@@ -170,7 +83,7 @@ function HomeScreen({navigation, route}) {
             <ScrollView>
               <View style={styles.sizebox}></View>
               {list
-                ? list.reverse().map((item, index) => (
+                ? list.map((item, index) => (
                     <View key={index}>
                       <Text style={styles.firsttext}>
                         Date : {'   '}
@@ -178,16 +91,15 @@ function HomeScreen({navigation, route}) {
                         {'          '}
                         Type : {item.type}
                       </Text>
-                      <Text>
+                      <Text style={styles.firsttext}>
                         Amount : {'   '}
-                        {arramount[index]}
+                        {item.amount}
                       </Text>
                       <Text style={styles.firsttext}>
                         Description :{'   '}
                         {item.description}
                       </Text>
 
-                      <Text></Text>
                       <View style={styles.sizebox}></View>
                     </View>
                   ))
@@ -222,11 +134,13 @@ function DetailsScreen({navigation, route}) {
     <View style={styles.listView}>
       <View style={styles.scrool}>
         {/* selecting the mode of transcation debit or credit */}
-        <Picker onValueChange={value => setType(value)}>
-          <Picker.Item label="Select a Option" value="0"></Picker.Item>
-          <Picker.Item label="Debit" value="Debit"></Picker.Item>
-          <Picker.Item label="Credit" value="Credit"></Picker.Item>
-        </Picker>
+        <View style={styles.pickeritem}>
+          <Picker onValueChange={value => setType(value)}>
+            <Picker.Item label="Select a Option" value="0"></Picker.Item>
+            <Picker.Item label="Debit" value="Debit"></Picker.Item>
+            <Picker.Item label="Credit" value="Credit"></Picker.Item>
+          </Picker>
+        </View>
         {/* amount input box */}
         <Text style={styles.inputheading}>Amount</Text>
         <TextInput
@@ -250,18 +164,28 @@ function DetailsScreen({navigation, route}) {
 
             onPress={() => {
               if (amount != '' && description != '' && type != '') {
-                navigation.navigate('Expense Tracker', {
-                  amount: amount,
-                  description: description,
-                  type: type,
-                  datesday: new Date().getDate().toLocaleString(),
-                  datesmonth: new Date().getMonth().toLocaleString(),
-                  datesyear: new Date().getFullYear().toLocaleString(),
-                });
-              } else if (isNaN(amount)) {
-                alert('Please Enter Amount in Digits');
+                if (amount > 0) {
+                  navigation.navigate('Expense Tracker', {
+                    amount: amount,
+                    description: description,
+                    type: type,
+                    datesday: new Date().getDate().toLocaleString(),
+                    datesmonth: new Date().getMonth().toLocaleString(),
+                    datesyear: new Date().getFullYear().toLocaleString(),
+                  });
+                } else {
+                  alert('you can not enter 0 ');
+                }
+              } else if (amount == '' && description == '' && type == '') {
+                alert('Enter all the details');
+              } else if (amount == '' && description == '') {
+                alert('Enter amount and description');
+              } else if (amount == '' && type == '') {
+                alert('Enter amount and type ');
+              } else if (description == '' && type == '') {
+                alert('Enter Description and type ');
               } else {
-                alert('Enter correct values');
+                alert('Select the type of transcation');
               }
             }}>
             {/* save button  */}
