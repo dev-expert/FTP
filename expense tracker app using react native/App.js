@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Divider} from 'react-native-elements';
 
 //components
 
@@ -28,21 +27,12 @@ function HomeScreen({navigation, route}) {
   }
   // taking parameters from the input screen to home screen
   if (route && route.params) {
-    const {
-      amount,
-      description,
-      type,
-      datesday,
-      // datesmonth,
-      // datesyear,
-    } = route.params;
+    const {amount, description, type, datesday} = route.params;
     let item = {
       amount: amount,
       description: description,
       type: type,
       datesday: datesday,
-      // datesmonth: parseInt(datesmonth) + 1,
-      // datesyear: datesyear,
     };
 
     let newarramountay = [...list, item];
@@ -104,7 +94,7 @@ function HomeScreen({navigation, route}) {
                       </Text>
 
                       <View style={styles.sizebox}></View>
-                      <Divider style={{backgroundColor: 'black'}} />
+                      <View style={styles.divider}></View>
                     </View>
                   ))
                 : null}
@@ -138,7 +128,7 @@ function DetailsScreen({navigation, route}) {
   var month = new Date().getMonth().toLocaleString();
   var year = new Date().getFullYear().toLocaleString();
 
-  var datemonthyear = (date + '-' + month + '-' + year).toLocaleString();
+  var datemonthyear = (month + '-' + date + '-' + year).toLocaleString();
 
   if (!datesday) {
     setDate(datemonthyear);

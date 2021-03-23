@@ -93,4 +93,8 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
   },
+  divider: {
+    borderBottomColor: '#000', // Add this to specify bottom border color
+    borderBottomWidth: 2,
+  },
 });
