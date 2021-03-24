@@ -11,12 +11,17 @@ import { formatDate } from '@angular/common';
 export class AppComponent {
   title = 'Assignment';
   // name: string = "";
-  // CLOSE RESULT REASON
+
+  // DEFINING THE PAGINATION VAR
+  p: Number = 1;
+
+
+  // CLOSE MODALE
   closeResult = '';
 
   // BALANCE MAINTAIN
-  b: any = [];
-  rb = 0;
+  balance: any = [];
+  remaining_balance = 0;
 
   // TRANSACTION EXPORT
   data1: any = {
@@ -32,7 +37,7 @@ export class AppComponent {
   // IMPORT TRANSACTION
   transectiontable: any = [];
   constructor(private modalService: NgbModal, private _datatable: DatatableService) {
-    this.todaysDataTime = formatDate(this.today, 'MM-dd-yyyy', 'en-US', '+0530');
+    this.todaysDataTime = formatDate(this.today, 'MM-dd-yyyy', 'en-US');
   }
 
   ngOnInit() {
@@ -42,9 +47,9 @@ export class AppComponent {
 
   // FUNCTION TO EXPORT TRANSACTION
   async postModalData() {
-    console.log(this.data1);
+    // console.log(this.data1);
     await this._datatable.registeruser(this.data1)
-    this.b = [];
+    this.balance = [];
     this.getDataFromApi()
   }
 
@@ -52,30 +57,38 @@ export class AppComponent {
   getDataFromApi() {
     this._datatable.getdata().subscribe((res: any) => {
       // this.transectiontable = res;
-      let rb: number = 0;
-      // BALANCE 
-      for (let a of res) {
-        a.type == "Credit" ? rb = rb + parseInt(a.amount) : 0;
-        a.type == "Debit" ? rb = rb - parseInt(a.amount) : 0;
+      let remaining_balance: number = 0;
 
 
+      // TYPE CHECK OF TRANSACTION
+      for (let type_check of res) {
+        type_check.type == "Credit" ? remaining_balance = remaining_balance + parseInt(type_check.amount) : 0;
+        type_check.type == "Debit" ? remaining_balance = remaining_balance - parseInt(type_check.amount) : 0;
+
+        // if(remaining_balance<0){
+        //   alert("Credit Ammont is More than the Debit Ammount")
+        // }
+        // else{
         // PUSSING DATA INTO TABLE
-        this.b.push({
-          amount: a.amount,
-          description: a.description,
-          type: a.type,
-          rb: rb
+        this.balance.push({
+          amount: type_check.amount,
+          description: type_check.description,
+          type: type_check.type,
+          remaining_balance: remaining_balance
         });
-
       }
+    
+      console.log(this.remaining_balance);
+
 
       // RECENT ENTERED TRANSACTION
-      this.b = this.b.reverse();
-      console.log(this.b)
+      this.balance = this.balance.reverse();
+      console.log(this.balance.remaining_balance);
 
     });
   }
 
+  // MODAL EXECUTION
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -94,6 +107,9 @@ export class AppComponent {
     }
   }
 }
+
+
+
 
 
 
