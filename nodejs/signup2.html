@@ -71,9 +71,8 @@
       color: #742ECC;
     }
   </style>
-  <!-- <script src="signup.js"> -->
-
-  <!-- </script> -->
+  <script src="signup2.js"> 
+     </script>
 </head>
 
 <body>
@@ -88,15 +87,15 @@
       <label for="check" style="padding-left: 45%; ">Is Admin </label>
       <input type="checkbox" id="check">
       <button onclick="sendData()">Sign Up</button>
-      <p>Old User ? &nbsp; <span> <a href="login1.html"> Login</a></span></p>
+      <p>Old User ? &nbsp; <span> <a href="login2.html"> Login</a></span></p>
     </form>
   </div>
 
 </body>
 
 </html>
-<script>
-  function sendData() {
+ <!-- <script> 
+        function sendData() {
     // debugger;
     // for checking unique email;
 
@@ -153,7 +152,7 @@
       }
       localStorage.setItem('signupda', JSON.stringify(admin))
       alert("register successfully");
-      window.location.href = ("login1.html");
+      window.location.href = ("login2.html");
     }
     else {
       var name = document.getElementById("name").value;
@@ -184,11 +183,11 @@
       }
       localStorage.setItem('signupda', JSON.stringify(admin));
       alert("register successfully");
-      window.location.href = ("login1.html");
+      window.location.href = ("login2.html");
     }
     document.getElementById("name").value = "";
     document.getElementById("emailid").value = "";
     document.getElementById("password").value = "";
     document.getElementById("check").value = "";
   }
-</script>
+</script> --> 

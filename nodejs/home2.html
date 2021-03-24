@@ -36,13 +36,13 @@
   </style>
 </head>
 
-<body onload="validate()">
+<body >
 
   <div class="navbar">
-    <a href="home.html" onclick="showHome()">Home</a>
-    <a href="forms.html">Resume</a>
+    <a href="home2.html" onclick="showHome()">Home</a>
+    <a href="form_db.html">Resume</a>
     <a href="#" onclick="showUserData()">User Data</a>
-    <a href="login1.html" onclick="logout()" style="float: right;">Logout</a>
+    <a href="login2.html" onclick="logout()" style="float: right;">Logout</a>
   </div>
 
   <h1 id="home" style="text-align: center; color: #742ECC;margin-top: 300px; "> WELCOME TO ADMIN PAGE</h1>
@@ -108,14 +108,14 @@
 
     var keys = localStorage.getItem("puser");
     if (keys == null) {
-      window.location.replace("login1.html");
+      window.location.replace("login2.html");
 
     }
   }
 
   function logout() {
     localStorage.removeItem("puser");
-    window.location.replace("login1.html");
+    window.location.replace("login2.html");
   }
 </script>
 

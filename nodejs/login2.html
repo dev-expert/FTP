@@ -72,20 +72,20 @@
     }
   </style>
 </head>
-
+<script src="login2.js"></script>
 <body>
   <div class="box">
     <h1>Login</h1>
     <input type="email" placeholder="email" id="email" required>
     <input type="password" placeholder="password" id="pass" required>
-    <button onclick="sendlog()">login</button>
-    <p>New user ? &nbsp; <span> <a href="signup.html"> Sign Up</a></span></p>
+    <button onclick="getdata()">login</button>
+    <p>New user ? &nbsp; <span> <a href="signup2.html"> Sign Up</a></span></p>
   </div>
 </body>
 
 </html>
 
-<script>
+<!-- <script>
   function sendlog() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("pass").value;
@@ -109,7 +109,7 @@
 
           localStorage.setItem('puser', JSON.stringify(presentuser));
           alert("Login as Admin");
-          window.location.href = ("home.html");
+          window.location.href = ("home2.html");
           return;
         }
         else {
@@ -121,7 +121,7 @@
 
           localStorage.setItem('puser', JSON.stringify(presentuser));
           alert("Login as User");
-          window.location.href = ("home.html");
+          window.location.href = ("home2.html");
           return;
         }
       }
@@ -129,4 +129,4 @@
     alert('Username or password is invalid');
   }
 
-</script>
+</script> -->

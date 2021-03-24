@@ -14,7 +14,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
 //connection start
-app.listen(4000, () => {
+app.listen(4002, () => {
 
   MongoClient.connect(
     connection_url,
@@ -32,8 +32,9 @@ app.listen(4000, () => {
 
 
 
-// export data
+// export data resume
 app.post("/exportdata", (request, response) => {
+  
   collection.insert(request.body, (error, result) => {
     if (error) {
       return response.status(500).send(error);
@@ -45,7 +46,7 @@ app.post("/exportdata", (request, response) => {
 
 
 
-// import data
+// import data resume
 app.get("/importdata", (request, response) => {
   collection.find({}).toArray((error, result) => {
     if (error) {
@@ -56,17 +57,30 @@ app.get("/importdata", (request, response) => {
   });
 });
 
-// const
 
-// app.get('/',function(req,res){
-//     res.send('welocme to express');
-// })
+// endpoint for send data signup
+app.post("/senddata", (request, response) => {
+ 
+  collection.insert(request.body, (error, result) => {
+    if (error) {
+      return response.status(500).send(error);
+    }
+ 
+    console.log("Data Sent");
+    response.json(true);
+  });
+});
 
-// app.get('/kkk',function(req,res){
-//     res.send('hello keshav');
-// })
-// app.get('/www',function(req,res){
-//     res.send('hello world');
-// })
-// app.listen(6060);
-// console.log("connec");
+// endpoint for login send data
+app.post("/checkdata", (request, response) => {
+  var Credentials = request.body;
+  collection.findOne(Credentials, function (err, result) {
+      if (err) throw err;
+      console.log(result);
+       response.json(result);
+
+  })
+});
+
+
+
