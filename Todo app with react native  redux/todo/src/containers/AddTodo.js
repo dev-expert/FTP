@@ -1,8 +1,14 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {connect} from 'react-redux';
 
-export default function AddTodo() {
+function AddTodo(props) {
+  const [text, setText] = useState('');
+  addTodo = text => {
+    props.dispatch({type: 'ADD_TODO', text});
+    setText('');
+  };
   return (
     <View
       style={{
@@ -10,6 +16,8 @@ export default function AddTodo() {
         marginHorizontal: 20,
       }}>
       <TextInput
+        onChangeText={text => setText(text)}
+        value={text}
         placeholder="Eg. Do code every day"
         style={{
           borderWidth: 1,
@@ -20,7 +28,7 @@ export default function AddTodo() {
           padding: 5,
         }}
       />
-      <TouchableOpacity onPress={() => alert('added todo')}>
+      <TouchableOpacity onPress={() => alert(`added todo${text}`)}>
         <View
           style={{
             height: 50,
@@ -36,6 +44,8 @@ export default function AddTodo() {
     </View>
   );
 }
+
+export default connect()(AddTodo);
 
 const styles = StyleSheet.create({
   container: {
