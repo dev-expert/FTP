@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
+import {addTod} from '../actions';
 
 function AddTodo(props) {
   const [text, setText] = useState('');
 
   addTodo = text => {
-    props.dispatch({type: 'ADD_TODO', text});
+    props.dispatch(addTod(text));
     setText('');
   };
 

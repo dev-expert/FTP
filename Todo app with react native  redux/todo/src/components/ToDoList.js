@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginTop: 15,
-    borderRadius: 10,
+    borderRadius: 20,
     backgroundColor: 'lightgrey',
     alignItems: 'center',
   },
