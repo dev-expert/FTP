@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import AddTodo from './containers/AddTodo';
-import VisibleTodo from './containers/VisibleTodo';
+import VisibleTodos from './containers/VisibleTodos';
 
 export default function TodoApp(state) {
   state = {
@@ -15,7 +15,7 @@ export default function TodoApp(state) {
       <AddTodo />
       {/* for displaying our todo app */}
       <View>
-        <VisibleTodo />
+        <VisibleTodos />
       </View>
     </View>
   );

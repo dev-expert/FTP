@@ -5,12 +5,18 @@ const ToDoList = ({todos, toggleTodo}) => (
   <View>
     {todos.map(todo => (
       <TouchableOpacity key={todo.id} onPress={() => toggleTodo(todo.id)}>
+        {console.log(todo.text)}
         <Text
           style={{
             fontSize: 25,
+            flexDirection: 'column',
+
+            backgroundColor: 'yellow',
+            alignItems: 'center',
+            justifyContent: 'center',
             textDecorationLine: todo.completed ? 'line-through' : 'none',
           }}>
-          {todo.Text}
+          {todo.text}
         </Text>
       </TouchableOpacity>
     ))}

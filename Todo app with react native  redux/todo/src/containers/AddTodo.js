@@ -5,10 +5,14 @@ import {connect} from 'react-redux';
 
 function AddTodo(props) {
   const [text, setText] = useState('');
+
   addTodo = text => {
     props.dispatch({type: 'ADD_TODO', text});
     setText('');
   };
+
+  console.log('text is ' + text);
+  console.log(text);
   return (
     <View
       style={{
@@ -28,7 +32,7 @@ function AddTodo(props) {
           padding: 5,
         }}
       />
-      <TouchableOpacity onPress={() => alert(`added todo${text}`)}>
+      <TouchableOpacity onPress={() => addTodo(text)}>
         <View
           style={{
             height: 50,

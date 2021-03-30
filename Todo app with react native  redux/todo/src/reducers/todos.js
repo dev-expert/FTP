@@ -1,14 +1,16 @@
+let nextid = 0;
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
         ...state,
         {
-          id: action.id,
+          id: nextid++,
           text: action.text,
           completed: false,
         },
       ];
+    // debugger;
     case 'TOGGLE_TODO':
       return state.map(todo =>
         todo.id === action.id
