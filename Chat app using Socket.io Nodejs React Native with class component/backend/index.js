@@ -4,14 +4,6 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const port = 3000;
 
-//connection to the socket.io
-// io.on('connection', socket => {
-//   console.log('a user connected');
-//   socket.on('chat message : ', msg => {
-//     console.log(msg);
-//   });
-//   console.log('after socket ');
-// });
 io.on('connection', socket => {
   console.log('a user connected :D');
   socket.on('chat message', msg => {
@@ -21,7 +13,7 @@ io.on('connection', socket => {
 });
 
 app.get('/', (req, res) => {
-  res.send('heloooooooooooooooooo');
+  res.send('heloo');
 });
 
 server.listen(port, () => {

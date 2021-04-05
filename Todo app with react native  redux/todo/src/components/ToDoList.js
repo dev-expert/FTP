@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   View,
   Text,
@@ -9,6 +10,7 @@ import {
 
 const styles = StyleSheet.create({
   textbox: {
+    flex: 1,
     marginLeft: 15,
     marginRight: 15,
     marginTop: 15,
@@ -33,6 +35,13 @@ const ToDoList = ({todos, toggleTodo}) => (
                 textDecorationLine: todo.completed ? 'line-through' : 'none',
               }}>
               {todo.text}
+              <TouchableOpacity style={{alignItems: 'flex-end'}}>
+                <Icon
+                  name="trash"
+                  size={25}
+                  style={{color: '#de9595', paddingLeft: 30}}
+                />
+              </TouchableOpacity>
             </Text>
           </View>
         </TouchableOpacity>
