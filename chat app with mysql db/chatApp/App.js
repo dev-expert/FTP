@@ -168,7 +168,7 @@ function chatroomScreen({navigation}) {
               borderRadius: 20,
             }}>
             <TouchableOpacity
-              onPress={() => alert('inside the user chat room ')}>
+              onPress={() => navigation.navigate('Personal Room')}>
               <View>
                 <Text
                   style={{
@@ -184,6 +184,13 @@ function chatroomScreen({navigation}) {
           </View>
         )}
       />
+    </View>
+  );
+}
+function personalroomScreen() {
+  return (
+    <View>
+      <Text>inside personal room</Text>
     </View>
   );
 }
@@ -211,6 +218,7 @@ function App() {
         }}>
         <Stack.Screen name="Login-Register" component={loginScreen} />
         <Stack.Screen name="Chat Room" component={chatroomScreen} />
+        <Stack.Screen name="Personal Room" component={personalroomScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
