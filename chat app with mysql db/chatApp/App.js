@@ -5,9 +5,12 @@
  * @format
  * @flow strict-local
  */
+//import 'react-native-gesture-handler';
+import {useState, useEffect} from 'react';
+import * as React from 'react';
 
-import React, {useState, useEffect} from 'react';
-
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import {
   StyleSheet,
   Text,
@@ -17,7 +20,7 @@ import {
   Image,
 } from 'react-native';
 
-export default function App() {
+function loginScreen({navigation}) {
   const [data, setData] = useState(['akshay sharma ']);
   const [email, setEmail] = useState('');
   const [pass, setpass] = useState('');
@@ -57,7 +60,7 @@ export default function App() {
   };
 
   login = async () => {
-    fetch('http://192.168.1.13:3001/login', {
+    const data = await fetch('http://192.168.1.13:3001/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,10 +69,17 @@ export default function App() {
         email: email,
         pass: pass,
       }),
-    })
-      .then(response => response.json())
+    });
+    // .then(response => alert(response))
 
-      .catch(e => console.log(e));
+    // .catch(e => console.log(e));
+    const checkdata = await data.json();
+    console.log(checkdata);
+    if (checkdata.saved === true) {
+      navigation.navigate('Chat Room');
+    } else {
+      alert('Login not done ');
+    }
   };
 
   return (
@@ -78,12 +88,6 @@ export default function App() {
 
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <Image
-          style={styles.inputIcon}
-          source={{
-            uri: 'https://png.icons8.com/message/ultraviolet/50/3498db',
-          }}
-        />
         <TextInput
           style={styles.inputs}
           placeholder="Email"
@@ -94,10 +98,6 @@ export default function App() {
       </View>
 
       <View style={styles.inputContainer}>
-        <Image
-          style={styles.inputIcon}
-          source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}
-        />
         <TextInput
           style={styles.inputs}
           placeholder="Password"
@@ -109,19 +109,61 @@ export default function App() {
 
       <TouchableHighlight
         style={[styles.buttonContainer, styles.loginButton]}
-        onPress={() => login()}>
+        onPress={
+          () => login()
+          // () => {
+          //   navigation.navigate('Chat Room');
+          // })
+        }>
         <Text style={styles.loginText}>Login</Text>
       </TouchableHighlight>
 
       <TouchableHighlight
         style={styles.buttonContainer}
         onPress={() => register()}>
-        <Text>Register</Text>
+        <Text style={styles.loginText}>Register</Text>
       </TouchableHighlight>
     </View>
     // </View>
   );
 }
+function chatroomScreen({navigation}) {
+  return (
+    <View>
+      <Text>yo ho</Text>
+    </View>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#000',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontStyle: 'italic',
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: {
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        }}>
+        <Stack.Screen name="Login-Register" component={loginScreen} />
+        <Stack.Screen name="Chat Room" component={chatroomScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
@@ -135,15 +177,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
     borderBottomWidth: 1,
-    width: 250,
+    width: '80%',
     height: 45,
-    marginBottom: 20,
+    marginBottom: 50,
     flexDirection: 'row',
     alignItems: 'center',
   },
   inputs: {
     height: 45,
-    marginLeft: 16,
+
+    marginLeft: 10,
     borderBottomColor: '#FFFFFF',
     flex: 1,
   },
@@ -161,11 +204,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
+    backgroundColor: '#00b5ec',
   },
   loginButton: {
     backgroundColor: '#00b5ec',
   },
   loginText: {
-    color: 'white',
+    color: 'black',
+    fontSize: 25,
   },
 });

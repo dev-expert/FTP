@@ -35,9 +35,9 @@ app.post("/login", function (request, response) {
         response.send(error); //No error
       } else if (result.length > 0) {
         console.log(result);
-        response.send("in else if " + result); //displays '[]'
+        response.json({ saved: true }); //displays '[]'
       } else {
-        response.send("not successfull");
+        response.json({ saved: false });
         //It is never execute
       }
     }
