@@ -17,31 +17,34 @@ import {
   View,
   TextInput,
   TouchableHighlight,
-  Image,
+  FlatList,
+  TouchableOpacity,
 } from 'react-native';
 
 function loginScreen({navigation}) {
-  const [data, setData] = useState(['akshay sharma ']);
   const [email, setEmail] = useState('');
   const [pass, setpass] = useState('');
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-  console.log('insidae' + JSON.stringify(data));
-  fetchData = async () => {
-    fetch('http://192.168.1.13:3001/users', {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.log('errrrrrrrrrrr--', error));
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+  // console.log('insidae' + JSON.stringify(data));
+  // fetchData = async () => {
+  //   const userlist = await fetch('http://192.168.1.13:3001/users', {
+  //     method: 'GET',
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => setData(data))
+  //     .catch(error => console.log('errrrrrrrrrrr--', error));
 
-    console.log('response----------', response);
-    const users = JSON.stringify(response);
-    setData(users);
-    console.log('users' + users);
-  };
+  //   console.log('response----------', response);
+  //   const users = JSON.stringify(response);
+  //   setData(users);
+  //   console.log('users' + users);
+
+  //   const userLists = await userlist.json();
+  //   console.log('userlist', userLists);
+  // };
 
   register = async () => {
     fetch('http://192.168.1.13:3001/register', {
@@ -128,9 +131,59 @@ function loginScreen({navigation}) {
   );
 }
 function chatroomScreen({navigation}) {
+  const [data, setData] = useState([' ']);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log('insidae' + JSON.stringify(data));
+
+  fetchData = async () => {
+    fetch('http://192.168.1.13:3001/users', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.log('errrrrrrrrrrr--', error));
+
+    console.log('response----------', response);
+    const users = JSON.stringify(response);
+    setData(users);
+    console.log('users' + users);
+
+    const userLists = await userlist.json();
+    console.log('userlist', userLists);
+  };
   return (
     <View>
-      <Text>yo ho</Text>
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <View
+            style={{
+              backgroundColor: 'lightblue',
+              padding: 10,
+              margin: 10,
+              height: 50,
+              borderRadius: 20,
+            }}>
+            <TouchableOpacity
+              onPress={() => alert('inside the user chat room ')}>
+              <View>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    alignContent: 'center',
+                  }}>
+                  {item.emailId}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        )}
+      />
     </View>
   );
 }
