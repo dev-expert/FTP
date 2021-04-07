@@ -8,6 +8,7 @@
 //import 'react-native-gesture-handler';
 import {useState, useEffect} from 'react';
 import * as React from 'react';
+import personalroomScreen from './personalroomScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -19,6 +20,7 @@ import {
   TouchableHighlight,
   FlatList,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 function loginScreen({navigation}) {
@@ -30,7 +32,7 @@ function loginScreen({navigation}) {
   // }, []);
   // console.log('insidae' + JSON.stringify(data));
   // fetchData = async () => {
-  //   const userlist = await fetch('http://192.168.1.13:3001/users', {
+  //   const userlist = await fetch('http://192.168.1.28:3001/users', {
   //     method: 'GET',
   //   })
   //     .then(response => response.json())
@@ -47,7 +49,7 @@ function loginScreen({navigation}) {
   // };
 
   register = async () => {
-    fetch('http://192.168.1.13:3001/register', {
+    fetch('http://192.168.1.28:3001/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +65,7 @@ function loginScreen({navigation}) {
   };
 
   login = async () => {
-    const data = await fetch('http://192.168.1.13:3001/login', {
+    const data = await fetch('http://192.168.1.28:3001/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -139,7 +141,7 @@ function chatroomScreen({navigation}) {
   console.log('insidae' + JSON.stringify(data));
 
   fetchData = async () => {
-    fetch('http://192.168.1.13:3001/users', {
+    fetch('http://192.168.1.28:3001/users', {
       method: 'GET',
     })
       .then(response => response.json())
@@ -187,13 +189,6 @@ function chatroomScreen({navigation}) {
     </View>
   );
 }
-function personalroomScreen() {
-  return (
-    <View>
-      <Text>inside personal room</Text>
-    </View>
-  );
-}
 
 const Stack = createStackNavigator();
 
@@ -232,6 +227,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DCDCDC',
+  },
+  container1: {
+    margin: 20,
+
+    flex: 1,
+    backgroundColor: '#F5FCFF',
   },
   inputContainer: {
     borderBottomColor: '#F5FCFF',

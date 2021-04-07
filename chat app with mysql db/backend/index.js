@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 var mysql = require("mysql");
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 
 const con = mysql.createConnection({
   host: "localhost",
@@ -10,6 +12,14 @@ const con = mysql.createConnection({
   user: "root", // Your database's username.
   password: "", // Your database's password.
   database: "chatapp", // Your database's name.
+});
+
+io.on("connection", (socket) => {
+  console.log("a user connected :D");
+  socket.on("chat message", (msg) => {
+    console.log(msg);
+    io.emit("chat message", msg);
+  });
 });
 
 //for fetching the values from the database
@@ -56,7 +66,7 @@ app.post("/register", function (request, response) {
   });
 });
 
-app.listen(3001, () => {
+server.listen(3001, () => {
   console.log("server started at : 3001");
 });
 con.connect(function (error) {
