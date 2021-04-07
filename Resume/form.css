@@ -1,0 +1,18 @@
+.headings{
+    display: flex; 
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.body{
+    font-family: sans-serif;
+    background-color: bisque;
+}
+
+.container{
+    
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: aquamarine;
+
+}
