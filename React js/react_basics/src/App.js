@@ -13,6 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
 //Importing tooltip 
 import ReactTooltip from 'react-tooltip';
+import 'react-tippy/dist/tippy.css';
+//Importing countup
+import CountUp from 'react-countup';
 
 //styling for modal 
 const customStyles = {
@@ -58,8 +61,29 @@ function App() {
       <div>
         {/* tooltip */}
         <p data-tip="hi there">Tooltip</p>
-
         <ReactTooltip />
+        {/* <Tippy content="it's a button">
+          <button>tooltip</button>
+        </Tippy> */}
+      </div>
+      <div>
+        <CountUp
+          start={0}
+          end={160527.012}
+          duration={2.75}
+          separator=" "
+          decimals={4}
+          decimal=","
+          onEnd={() => console.log('Ended! 👏')}
+          onStart={() => console.log('Started! 💨')}
+        >
+          {({ countUpRef, start }) => (
+            <div>
+              <span ref={countUpRef} />
+              <button onClick={start}>Start</button>
+            </div>
+          )}
+        </CountUp>
       </div>
     </div>
   );
