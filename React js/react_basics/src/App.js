@@ -11,6 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //Importing modal 
 import Modal from 'react-modal';
+//Importing tooltip 
+import ReactTooltip from 'react-tooltip';
 
 //styling for modal 
 const customStyles = {
@@ -50,13 +52,14 @@ function App() {
         <Modal isOpen={modalIsOpen} style={customStyles}>
           <h2>Modal box</h2>
           <p>yes</p>
-          {/* <div> */}
           <button onClick={() => { setModalIsOpen(false) }} >Close  modal </button>
-          {/* </div> */}
         </Modal>
       </div>
       <div>
+        {/* tooltip */}
+        <p data-tip="hi there">Tooltip</p>
 
+        <ReactTooltip />
       </div>
     </div>
   );
