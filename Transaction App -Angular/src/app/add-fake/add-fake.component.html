@@ -1,0 +1,28 @@
+
+<div id = 'form'>
+<form submit = "submit">
+    <label for="Type">Transaction Type</label>
+    <select  [(ngModel)]="data.TransactionType" [ngModelOptions]="{standalone: true}"
+    id="method" >
+    <option id="credit" value="Credit">Credit</option>
+    <option id="debit" value='Debit'>Debit</option>
+  </select>
+  <br>  <br>
+  <label for="Amoumt">Amount</label>
+
+
+    <input type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="data.Amount">  <br>  <br>
+
+    <label for="Disc">Discription</label>
+
+<input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="data.Discription">  <br>  <br>
+
+<button type="submit" (click)="AddData(data)">Add</button>
+
+</form>
+
+
+
+
+
+</div>
