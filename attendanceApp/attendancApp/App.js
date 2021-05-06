@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {
   View,
   Text,
@@ -7,19 +7,28 @@ import {
   TextInput,
   TouchableOpacity,
   Touchable,
+  AsyncStorage,
+  Button,
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {ceil} from 'react-native-reanimated';
-import GetLocation from 'react-native-get-location'
+import GetLocation from 'react-native-get-location';
 const axios = require('axios');
 
 function HomeScreen({navigation}) {
-  
   const [email, setEmail] = useState();
-  
 
 
+  // -------------------- Clear Data of Local Storage --------------------
+  //   const clearAppData = async function() {
+  //     try {
+  //         const keys = await AsyncStorage.getAllKeys();
+  //         await AsyncStorage.multiRemove(keys);
+  //     } catch (error) {
+  //         console.error('Error clearing app data.');
+  //     }
+  // }
 
   return (
     <View style={styles.container}>
@@ -36,7 +45,7 @@ function HomeScreen({navigation}) {
         onPress={() => {
           navigation.navigate('CheckInOut', {
             email: email,
-          })
+          });
         }}>
         <Text>Login</Text>
       </TouchableOpacity>
@@ -44,74 +53,136 @@ function HomeScreen({navigation}) {
   );
 }
 
+// Hook
+function usePrevious(value) {
+  // The ref object is a generic container whose current property is mutable ...
+  // ... and can hold any value, similar to an instance property on a class
+  const ref = useRef();
+  // Store current value in ref
+  useEffect(() => {
+    ref.current = value;
+  }, [value]); // Only re-run if value changes
+  // Return previous value (happens before update in useEffect above)
+  return ref.current;
+}
+
 function CheckInOut({route, navigation}) {
   const [checkInTime, setCheckInTime] = useState();
+  let previousCheckInTime = usePrevious(checkInTime);
   const [lat, setLat] = useState();
+  let previousLat = usePrevious(lat);
   const [lng, setLng] = useState();
+  let previousLng = usePrevious(lng);
   const [checkOutTime, setCheckOutTime] = useState();
   const [description, setDescription] = useState();
-
+  const [flagCheckIn, setflagCheckIn] = useState(false);
+  const [flagCheckOut, setflagCheckOut] = useState(true);
+  const checkInBtnColor = flagCheckIn ? 'white' : 'blue';
+  const checkOutBtnColor = flagCheckOut ? 'white' : 'blue';
+  const localStorageFlag = 'true';
   const {email} = route.params;
   // console.log('>>>>>>>>>>>>>>>', route.params);
 
+  // checkSession();
+
+  useEffect(async () => {
+    if (previousLng != lng) {
+      makeGetRequest();
+    }
+
+    if ((await AsyncStorage.getItem('flag')) == 'true') {
+      setflagCheckIn(true);
+      setflagCheckOut(false);
+    } else {
+      setflagCheckIn(false);
+      setflagCheckOut(true);
+    }
+  });
+
+  function saveDataLocally() {
+    let localStorageFlagg = localStorageFlag;
+    AsyncStorage.setItem('flag', localStorageFlagg);
+    // alert('SET VALUE', localStorageFlagg)
+  }
+
+  const displaylocaldata = async () => {
+    try {
+      let localStorageFlagg = await AsyncStorage.getItem('flag');
+      alert(localStorageFlagg);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const removeLocalData = async () => {
+    try {
+      await AsyncStorage.removeItem('flag');
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   async function makeGetRequest() {
     let payload = {email: email, checkInTime: checkInTime, lat: lat, lng: lng};
-
+    console.log('payload ----', payload);
     let res = await axios.post(
-      'http://192.168.0.103:3000/registeruser',
+      'http://192.168.0.106:3000/registeruser',
       payload,
     );
     let data = res.data;
-    console.log(">>>>>>>>>>>>>",data);
+    console.log('>>>>>>>>>>>>>', data);
   }
+
 
   function checkInTTime() {
     const hours = new Date().getHours(); //Current Hours
     const min = new Date().getMinutes(); //Current Minutes
     const sec = new Date().getSeconds(); //Current Seconds
     const time = hours + ':' + min + ':' + sec;
-    setCheckInTime(time)
-
+    setCheckInTime(time);
+    console.log('>>>>>>>>>>>>>', checkInTime);
   }
 
-  console.log('>>>>>>>>>>>>>', checkInTime);
   function getLatLng() {
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
       timeout: 15000,
-  })
-  .then(location => {
-    setLat(location.latitude)
-    setLng(location.longitude)
-      console.log(lat);
-      console.log(lng);
-
-  })
-  .catch(error => {
-      const { code, message } = error;
-      console.warn(code, message);
-  })
+    })
+      .then(location => {
+        setLat(location.latitude);
+        setLng(location.longitude);
+        console.log(lat);
+        console.log(lng);
+      })
+      .catch(error => {
+        const {code, message} = error;
+        console.warn(code, message);
+      });
   }
 
- function checkInTTimeandgetLatLng() {
-   checkInTTime();
-   getLatLng();
-   makeGetRequest();
-   
-   
- }
+  function checkInTTimeandgetLatLng() {
+    checkInTTime();
+    getLatLng();
+    saveDataLocally();
+  }
+
+
+
 
   function checkOutTTime() {
     const hours = new Date().getHours(); //Current Hours
     const min = new Date().getMinutes(); //Current Minutes
     const sec = new Date().getSeconds(); //Current Seconds
     const timee = hours + ':' + min + ':' + sec;
-debugger
-    setCheckOutTime(timee)
-    
+
+    setCheckOutTime(timee);
+    console.log('>>>>>>>>>>>>>', checkOutTime);
   }
-  console.log('>>>>>>>>>>>>>', checkOutTime);
+
+  function desc() {
+    console.log('<<<<<<<<<<<<<<<<<', description);
+  }
+
   return (
     <View>
       <TouchableOpacity style={styles.myAttendanceBtn}>
@@ -123,11 +194,41 @@ debugger
           justifyContent: 'space-evenly',
           marginTop: 100,
         }}>
-        <TouchableOpacity style={styles.checkInOutBtn} onPress={checkInTTimeandgetLatLng}>
+        <TouchableOpacity
+          style={{
+            backgroundColor: checkInBtnColor,
+            width: 120,
+            height: 40,
+            alignItems: 'center',
+            padding: 5,
+          }}
+          onPress={() => {
+            checkInTTimeandgetLatLng(),
+              setflagCheckIn(true),
+              setflagCheckOut(false);
+          }}
+          disabled={flagCheckIn}>
           <Text style={{fontSize: 20}}>CheckIn</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.checkInOutBtn} onPress={checkOutTTime}>
+        <TouchableOpacity
+          style={{
+            backgroundColor: checkOutBtnColor,
+            width: 120,
+            height: 40,
+            alignItems: 'center',
+            padding: 5,
+          }}
+          onPress={() => {
+            removeLocalData(), setflagCheckIn(false), setflagCheckOut(true);
+          }}
+          disabled={flagCheckOut}>
           <Text style={{fontSize: 20}}>CheckOut</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            displaylocaldata();
+          }}>
+          <Text>Remove Item</Text>
         </TouchableOpacity>
       </View>
       <View style={{marginTop: '20%'}}>
@@ -141,6 +242,7 @@ debugger
           }}
           multiline={true}
           numberOfLines={4}
+          onChangeText={setDescription}
         />
       </View>
     </View>
@@ -186,13 +288,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#DDDDDD',
     width: 160,
     height: 40,
-    padding: 5,
-  },
-  checkInOutBtn: {
-    backgroundColor: '#DDDDDD',
-    width: 120,
-    height: 40,
-    alignItems: 'center',
     padding: 5,
   },
 });

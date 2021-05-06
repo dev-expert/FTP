@@ -10,7 +10,6 @@ app.post("/registeruser", function(req, res) {
     // var sql = "INSERT INTO customers (name, address) VALUES (`${req.body.email}`, 'Highway 37')";
     let sql = 'INSERT INTO usercheckindetails SET ?' 
     let post = {         
-        id: "1",
         email: req.body.email,
         checkInTime: req.body.checkInTime,
         lat: req.body.lat,
