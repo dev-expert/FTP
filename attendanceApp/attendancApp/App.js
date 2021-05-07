@@ -9,6 +9,7 @@ import {
   Touchable,
   AsyncStorage,
   Button,
+  ToastAndroid
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -19,6 +20,45 @@ const axios = require('axios');
 function HomeScreen({navigation}) {
   const [email, setEmail] = useState();
 
+
+
+  async function emailVerify() {
+    let payload = {email: email};
+    console.log('payload form check----', payload);
+    let res = await axios.post(
+      'http://192.168.0.106:3000/checkCredentials',
+      payload,
+    );
+   
+    console.log('>>>>>>>>>>>>>', res.data.status);
+    if(res.data.status == true){
+      validation();
+    }
+    else if(res.data.status == false) {
+      alert('Invalid Email');
+    }
+
+    
+  }
+
+
+
+  const showToast = () => {
+    ToastAndroid.show("Logged In", ToastAndroid.SHORT);
+  };
+
+  function validation() {
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (reg.test(email) === false) {
+      alert('Enter Valid Email Address');
+    } 
+    else {
+      showToast();
+      navigation.navigate('CheckInOut', {
+        email: email
+      })
+    }
+  }
 
   // -------------------- Clear Data of Local Storage --------------------
   //   const clearAppData = async function() {
@@ -43,9 +83,7 @@ function HomeScreen({navigation}) {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          navigation.navigate('CheckInOut', {
-            email: email,
-          });
+          emailVerify();
         }}>
         <Text>Login</Text>
       </TouchableOpacity>
@@ -74,11 +112,14 @@ function CheckInOut({route, navigation}) {
   const [lng, setLng] = useState();
   let previousLng = usePrevious(lng);
   const [checkOutTime, setCheckOutTime] = useState();
+  let previousCheckOutTime = usePrevious(checkOutTime);
   const [description, setDescription] = useState();
+  let previousDescription = usePrevious(description);
   const [flagCheckIn, setflagCheckIn] = useState(false);
   const [flagCheckOut, setflagCheckOut] = useState(true);
   const checkInBtnColor = flagCheckIn ? 'white' : 'blue';
   const checkOutBtnColor = flagCheckOut ? 'white' : 'blue';
+  const descriptionOpacity = flagCheckIn ? 1 : 0
   const localStorageFlag = 'true';
   const {email} = route.params;
   // console.log('>>>>>>>>>>>>>>>', route.params);
@@ -87,9 +128,11 @@ function CheckInOut({route, navigation}) {
 
   useEffect(async () => {
     if (previousLng != lng) {
-      makeGetRequest();
+      makeGetRequestforEmailCheckinLatlng();
     }
-
+    if(previousCheckOutTime != checkOutTime) {
+      makeGetRequestforCheckoutDescription();
+    }
     if ((await AsyncStorage.getItem('flag')) == 'true') {
       setflagCheckIn(true);
       setflagCheckOut(false);
@@ -105,14 +148,14 @@ function CheckInOut({route, navigation}) {
     // alert('SET VALUE', localStorageFlagg)
   }
 
-  const displaylocaldata = async () => {
-    try {
-      let localStorageFlagg = await AsyncStorage.getItem('flag');
-      alert(localStorageFlagg);
-    } catch (error) {
-      alert(error);
-    }
-  };
+  // const displaylocaldata = async () => {
+  //   try {
+  //     let localStorageFlagg = await AsyncStorage.getItem('flag');
+  //     alert(localStorageFlagg);
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // };
 
   const removeLocalData = async () => {
     try {
@@ -122,7 +165,7 @@ function CheckInOut({route, navigation}) {
     }
   };
 
-  async function makeGetRequest() {
+  async function makeGetRequestforEmailCheckinLatlng() {
     let payload = {email: email, checkInTime: checkInTime, lat: lat, lng: lng};
     console.log('payload ----', payload);
     let res = await axios.post(
@@ -133,6 +176,16 @@ function CheckInOut({route, navigation}) {
     console.log('>>>>>>>>>>>>>', data);
   }
 
+  async function makeGetRequestforCheckoutDescription() {
+    let payload = { email: email, checkOutTime: checkOutTime, description: description };
+    console.log('payload ----', payload);
+    let res = await axios.post(
+      'http://192.168.0.106:3000/checkouttime',
+      payload,
+    );
+    let data = res.data;
+    console.log('>>>>>>>>>>>>>', data);
+  }
 
   function checkInTTime() {
     const hours = new Date().getHours(); //Current Hours
@@ -167,7 +220,12 @@ function CheckInOut({route, navigation}) {
   }
 
 
-
+  function checkOutTTimeDescRemoveLocalData() {
+    checkOutTTime();
+    removeLocalData();
+    desc();
+    makeGetRequestforCheckoutDescription();
+  }
 
   function checkOutTTime() {
     const hours = new Date().getHours(); //Current Hours
@@ -219,19 +277,19 @@ function CheckInOut({route, navigation}) {
             padding: 5,
           }}
           onPress={() => {
-            removeLocalData(), setflagCheckIn(false), setflagCheckOut(true);
+            checkOutTTimeDescRemoveLocalData(), setflagCheckIn(false), setflagCheckOut(true);
           }}
           disabled={flagCheckOut}>
           <Text style={{fontSize: 20}}>CheckOut</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => {
             displaylocaldata();
           }}>
           <Text>Remove Item</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
-      <View style={{marginTop: '20%'}}>
+      <View style={{marginTop: '20%', opacity: descriptionOpacity}}>
         <Text style={{textAlign: 'center', fontSize: 20}}>Description</Text>
         <TextInput
           style={{
@@ -270,7 +328,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    width: 200,
+    width: 320,
     borderWidth: 1,
   },
   button: {

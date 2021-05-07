@@ -22,6 +22,38 @@ app.post("/registeruser", function(req, res) {
     });
 });
 
+app.post("/checkouttime", function(req, res) {
+    console.log("request", req.body.description);
+    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', description = '"+req.body.description+"'  WHERE email = '"+req.body.email+"'"
+
+    con.query(sql, function (err, result) {
+        console.log('node-------', req.body)
+        if(err) throw err;
+        console.log('inserted');
+    })
+})
+
+
+app.post("/checkCredentials", function(req, res) {
+    console.log("request", req.body)
+    let sql = "SELECT employee_email from employees_email where employee_email = '"+req.body.email+"'";
+
+    con.query(sql, function (err, result) {
+        if(err) throw err;
+        
+        
+
+        if(result[0] && result[0].employee_email==req.body.email) {
+            res.send({status: true})
+            console.log("Verified Email is Present in Database")
+        }
+        else{
+            res.send({status: false})
+        }
+    })
+})
+
+
 const PORT = 3000;
 
 app.listen(PORT, function() {
