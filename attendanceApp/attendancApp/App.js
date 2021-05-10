@@ -9,18 +9,20 @@ import {
   Touchable,
   AsyncStorage,
   Button,
-  ToastAndroid
+  ToastAndroid,
+  Image,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {ceil} from 'react-native-reanimated';
 import GetLocation from 'react-native-get-location';
+
 const axios = require('axios');
 
 function HomeScreen({navigation}) {
   const [email, setEmail] = useState();
-
-
 
   async function emailVerify() {
     let payload = {email: email};
@@ -29,34 +31,28 @@ function HomeScreen({navigation}) {
       'http://192.168.0.106:3000/checkCredentials',
       payload,
     );
-   
+
     console.log('>>>>>>>>>>>>>', res.data.status);
-    if(res.data.status == true){
+    if (res.data.status == true) {
       validation();
-    }
-    else if(res.data.status == false) {
+    } else if (res.data.status == false) {
       alert('Invalid Email');
     }
-
-    
   }
 
-
-
   const showToast = () => {
-    ToastAndroid.show("Logged In", ToastAndroid.SHORT);
+    ToastAndroid.show('Logged In', ToastAndroid.SHORT);
   };
 
   function validation() {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(email) === false) {
       alert('Enter Valid Email Address');
-    } 
-    else {
+    } else {
       showToast();
       navigation.navigate('CheckInOut', {
-        email: email
-      })
+        email: email,
+      });
     }
   }
 
@@ -71,23 +67,34 @@ function HomeScreen({navigation}) {
   // }
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Email"
-        onChangeText={value => {
-          setEmail(value);
-        }}
-      />
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}>
+      <View style={styles.container}>
+        <Image
+          source={{
+            uri: 'https://image3.mouthshut.com/images/imagesp/925979518s.png',
+          }}
+          style={{width: 380, height: 100}}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Email"
+          onChangeText={value => {
+            setEmail(value);
+          }}
+        />
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          emailVerify();
-        }}>
-        <Text>Login</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            emailVerify();
+          }}>
+          <Text style={{color: 'white', fontSize: 20}}>Login</Text>
+        </TouchableOpacity>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -105,6 +112,7 @@ function usePrevious(value) {
 }
 
 function CheckInOut({route, navigation}) {
+  const [checkInDate, setcheckInDate] = useState();
   const [checkInTime, setCheckInTime] = useState();
   let previousCheckInTime = usePrevious(checkInTime);
   const [lat, setLat] = useState();
@@ -113,14 +121,17 @@ function CheckInOut({route, navigation}) {
   let previousLng = usePrevious(lng);
   const [checkOutTime, setCheckOutTime] = useState();
   let previousCheckOutTime = usePrevious(checkOutTime);
+  const [checkOutDate, setcheckOutDate] = useState();
+  let previousCheckOutDate = usePrevious(checkOutDate);
   const [description, setDescription] = useState();
   let previousDescription = usePrevious(description);
   const [flagCheckIn, setflagCheckIn] = useState(false);
   const [flagCheckOut, setflagCheckOut] = useState(true);
-  const checkInBtnColor = flagCheckIn ? 'white' : 'blue';
-  const checkOutBtnColor = flagCheckOut ? 'white' : 'blue';
-  const descriptionOpacity = flagCheckIn ? 1 : 0
+  const checkInBtnColor = flagCheckIn ? '#eb5527' : '#0F59A5';
+  const checkOutBtnColor = flagCheckOut ? '#eb5527' : '#0F59A5';
+  const descriptionOpacity = flagCheckIn ? 1 : 0;
   const localStorageFlag = 'true';
+  const descriptionDisableFlag = flagCheckIn ? true : false;
   const {email} = route.params;
   // console.log('>>>>>>>>>>>>>>>', route.params);
 
@@ -130,7 +141,7 @@ function CheckInOut({route, navigation}) {
     if (previousLng != lng) {
       makeGetRequestforEmailCheckinLatlng();
     }
-    if(previousCheckOutTime != checkOutTime) {
+    if (previousCheckOutTime != checkOutTime) {
       makeGetRequestforCheckoutDescription();
     }
     if ((await AsyncStorage.getItem('flag')) == 'true') {
@@ -166,7 +177,13 @@ function CheckInOut({route, navigation}) {
   };
 
   async function makeGetRequestforEmailCheckinLatlng() {
-    let payload = {email: email, checkInTime: checkInTime, lat: lat, lng: lng};
+    let payload = {
+      email: email,
+      checkInDate: checkInDate,
+      checkInTime: checkInTime,
+      lat: lat,
+      lng: lng,
+    };
     console.log('payload ----', payload);
     let res = await axios.post(
       'http://192.168.0.106:3000/registeruser',
@@ -177,7 +194,12 @@ function CheckInOut({route, navigation}) {
   }
 
   async function makeGetRequestforCheckoutDescription() {
-    let payload = { email: email, checkOutTime: checkOutTime, description: description };
+    let payload = {
+      email: email,
+      checkOutTime: checkOutTime,
+      checkOutDate: checkOutDate,
+      description: description,
+    };
     console.log('payload ----', payload);
     let res = await axios.post(
       'http://192.168.0.106:3000/checkouttime',
@@ -194,6 +216,15 @@ function CheckInOut({route, navigation}) {
     const time = hours + ':' + min + ':' + sec;
     setCheckInTime(time);
     console.log('>>>>>>>>>>>>>', checkInTime);
+  }
+
+  function checkInDDate() {
+    const date = new Date().getDate();
+    const month = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+    const fullDate = year + '-' + month + '-' + date;
+    setcheckInDate(fullDate);
+    console.log('--------------', checkInDate);
   }
 
   function getLatLng() {
@@ -214,14 +245,15 @@ function CheckInOut({route, navigation}) {
   }
 
   function checkInTTimeandgetLatLng() {
+    checkInDDate();
     checkInTTime();
     getLatLng();
     saveDataLocally();
   }
 
-
   function checkOutTTimeDescRemoveLocalData() {
     checkOutTTime();
+    checkOutDDate();
     removeLocalData();
     desc();
     makeGetRequestforCheckoutDescription();
@@ -237,73 +269,94 @@ function CheckInOut({route, navigation}) {
     console.log('>>>>>>>>>>>>>', checkOutTime);
   }
 
+  function checkOutDDate() {
+    const date = new Date().getDate();
+    const month = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+    const fullDate = year + '-' + month + '-' + date;
+    setcheckOutDate(fullDate);
+    console.log('--------------', checkOutDate);
+  }
+
   function desc() {
     console.log('<<<<<<<<<<<<<<<<<', description);
   }
 
   return (
-    <View>
-      <TouchableOpacity style={styles.myAttendanceBtn}>
-        <Text style={{fontSize: 20}}>My Attendance</Text>
-      </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          marginTop: 100,
-        }}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}>
+      <View>
         <TouchableOpacity
-          style={{
-            backgroundColor: checkInBtnColor,
-            width: 120,
-            height: 40,
-            alignItems: 'center',
-            padding: 5,
-          }}
-          onPress={() => {
-            checkInTTimeandgetLatLng(),
-              setflagCheckIn(true),
-              setflagCheckOut(false);
-          }}
-          disabled={flagCheckIn}>
-          <Text style={{fontSize: 20}}>CheckIn</Text>
+          style={styles.myAttendanceBtn}
+         >
+          <Text style={{fontSize: 20}}>My Attendance</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        <View
           style={{
-            backgroundColor: checkOutBtnColor,
-            width: 120,
-            height: 40,
-            alignItems: 'center',
-            padding: 5,
-          }}
-          onPress={() => {
-            checkOutTTimeDescRemoveLocalData(), setflagCheckIn(false), setflagCheckOut(true);
-          }}
-          disabled={flagCheckOut}>
-          <Text style={{fontSize: 20}}>CheckOut</Text>
-        </TouchableOpacity>
-        {/* <TouchableOpacity
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            marginTop: 100,
+          }}>
+          <TouchableOpacity
+            style={{
+              backgroundColor: checkInBtnColor,
+              width: 120,
+              height: 45,
+              alignItems: 'center',
+              paddingVertical: 7,
+            }}
+            onPress={() => {
+              checkInTTimeandgetLatLng(),
+                setflagCheckIn(true),
+                setflagCheckOut(false);
+            }}
+            disabled={flagCheckIn}>
+            <Text style={{fontSize: 20, color: 'white'}}>CheckIn</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: checkOutBtnColor,
+              width: 120,
+              height: 45,
+              alignItems: 'center',
+              paddingVertical: 7,
+            }}
+            onPress={() => {
+              checkOutTTimeDescRemoveLocalData(),
+                setflagCheckIn(false),
+                setflagCheckOut(true);
+            }}
+            disabled={flagCheckOut}>
+            <Text style={{fontSize: 20, color: 'white'}}>CheckOut</Text>
+          </TouchableOpacity>
+          {/* <TouchableOpacity
           onPress={() => {
             displaylocaldata();
           }}>
           <Text>Remove Item</Text>
         </TouchableOpacity> */}
+        </View>
+        <View style={{marginTop: '20%', opacity: descriptionOpacity}}>
+          <Text style={{textAlign: 'center', fontSize: 20}}>Description</Text>
+
+          <TextInput
+            editable={descriptionDisableFlag}
+            style={{
+              borderColor: 'black',
+              borderWidth: 1,
+              width: '98%',
+              alignSelf: 'center',
+              borderRadius: 5,
+            }}
+            multiline={true}
+            numberOfLines={4}
+            onChangeText={setDescription}
+          />
+        </View>
       </View>
-      <View style={{marginTop: '20%', opacity: descriptionOpacity}}>
-        <Text style={{textAlign: 'center', fontSize: 20}}>Description</Text>
-        <TextInput
-          style={{
-            borderColor: 'black',
-            borderWidth: 1,
-            width: '98%',
-            alignSelf: 'center',
-          }}
-          multiline={true}
-          numberOfLines={4}
-          onChangeText={setDescription}
-        />
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -313,7 +366,7 @@ function App({navigation}) {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Attendance Manager" component={HomeScreen} />
         <Stack.Screen name="CheckInOut" component={CheckInOut} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -330,14 +383,16 @@ const styles = StyleSheet.create({
     height: 40,
     width: 320,
     borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#0F59A5',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
+    backgroundColor: '#0F59A5',
+    paddingVertical: 6,
     marginTop: 10,
-    width: 100,
-    height: 40,
+    width: 120,
+    height: 45,
   },
   myAttendanceBtn: {
     margin: 10,

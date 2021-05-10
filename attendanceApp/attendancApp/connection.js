@@ -11,6 +11,7 @@ app.post("/registeruser", function(req, res) {
     let sql = 'INSERT INTO usercheckindetails SET ?' 
     let post = {         
         email: req.body.email,
+        checkInDate: req.body.checkInDate,
         checkInTime: req.body.checkInTime,
         lat: req.body.lat,
         lng: req.body.lng
@@ -24,7 +25,7 @@ app.post("/registeruser", function(req, res) {
 
 app.post("/checkouttime", function(req, res) {
     console.log("request", req.body.description);
-    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', description = '"+req.body.description+"'  WHERE email = '"+req.body.email+"'"
+    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', checkOutDate = '"+req.body.checkOutDate+"', description = '"+req.body.description+"'  WHERE email = '"+req.body.email+"' AND checkInDate = '"+req.body.checkOutDate+"'"
 
     con.query(sql, function (err, result) {
         console.log('node-------', req.body)
