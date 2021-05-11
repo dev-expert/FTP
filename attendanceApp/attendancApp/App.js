@@ -18,7 +18,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {ceil} from 'react-native-reanimated';
 import GetLocation from 'react-native-get-location';
-
+import {Calendar} from 'react-native-calendars';
 const axios = require('axios');
 
 function HomeScreen({navigation}) {
@@ -125,6 +125,9 @@ function CheckInOut({route, navigation}) {
   let previousCheckOutDate = usePrevious(checkOutDate);
   const [description, setDescription] = useState();
   let previousDescription = usePrevious(description);
+  const [checkindateandtime, setcheckindateandtime] = useState();
+  const [checkoutdateandtime, setcheckoutdateandtime] = useState();
+
   const [flagCheckIn, setflagCheckIn] = useState(false);
   const [flagCheckOut, setflagCheckOut] = useState(true);
   const checkInBtnColor = flagCheckIn ? '#eb5527' : '#0F59A5';
@@ -181,6 +184,7 @@ function CheckInOut({route, navigation}) {
       email: email,
       checkInDate: checkInDate,
       checkInTime: checkInTime,
+      checkindateandtime: checkindateandtime,
       lat: lat,
       lng: lng,
     };
@@ -198,6 +202,7 @@ function CheckInOut({route, navigation}) {
       email: email,
       checkOutTime: checkOutTime,
       checkOutDate: checkOutDate,
+      checkoutdateandtime: checkoutdateandtime,
       description: description,
     };
     console.log('payload ----', payload);
@@ -207,6 +212,17 @@ function CheckInOut({route, navigation}) {
     );
     let data = res.data;
     console.log('>>>>>>>>>>>>>', data);
+  }
+
+
+  function checkinddateandtime() {
+    const date = new Date();
+    setcheckindateandtime(date);
+  }
+
+  function checkoutddateandtime() {
+    const date = new Date();
+    setcheckoutdateandtime(date);
   }
 
   function checkInTTime() {
@@ -249,6 +265,7 @@ function CheckInOut({route, navigation}) {
     checkInTTime();
     getLatLng();
     saveDataLocally();
+    checkinddateandtime();
   }
 
   function checkOutTTimeDescRemoveLocalData() {
@@ -256,6 +273,7 @@ function CheckInOut({route, navigation}) {
     checkOutDDate();
     removeLocalData();
     desc();
+    checkoutddateandtime();
     makeGetRequestforCheckoutDescription();
   }
 
@@ -290,7 +308,11 @@ function CheckInOut({route, navigation}) {
       <View>
         <TouchableOpacity
           style={styles.myAttendanceBtn}
-         >
+          onPress={() => {
+            navigation.navigate('checkDetails', {
+              email: email,
+            });
+          }}>
           <Text style={{fontSize: 20}}>My Attendance</Text>
         </TouchableOpacity>
         <View
@@ -360,6 +382,45 @@ function CheckInOut({route, navigation}) {
   );
 }
 
+function checkDetails({route, navigation}) {
+  const {email} = route.params;
+  async function checkPresentOrNot() {
+    let payload = {
+      email: email,
+    };
+    console.log('payload ----', payload);
+    let res = await axios.post(
+      'http://192.168.0.106:3000/presentorabsent',
+      payload,
+    );
+    let data = res.data;
+    console.log('>>>>>>>>>>>>>', data);
+  }
+
+  const start = new Date('2021-05-11 11:09:02.678000').getTime();
+  const end = new Date('2021-05-11 11:17:10.750000').getTime();
+  
+
+     const diffInMilliSeconds = Math.abs(end - start) / 1000;
+  console.log('total seconds--' , diffInMilliSeconds);
+
+  return (
+    <View style={{flex: 1, justifyContent: 'center'}}>
+      <Button
+        title="clickme"
+        onPress={() => {
+          checkPresentOrNot();
+        }}></Button>
+      <Calendar
+        current={'2012-05-01'} // Current Time and Display here Current System Date
+        onDayPress={day => {
+          console.log('selected day', day);
+        }} // Gives the DATE MONTH YEAR AND TIMESTAMP
+    
+      />
+    </View>
+  );
+}
 const Stack = createStackNavigator();
 
 function App({navigation}) {
@@ -368,6 +429,7 @@ function App({navigation}) {
       <Stack.Navigator>
         <Stack.Screen name="Attendance Manager" component={HomeScreen} />
         <Stack.Screen name="CheckInOut" component={CheckInOut} />
+        <Stack.Screen name="checkDetails" component={checkDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

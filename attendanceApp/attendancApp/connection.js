@@ -13,6 +13,7 @@ app.post("/registeruser", function(req, res) {
         email: req.body.email,
         checkInDate: req.body.checkInDate,
         checkInTime: req.body.checkInTime,
+        checkindateandtime: req.body.checkindateandtime,
         lat: req.body.lat,
         lng: req.body.lng
     }     
@@ -25,7 +26,7 @@ app.post("/registeruser", function(req, res) {
 
 app.post("/checkouttime", function(req, res) {
     console.log("request", req.body.description);
-    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', checkOutDate = '"+req.body.checkOutDate+"', description = '"+req.body.description+"'  WHERE email = '"+req.body.email+"' AND checkInDate = '"+req.body.checkOutDate+"'"
+    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', checkOutDate = '"+req.body.checkOutDate+"', checkoutdateandtime = '"+req.body.checkoutdateandtime+"', description = '"+req.body.description+"'  WHERE email = '"+req.body.email+"' AND checkInDate = '"+req.body.checkOutDate+"'"
 
     con.query(sql, function (err, result) {
         console.log('node-------', req.body)
@@ -52,6 +53,17 @@ app.post("/checkCredentials", function(req, res) {
             res.send({status: false})
         }
     })
+})
+
+app.post("/presentorabsent", function(req, res) {
+    console.log("request-----", req.body)
+    let sql = "SELECT checkInDate,checkInTime,checkOutDate,checkOutTime from usercheckindetails WHERE email = '"+req.body.email+"'"
+    con.query(sql, function (err, result) {
+        if(err) throw err;
+
+        res.send(result)
+    })
+    
 })
 
 
