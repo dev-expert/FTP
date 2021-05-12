@@ -214,7 +214,6 @@ function CheckInOut({route, navigation}) {
     console.log('>>>>>>>>>>>>>', data);
   }
 
-
   function checkinddateandtime() {
     const date = new Date();
     setcheckindateandtime(date);
@@ -238,7 +237,7 @@ function CheckInOut({route, navigation}) {
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
-    const fullDate = year + '-' + month + '-' + date;
+    const fullDate = year + '/' + month + '/' + date;
     setcheckInDate(fullDate);
     console.log('--------------', checkInDate);
   }
@@ -291,7 +290,7 @@ function CheckInOut({route, navigation}) {
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
-    const fullDate = year + '-' + month + '-' + date;
+    const fullDate = year + '/' + month + '/' + date;
     setcheckOutDate(fullDate);
     console.log('--------------', checkOutDate);
   }
@@ -383,7 +382,14 @@ function CheckInOut({route, navigation}) {
 }
 
 function checkDetails({route, navigation}) {
+  const [greendate, setgreendate] = useState([]);
+  const [reddate, setreddate] = useState([]);
+  const [color, setColor] = useState();
   const {email} = route.params;
+
+  const currentDATE = new Date();
+  console.log('currentDate', currentDATE);
+
   async function checkPresentOrNot() {
     let payload = {
       email: email,
@@ -394,16 +400,46 @@ function checkDetails({route, navigation}) {
       payload,
     );
     let data = res.data;
-    console.log('>>>>>>>>>>>>>', data);
+    // console.log('>>>>>>>>>>>>>', data);
+let len = data.length
+console.log('length', len)
+    for (let i = 0; i < len; i++) {
+      let data = res.data[i];
+      console.log('>>>>>>>>>>>>>', data);
+
+      const checkInTIME = data.checkInTime.slice(0, 8);
+      const checkOutTIME = data.checkOutTime.slice(0, 8);
+      const checkInDATE = data.checkInDate.slice(0, 10);
+      const checkOutDATE = data.checkOutDate.slice(0, 10);
+
+      const replacedCheckInDATE = checkInDATE.replace(/-/g, '/');
+      const replacedCheckOUTDATE = checkOutDATE.replace(/-/g, '/');
+
+      const combineInDateAndTime = `${replacedCheckInDATE} ${checkInTIME}`;
+      const combineOutDateAndTime = `${replacedCheckOUTDATE} ${checkOutTIME}`;
+
+      const start = new Date(`${combineInDateAndTime}`).getTime();
+      const end = new Date(`${combineOutDateAndTime}`).getTime();
+      const difference = end - start;
+      console.log('difference----', difference);
+      debugger
+      if (difference >= 34200000) {
+        setgreendate([...greendate, checkInDATE]);
+
+        console.log('GREEN DATE', greendate);
+
+        setColor('green');
+        alert('Present');
+      } else {
+        setreddate([...reddate, checkInDATE]);
+
+        setColor('red');
+        console.log('RED DATE', reddate);
+
+        alert('Absent');
+      }
+    }
   }
-
-  const start = new Date('2021-05-11 11:09:02.678000').getTime();
-  const end = new Date('2021-05-11 11:17:10.750000').getTime();
-  
-
-     const diffInMilliSeconds = Math.abs(end - start) / 1000;
-  console.log('total seconds--' , diffInMilliSeconds);
-
   return (
     <View style={{flex: 1, justifyContent: 'center'}}>
       <Button
@@ -412,11 +448,14 @@ function checkDetails({route, navigation}) {
           checkPresentOrNot();
         }}></Button>
       <Calendar
-        current={'2012-05-01'} // Current Time and Display here Current System Date
+        current={`${currentDATE}`} // Current Time and Display here Current System Date
+        markedDates={{
+          [greendate]: {selected: true, selectedColor: 'green'},
+          [reddate]: {selected: true, selectedColor: 'red'},
+        }}
         onDayPress={day => {
           console.log('selected day', day);
         }} // Gives the DATE MONTH YEAR AND TIMESTAMP
-    
       />
     </View>
   );
