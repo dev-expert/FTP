@@ -19,8 +19,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {ceil} from 'react-native-reanimated';
 import GetLocation from 'react-native-get-location';
 import {Calendar} from 'react-native-calendars';
+import LinearGradient from 'react-native-linear-gradient';
 const axios = require('axios');
-
+const logo = require('./images/appwrklogo.png');
 function HomeScreen({navigation}) {
   const [email, setEmail] = useState();
 
@@ -32,7 +33,7 @@ function HomeScreen({navigation}) {
       payload,
     );
 
-    console.log('>>>>>>>>>>>>>', res.data.status);
+    // console.log('>>>>>>>>>>>>>', res.data.status);
     if (res.data.status == true) {
       validation();
     } else if (res.data.status == false) {
@@ -72,12 +73,9 @@ function HomeScreen({navigation}) {
         Keyboard.dismiss();
       }}>
       <View style={styles.container}>
-        <Image
-          source={{
-            uri: 'https://image3.mouthshut.com/images/imagesp/925979518s.png',
-          }}
-          style={{width: 380, height: 100}}
-        />
+
+        <Image source={logo} style={{width: 380, height: 100}} />
+       
         <TextInput
           style={styles.input}
           placeholder="Enter Email"
@@ -205,13 +203,19 @@ function CheckInOut({route, navigation}) {
       checkoutdateandtime: checkoutdateandtime,
       description: description,
     };
+
     console.log('payload ----', payload);
     let res = await axios.post(
       'http://192.168.0.106:3000/checkouttime',
       payload,
     );
-    let data = res.data;
-    console.log('>>>>>>>>>>>>>', data);
+
+if(res&&res.data)
+{
+  setDescription('')
+}
+    // let data = res.data;
+    // console.log('reponse>>>>>>>>>>>>>', data);
   }
 
   function checkinddateandtime() {
@@ -230,16 +234,16 @@ function CheckInOut({route, navigation}) {
     const sec = new Date().getSeconds(); //Current Seconds
     const time = hours + ':' + min + ':' + sec;
     setCheckInTime(time);
-    console.log('>>>>>>>>>>>>>', checkInTime);
+    // console.log('>>>>>>>>>>>>>', checkInTime);
   }
 
   function checkInDDate() {
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
-    const fullDate = year + '/' + month + '/' + date;
+    const fullDate = year + '-' + month + '-' + date;
     setcheckInDate(fullDate);
-    console.log('--------------', checkInDate);
+    // console.log('--------------', checkInDate);
   }
 
   function getLatLng() {
@@ -250,8 +254,8 @@ function CheckInOut({route, navigation}) {
       .then(location => {
         setLat(location.latitude);
         setLng(location.longitude);
-        console.log(lat);
-        console.log(lng);
+        // console.log(lat);
+        // console.log(lng);
       })
       .catch(error => {
         const {code, message} = error;
@@ -283,20 +287,20 @@ function CheckInOut({route, navigation}) {
     const timee = hours + ':' + min + ':' + sec;
 
     setCheckOutTime(timee);
-    console.log('>>>>>>>>>>>>>', checkOutTime);
+    // console.log('>>>>>>>>>>>>>', checkOutTime);
   }
 
   function checkOutDDate() {
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
-    const fullDate = year + '/' + month + '/' + date;
+    const fullDate = year + '-' + month + '-' + date;
     setcheckOutDate(fullDate);
-    console.log('--------------', checkOutDate);
+    // console.log('--------------', checkOutDate);
   }
 
   function desc() {
-    console.log('<<<<<<<<<<<<<<<<<', description);
+    // console.log('<<<<<<<<<<<<<<<<<', description);
   }
 
   return (
@@ -305,15 +309,16 @@ function CheckInOut({route, navigation}) {
         Keyboard.dismiss();
       }}>
       <View>
+      <LinearGradient colors={[ '#833ab4', '#fd1d1d' , '#fcb045' ]} style={styles.myAttendanceBtn} >
         <TouchableOpacity
-          style={styles.myAttendanceBtn}
           onPress={() => {
             navigation.navigate('checkDetails', {
               email: email,
             });
           }}>
-          <Text style={{fontSize: 20}}>My Attendance</Text>
+          <Text style={{fontSize: 20, color: 'white'}}>My Attendance</Text>
         </TouchableOpacity>
+        </LinearGradient>
         <View
           style={{
             flexDirection: 'row',
@@ -348,6 +353,7 @@ function CheckInOut({route, navigation}) {
               checkOutTTimeDescRemoveLocalData(),
                 setflagCheckIn(false),
                 setflagCheckOut(true);
+                
             }}
             disabled={flagCheckOut}>
             <Text style={{fontSize: 20, color: 'white'}}>CheckOut</Text>
@@ -374,6 +380,7 @@ function CheckInOut({route, navigation}) {
             multiline={true}
             numberOfLines={4}
             onChangeText={setDescription}
+            value={description}
           />
         </View>
       </View>
@@ -388,9 +395,10 @@ function checkDetails({route, navigation}) {
   const {email} = route.params;
 
   const currentDATE = new Date();
-  console.log('currentDate', currentDATE);
+  // console.log('currentDate', currentDATE);
 
-  async function checkPresentOrNot() {
+  useEffect(async () => {
+    // async function checkPresentOrNot() {
     let payload = {
       email: email,
     };
@@ -401,16 +409,16 @@ function checkDetails({route, navigation}) {
     );
     let data = res.data;
     // console.log('>>>>>>>>>>>>>', data);
-let len = data.length
-console.log('length', len)
+    let len = data.length;
+    console.log('length', len);
     for (let i = 0; i < len; i++) {
       let data = res.data[i];
-      console.log('>>>>>>>>>>>>>', data);
+      // console.log('>>>>>>>>>>>>>', data);
 
       const checkInTIME = data.checkInTime.slice(0, 8);
       const checkOutTIME = data.checkOutTime.slice(0, 8);
-      const checkInDATE = data.checkInDate.slice(0, 10);
-      const checkOutDATE = data.checkOutDate.slice(0, 10);
+      const checkInDATE = data.checkindateandtime.slice(0, 10);
+      const checkOutDATE = data.checkindateandtime.slice(0, 10);
 
       const replacedCheckInDATE = checkInDATE.replace(/-/g, '/');
       const replacedCheckOUTDATE = checkOutDATE.replace(/-/g, '/');
@@ -422,37 +430,55 @@ console.log('length', len)
       const end = new Date(`${combineOutDateAndTime}`).getTime();
       const difference = end - start;
       console.log('difference----', difference);
-      debugger
+      debugger;
       if (difference >= 34200000) {
-        setgreendate([...greendate, checkInDATE]);
-
-        console.log('GREEN DATE', greendate);
+        setgreendate(greendate => [...greendate, checkInDATE]);
 
         setColor('green');
-        alert('Present');
+       
       } else {
-        setreddate([...reddate, checkInDATE]);
+        setreddate(reddate => [...reddate, checkInDATE]);
 
         setColor('red');
-        console.log('RED DATE', reddate);
 
-        alert('Absent');
       }
     }
-  }
+
+    console.log('GREEN DATE', greendate);
+    console.log('RED DATE', reddate);
+  },[]);
+  let greendateobj = {};
+  greendate.forEach(val => {
+    greendateobj[val] = {selected: true, selectedColor: 'green'};
+  });
+
+  let reddateobj = {};
+  reddate.forEach(val => {
+    reddateobj[val] = {selected: true, selectedColor: 'red'};
+  });
+  let presentandabsent = {...greendateobj, ...reddateobj};
+  console.log('new aray', presentandabsent)
   return (
-    <View style={{flex: 1, justifyContent: 'center'}}>
-      <Button
+    <View >
+      <View style={{ flexDirection: 'row' , justifyContent: 'space-evenly',marginVertical: 40}}>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ backgroundColor: 'green', width: 40, height: 40, borderRadius: 50 }}></View>
+          <Text style={{ fontSize: 20, marginTop: 5, marginLeft: 5 }}>Present</Text>
+        </View>
+
+        <View style={{ flexDirection: 'row' }}>
+        <View style={{ backgroundColor: 'red', width: 40, height: 40, borderRadius: 50 }}></View>
+        <Text style={{ fontSize: 20, marginTop: 5, marginLeft: 5 }}>Absent</Text>
+        </View>
+    </View>
+      {/* <Button
         title="clickme"
         onPress={() => {
           checkPresentOrNot();
-        }}></Button>
+        }}></Button> */}
       <Calendar
         current={`${currentDATE}`} // Current Time and Display here Current System Date
-        markedDates={{
-          [greendate]: {selected: true, selectedColor: 'green'},
-          [reddate]: {selected: true, selectedColor: 'red'},
-        }}
+        markedDates={presentandabsent}
         onDayPress={day => {
           console.log('selected day', day);
         }} // Gives the DATE MONTH YEAR AND TIMESTAMP
@@ -467,8 +493,8 @@ function App({navigation}) {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Attendance Manager" component={HomeScreen} />
-        <Stack.Screen name="CheckInOut" component={CheckInOut} />
-        <Stack.Screen name="checkDetails" component={checkDetails} />
+        <Stack.Screen name="CheckInOut" options={{ title: 'Check In Out' }} component={CheckInOut} />
+        <Stack.Screen name="checkDetails" options={{ title: 'Attendance Details' }} component={checkDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -499,10 +525,11 @@ const styles = StyleSheet.create({
     margin: 10,
     alignSelf: 'flex-end',
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+   
     width: 160,
     height: 40,
     padding: 5,
+    borderRadius: 10
   },
 });
 

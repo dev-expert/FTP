@@ -31,7 +31,9 @@ app.post("/checkouttime", function(req, res) {
     con.query(sql, function (err, result) {
         console.log('node-------', req.body)
         if(err) throw err;
+
         console.log('inserted');
+        res.send(result);
     })
 })
 
@@ -57,7 +59,7 @@ app.post("/checkCredentials", function(req, res) {
 
 app.post("/presentorabsent", function(req, res) {
     console.log("request-----", req.body)
-    let sql = "SELECT checkInDate,checkInTime,checkOutDate,checkOutTime from usercheckindetails WHERE email = '"+req.body.email+"'"
+    let sql = "SELECT checkInDate,checkindateandtime,checkoutdateandtime,checkInTime,checkOutDate,checkOutTime from usercheckindetails WHERE email = '"+req.body.email+"'"
     con.query(sql, function (err, result) {
         if(err) throw err;
 
