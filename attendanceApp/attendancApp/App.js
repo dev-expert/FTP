@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {ceil} from 'react-native-reanimated';
+import {ceil, diff} from 'react-native-reanimated';
 import GetLocation from 'react-native-get-location';
 import {Calendar} from 'react-native-calendars';
 import LinearGradient from 'react-native-linear-gradient';
@@ -73,9 +73,8 @@ function HomeScreen({navigation}) {
         Keyboard.dismiss();
       }}>
       <View style={styles.container}>
-
         <Image source={logo} style={{width: 380, height: 100}} />
-       
+
         <TextInput
           style={styles.input}
           placeholder="Enter Email"
@@ -210,10 +209,9 @@ function CheckInOut({route, navigation}) {
       payload,
     );
 
-if(res&&res.data)
-{
-  setDescription('')
-}
+    if (res && res.data) {
+      setDescription('');
+    }
     // let data = res.data;
     // console.log('reponse>>>>>>>>>>>>>', data);
   }
@@ -269,15 +267,16 @@ if(res&&res.data)
     getLatLng();
     saveDataLocally();
     checkinddateandtime();
+    showToastInCheckIn();
   }
 
   function checkOutTTimeDescRemoveLocalData() {
     checkOutTTime();
     checkOutDDate();
     removeLocalData();
-    desc();
     checkoutddateandtime();
     makeGetRequestforCheckoutDescription();
+    showToastInCheckOut();
   }
 
   function checkOutTTime() {
@@ -299,9 +298,21 @@ if(res&&res.data)
     // console.log('--------------', checkOutDate);
   }
 
-  function desc() {
-    // console.log('<<<<<<<<<<<<<<<<<', description);
-  }
+  const showToastInCheckIn = () => {
+    ToastAndroid.show(
+      'Checked In Successfully',
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER,
+    );
+  };
+
+  const showToastInCheckOut = () => {
+    ToastAndroid.show(
+      'Checked Out Successfully',
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER,
+    );
+  };
 
   return (
     <TouchableWithoutFeedback
@@ -309,15 +320,17 @@ if(res&&res.data)
         Keyboard.dismiss();
       }}>
       <View>
-      <LinearGradient colors={[ '#833ab4', '#fd1d1d' , '#fcb045' ]} style={styles.myAttendanceBtn} >
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('checkDetails', {
-              email: email,
-            });
-          }}>
-          <Text style={{fontSize: 20, color: 'white'}}>My Attendance</Text>
-        </TouchableOpacity>
+        <LinearGradient
+          colors={['#833ab4', '#fd1d1d', '#fcb045']}
+          style={styles.myAttendanceBtn}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('checkDetails', {
+                email: email,
+              });
+            }}>
+            <Text style={{fontSize: 20, color: 'white'}}>My Attendance</Text>
+          </TouchableOpacity>
         </LinearGradient>
         <View
           style={{
@@ -353,7 +366,6 @@ if(res&&res.data)
               checkOutTTimeDescRemoveLocalData(),
                 setflagCheckIn(false),
                 setflagCheckOut(true);
-                
             }}
             disabled={flagCheckOut}>
             <Text style={{fontSize: 20, color: 'white'}}>CheckOut</Text>
@@ -390,7 +402,11 @@ if(res&&res.data)
 
 function checkDetails({route, navigation}) {
   const [greendate, setgreendate] = useState([]);
-  const [reddate, setreddate] = useState([]);
+  const [orangedate, setOrangedate] = useState([]);
+  const [reddate, setReddate] = useState([]);
+  const [greenorange, setgreenorange] = useState([]);
+
+  const [time, settime] = useState([]);
   const [color, setColor] = useState();
   const {email} = route.params;
 
@@ -430,47 +446,147 @@ function checkDetails({route, navigation}) {
       const end = new Date(`${combineOutDateAndTime}`).getTime();
       const difference = end - start;
       console.log('difference----', difference);
-      debugger;
+
+      const seconds = Math.floor((difference / 1000) % 60),
+        minutes = Math.floor((difference / (1000 * 60)) % 60),
+        hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      const totaltime = hours + ':' + minutes + ':' + seconds;
+      console.log('total', totaltime);
+
+      settime(time => [...time, totaltime]);
+
       if (difference >= 34200000) {
         setgreendate(greendate => [...greendate, checkInDATE]);
-
         setColor('green');
-       
-      } else {
-        setreddate(reddate => [...reddate, checkInDATE]);
-
-        setColor('red');
-
+      } else if (difference < 34200000) {
+        setOrangedate(orangedate => [...orangedate, checkInDATE]);
+        setColor('orange');
       }
-    }
 
-    console.log('GREEN DATE', greendate);
-    console.log('RED DATE', reddate);
-  },[]);
+      setgreenorange(greenorange => [...greenorange, checkInDATE]);
+    }
+  }, []);
+
+  let dates = [];
+  let x = 0;
+  greenorange.forEach(value => {
+    dates[x] = new Date(value);
+    x++;
+  });
+
+  var missingDates = [];
+  for (var k = 1; k < dates.length; k++) {
+    var daysDiff = (dates[k] - dates[k - 1]) / 86400000 - 1;
+    for (var l = 1; l <= daysDiff; l++) {
+      var missingDate = new Date(dates[k - 1]);
+      missingDate.setDate(dates[k - 1].getDate() + l);
+      var month = missingDate.getMonth() + 1;
+      var day = missingDate.getDate();
+      var year = missingDate.getFullYear();
+      if (month.toString().length < 2) month = '0' + month;
+      if (day.toString().length < 2) day = '0' + day;
+      var yyyymmdd = `${year}-${month}-${day}`;
+      missingDates.push(yyyymmdd);
+    }
+  }
+  console.log('missing dates - ', missingDates);
+
+  let missingDatesobj = {};
+  missingDates.forEach(val => {
+    missingDatesobj[val] = {selected: true, selectedColor: 'red'};
+  });
+
+  console.log('missingobject', missingDatesobj);
+
   let greendateobj = {};
   greendate.forEach(val => {
     greendateobj[val] = {selected: true, selectedColor: 'green'};
   });
 
-  let reddateobj = {};
-  reddate.forEach(val => {
-    reddateobj[val] = {selected: true, selectedColor: 'red'};
+  let orangedateobj = {};
+  orangedate.forEach(val => {
+    orangedateobj[val] = {selected: true, selectedColor: 'orange'};
   });
-  let presentandabsent = {...greendateobj, ...reddateobj};
-  console.log('new aray', presentandabsent)
+
+  let presentandlesstime = {...greendateobj, ...orangedateobj};
+  console.log('new aray', presentandlesstime);
+  let presentandlesstimeandabsent = {...presentandlesstime, ...missingDatesobj};
+  console.log('fulllll -----------', presentandlesstimeandabsent);
+  console.log('GREEN DATE', greendate);
+  console.log('ORANGE DATE', orangedate);
+  console.log('full date------', greenorange);
+  console.log('full time----', time);
+
+  var map = new Map();
+
+  for (var i = 0; i < greenorange.length; i++) {
+    map.set(greenorange[i], time[i]);
+  }
+
+  for (const key of map.keys()) {
+    console.log(key + ' => ' + map.get(key));
+  }
+
+  function toastTotalTime(day) {
+    for (const key of map.keys()) {
+      if (day.dateString == key) {
+        ToastAndroid.show('Total Time : ' + map.get(key), ToastAndroid.SHORT);
+      }
+    }
+  }
+
   return (
-    <View >
-      <View style={{ flexDirection: 'row' , justifyContent: 'space-evenly',marginVertical: 40}}>
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ backgroundColor: 'green', width: 40, height: 40, borderRadius: 50 }}></View>
-          <Text style={{ fontSize: 20, marginTop: 5, marginLeft: 5 }}>Present</Text>
+    <View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          marginVertical: 40,
+        }}>
+        <View style={{flexDirection: 'row'}}>
+          <View
+            style={{
+              backgroundColor: 'green',
+              width: 34,
+              height: 34,
+              borderRadius: 50,
+            }}></View>
+          <Text style={{fontSize: 18, marginTop: 3, marginLeft: 5}}>
+            9.5 Hrs
+          </Text>
         </View>
 
-        <View style={{ flexDirection: 'row' }}>
-        <View style={{ backgroundColor: 'red', width: 40, height: 40, borderRadius: 50 }}></View>
-        <Text style={{ fontSize: 20, marginTop: 5, marginLeft: 5 }}>Absent</Text>
+        <View style={{flexDirection: 'row'}}>
+          <View
+            style={{
+              backgroundColor: 'orange',
+              width: 34,
+              height: 34,
+              borderRadius: 50,
+            }}></View>
+          <Text style={{fontSize: 18, marginTop: 3, marginLeft: 5}}>
+            Less Hrs
+          </Text>
         </View>
-    </View>
+
+        <View style={{flexDirection: 'row'}}>
+          <View
+            style={{
+              backgroundColor: 'red',
+              width: 34,
+              height: 34,
+              borderRadius: 50,
+            }}></View>
+          <Text style={{fontSize: 18, marginTop: 3, marginLeft: 5}}>
+            Absent
+          </Text>
+        </View>
+      </View>
       {/* <Button
         title="clickme"
         onPress={() => {
@@ -478,9 +594,9 @@ function checkDetails({route, navigation}) {
         }}></Button> */}
       <Calendar
         current={`${currentDATE}`} // Current Time and Display here Current System Date
-        markedDates={presentandabsent}
+        markedDates={presentandlesstimeandabsent}
         onDayPress={day => {
-          console.log('selected day', day);
+          toastTotalTime(day);
         }} // Gives the DATE MONTH YEAR AND TIMESTAMP
       />
     </View>
@@ -493,8 +609,16 @@ function App({navigation}) {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Attendance Manager" component={HomeScreen} />
-        <Stack.Screen name="CheckInOut" options={{ title: 'Check In Out' }} component={CheckInOut} />
-        <Stack.Screen name="checkDetails" options={{ title: 'Attendance Details' }} component={checkDetails} />
+        <Stack.Screen
+          name="CheckInOut"
+          options={{title: 'Check In Out'}}
+          component={CheckInOut}
+        />
+        <Stack.Screen
+          name="checkDetails"
+          options={{title: 'Attendance Details'}}
+          component={checkDetails}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -525,11 +649,11 @@ const styles = StyleSheet.create({
     margin: 10,
     alignSelf: 'flex-end',
     alignItems: 'center',
-   
+
     width: 160,
     height: 40,
     padding: 5,
-    borderRadius: 10
+    borderRadius: 10,
   },
 });
 
