@@ -13,6 +13,7 @@ import {
   Image,
   TouchableWithoutFeedback,
   Keyboard,
+  Picker,
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -24,12 +25,13 @@ const axios = require('axios');
 const logo = require('./images/appwrklogo.png');
 function HomeScreen({navigation}) {
   const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   async function emailVerify() {
-    let payload = {email: email};
+    let payload = {email: email, password: password};
     console.log('payload form check----', payload);
     let res = await axios.post(
-      'http://192.168.0.106:3000/checkCredentials',
+      'http://192.168.0.102:3000/checkCredentials',
       payload,
     );
 
@@ -37,7 +39,7 @@ function HomeScreen({navigation}) {
     if (res.data.status == true) {
       validation();
     } else if (res.data.status == false) {
-      alert('Invalid Email');
+      alert('Enter Valid Email and Password');
     }
   }
 
@@ -48,7 +50,7 @@ function HomeScreen({navigation}) {
   function validation() {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(email) === false) {
-      alert('Enter Valid Email Address');
+      alert('Enter Valid Email Address and Password');
     } else {
       showToast();
       navigation.navigate('CheckInOut', {
@@ -80,6 +82,15 @@ function HomeScreen({navigation}) {
           placeholder="Enter Email"
           onChangeText={value => {
             setEmail(value);
+          }}
+        />
+
+        <TextInput
+          style={styles.input}
+          secureTextEntry={true}
+          placeholder="Enter Password"
+          onChangeText={value => {
+            setPassword(value);
           }}
         />
 
@@ -120,16 +131,23 @@ function CheckInOut({route, navigation}) {
   let previousCheckOutTime = usePrevious(checkOutTime);
   const [checkOutDate, setcheckOutDate] = useState();
   let previousCheckOutDate = usePrevious(checkOutDate);
+  const [breakTime, setBreakTime] = useState();
+  let previousBreakTime = usePrevious(breakTime);
   const [description, setDescription] = useState();
   let previousDescription = usePrevious(description);
   const [checkindateandtime, setcheckindateandtime] = useState();
   const [checkoutdateandtime, setcheckoutdateandtime] = useState();
+
+  const [selectedHourValue, setSelectedHourValue] = useState('01');
+  const [selectedMinuteValue, setSelectedMinuteValue] = useState('01');
 
   const [flagCheckIn, setflagCheckIn] = useState(false);
   const [flagCheckOut, setflagCheckOut] = useState(true);
   const checkInBtnColor = flagCheckIn ? '#eb5527' : '#0F59A5';
   const checkOutBtnColor = flagCheckOut ? '#eb5527' : '#0F59A5';
   const descriptionOpacity = flagCheckIn ? 1 : 0;
+  const breaktimeOpacity = flagCheckIn ? 1 : 0;
+
   const localStorageFlag = 'true';
   const descriptionDisableFlag = flagCheckIn ? true : false;
   const {email} = route.params;
@@ -187,7 +205,7 @@ function CheckInOut({route, navigation}) {
     };
     console.log('payload ----', payload);
     let res = await axios.post(
-      'http://192.168.0.106:3000/registeruser',
+      'http://192.168.0.102:3000/registeruser',
       payload,
     );
     let data = res.data;
@@ -201,11 +219,12 @@ function CheckInOut({route, navigation}) {
       checkOutDate: checkOutDate,
       checkoutdateandtime: checkoutdateandtime,
       description: description,
+      breakTime: breakTime,
     };
 
     console.log('payload ----', payload);
     let res = await axios.post(
-      'http://192.168.0.106:3000/checkouttime',
+      'http://192.168.0.102:3000/checkouttime',
       payload,
     );
 
@@ -277,6 +296,16 @@ function CheckInOut({route, navigation}) {
     checkoutddateandtime();
     makeGetRequestforCheckoutDescription();
     showToastInCheckOut();
+
+    // const hrs = breakTime.slice(0, 2);
+    // const min = breakTime.slice(3, 5);
+
+    // const hrsmin = (hrs, ':', min);
+
+    console.log('Hour :', selectedHourValue);
+    console.log('Minute : ', selectedMinuteValue);
+
+    milisecondsbreak(selectedHourValue, selectedMinuteValue);
   }
 
   function checkOutTTime() {
@@ -313,6 +342,12 @@ function CheckInOut({route, navigation}) {
       ToastAndroid.CENTER,
     );
   };
+
+  function milisecondsbreak(hrs, min) {
+    var milisecondsbreaktime = (hrs * 60 * 60 + min * 60) * 1000;
+    setBreakTime(milisecondsbreaktime);
+    console.log('miliseconds ', milisecondsbreaktime);
+  }
 
   return (
     <TouchableWithoutFeedback
@@ -377,7 +412,110 @@ function CheckInOut({route, navigation}) {
           <Text>Remove Item</Text>
         </TouchableOpacity> */}
         </View>
-        <View style={{marginTop: '20%', opacity: descriptionOpacity}}>
+        <View style={{ opacity: breaktimeOpacity }}>
+          <Text style={{fontSize: 18, textAlign: 'center', marginTop: 30}}>
+            Break Time
+          </Text>
+          <View
+            style={{
+              borderBottomColor: 'black',
+              borderBottomWidth: 1,
+              width: '80%',
+              alignSelf: 'center',
+            }}
+          />
+          <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+            <View>
+              <Text style={{fontSize: 18}}>Select Hrs</Text>
+              <Picker
+                selectedValue={selectedHourValue}
+                style={{height: 50, width: 150}}
+                onValueChange={(itemValue, itemIndex) =>
+                  setSelectedHourValue(itemValue)
+                }>
+                <Picker.Item label="01" value="01" />
+                <Picker.Item label="02" value="02" />
+                <Picker.Item label="03" value="03" />
+                <Picker.Item label="04" value="04" />
+                <Picker.Item label="05" value="05" />
+                <Picker.Item label="06" value="06" />
+                <Picker.Item label="07" value="07" />
+                <Picker.Item label="08" value="08" />
+              </Picker>
+            </View>
+            <View>
+              <Text style={{fontSize: 18}}>Select Mins</Text>
+              <Picker
+                selectedValue={selectedMinuteValue}
+                style={{height: 50, width: 150}}
+                onValueChange={(itemValue, itemIndex) =>
+                  setSelectedMinuteValue(itemValue)
+                }>
+                <Picker.Item label="01" value="01" />
+                <Picker.Item label="02" value="02" />
+                <Picker.Item label="03" value="03" />
+                <Picker.Item label="04" value="04" />
+                <Picker.Item label="05" value="05" />
+                <Picker.Item label="06" value="06" />
+                <Picker.Item label="07" value="07" />
+                <Picker.Item label="08" value="08" />
+                <Picker.Item label="09" value="09" />
+                <Picker.Item label="10" value="10" />
+                <Picker.Item label="11" value="11" />
+                <Picker.Item label="12" value="12" />
+                <Picker.Item label="13" value="13" />
+                <Picker.Item label="14" value="14" />
+                <Picker.Item label="15" value="15" />
+                <Picker.Item label="16" value="16" />
+                <Picker.Item label="17" value="17" />
+                <Picker.Item label="18" value="18" />
+                <Picker.Item label="19" value="19" />
+                <Picker.Item label="20" value="20" />
+                <Picker.Item label="21" value="21" />
+                <Picker.Item label="22" value="22" />
+                <Picker.Item label="23" value="23" />
+                <Picker.Item label="24" value="24" />
+                <Picker.Item label="25" value="25" />
+                <Picker.Item label="26" value="26" />
+                <Picker.Item label="27" value="27" />
+                <Picker.Item label="28" value="28" />
+                <Picker.Item label="29" value="29" />
+                <Picker.Item label="30" value="30" />
+                <Picker.Item label="31" value="31" />
+                <Picker.Item label="32" value="32" />
+                <Picker.Item label="33" value="33" />
+                <Picker.Item label="34" value="34" />
+                <Picker.Item label="35" value="35" />
+                <Picker.Item label="36" value="36" />
+                <Picker.Item label="37" value="37" />
+                <Picker.Item label="38" value="38" />
+                <Picker.Item label="39" value="39" />
+                <Picker.Item label="40" value="40" />
+                <Picker.Item label="41" value="41" />
+                <Picker.Item label="42" value="42" />
+                <Picker.Item label="43" value="43" />
+                <Picker.Item label="44" value="44" />
+                <Picker.Item label="45" value="45" />
+                <Picker.Item label="46" value="46" />
+                <Picker.Item label="47" value="47" />
+                <Picker.Item label="48" value="48" />
+                <Picker.Item label="49" value="49" />
+                <Picker.Item label="50" value="50" />
+                <Picker.Item label="51" value="51" />
+                <Picker.Item label="52" value="52" />
+                <Picker.Item label="53" value="53" />
+                <Picker.Item label="54" value="54" />
+                <Picker.Item label="55" value="55" />
+                <Picker.Item label="56" value="56" />
+                <Picker.Item label="57" value="57" />
+                <Picker.Item label="58" value="58" />
+                <Picker.Item label="59" value="59" />
+                <Picker.Item label="60" value="60" />
+              </Picker>
+            </View>
+          </View>
+        </View>
+        <View style={{marginTop: '10%', opacity: descriptionOpacity}}>
           <Text style={{textAlign: 'center', fontSize: 20}}>Description</Text>
 
           <TextInput
@@ -407,6 +545,7 @@ function checkDetails({route, navigation}) {
   const [greenorange, setgreenorange] = useState([]);
 
   const [time, settime] = useState([]);
+  const [breakTime, setBreakTime] = useState([]);
   const [color, setColor] = useState();
   const {email} = route.params;
 
@@ -420,7 +559,7 @@ function checkDetails({route, navigation}) {
     };
     console.log('payload ----', payload);
     let res = await axios.post(
-      'http://192.168.0.106:3000/presentorabsent',
+      'http://192.168.0.102:3000/presentorabsent',
       payload,
     );
     let data = res.data;
@@ -447,15 +586,17 @@ function checkDetails({route, navigation}) {
       const difference = end - start;
       console.log('difference----', difference);
 
+      // const diffminusbreak = difference - data.breakTime;
+
       const seconds = Math.floor((difference / 1000) % 60),
         minutes = Math.floor((difference / (1000 * 60)) % 60),
         hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
 
-      hours = hours < 10 ? '0' + hours : hours;
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      seconds = seconds < 10 ? '0' + seconds : seconds;
+      hours = hours < 10 ? '0' + hours + 'hr' : hours + 'hrs';
+      minutes = minutes < 10 ? '0' + minutes + 'min' : minutes + 'mins';
+      seconds = seconds < 10 ? '0' + seconds + 'sec' : seconds + 'secs';
 
-      const totaltime = hours + ':' + minutes + ':' + seconds;
+      const totaltime = hours + ' : ' + minutes;
       console.log('total', totaltime);
 
       settime(time => [...time, totaltime]);
@@ -469,9 +610,21 @@ function checkDetails({route, navigation}) {
       }
 
       setgreenorange(greenorange => [...greenorange, checkInDATE]);
+
+      const milisecondss = data.breakTime;
+      const minu = Math.floor((milisecondss / 1000 / 60) % 60);
+      const hou = Math.floor((milisecondss / 1000 / 3600) % 24);
+      if (minu.toString.length < 2) {
+        minu = '0' + minu;
+      }
+      if (hou.toString.length < 2) {
+        hou = '0' + hou;
+      }
+      console.log('-----------', hou, ':', minu);
+      const finalBreak = ' Break Time ' + hou + 'hr' + ' : ' + minu + 'min';
+      setBreakTime(breakTime => [...breakTime, finalBreak]);
     }
   }, []);
-
   let dates = [];
   let x = 0;
   greenorange.forEach(value => {
@@ -521,11 +674,12 @@ function checkDetails({route, navigation}) {
   console.log('ORANGE DATE', orangedate);
   console.log('full date------', greenorange);
   console.log('full time----', time);
+  console.log('breaktime--------------', breakTime);
 
   var map = new Map();
 
   for (var i = 0; i < greenorange.length; i++) {
-    map.set(greenorange[i], time[i]);
+    map.set(greenorange[i], [[time[i], breakTime[i]]]);
   }
 
   for (const key of map.keys()) {
@@ -535,7 +689,11 @@ function checkDetails({route, navigation}) {
   function toastTotalTime(day) {
     for (const key of map.keys()) {
       if (day.dateString == key) {
-        ToastAndroid.show('Total Time : ' + map.get(key), ToastAndroid.SHORT);
+        ToastAndroid.show(
+          'Total Time : ' + map.get(key),
+          ToastAndroid.LONG,
+          ToastAndroid.SHORT,
+        );
       }
     }
   }
@@ -636,7 +794,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#0F59A5',
+    marginTop: 10,
   },
+
   button: {
     alignItems: 'center',
     backgroundColor: '#0F59A5',
