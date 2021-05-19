@@ -10,7 +10,7 @@ app.post("/registeruser", function(req, res) {
     // var sql = "INSERT INTO customers (name, address) VALUES (`${req.body.email}`, 'Highway 37')";
     let sql = 'INSERT INTO usercheckindetails SET ?' 
     let post = {         
-        email: req.body.email,
+        user_id: req.body.user_id,
         checkInDate: req.body.checkInDate,
         checkInTime: req.body.checkInTime,
         checkindateandtime: req.body.checkindateandtime,
@@ -26,7 +26,7 @@ app.post("/registeruser", function(req, res) {
 
 app.post("/checkouttime", function(req, res) {
     console.log("request", req.body.description);
-    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', checkOutDate = '"+req.body.checkOutDate+"', checkoutdateandtime = '"+req.body.checkoutdateandtime+"', breakTime = '"+req.body.breakTime+"', description = '"+req.body.description+"'  WHERE email = '"+req.body.email+"' AND checkInDate = '"+req.body.checkOutDate+"'"
+    let sql = "UPDATE usercheckindetails SET checkOutTime = '"+req.body.checkOutTime+"', checkOutDate = '"+req.body.checkOutDate+"', checkoutdateandtime = '"+req.body.checkoutdateandtime+"', breakTime = '"+req.body.breakTime+"', description = '"+req.body.description+"'  WHERE user_id = '"+req.body.user_id+"' AND checkInDate = '"+req.body.checkOutDate+"'"
 
     con.query(sql, function (err, result) {
         console.log('node-------', req.body)
@@ -40,7 +40,7 @@ app.post("/checkouttime", function(req, res) {
 
 app.post("/checkCredentials", function(req, res) {
     console.log("request", req.body)
-    let sql = "SELECT employee_email, password from employees_email where employee_email = '"+req.body.email+"'";
+    let sql = "SELECT user_id, employee_email, password from employees_email where employee_email = '"+req.body.email+"'";
 
     con.query(sql, function (err, result) {
         if(err) throw err;
@@ -48,7 +48,12 @@ app.post("/checkCredentials", function(req, res) {
         console.log("-------------------",result)
 
         if(result[0] && result[0].employee_email==req.body.email && result[0].password== req.body.password) {
-            res.send({status: true})
+            
+
+            res.json({
+                    status:true,
+                    result
+                })
             console.log("Verified Email is Present in Database")
         }
         else{
@@ -59,7 +64,7 @@ app.post("/checkCredentials", function(req, res) {
 
 app.post("/presentorabsent", function(req, res) {
     console.log("request-----", req.body)
-    let sql = "SELECT checkInDate,checkindateandtime,checkoutdateandtime,checkInTime,checkOutDate,checkOutTime,breakTime from usercheckindetails WHERE email = '"+req.body.email+"'"
+    let sql = "SELECT checkInDate,checkindateandtime,checkoutdateandtime,checkInTime,checkOutDate,checkOutTime,breakTime from usercheckindetails WHERE user_id = '"+req.body.user_id+"'"
     con.query(sql, function (err, result) {
         if(err) throw err;
 

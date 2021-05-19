@@ -27,6 +27,7 @@ const logo = require('./images/appwrklogo.png');
 function HomeScreen({navigation}) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  let user_id;
 
   async function emailVerify() {
     let payload = {email: email, password: password};
@@ -35,9 +36,10 @@ function HomeScreen({navigation}) {
       'http://192.168.0.102:3000/checkCredentials',
       payload,
     );
+    console.log('response----', res.data);
 
-    // console.log('>>>>>>>>>>>>>', res.data.status);
     if (res.data.status == true) {
+      user_id = res.data.result[0].user_id;
       validation();
     } else if (res.data.status == false) {
       alert('Enter Valid Email and Password');
@@ -55,20 +57,10 @@ function HomeScreen({navigation}) {
     } else {
       showToast();
       navigation.navigate('CheckInOut', {
-        email: email,
+        user_id: user_id,
       });
     }
   }
-
-  // -------------------- Clear Data of Local Storage --------------------
-  //   const clearAppData = async function() {
-  //     try {
-  //         const keys = await AsyncStorage.getAllKeys();
-  //         await AsyncStorage.multiRemove(keys);
-  //     } catch (error) {
-  //         console.error('Error clearing app data.');
-  //     }
-  // }
 
   return (
     <TouchableWithoutFeedback
@@ -107,16 +99,13 @@ function HomeScreen({navigation}) {
   );
 }
 
-// Hook
 function usePrevious(value) {
-  // The ref object is a generic container whose current property is mutable ...
-  // ... and can hold any value, similar to an instance property on a class
   const ref = useRef();
-  // Store current value in ref
+
   useEffect(() => {
     ref.current = value;
-  }, [value]); // Only re-run if value changes
-  // Return previous value (happens before update in useEffect above)
+  }, [value]);
+
   return ref.current;
 }
 
@@ -134,7 +123,7 @@ function CheckInOut({route, navigation}) {
   let previousCheckOutDate = usePrevious(checkOutDate);
   const [breakTime, setBreakTime] = useState();
   let previousBreakTime = usePrevious(breakTime);
-  const [description, setDescription] = useState();
+  const [description, setDescription] = useState('');
   let previousDescription = usePrevious(description);
   const [checkindateandtime, setcheckindateandtime] = useState();
   const [checkoutdateandtime, setcheckoutdateandtime] = useState();
@@ -151,10 +140,7 @@ function CheckInOut({route, navigation}) {
 
   const localStorageFlag = 'true';
   const descriptionDisableFlag = flagCheckIn ? true : false;
-  const {email} = route.params;
-  // console.log('>>>>>>>>>>>>>>>', route.params);
-
-  // checkSession();
+  const {user_id} = route.params;
 
   useEffect(async () => {
     if (previousLng != lng) {
@@ -178,15 +164,6 @@ function CheckInOut({route, navigation}) {
     // alert('SET VALUE', localStorageFlagg)
   }
 
-  // const displaylocaldata = async () => {
-  //   try {
-  //     let localStorageFlagg = await AsyncStorage.getItem('flag');
-  //     alert(localStorageFlagg);
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // };
-
   const removeLocalData = async () => {
     try {
       await AsyncStorage.removeItem('flag');
@@ -197,7 +174,7 @@ function CheckInOut({route, navigation}) {
 
   async function makeGetRequestforEmailCheckinLatlng() {
     let payload = {
-      email: email,
+      user_id: user_id,
       checkInDate: checkInDate,
       checkInTime: checkInTime,
       checkindateandtime: checkindateandtime,
@@ -215,7 +192,7 @@ function CheckInOut({route, navigation}) {
 
   async function makeGetRequestforCheckoutDescription() {
     let payload = {
-      email: email,
+      user_id: user_id,
       checkOutTime: checkOutTime,
       checkOutDate: checkOutDate,
       checkoutdateandtime: checkoutdateandtime,
@@ -232,8 +209,6 @@ function CheckInOut({route, navigation}) {
     if (res && res.data) {
       setDescription('');
     }
-    // let data = res.data;
-    // console.log('reponse>>>>>>>>>>>>>', data);
   }
 
   function checkinddateandtime() {
@@ -247,12 +222,11 @@ function CheckInOut({route, navigation}) {
   }
 
   function checkInTTime() {
-    const hours = new Date().getHours(); //Current Hours
-    const min = new Date().getMinutes(); //Current Minutes
-    const sec = new Date().getSeconds(); //Current Seconds
+    const hours = new Date().getHours();
+    const min = new Date().getMinutes();
+    const sec = new Date().getSeconds();
     const time = hours + ':' + min + ':' + sec;
     setCheckInTime(time);
-    // console.log('>>>>>>>>>>>>>', checkInTime);
   }
 
   function checkInDDate() {
@@ -261,7 +235,6 @@ function CheckInOut({route, navigation}) {
     const year = new Date().getFullYear();
     const fullDate = year + '-' + month + '-' + date;
     setcheckInDate(fullDate);
-    // console.log('--------------', checkInDate);
   }
 
   function getLatLng() {
@@ -272,8 +245,6 @@ function CheckInOut({route, navigation}) {
       .then(location => {
         setLat(location.latitude);
         setLng(location.longitude);
-        // console.log(lat);
-        // console.log(lng);
       })
       .catch(error => {
         const {code, message} = error;
@@ -298,25 +269,16 @@ function CheckInOut({route, navigation}) {
     makeGetRequestforCheckoutDescription();
     showToastInCheckOut();
 
-    // const hrs = breakTime.slice(0, 2);
-    // const min = breakTime.slice(3, 5);
-
-    // const hrsmin = (hrs, ':', min);
-
-    console.log('Hour :', selectedHourValue);
-    console.log('Minute : ', selectedMinuteValue);
-
     milisecondsbreak(selectedHourValue, selectedMinuteValue);
   }
 
   function checkOutTTime() {
-    const hours = new Date().getHours(); //Current Hours
-    const min = new Date().getMinutes(); //Current Minutes
-    const sec = new Date().getSeconds(); //Current Seconds
+    const hours = new Date().getHours();
+    const min = new Date().getMinutes();
+    const sec = new Date().getSeconds();
     const timee = hours + ':' + min + ':' + sec;
 
     setCheckOutTime(timee);
-    // console.log('>>>>>>>>>>>>>', checkOutTime);
   }
 
   function checkOutDDate() {
@@ -365,7 +327,7 @@ function CheckInOut({route, navigation}) {
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('checkDetails', {
-                  email: email,
+                  user_id: user_id,
                 });
               }}>
               <Text style={{fontSize: 20, color: 'white'}}>My Attendance</Text>
@@ -409,12 +371,6 @@ function CheckInOut({route, navigation}) {
               disabled={flagCheckOut}>
               <Text style={{fontSize: 20, color: 'white'}}>CheckOut</Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity
-          onPress={() => {
-            displaylocaldata();
-          }}>
-          <Text>Remove Item</Text>
-        </TouchableOpacity> */}
           </View>
           <View style={{opacity: breaktimeOpacity}}>
             <Text style={{fontSize: 18, textAlign: 'center', marginTop: 30}}>
@@ -554,15 +510,13 @@ function checkDetails({route, navigation}) {
   const [time, settime] = useState([]);
   const [breakTime, setBreakTime] = useState([]);
   const [color, setColor] = useState();
-  const {email} = route.params;
+  const {user_id} = route.params;
 
   const currentDATE = new Date();
-  // console.log('currentDate', currentDATE);
 
   useEffect(async () => {
-    // async function checkPresentOrNot() {
     let payload = {
-      email: email,
+      user_id: user_id,
     };
     console.log('payload ----', payload);
     let res = await axios.post(
@@ -572,16 +526,16 @@ function checkDetails({route, navigation}) {
     let data = res.data;
     console.log('>>>>>>>>>>>>>', data);
     let len = data.length;
-    console.log('length', len);
+
     for (let i = 0; i < len; i++) {
       let data = res.data[i];
-      // console.log('>>>>>>>>>>>>>', data);
+
       let timestamp = new Date(data.checkInDate).getTime();
       let obj = new Date(timestamp);
       let month = obj.getMonth() + 1;
       let year = obj.getFullYear();
       let date = obj.getDate();
-      // console.log(timestamp)
+
       if (month.toString().length < 2) {
         month = '0' + month;
       }
@@ -593,7 +547,7 @@ function checkDetails({route, navigation}) {
       let monthh = obj2.getMonth() + 1;
       let yearr = obj2.getFullYear();
       let datee = obj2.getDate();
-      // console.log(timestamp)
+
       if (monthh.toString().length < 2) {
         monthh = '0' + monthh;
       }
@@ -604,24 +558,14 @@ function checkDetails({route, navigation}) {
       const checkOutTIME = data.checkOutTime.slice(0, 8);
       const checkInDATE = checkInDate;
       const checkOutDATE = checkOutDate;
-      console.log(
-        'date:--------------------------------------------------------------',
-        checkInDATE,
-      );
-      // const replacedCheckInDATE = checkInDATE.replace(/-/g, '/');
-      // const replacedCheckOUTDATE = checkOutDATE.replace(/-/g, '/');
 
       const combineInDateAndTime = `${checkInDATE} ${checkInTIME}`;
       const combineOutDateAndTime = `${checkOutDATE} ${checkOutTIME}`;
 
       const start = new Date(`${combineInDateAndTime}`).getTime();
       const end = new Date(`${combineOutDateAndTime}`).getTime();
-      console.log(start + '--------------------' + end);
-      const difference = end - start;
-      console.log('difference----', difference);
-      // difference = difference+data.breakTime
 
-      // const diffminusbreak = difference - data.breakTime;
+      const difference = end - start;
 
       const seconds = Math.floor((difference / 1000) % 60),
         minutes = Math.floor((difference / (1000 * 60)) % 60),
@@ -656,7 +600,6 @@ function checkDetails({route, navigation}) {
       if (hou.toString().length < 2) {
         hou = '0' + hou;
       }
-      console.log('-----------', hou, ':', minu);
       const finalBreak = ' Break Time ' + hou + 'hr' + ' : ' + minu + 'min';
       setBreakTime(breakTime => [...breakTime, finalBreak]);
     }
@@ -703,14 +646,8 @@ function checkDetails({route, navigation}) {
   });
 
   let presentandlesstime = {...greendateobj, ...orangedateobj};
-  console.log('new aray', presentandlesstime);
+  console.log('Less Time-', presentandlesstime);
   let presentandlesstimeandabsent = {...presentandlesstime, ...missingDatesobj};
-  console.log('fulllll -----------', presentandlesstimeandabsent);
-  console.log('GREEN DATE', greendate);
-  console.log('ORANGE DATE', orangedate);
-  console.log('full date------', greenorange);
-  console.log('full time----', time);
-  console.log('breaktime--------------', breakTime);
 
   var map = new Map();
 
@@ -781,17 +718,13 @@ function checkDetails({route, navigation}) {
           </Text>
         </View>
       </View>
-      {/* <Button
-        title="clickme"
-        onPress={() => {
-          checkPresentOrNot();
-        }}></Button> */}
+
       <Calendar
-        current={`${currentDATE}`} // Current Time and Display here Current System Date
+        current={`${currentDATE}`}
         markedDates={presentandlesstimeandabsent}
         onDayPress={day => {
           toastTotalTime(day);
-        }} // Gives the DATE MONTH YEAR AND TIMESTAMP
+        }}
       />
     </View>
   );
