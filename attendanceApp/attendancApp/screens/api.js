@@ -1,36 +1,33 @@
-export const CheckCredentialsApi = async () => {
+const axios = require('axios');
+const localhost = 'http://172.20.10.2:3000/';
+
+export const CheckCredentialsApi = async payload => {
   try {
-    return await axios.post(
-      'http://192.168.0.103:3000/checkCredentials',
-      payload,
-    );
+    return await axios.post(`${localhost}login`, payload);
   } catch (err) {
     return err;
   }
 };
 
-export const RegisterUserApi = async () => {
+export const RegisterUserApi = async payload => {
   try {
-    return await axios.post('http://192.168.0.103:3000/registeruser', payload);
+    return await axios.post(`${localhost}checkintime`, payload);
   } catch (err) {
     return err;
   }
 };
 
-export const CheckOutTimeApi = async () => {
+export const CheckOutTimeApi = async payload => {
   try {
-    return await axios.post('http://192.168.0.103:3000/checkouttime', payload);
+    return await axios.post(`${localhost}checkouttime`, payload);
   } catch (err) {
     return err;
   }
 };
 
-export const CheckOutTimeApi = async () => {
+export const PresentandAbsentApi = async payload => {
   try {
-    return await axios.post(
-      'http://192.168.0.103:3000/presentorabsent',
-      payload,
-    );
+    return await axios.post(`${localhost}presentorabsent`, payload);
   } catch (err) {
     return err;
   }

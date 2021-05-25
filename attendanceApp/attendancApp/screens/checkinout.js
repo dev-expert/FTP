@@ -15,10 +15,9 @@ import {
 import GetLocation from 'react-native-get-location';
 import LinearGradient from 'react-native-linear-gradient';
 import NewHeader from '../common/header';
-import styled from 'styled-components/native';
-import {FontFamily} from '../../common/colors';
 const axios = require('axios');
 import styles from './styles';
+import {RegisterUserApi, CheckOutTimeApi} from './api';
 
 function usePrevious(value) {
   const ref = useRef();
@@ -56,6 +55,7 @@ function CheckInOut({route, navigation}) {
   const checkOutBtnColor = flagCheckOut ? '#eb5527' : '#0F59A5';
   const descriptionOpacity = flagCheckIn ? 1 : 0;
   const breaktimeOpacity = flagCheckIn ? 1 : 0;
+  const pickerDisabledFlag = flagCheckIn ? true : false;
   const localStorageFlag = 'true';
   const descriptionDisableFlag = flagCheckIn ? true : false;
   const {user_id} = navigation.state.params;
@@ -124,6 +124,7 @@ function CheckInOut({route, navigation}) {
     '59',
   ];
 
+  //-------------------------------Setting the useEffect and use the Previous Valye in useState Hooks-------------------------------------------
   useEffect(async () => {
     if (previousLng != lng) {
       makeGetRequestforEmailCheckinLatlng();
@@ -140,12 +141,13 @@ function CheckInOut({route, navigation}) {
     }
   });
 
+  //-------------------------------Save Data Locally for Session---------------------------------------------------------------------------------
   function saveDataLocally() {
     let localStorageFlagg = localStorageFlag;
     AsyncStorage.setItem('flag', localStorageFlagg);
     // alert('SET VALUE', localStorageFlagg)
   }
-
+  //-------------------------------Remove Data from Local Storage to Remove the Session----------------------------------------------------------
   const removeLocalData = async () => {
     try {
       await AsyncStorage.removeItem('flag');
@@ -153,7 +155,7 @@ function CheckInOut({route, navigation}) {
       alert(error);
     }
   };
-
+  //-------------------------------Calling the end point and send the data for checkin to backend by payload-------------------------------------
   async function makeGetRequestforEmailCheckinLatlng() {
     let payload = {
       user_id: user_id,
@@ -164,14 +166,12 @@ function CheckInOut({route, navigation}) {
       lng: lng,
     };
     console.log('payload ----', payload);
-    let res = await axios.post(
-      'http://192.168.0.103:3000/registeruser',
-      payload,
-    );
+    let res = await RegisterUserApi(payload);
     let data = res.data;
     console.log('>>>>>>>>>>>>>', data);
   }
 
+  //-------------------------------Calling the end point and send the data for checkout to backend by payload------------------------------------
   async function makeGetRequestforCheckoutDescription() {
     let payload = {
       user_id: user_id,
@@ -183,26 +183,26 @@ function CheckInOut({route, navigation}) {
     };
 
     console.log('payload ----', payload);
-    let res = await axios.post(
-      'http://192.168.0.103:3000/checkouttime',
-      payload,
-    );
+    let res = await CheckOutTimeApi(payload);
 
     if (res && res.data) {
       setDescription('');
     }
   }
 
+  //--------------------------------Get the CheckIn Date and Time and setState to checkindateandtime Hook----------------------------------------
   function checkinddateandtime() {
     const date = new Date();
     setcheckindateandtime(date);
   }
 
+  //--------------------------------Get the CheckOut Date and Time and setState to checkoutdateandtime Hook--------------------------------------
   function checkoutddateandtime() {
     const date = new Date();
     setcheckoutdateandtime(date);
   }
 
+  //--------------------------------Get the checkintime and setState to checkintime Hook----------------------------------------------------------
   function checkInTTime() {
     const hours = new Date().getHours();
     const min = new Date().getMinutes();
@@ -211,6 +211,7 @@ function CheckInOut({route, navigation}) {
     setCheckInTime(time);
   }
 
+  //--------------------------------Get the checkindate and setState to checkindate Hook----------------------------------------------------------
   function checkInDDate() {
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
@@ -219,6 +220,7 @@ function CheckInOut({route, navigation}) {
     setcheckInDate(fullDate);
   }
 
+  //--------------------------------Get the Lat and Long and setState to lat and lng Hook----------------------------------------------------------
   function getLatLng() {
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
@@ -234,6 +236,7 @@ function CheckInOut({route, navigation}) {
       });
   }
 
+  //--------------------------------Calling this Function on CheckIn Button Click------------------------------------------------------------------
   function checkInTTimeandgetLatLng() {
     checkInDDate();
     checkInTTime();
@@ -243,6 +246,7 @@ function CheckInOut({route, navigation}) {
     showToastInCheckIn();
   }
 
+  //--------------------------------Calling this Function on CheckOut Button Click------------------------------------------------------------------
   function checkOutTTimeDescRemoveLocalData() {
     checkOutTTime();
     checkOutDDate();
@@ -250,28 +254,28 @@ function CheckInOut({route, navigation}) {
     checkoutddateandtime();
     makeGetRequestforCheckoutDescription();
     showToastInCheckOut();
-
     milisecondsbreak(selectedHourValue, selectedMinuteValue);
   }
 
+  //--------------------------------Get the checkouttime and setState to checkouttime Hook----------------------------------------------------------
   function checkOutTTime() {
     const hours = new Date().getHours();
     const min = new Date().getMinutes();
     const sec = new Date().getSeconds();
     const timee = hours + ':' + min + ':' + sec;
-
     setCheckOutTime(timee);
   }
 
+  //--------------------------------Get the checkoutdate and setState to checkoutdate Hook-----------------------------------------------------------
   function checkOutDDate() {
     const date = new Date().getDate();
     const month = new Date().getMonth() + 1;
     const year = new Date().getFullYear();
     const fullDate = year + '-' + month + '-' + date;
     setcheckOutDate(fullDate);
-    // console.log('--------------', checkOutDate);
   }
 
+  //--------------------------------Show Toast on CheckedIn--------------------------------------------------------------------------------------------
   const showToastInCheckIn = () => {
     ToastAndroid.show(
       'Checked In Successfully',
@@ -280,6 +284,7 @@ function CheckInOut({route, navigation}) {
     );
   };
 
+  //--------------------------------Show Toast on CheckedOut--------------------------------------------------------------------------------------------
   const showToastInCheckOut = () => {
     ToastAndroid.show(
       'Checked Out Successfully',
@@ -288,145 +293,170 @@ function CheckInOut({route, navigation}) {
     );
   };
 
+  //--------------------------------Set the Break Time in Miliseconds-----------------------------------------------------------------------------------
   function milisecondsbreak(hrs, min) {
     var milisecondsbreaktime = (hrs * 60 * 60 + min * 60) * 1000;
     setBreakTime(milisecondsbreaktime);
     console.log('miliseconds ', milisecondsbreaktime);
   }
 
+  //--------------------------------Map the Hour Array with Picker.Item---------------------------------------------------------------------------------------
   const hourdata = datahour.map(value => (
     <Picker.Item label={value} value={value} />
   ));
 
+  //--------------------------------Map the Minute Array with Picker.Item---------------------------------------------------------------------------------------
   const mindata = datamin.map(value => (
     <Picker.Item label={value} value={value} />
   ));
 
+  const removeToken = async () => {
+    try {
+      await AsyncStorage.removeItem('token');
+      await AsyncStorage.removeItem('user_id');
+      navigation.navigate('HomeScreen')
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
-      <>
+    <>
       <NewHeader
         accessibilityLabel="menu"
         icon={'ios-menu'}
         centerText={'Check In Out'}
-        // Navigation={() => props.navigation.dispatch(DrawerActions.openDrawer())}
       />
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{flex: 1}}>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          Keyboard.dismiss();
-        }}>
-        <View>
-          <LinearGradient
-            colors={['#833ab4', '#fd1d1d', '#fcb045']}
-            style={styles.myAttendanceBtn}>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('checkDetails', {
-                  user_id: user_id,
-                });
-              }}>
-              <Text style={{fontSize: 20, color: 'white'}}>My Attendance</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              marginTop: 100,
-            }}>
-            <TouchableOpacity
-              style={{
-                backgroundColor: checkInBtnColor,
-                width: 120,
-                height: 45,
-                alignItems: 'center',
-                paddingVertical: 7,
-              }}
-              onPress={() => {
-                checkInTTimeandgetLatLng(),
-                  setflagCheckIn(true),
-                  setflagCheckOut(false);
-              }}
-              disabled={flagCheckIn}>
-              <Text style={{fontSize: 20, color: 'white'}}>CheckIn</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                backgroundColor: checkOutBtnColor,
-                width: 120,
-                height: 45,
-                alignItems: 'center',
-                paddingVertical: 7,
-              }}
-              onPress={() => {
-                checkOutTTimeDescRemoveLocalData(),
-                  setflagCheckIn(false),
-                  setflagCheckOut(true);
-              }}
-              disabled={flagCheckOut}>
-              <Text style={{fontSize: 20, color: 'white'}}>CheckOut</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{opacity: breaktimeOpacity}}>
-            <Text style={{fontSize: 18, textAlign: 'center', marginTop: 30}}>
-              Break Time
-            </Text>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={{flex: 1}}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            Keyboard.dismiss();
+          }}>
+          <View>
+            <View style={{ flexDirection: 'row' , justifyContent: 'space-around', marginTop: 20 }}>
+              <TouchableOpacity
+                style={styles.backButton}
+                onPress={() => removeToken() }>
+                <Text style={styles.buttonText}>Logout</Text>
+              </TouchableOpacity>
+              <LinearGradient
+                colors={['#833ab4', '#fd1d1d', '#fcb045']}
+                style={styles.myAttendanceBtn}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('checkDetails', {
+                      user_id: user_id,
+                    });
+                  }}>
+                  <Text style={{fontSize: 20, color: 'white'}}>
+                    My Attendance
+                  </Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
             <View
               style={{
-                borderBottomColor: 'black',
-                borderBottomWidth: 1,
-                width: '80%',
-                alignSelf: 'center',
-              }}
-            />
-            <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-              <View>
-                <Text style={{fontSize: 18}}>Select Hrs</Text>
-                <Picker
-                  selectedValue={selectedHourValue}
-                  style={{height: 50, width: 150}}
-                  onValueChange={(itemValue, itemIndex) =>
-                    setSelectedHourValue(itemValue)
-                  }>
-                  {hourdata}
-                </Picker>
-              </View>
-              <View>
-                <Text style={{fontSize: 18}}>Select Mins</Text>
-                <Picker
-                  selectedValue={selectedMinuteValue}
-                  style={{height: 50, width: 150}}
-                  onValueChange={(itemValue, itemIndex) =>
-                    setSelectedMinuteValue(itemValue)
-                  }>
-                  {mindata}
-                </Picker>
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
+                marginTop: 100,
+              }}>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: checkInBtnColor,
+                  width: 120,
+                  height: 45,
+                  alignItems: 'center',
+                  paddingVertical: 7,
+                }}
+                onPress={() => {
+                  checkInTTimeandgetLatLng(),
+                    setflagCheckIn(true),
+                    setflagCheckOut(false);
+                }}
+                disabled={flagCheckIn}>
+                <Text style={{fontSize: 20, color: 'white'}}>CheckIn</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: checkOutBtnColor,
+                  width: 120,
+                  height: 45,
+                  alignItems: 'center',
+                  paddingVertical: 7,
+                }}
+                onPress={() => {
+                  checkOutTTimeDescRemoveLocalData(),
+                    setflagCheckIn(false),
+                    setflagCheckOut(true);
+                }}
+                disabled={flagCheckOut}>
+                <Text style={{fontSize: 20, color: 'white'}}>CheckOut</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{opacity: breaktimeOpacity}}>
+              <Text style={{fontSize: 18, textAlign: 'center', marginTop: 30}}>
+                Break Time
+              </Text>
+              <View
+                style={{
+                  borderBottomColor: 'black',
+                  borderBottomWidth: 1,
+                  width: '80%',
+                  alignSelf: 'center',
+                }}
+              />
+              <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+                <View>
+                  <Text style={{fontSize: 18}}>Select Hrs</Text>
+                  <Picker
+                    selectedValue={selectedHourValue}
+                    enabled={pickerDisabledFlag}
+                    style={{height: 50, width: 150}}
+                    onValueChange={(itemValue, itemIndex) =>
+                      setSelectedHourValue(itemValue)
+                    }>
+                    {hourdata}
+                  </Picker>
+                </View>
+                <View>
+                  <Text style={{fontSize: 18}}>Select Mins</Text>
+                  <Picker
+                    selectedValue={selectedMinuteValue}
+                    enabled={pickerDisabledFlag}
+                    style={{height: 50, width: 150}}
+                    onValueChange={(itemValue, itemIndex) =>
+                      setSelectedMinuteValue(itemValue)
+                    }>
+                    {mindata}
+                  </Picker>
+                </View>
               </View>
             </View>
-          </View>
-          <View style={{marginTop: 10, opacity: descriptionOpacity}}>
-            <Text style={{textAlign: 'center', fontSize: 20}}>Description</Text>
+            <View style={{marginTop: 10, opacity: descriptionOpacity}}>
+              <Text style={{textAlign: 'center', fontSize: 20}}>
+                Description
+              </Text>
 
-            <TextInput
-              editable={descriptionDisableFlag}
-              style={{
-                borderColor: 'black',
-                borderWidth: 1,
-                width: '98%',
-                alignSelf: 'center',
-                borderRadius: 5,
-              }}
-              multiline={true}
-              numberOfLines={4}
-              onChangeText={setDescription}
-              value={description}
-            />
+              <TextInput
+                editable={descriptionDisableFlag}
+                style={{
+                  borderColor: 'black',
+                  borderWidth: 1,
+                  width: '98%',
+                  alignSelf: 'center',
+                  borderRadius: 5,
+                }}
+                multiline={true}
+                numberOfLines={4}
+                onChangeText={setDescription}
+                value={description}
+              />
+            </View>
           </View>
-        </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </>
   );
 }

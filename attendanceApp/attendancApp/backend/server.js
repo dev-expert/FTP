@@ -1,17 +1,14 @@
-var mysql = require('mysql');
+const express = require('express');
+const router = require('./routes');
+const app = express();
 
-config = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'attendanceapp',
-  }
 
-var con = mysql.createConnection(config);
+app.use(express.json());
+app.use(router)
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
+const PORT = 3000;
 
-  module.exports = {con: mysql.createConnection(config)}
+app.listen(PORT, function () {
+  console.log('Server is ready at ' + PORT);
+});
+ 

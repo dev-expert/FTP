@@ -10,7 +10,6 @@ import styled from 'styled-components/native';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import LinearGradient from 'react-native-linear-gradient';
 import {FontFamily} from './colors';
 const NewHeader = ({
   Navigation,
@@ -25,7 +24,7 @@ const NewHeader = ({
       <SafeAreaView />
       <HeaderView>
         <TouchableOpacity onPress={Navigation} accessibilityLabel={accessibilityLabel}>
-         
+        
         </TouchableOpacity>
         <Title>{centerText}</Title>
         {/* <Title>{RightText}</Title> */}
@@ -53,11 +52,5 @@ const Title = styled.Text({
   lineHeight: 24,
   fontFamily: FontFamily.fontFamilyMedium,
 });
-const LinearGradientView = styled(LinearGradient)({
-  width: '100%',
-  paddingTop: heightPercentageToDP(2),
-  paddingBottom: heightPercentageToDP(2),
-  paddingLeft: 15,
-  paddingRight: 15,
-});
+
 export default NewHeader;

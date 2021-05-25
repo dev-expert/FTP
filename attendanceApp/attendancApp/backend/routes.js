@@ -1,16 +1,12 @@
 const express = require('express');
-const app = express();
-const con = require('./server');
-app.use(express.json());
+const router = express.Router();
+const con = require('./db');
+const {create_token} = require('./helper')
 
-const PORT = 3000;
 
-app.listen(PORT, function () {
-  console.log('Server is ready at ' + PORT);
-});
 
 //---------------------------------------For Inserting the user checkin details to database------------------------------------------------------
-app.post('/registeruser', function (req, res) {
+router.post('/checkintime',  function (req, res) {
   console.log('request', req.body);
   res.send('Registered Successfully');
   let sql = 'INSERT INTO usercheckindetails SET ?';
@@ -29,7 +25,7 @@ app.post('/registeruser', function (req, res) {
 });
 
 //---------------------------------------For Inserting the user checkout details to database-----------------------------------------------------
-app.post('/checkouttime', function (req, res) {
+router.post('/checkouttime',  function (req, res) {
   console.log('request', req.body.description);
   let sql =
     "UPDATE usercheckindetails SET checkOutTime = '" +
@@ -58,7 +54,7 @@ app.post('/checkouttime', function (req, res) {
 });
 
 //---------------------------------------For Checking the Login Credentials----------------------------------------------------------------------
-app.post('/checkCredentials', function (req, res) {
+router.post('/login', function (req, res) {
   console.log('request', req.body);
   let sql =
     "SELECT user_id, employee_email, password from employees_email where employee_email = '" +
@@ -67,7 +63,6 @@ app.post('/checkCredentials', function (req, res) {
 
   con.query(sql, function (err, result) {
     if (err) throw err;
-
     console.log('-------------------', result);
 
     if (
@@ -75,9 +70,11 @@ app.post('/checkCredentials', function (req, res) {
       result[0].employee_email == req.body.email &&
       result[0].password == req.body.password
     ) {
+      let token = create_token(req.body);
       res.json({
         status: true,
         result,
+        token: token
       });
       console.log('Verified Email is Present in Database');
     } else {
@@ -87,7 +84,7 @@ app.post('/checkCredentials', function (req, res) {
 });
 
 //---------------------------------------Selecting the details of users for checking it present or absent----------------------------------------
-app.post('/presentorabsent', function (req, res) {
+router.post('/presentorabsent', function (req, res) {
   console.log('request-----', req.body);
   let sql =
     "SELECT checkInDate,checkindateandtime,checkoutdateandtime,checkInTime,checkOutDate,checkOutTime,breakTime from usercheckindetails WHERE user_id = '" +
@@ -99,3 +96,5 @@ app.post('/presentorabsent', function (req, res) {
     res.send(result);
   });
 });
+
+module.exports = router
