@@ -1,5 +1,5 @@
 const axios = require('axios');
-const localhost = 'http://172.20.10.2:3000/';
+const localhost = 'http://192.168.0.102:3000/';
 
 export const CheckCredentialsApi = async payload => {
   try {

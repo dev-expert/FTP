@@ -9,7 +9,8 @@ import {
   Image,
   TouchableWithoutFeedback,
   Keyboard,
-  AsyncStorage
+  AsyncStorage,
+  StyleSheet
 } from 'react-native';
 import NewHeader from '../common/header';
 const logo = require('../images/appwrklogo.png');
@@ -31,7 +32,8 @@ function HomeScreen({navigation}) {
 
     if (res.data.status == true) {
       user_id = res.data.result[0].user_id;
-      AsyncStorage.setItem('user_id', user_id);
+      console.log(user_id)
+      AsyncStorage.setItem('userid', JSON.stringify(user_id));
       AsyncStorage.setItem('token', res.data.token);
       validation();
     } else if (res.data.status == false) {
@@ -50,11 +52,10 @@ function HomeScreen({navigation}) {
       alert('Enter Valid Email Address and Password');
     } else {
       showToast();
-      navigation.navigate('CheckInOut', {
-        user_id: user_id,
-      });
+      navigation.navigate('CheckInOut');
     }
   }
+
 
   return (
     <>
@@ -63,10 +64,12 @@ function HomeScreen({navigation}) {
         icon={'ios-menu'}
         centerText={'Attendance Manager'}
       />
+
       <TouchableWithoutFeedback
         onPress={() => {
           Keyboard.dismiss();
         }}>
+
         <View style={styles.container}>
           <Image source={logo} style={{width: 380, height: 100}} />
 

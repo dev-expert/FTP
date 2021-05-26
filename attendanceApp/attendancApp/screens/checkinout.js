@@ -11,6 +11,7 @@ import {
   Keyboard,
   Picker,
   KeyboardAvoidingView,
+  StyleSheet,
 } from 'react-native';
 import GetLocation from 'react-native-get-location';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,6 +19,8 @@ import NewHeader from '../common/header';
 const axios = require('axios');
 import styles from './styles';
 import {RegisterUserApi, CheckOutTimeApi} from './api';
+import { showNotification, handleScheduleNotification, handleCancel } from '../notification/notification_sound';
+
 
 function usePrevious(value) {
   const ref = useRef();
@@ -58,7 +61,7 @@ function CheckInOut({route, navigation}) {
   const pickerDisabledFlag = flagCheckIn ? true : false;
   const localStorageFlag = 'true';
   const descriptionDisableFlag = flagCheckIn ? true : false;
-  const {user_id} = navigation.state.params;
+  // const {user_id} = navigation.state.params;
 
   const datahour = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09'];
   const datamin = [
@@ -126,11 +129,12 @@ function CheckInOut({route, navigation}) {
 
   //-------------------------------Setting the useEffect and use the Previous Valye in useState Hooks-------------------------------------------
   useEffect(async () => {
+    const user_id = await AsyncStorage.getItem('userid')
     if (previousLng != lng) {
-      makeGetRequestforEmailCheckinLatlng();
+      makeGetRequestforEmailCheckinLatlng(user_id);
     }
     if (previousCheckOutTime != checkOutTime) {
-      makeGetRequestforCheckoutDescription();
+      makeGetRequestforCheckoutDescription(user_id);
     }
     if ((await AsyncStorage.getItem('flag')) == 'true') {
       setflagCheckIn(true);
@@ -156,7 +160,7 @@ function CheckInOut({route, navigation}) {
     }
   };
   //-------------------------------Calling the end point and send the data for checkin to backend by payload-------------------------------------
-  async function makeGetRequestforEmailCheckinLatlng() {
+  async function makeGetRequestforEmailCheckinLatlng(user_id) {
     let payload = {
       user_id: user_id,
       checkInDate: checkInDate,
@@ -172,7 +176,7 @@ function CheckInOut({route, navigation}) {
   }
 
   //-------------------------------Calling the end point and send the data for checkout to backend by payload------------------------------------
-  async function makeGetRequestforCheckoutDescription() {
+  async function makeGetRequestforCheckoutDescription(user_id) {
     let payload = {
       user_id: user_id,
       checkOutTime: checkOutTime,
@@ -244,6 +248,7 @@ function CheckInOut({route, navigation}) {
     saveDataLocally();
     checkinddateandtime();
     showToastInCheckIn();
+    handleScheduleNotification('Checkout Reminder', 'Please do Checkout! If Already Done Ignore this Notification.')
   }
 
   //--------------------------------Calling this Function on CheckOut Button Click------------------------------------------------------------------
@@ -313,7 +318,7 @@ function CheckInOut({route, navigation}) {
   const removeToken = async () => {
     try {
       await AsyncStorage.removeItem('token');
-      await AsyncStorage.removeItem('user_id');
+      await AsyncStorage.removeItem('userid');
       navigation.navigate('HomeScreen')
     } catch (error) {
       alert(error);
@@ -337,7 +342,7 @@ function CheckInOut({route, navigation}) {
           <View>
             <View style={{ flexDirection: 'row' , justifyContent: 'space-around', marginTop: 20 }}>
               <TouchableOpacity
-                style={styles.backButton}
+                style={styles.logoutButton}
                 onPress={() => removeToken() }>
                 <Text style={styles.buttonText}>Logout</Text>
               </TouchableOpacity>
@@ -346,9 +351,7 @@ function CheckInOut({route, navigation}) {
                 style={styles.myAttendanceBtn}>
                 <TouchableOpacity
                   onPress={() => {
-                    navigation.navigate('checkDetails', {
-                      user_id: user_id,
-                    });
+                    navigation.navigate('checkDetails');
                   }}>
                   <Text style={{fontSize: 20, color: 'white'}}>
                     My Attendance
@@ -370,6 +373,7 @@ function CheckInOut({route, navigation}) {
                   alignItems: 'center',
                   paddingVertical: 7,
                 }}
+                activeOpacity={0.6}
                 onPress={() => {
                   checkInTTimeandgetLatLng(),
                     setflagCheckIn(true),
@@ -386,6 +390,7 @@ function CheckInOut({route, navigation}) {
                   alignItems: 'center',
                   paddingVertical: 7,
                 }}
+                activeOpacity={0.6}
                 onPress={() => {
                   checkOutTTimeDescRemoveLocalData(),
                     setflagCheckIn(false),

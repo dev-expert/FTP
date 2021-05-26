@@ -9,7 +9,7 @@ function App() {
   useEffect(async () => {
       NavigationService.setNavigator(navigator);
       if ((await AsyncStorage.getItem('token')) && (await AsyncStorage.getItem('user_id') != 0) ) {
-        
+         
         alert('Present in local')
         NavigationService.navigate('CheckInOut', {user_id: await AsyncStorage.getItem('user_id')})
       } else{

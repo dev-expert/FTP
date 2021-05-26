@@ -35,6 +35,18 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10,
   },
+  logoutButton: {
+    backgroundColor: 'white',
+    width: widthPercentageToDP('40%'),
+    padding: heightPercentageToDP('1%'),
+    alignItems: 'center',
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#231F20',
+    // marginTop: heightPercentageToDP(7),
+    justifyContent: 'center',
+    height: 40,
+  },
   backButton: {
     backgroundColor: 'white',
     width: widthPercentageToDP('40%'),
@@ -46,8 +58,8 @@ const styles = StyleSheet.create({
     // marginTop: heightPercentageToDP(7),
     justifyContent: 'center',
     height: 40,
-   
-    
+    marginTop:30,
+    alignSelf: 'center'
   },
   buttonText: {
     color: '#231F20',

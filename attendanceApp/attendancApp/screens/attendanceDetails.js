@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {useEffect, useState } from 'react';
-import {View, Text, ToastAndroid, TouchableOpacity} from 'react-native';
+import {View, Text, ToastAndroid, TouchableOpacity, AsyncStorage} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import NewHeader from '../common/header';
 import styles from './styles';
@@ -12,12 +12,13 @@ function checkDetails({route, navigation}) {
   const [greenorange, setgreenorange] = useState([]);
   const [time, settime] = useState([]);
   const [breakTime, setBreakTime] = useState([]);
-  const {user_id} = navigation.state.params;
-
+  // const {user_id} = navigation.state.params;
+let user_id;
   const currentDATE = new Date();
 
 //----------------------------Fetch the end point and get the details according to userid from the backend---------------------------------------
   useEffect(async () => {
+    user_id = await AsyncStorage.getItem('userid')
     let payload = {
       user_id: user_id,
     };
