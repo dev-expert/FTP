@@ -41,6 +41,9 @@ let user_id;
       if (checkInmonth.toString().length < 2) {
         checkInmonth = '0' + checkInmonth;
       }
+      if (checkIndate.toString().length < 2) {
+        checkIndate = '0' + checkIndate;
+      }
       let checkInDate = checkInyear + '/' + checkInmonth + '/' + checkIndate;
       let checkinDateForColor = checkInyear + '-' + checkInmonth + '-' + checkIndate;
 

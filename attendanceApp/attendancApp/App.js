@@ -4,9 +4,11 @@ import * as NavigationService from './routes/NavigationService';
 import Routes from './routes/routes';
 import {AsyncStorage} from 'react-native';
 import CheckInOut from './screens/checkinout'
+import Firebase from '@react-native-firebase/app';
 
 function App() {
   useEffect(async () => {
+    Firebase.initializeApp()
       NavigationService.setNavigator(navigator);
       if ((await AsyncStorage.getItem('token')) && (await AsyncStorage.getItem('user_id') != 0) ) {
          

@@ -11,7 +11,7 @@ import {
   Keyboard,
   Picker,
   KeyboardAvoidingView,
-  StyleSheet,
+  Alert,
 } from 'react-native';
 import GetLocation from 'react-native-get-location';
 import LinearGradient from 'react-native-linear-gradient';
@@ -325,6 +325,19 @@ function CheckInOut({route, navigation}) {
     }
   };
 
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Logout",
+      "Are you really want to Logout?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => { removeToken(), console.log("OK Pressed")} }
+      ]
+    );
   return (
     <>
       <NewHeader
@@ -343,7 +356,7 @@ function CheckInOut({route, navigation}) {
             <View style={{ flexDirection: 'row' , justifyContent: 'space-around', marginTop: 20 }}>
               <TouchableOpacity
                 style={styles.logoutButton}
-                onPress={() => removeToken() }>
+                onPress={() => createTwoButtonAlert() }>
                 <Text style={styles.buttonText}>Logout</Text>
               </TouchableOpacity>
               <LinearGradient
