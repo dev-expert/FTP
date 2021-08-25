@@ -1,0 +1,4 @@
+var a = parseInt(prompt("Enter the First Number")); 
+var b = parseInt(prompt("Enter the Second Number")); 
+document.write("Addition is:" + (a+b) + "<br>" + "Subtraction is:" + (a-b) + "<br>" + "Multiplication is:" + (a*b));
+

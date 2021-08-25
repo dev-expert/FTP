@@ -1,0 +1,35 @@
+/* TABLE STYLING */
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 75%;
+      margin-left: 200px;
+      /* margin-top: 200px; */
+      /* background-color: #1877f2; */
+    }
+
+    td,
+    th {
+      border: 1px solid #1877f2;
+      text-align: left;
+      padding: 8px;
+      width: 15%;
+    }
+
+    th {
+      background-color: #42b72a;
+    }
+
+    tr {
+      background-color: #1877f2;
+    }
+
+    button {
+      text-align: center;
+      height: 5vh;
+      min-width: 7vw;
+      border: 2px solid balck;
+      background-color: #1877f2;
+      border-radius: 4px;
+      cursor: pointer;
+    }

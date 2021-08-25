@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Adder</title>
+</head>
+
+<body>
+    <center>
+        <label>Enter the URL</label>
+        <br>
+        <input type="url" id="urlInput">
+        <br>
+        <br>
+        <button onclick="addUrl()">Add URL</button>
+        <br>
+        <br>
+        <button onclick="DeleteUrl()">Delete</button>
+        <br>
+        <label>URLs are: </label>
+        <br>
+        <br>
+    </center>
+
+    <ul id="list"></ul>
+
+    <script>
+
+        let arr = [];
+        let i = 0;
+
+        let dearr = [];
+        let flag = 0;
+
+        function addUrl() {
+            var str = document.getElementById("urlInput").value;
+
+            if (str != "") {
+                var q = isValidUrl(str);
+                if (!q) {
+                    alert("Enter the Valid URL ");
+                    return;
+                }
+            }
+            else {
+                alert("Enter URL ");
+                return;
+            }
+
+            if (arr.indexOf(str) < 0) {
+                arr[i++] = str;
+            }
+            else {
+                alert("Allready Added");
+                return;
+            }
+
+
+            var ul = document.getElementById("list");
+            var li = document.createElement("li");
+
+            li.appendChild(document.createTextNode(str));
+
+            var checkbox = document.createElement("Input");
+            checkbox.setAttribute("type", "checkbox");
+
+            checkbox.addEventListener('click', function () {
+                alert(str);
+            });
+
+            li.appendChild(checkbox);
+
+
+            var button = document.createElement("button");
+            button.innerHTML = "Delete";
+            button.addEventListener("click", function () {
+                ul.removeChild(li);
+
+                var b = arr.indexOf(str);
+                alert(b);
+                arr.slice(b - 1, 1);
+            });
+
+            li.appendChild(button);
+            ul.appendChild(li);
+        }
+
+
+
+
+        function isValidUrl(str) {
+            var pattern = new RegExp('^(https?:\/\/)?[0-9a-z]+\.[-_0-9a-z]+\.[0-9a-z]+$', 'i');
+            return pattern.test(str);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

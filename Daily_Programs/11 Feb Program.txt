@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+//function to rearrange the given sorted array in maximum minimum form
+void RearrangeMaxMin(int array[], int N)
+{
+    int temp[N];//auxilary dummy array with all zeroes
+    for (int i=0; i<N; i++)
+       {
+           temp[i] = 0;
+       }
+    int low=0, high=N-1; // corner indices of the array 
+    int X = true; // indication for which element should be copied
+    //copying elements into the temp array
+    //according to the given condition
+    for (int i=0; i<N; i++)
+    {
+        if(X)
+            {
+                temp[i] = array[high--];
+            }
+        else
+            {
+                temp[i] = array[low++];
+            }
+        X = !X;
+    }
+    for (int i=0; i<N; i++)
+     {
+        array[i] = temp[i];
+     }
+}
+//function to print the given array
+int PrintArray(int array[],int N)
+{
+    for (int i=0; i<N; i++)
+       {
+           cout << array[i] << " ";
+       }
+}
+// main function
+int main()
+{
+    int array[] = {1, 2, 3, 4, 5, 6};
+    int N = sizeof(array)/sizeof(array[0]);
+    cout << "Input array\n";
+    PrintArray(array,N);
+    RearrangeMaxMin(array,N);
+    cout << "\nOutput array\n";
+    PrintArray(array,N);
+    return 0;
+}

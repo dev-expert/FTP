@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin DashBoard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      /* WELCOME MESSAGE BOX STYLING */
+    .welcome_message_box {
+      text-align: center;
+      margin-left: 200px;
+      font-size: 90px;
+    }
+
+    .welcome_message_text {
+      opacity: 0.3;
+    }
+
+    /* HEADER PORTION STYLING */
+    .header_portion {
+      margin-left: 200px;
+    }
+
+    /* HEADER'S NAV BAR */
+    .upper_nav_bar_ul {
+      list-style-type: none;
+      overflow: hidden;
+      background-color: #f0f2f5;
+    }
+
+    .upper_nav_bar_li {
+      float: right;
+    }
+
+    .upper_nav_bar_li a {
+      display: block;
+      color: #1877f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .upper_nav_bar_li a:hover {
+      background-color: #42b72a;
+    }
+
+    /* SIDE NAV BAR */
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      background-color: #f0f2f5;
+      overflow-x: hidden;
+      padding-top: 20px;
+      border-radius: 5px;
+    }
+
+    .sidenav a {
+      display: block;
+      color: #1877f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .sidenav a:hover {
+      background-color: #42b72a;
+    }
+    
+    /* TABLE STYLING */
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 75%;
+      margin-left: 200px;
+    }
+
+    td,
+    th {
+      border: 1px solid #1877f2;
+      text-align: left;
+      padding: 8px;
+      width: 15%;
+    }
+
+    th {
+      background-color: #42b72a;
+    }
+
+    tr {
+      background-color: #1877f2;
+    }
+
+    button {
+      text-align: center;
+      height: 5vh;
+      min-width: 7vw;
+      border: 2px solid balck;
+      background-color: #1877f2;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body id="body_body" class="body_body">
+  <header class="header_portion">
+    <div class="uppernav">
+      <ul class="upper_nav_bar_ul">
+        <li class="upper_nav_bar_li"><a style="cursor: pointer;" onclick="delFireWall()">LOGOUT</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="sidenav">
+    <a style="cursor: pointer;" href="user_list.html">LIST OF USERS</a>
+    <a style="cursor: pointer;" href="resume.html">RESUME BUILDER</a>
+    <a style="cursor: pointer;" href="Calculator.html">CALCULATOR</a>
+  </div>
+  <div id="welcome_message_box" class="welcome_message_box">
+    <p id="welcome_message_text" class="welcome_message_text">WELCOME TO THE ADMIN DASHBOARD</p>
+  </div>
+
+  
+  <script>
+    // VALIDATION OF ADMIN USER TYPE
+    var session = 0;
+
+    for (var i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i) == "firewall")
+        session = 1;
+      else;
+    }
+
+    if (session == 1);
+
+    else {
+      alert("Session Expired. Login Again");
+      location.replace("signin_signup.html");
+    }
+
+    function delFireWall() {
+      localStorage.removeItem("firewall");
+      location.replace("signin_signup.html");
+    }
+  </script>
+</body>
+
+</html>

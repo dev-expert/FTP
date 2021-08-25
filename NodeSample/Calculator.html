@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CALCULATOR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .welcome_message_box {
+      text-align: center;
+      margin-left: 200px;
+      font-size: 90px;
+    }
+
+    .welcome_message_text {
+      opacity: 0.3;
+    }
+
+    /* HEADER PORTION STYLING */
+    .header_portion {
+      margin-left: 200px;
+    }
+
+    /* HEADER'S NAV BAR */
+    .upper_nav_bar_ul {
+      list-style-type: none;
+      overflow: hidden;
+      background-color: #f0f2f5;
+    }
+
+    .upper_nav_bar_li {
+      float: right;
+    }
+
+    .upper_nav_bar_li a {
+      display: block;
+      color: #1877f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .upper_nav_bar_li a:hover {
+      background-color: #42b72a;
+    }
+
+    /* SIDE NAV BAR */
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      background-color: #f0f2f5;
+      overflow-x: hidden;
+      padding-top: 20px;
+      border-radius: 5px;
+    }
+
+    .sidenav a {
+      display: block;
+      color: #1877f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .sidenav a:hover {
+      background-color: #42b72a;
+    }
+
+
+    /* MAIN AREA */
+    .main_area {
+      margin-left: 200px;
+      /* Same as the width of the sidenav */
+      background-color: #f0f2f5;
+    }
+    .button1 {
+      background-color: #73c563;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 14px 12px;
+      cursor: pointer;
+      width: 10%;
+    }
+
+    .button1:hover {
+      transform: scale(1.1);
+      background-color: #3ab86a;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 14px 12px;
+      cursor: pointer;
+    }
+
+    .input_area {
+      background-color: #5ea87b;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 14px 12px;
+      cursor: pointer;
+      width: 20%;
+    }
+
+    .number {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      width: 100%;
+
+    }
+
+    .result {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      width: 100%;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body id="body_body" class="body_body">
+  <header class="header_portion">
+    <div class="uppernav">
+      <ul class="upper_nav_bar_ul">
+        <li class="upper_nav_bar_li"><a style="cursor: pointer;" onclick="delFireWall()">LOGOUT</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="sidenav">
+    <a style="cursor: pointer;" href="user_list.html">LIST OF USERS</a>
+    <a style="cursor: pointer;" href="resume.html">RESUME BUILDER</a>
+    <a style="cursor: pointer;" href="Calculator.html">CALCULATOR</a>
+  </div>
+  <div>
+    <form>
+        <center>
+          <p class="number">Enter the First Number<br><input type="number" class="input_area" id="first" /><br></p>
+          <p class="number">Enter the Second Number<br><input type="number" class="input_area" id="second" /><br></p>
+          <p class="number">Choose Option<br></p>
+    
+          <input type="button" class="button1" value="Addition" onclick="operation(1)" /><br>
+          <input type="button" class="button1" value="Subtract" onclick="operation(2)" /><br>
+          <input type="button" class="button1" value="Multiply" onclick="operation(3)" /><br>
+          <input type="button" class="button1" value="Devide" onclick="operation(4)"><br>
+          <p class="result">Result<br><input class="input_area" id="result" /></p>
+        </center>
+      </form>
+  </div>
+
+  
+  <script>
+    // VALIDATION OF ADMIN USER TYPE
+    // var session = 0;
+
+    // for (var i = 0; i < localStorage.length; i++) {
+    //   if (localStorage.key(i) == "firewall")
+    //     session = 1;
+    //   else;
+    // }
+
+    // if (session == 1);
+
+    // else {
+    //   alert("Session Expired. Login Again");
+    //   location.replace("signin_signup.html");
+    // }
+
+    // function delFireWall() {
+    //   localStorage.removeItem("firewall");
+    //   location.replace("signin_signup.html");
+    // }
+
+
+    function operation(flag) {
+      var a = parseInt(document.getElementById("first").value);
+      var b = parseInt(document.getElementById("second").value);
+      if (document.getElementById("first").value == "" || document.getElementById("second").value == "") {
+        alert("Empty Inputs");
+      }
+
+      else {
+
+        if (flag == 1)
+          result = a + b;
+
+        else if (flag == 2) {
+          if (a < b) {
+            alert("Calculation Not possible");
+            result = 'Not Possible'
+          }
+
+          else
+            result = a - b;
+        }
+
+        else if (flag == 3) {
+          if (a < b) {
+            alert("Calculation Not possible");
+            result = 'Not Possible'
+          }
+
+          else
+            result = a * b;
+        }
+
+        else if (flag == 4) {
+          if (a < b) {
+            alert("Calculation Not possible");
+            result = 'Not Possible'
+          }
+          else
+            result = a / b;
+        }
+      }
+
+      document.getElementById("result").value = result;
+    }
+  </script>
+</body>
+
+</html>

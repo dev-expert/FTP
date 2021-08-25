@@ -1,0 +1,133 @@
+<htmL>
+<head>
+<script>
+  // var intro = prompt("Please Enter your Name:", "Your Name");
+  // if (intro == null || intro == "") {
+  //   prompt("Please Enter your Name");
+  // } 
+  // else {
+  //   var doing = prompt("Hello " + intro + "! How are you Today?");
+  // }
+  // document.write(intro + " is doing "+ doing);
+  
+function operation(flag)
+{
+var a = parseInt(document.getElementById("first").value);
+var b = parseInt(document.getElementById("second").value);
+if(document.getElementById("first").value == "" || document.getElementById("second").value == ""){
+                alert("Empty Inputs");
+            }
+
+            else{
+
+if(flag == 1)
+    result = a + b;
+
+else if(flag == 2){
+    if(a < b){
+        alert("Calculation Not possible"); 
+        result = 'Not Possible'
+    }
+
+    else
+        result = a - b;
+}
+
+else if(flag == 3){
+    if(a < b){
+        alert("Calculation Not possible");
+        result = 'Not Possible'
+    }
+
+    else
+        result = a * b;
+}
+
+else if(flag == 4){
+    if(a < b){
+        alert("Calculation Not possible");
+        result = 'Not Possible'}
+    else
+        result = a / b;
+}
+}
+
+document.getElementById("result").value = result;
+}
+</script>
+
+
+<style>
+.button {
+  background-color: #73c563;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 14px 12px;
+  cursor: pointer;
+  width: 10%;
+}
+.button:hover {
+  transform: scale(1.1);
+  background-color: #3ab86a;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 14px 12px;
+  cursor: pointer;
+}
+.akash{
+  background-color: #5ea87b;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 14px 12px;
+  cursor: pointer;
+  width: 20%;
+}
+.number{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+
+}
+.result{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;  
+}
+
+</style>
+</head>
+<body>
+<form>
+    <center>
+<p class="number">Enter the First Number<br><input type="number" class="akash" id="first"/><br></p>
+<p class="number">Enter the Second Number<br><input type="number"  class="akash" id="second"/><br></p>
+<p class="number">Choose Option<br></p>
+
+<input type="button"  class="button" value="Addition" onclick="operation(1)" /><br>
+<input type="button" class="button" value="Subtract" onclick="operation(2)" /><br>
+<input type="button" class="button" value="Multiply" onclick="operation(3)"/><br>
+<input type="button" class="button" value="Devide" onclick="operation(4)" ><br>
+<p class="result">Result<br><input class="akash" id="result" /></p>
+</center>
+</form>
+</div>
+</body>
+</html>
+
+
+
+
