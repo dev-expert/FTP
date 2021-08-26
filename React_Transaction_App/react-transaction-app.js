@@ -13,7 +13,7 @@ var dbo;
 MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     dbo = db.db("demoDataBase");
-    console.log("Connected")
+    console.log("Connected to Database")
 });
 
 // app.get('/', (req, res) => {
@@ -23,7 +23,7 @@ MongoClient.connect(url, function (err, db) {
 // });
 
 app.post("/postTransaction", function (req, res) {
-    console.log("Hello")
+    console.log("Connected with Collection")
     var q = req.body;
     dbo.collection("ReactTransactionApp").insertOne(q, function (err, res) {
         if (err) throw err;
@@ -35,7 +35,6 @@ app.post("/postTransaction", function (req, res) {
 app.get('/getTransaction',function(req,res){
     dbo.collection("ReactTransactionApp").find({}).toArray( function(err, result) {
         res.send(result);
-        // console.log(result);
         console.log("Exported Transactions");
       }); 
     }
