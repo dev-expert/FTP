@@ -1,0 +1,58 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SeleniumTestData {
+	
+  public static void main(String[] args) {
+	  // Firefox driver
+//	  String property = System.getProperty("user.dir");
+//	  System.out.println(property);
+//	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\APPWRK\\eclipse-workspace\\SeleniumJavaFramework\\drivers\\gekoDrivers\\geckodriver.exe");
+     
+	 // Chrome driver setup
+	  WebDriverManager.chromedriver().setup();
+	  WebDriver driver = new ChromeDriver();
+	  
+	  // Navigate to the Website
+	  driver.get("https://appwrk.com/");
+	  driver.manage().window().maximize();
+	 
+	
+	  //#1:- Verify the site map links redirect the user to Site map page
+	  JavascriptExecutor js = (JavascriptExecutor) driver;
+	  js.executeScript("window.scrollBy(0,3000)", "");
+	  WebDriverWait wait = new WebDriverWait(driver,10);
+//	  String eTitle = "Sitemap";
+	  String aTitle = " " ;
+	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Sitemap"))).click();
+	 // driver.findElement(By.id("content")).isDisplayed();
+	 // driver.findElement(By.id("content1").isDisplayed();
+	  aTitle = driver.getTitle();
+	  System.out.println(aTitle);
+      if(aTitle.contentEquals("XML Sitemap"))
+      {
+       System.out.println("Site map link is working fine" + " Passed");
+
+      
+      }
+      else
+      {
+    	  
+          System.out.println("Site map link is not working fine" + " Failed");
+
+      }
+      driver.close();
+      }
+  }
+  
+
+  

@@ -1,0 +1,88 @@
+import java.awt.List;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SeleniumTestData {
+	
+  public static void main(String[] args) {
+	  // Firefox driver
+//	  String property = System.getProperty("user.dir");
+//	  System.out.println(property);
+//	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\APPWRK\\eclipse-workspace\\SeleniumJavaFramework\\drivers\\gekoDrivers\\geckodriver.exe");
+     
+	 // Chrome driver setup
+	  WebDriverManager.chromedriver().setup();
+	  WebDriver driver = new ChromeDriver();
+	  
+	  // Navigate to the Website
+	  driver.get("https://appwrk.com/");
+	  driver.manage().window().maximize();
+	 
+	
+	  //#1:- Verify the site map links redirect the user to Site map page
+	  JavascriptExecutor js = (JavascriptExecutor) driver;
+	  js.executeScript("window.scrollBy(0,3000)", "");
+	  
+	  
+	  
+	  List<WebElement> links=driver.findElements(By.tagName("a"));            
+      System.out.println("Total links are "+links.size());            
+//      for(int i=0;i<links.size();i++)
+//      {       
+//                 
+//      }        
+//  }       
+	  
+	  
+//	  WebDriverWait wait = new WebDriverWait(driver,10);
+//	  String aTitle = " " ;
+//	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Sitemap"))).click();
+//	  aTitle = driver.getTitle();
+//	  
+//      if(aTitle.contentEquals("XML Sitemap"))
+//      {
+//       System.out.println("Site map link is working fine" + " Passed");
+//      }
+//      else
+//      { 	  
+//       System.out.println("Site map link is not working fine" + " Failed");
+//      }
+      
+//      //#2:- Verify the Privacy Policy links redirect the user to Privacy Policy page
+//      
+//	  WebDriverWait wait1 = new WebDriverWait(driver,10);
+//	  String aTitle1 = " " ;
+//	  wait1.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Privacy Policy"))).click();
+//	  aTitle1 = driver.getTitle();
+//	  System.out.println(aTitle1);
+//      if(aTitle1.contentEquals("XML Sitemap"))
+//      {
+//       System.out.println("Site map link is working fine" + " Passed");
+//      }
+//      else
+//      { 	  
+//       System.out.println("Site map link is not working fine" + " Failed");
+//      }
+      
+      
+      
+      
+      
+      
+      
+      //driver.close();
+      }
+  }
+  
+
+  
