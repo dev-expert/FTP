@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="resume_builder_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <script src="resume_builder_script.js"></script>
+</head>
+
+<body>
+    <!-- FORM INPUT SECTION -->
+    <form id="form">
+        <div class="basic">
+
+            <div id="basic_txt">
+                <h4>Basic Information</h4>
+            </div>
+
+            <div class="name">
+                <p id="name_txt">Name</p>
+                <input id="name_in" type="text">
+            </div>
+
+            <div class="profile">
+                <p id="image_txt">Choose Profile Image</p>
+                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"></p>
+                <p><label id="upload_image" for="file" style="cursor: pointer;"></label></p>
+            </div>
+
+            <div class="tag">
+                <p id="tag_txt">Tag Line</p>
+                <input id="tag_in" type="text"> <br>
+            </div>
+
+            <div class="phone">
+                <p id="phone_txt">Phone Number</p>
+                <input id="phone_in" type="tel" onblur="checke(this,document.getElementById('message_e'));">
+                <span id="message_e"></span><br>
+            </div>
+
+            <div class="mail">
+                <p id="mail_txt">Mail ID</p>
+                <input id="mail_in" onblur="checkf(this,document.getElementById('message_f'));">
+                <span id="message_f"></span> <br>
+            </div>
+
+            <div class="linkedin">
+                <p id="linkedin_txt">LinkedIn Link</p>
+                <input id="linkedin_in"> <br>
+            </div>
+
+            <div class="experience">
+                <p id="experience_txt">Experience (in Months)</p>
+                <input id="experience_in" type="number"> <br>
+            </div>
+
+            <div class="age">
+                <p id="age_txt">Age (in Years)</p>
+                <input id="age_in" type="number"> <br>
+            </div>
+
+            <div class="about">
+                <p id="about_txt">About You(In Brief)</p>
+                <input id="about_in"> <br>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="education">
+
+            <div id="education_txt">
+                <h4>Education</h4>
+            </div>
+
+            <div class="bachelor">
+                <p id="bachelor_college_txt">Bachelor's Collge/University's Name</p>
+                <input id="bachelor_college_name_in">
+                <p id="bachelors_marks_text">Bachelor's Marks (In CGPA)</p>
+                <input id="bachelors_marks_in">
+            </div>
+
+            <div class="twelveth">
+                <p id="senior_secondry_college_txt">Senior Secondry Institute's Name</p>
+                <input id="senior_secondry_college_name_in">
+                <p id="senior_secondrys_marks_text">Senior Secondry's Marks (In Percentage)</p>
+                <input id="senior_secondrys_marks_in">
+            </div>
+
+            <div class="tenth">
+                <p id="matriculation_college_txt">Matriculation Institute's Name</p>
+                <input id="matriculation_college_name_in">
+                <p id="matriculations_marks_text">Matriculation's Marks (In Percentage)</p>
+                <input id="matriculations_marks_in">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="qualification">
+
+            <div id="qualification_head">
+                <h4>Professional Qualification and Affiliations</h4>
+            </div>
+            <div id="qualification_in">
+                <p id="qualification_txt">Certifications Done</p>
+
+                <input id="quali_1"><br>
+                <input id="quali_2"><br>
+                <input id="quali_3"><br>
+                <input id="quali_4"><br>
+                <input id="quali_5"><br>
+                <input id="quali_6"><br>
+                <input id="quali_7"><br>
+                <input id="quali_8"><br>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="projects">
+            <div id="project_desc">
+                <h4>Project/Work Highlights</h4>
+            </div>
+
+            <p id="project_txt">Projects and Work Done</p>
+
+            <input id="project_in_1"><br>
+            <input id="project_in_2"><br>
+            <input id="project_in_3"><br>
+            <input id="project_in_4"><br>
+            <input id="project_in_5"><br>
+            <input id="project_in_6"><br>
+            <input id="project_in_7"><br>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="skills">
+            <div id="skills_desc">
+                <h4>Skills</h4>
+            </div>
+
+            <p id="skills_txt">Skills Acquired</p>
+
+            <input id="skills_in_1"><br>
+            <input id="skills_in_2"><br>
+            <input id="skills_in_3"><br>
+            <input id="skills_in_4"><br>
+            <input id="skills_in_5"><br>
+            <input id="skills_in_6"><br>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="proficiency">
+            <div id="proficiency_desc">
+                <h4>Computer Proficiency</h4>
+            </div>
+
+            <p id="proficiency_txt">Softwares/Tools Well Known</p>
+
+            <input id="proficiency_in_1"><br>
+            <input id="proficiency_in_2"><br>
+            <input id="proficiency_in_3"><br>
+            <input id="proficiency_in_4"><br>
+            <input id="proficiency_in_5"><br>
+            <input id="proficiency_in_6"><br>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="language">
+            <div id="language_desc">
+                <h4>Languages</h4>
+            </div>
+
+            <p id="language_txt">Proficient Languages</p>
+
+            <input id="language_in_1"><br>
+            <input id="language_in_2"><br>
+            <input id="language_in_3"><br>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="interest">
+            <div id="interest_desc">
+                <h4> Personal Interests</h4>
+            </div>
+
+            <p id="interest_txt">Hobbies</p>
+
+            <input id="interest_in_1"><br>
+            <input id="interest_in_2">
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="details">
+
+            <div id="details_desc">
+                <h4>Personal Details</h4>
+            </div>
+
+            <div class="father">
+                <p id="father_txt">Father's Name</p>
+                <input id="fathers_name_in">
+            </div>
+
+            <div class="birthday">
+                <p id="birthday_txt">Birthday</p>
+                <input id="birthday_in" type="date">
+            </div>
+
+            <div class="gender">
+                <p id="gender_txt">Gender</p>
+                <input type="radio" id="gender_in" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="gender_in" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="gender_in" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+
+            <div class="maritial">
+                <p id="maritial_txt">Maritial Status</p>
+                <input id="maritial_in">
+            </div>
+            <div class="nationality">
+                <p id="nationality_txt">Nationality</p>
+                <input id="nationality_in">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="button">
+            <button id="reset" class="reset_button" type="reset">Reset</button>
+            <button id="submit" class="submit_button" type="button" onclick="hide_generate()">Submit</button>
+        </div>
+
+    </form>
+
+
+
+    <!-- RESUME SECTION -->
+    <section class="resume_section" id="resume_section">
+        <form id="resume_preview" style="display: none; max-width: 900px; margin: auto; border: 1px solid black;">
+            <div class="basic_out" style="margin: 10%; font-size: 20px;">
+                <div class="one_out">
+                    <div id=""><img src="Akash_Sharma.PNG" id="image_out"></div>
+
+
+                    <div class="one_one_out">
+                        <div id="name_out">AKASH SHARMA</div>
+                        <div id="tag_out">Computer Scinece Engineer</div>
+                        <div class="contact_out">
+                            <div id="phone_out">
+                                <img id="call_out" src="call.png" alt="call">
+                                &nbsp;<p id="call_num_out">+91-88475-63677</p>
+                                <span id="message_e"></span></br></br>
+                            </div>
+                            <div id="mail_out">
+                                <img id="mailid_out" src="mail.png" alt="mail">
+                                &nbsp;<p id="gmail_id_out">qqqakash@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div id="linkedin_id_out">
+                            <img id="linked_out" src="linkedin.png" alt="mail">
+                            &nbsp; <div id="linkedin_out">https://linkedin.com/in/iakashsharma/</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two">
+                    <div id="basic_two_out">
+                        <div id="experience_text_out"><b>WORK EXPERIENCE</b></div>
+                        <div id="experience_out"> 0.2 Years Intern</div>
+                        <br>
+                        <div id="Age_text_out"><b>AGE</b></div>
+                        <div id="age_out">21</div>
+                    </div>
+
+                    <div id="base_about_out">
+                        <div id="about_text_out"><b>ABOUT ME</b></div><br>
+                        <div id="about_out">Innovative Front-End Developer. Proficient in HTML, CSS, and JavaScript.
+                            Passionate
+                            about usability and process working knowledge of Adobe Photoshop and Illustrator.
+                            Intend to get a position to utilize my skills and abilities into practice for mutual growth
+                            and make endeavours towards the way, which is innovative, creative to excel in my
+                            field
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edu_out_out">
+                <img id="edu_logo_out" src="education.png" alt="Education">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Education</h4>
+                <div class="education_out">
+                    <div id="bachelor_edu_out">
+                        <div id="bachelor_edu_name_out">
+                            <span><b>Bachelor Technology</b></span><br>
+                            <span id="bachelor_college_name_out">GNA University</span><br>
+                            <span>Phagwara, Punjab</span><br>
+                        </div>
+
+                        <div id="bachelor_edu_status_out">
+                            <span>Pursuing, July 2021</span><br>
+                            <span id="bachelors_marks_out">6.8 CGPA</span><br>
+                        </div>
+                    </div>
+
+                    <div id="twelve_edu_out">
+                        <div id="tweleve_edu_name_out">
+                            <span><b>10+2</b></span><br>
+                            <span id="senior_secondry_college_name_out">T.W.E.I.Sr.Sec School</span><br>
+                            <span>Phagwara, Punjab</span><br>
+                        </div>
+
+                        <div id="twelve_edu_status_out">
+                            <span>Graduated, March 2017</span><br>
+                            <span id="senior_secondrys_marks_out">69%</span><br>
+                        </div>
+                    </div>
+
+                    <div id="ten_edu_out">
+                        <div id="ten_edu_name_out">
+                            <span><b>10</b></span><br>
+                            <span id="matriculation_college_name_out">T.W.E.I.Sr.Sec School</span><br>
+                            <span>Phagwara, Punjab</span><br>
+                        </div>
+
+                        <div id="ten_edu_status_out">
+                            <span>Graduated, June 2015</span><br>
+                            <span id="matriculations_marks_out">82.63%</span><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qualifications_out">
+                <img id="quali_logo_out" src="qualification.png" alt="Qualification">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Qualification</h4>
+                <div id="quali_text_out" style="font-size: 20px;">
+                    <ul style="margin: 3%;">
+                        <li id="quali_out_1">IBM’s Data Science Professional Certificate Specialization from Coursera.
+                        </li>
+                        <li id="quali_out_2">Data Scientist Badge from Tableau.</li>
+                        <li id="quali_out_3">Data Mining from NPTEL.</li>
+                        <li id="quali_out_4">JAVA from Amity Future Academy.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project_out">
+                <img id="project_logo_out" src="project.png" alt="Project">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Project/Work Highlights</h4>
+                <div id="project_text_out" style="font-size: 20px;">
+                    <ul style="margin: 3%;">
+                        <li id="project_out_1">Smart Home Automation System using Arduino and many other Sensors.</li>
+                        <li id="project_out_2">House Price Prediction System using Python, ML, HTML, CSS, and JS. </li>
+                        <li id="project_out_3">Hollywood Movie Recommendation System using Python.</li>
+                        <li id="project_out_4">Fetching Comments from YouTube’s Videos and performing Sentimental
+                            Analysis
+                            using R and Python.</li>
+                        <li id="project_out_5">Sports Person Classifier using Python, ML, HTML, CSS, and JS.</li>
+                        <li id="project_out_6"> Portfolio Webpage using HTML, CSS, and JS. (
+                            https://iakashsharma.netlify.app/ )</li>
+                        <li id="project_out_7">Drowsiness Detection System using Python and ML.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="skill_out">
+                <img id="skill_logo_out" src="skill.png" alt="Skill">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Skills</h4>
+                <div id="skill_text_out" style="font-size: 20px;">
+                    <ul style="margin: 3%; display: flex; justify-content: space-between;">
+                        <div>
+                            <li id="skills_out_1">Active Listening</li> <br>
+                        </div>
+                        <div>
+                            <li id="skills_out_2">Leadership</li> <br>
+                        </div>
+                        <div>
+                            <li id="skills_out_3">Management Skills</li> <br>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="proficiency_out">
+                <img id="proficiency_logo_out" src="proficiency.svg" alt="Proficiency">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Computer Proficiency</h4>
+                <div id="proficiency_text_out" style="font-size: 20px;">
+                    <ul style="margin: 3%; display: flex; justify-content: space-between;">
+                        <div>
+                            <li id="proficiency_out_1">MS Office</li> <br>
+                            <li id="proficiency_out_2">Audacity</li>
+                        </div>
+                        <div>
+                            <li id="proficiency_out_3">Adobe Photoshop</li> <br>
+                            <li id="proficiency_out_4">Tableau</li>
+                        </div>
+                        <div>
+                            <li id="proficiency_out_5">Unity</li> <br>
+                            <li id="proficiency_out_6">Linux</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="language_out">
+                <img id="language_logo_out" src="language.png" alt="language">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Languages</h4>
+                <div id="language_text_out" style="font-size: 20px;">
+                    <ul style="margin: 3%; display: flex; justify-content: space-between;">
+                        <div>
+                            <li id="language_out_1">English</li><br>
+                            <div>
+                                <li id="language_out_2">Hindi</li> <br>
+                                <div>
+                                    <li id="language_out_3">Punjabi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="interest_out">
+                <img id="interest_logo_out" src="interest.png" alt="interest">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;"> Personal Interests</h4>
+                <div id="interest_text_out" style="font-size: 20px;">
+                    <ul style="margin: 3%;">
+                        <div style="display: block; margin: auto;">
+                            <li id="interest_out_1">Punjabi Folk Dance</li> <br>
+                            <li id="interest_out_2">Surfing Internet</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="detail_out_out">
+                <img id="detail_logo_out" src="detail.png" alt="detail">
+                <h4 style="color: rgb(26, 56, 156); text-align: center; font-weight: 900;">Personal Details</h4>
+                <div class="detail_out">
+                    <div id="detail_edu_out">
+                        <div id="detail_edu_name_out">
+                            <span>Father's Name</span><br>
+                            <span>Birthday</span><br>
+                            <span>Gender</span><br>
+                            <span>Maritial Status</span><br>
+                            <span>Nationality</span><br>
+                        </div>
+
+                        <div id="detail_edu_status_out">
+                            <span id="detail_out_1">Mr. Krishana Kant Sharma</span><br>
+                            <span id="detail_out_2">July 20, 1999</span><br>
+                            <span id="detail_out_3">Male</span><br>
+                            <span id="detail_out_4">Single</span><br>
+                            <span id="detail_out_5">Indian</span><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="print_button_div" class="print_button_div">
+                <button id="print" class="print_button" type="button" onclick="window.print()">Print</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('image_out');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+</body>
+
+</html>

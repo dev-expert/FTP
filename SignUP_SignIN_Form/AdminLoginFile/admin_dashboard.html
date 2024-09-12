@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin DashBoard</title>
+  <link rel="stylesheet" href="admin_dashboard_style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="admin_dashboard_script.js"></script>
+</head>
+
+<body id="body_body" class="body_body">
+  <header class="header_portion">
+    <div class="uppernav">
+      <ul class="upper_nav_bar_ul">
+        <li class="upper_nav_bar_li"><a style="cursor: pointer;" onclick="delFireWall()">LOGOUT</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="sidenav">
+    <a style="cursor: pointer;" href="file:///D:/FTP/SignUP_SignIN_Form/CommonFiles/Resume/resume_builder.html">RESUME
+      BUILDER</a>
+    <a style="cursor: pointer;"
+      href="file:///D:/FTP/SignUP_SignIN_Form/CommonFiles/Calculator/Calculator.html">CALCULATOR</a>
+    <a style="cursor: pointer;" href="file:///D:/FTP/SignUP_SignIN_Form/CommonFiles/URL_Adder/URL_Adder.html">URL
+      ADDER</a>
+    <a style="cursor: pointer;" onclick="database()">LIST OF USERS</a>
+  </div>
+  <div id="welcome_message_box" class="welcome_message_box">
+    <p id="welcome_message_text" class="welcome_message_text">WELCOME TO THE ADMIN DASHBOARD</p>
+  </div>
+  <div class="main_area" id="main_area" style="display: none;">
+
+    <p class="p_tag" id="p_tag">
+      Followings are the List of all the Users who Registered. We are able to see their <b>User Name</b>, <b>Email</b>,
+      <b>User Type</b> and <b>Delete Button</b>
+    </p>
+    <table id="table" style="display: none;">
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>User Type</th>
+        <th>Select</th>
+      </tr>
+      <tbody id="table_data"></tbody>
+    </table>
+    <br>
+    <button id="delete_button" class="delete_button" onclick="deljeteData()">Delete</button>
+  </div>
+
+</body>
+
+</html>

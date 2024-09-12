@@ -1,0 +1,32 @@
+USE appwrk;
+CREATE Table `Department`(
+`RegID` varchar(15) Not Null,
+`Name` varchar(25) Not Null,
+`Department` varchar(25) Not Null,
+PRIMARY KEY (`RegID`)
+);
+
+CREATE Table `appwrk`.`library`(
+`RegID` varchar(15) Not null,
+`BookName` varchar(25) Not Null
+);
+
+SELECT * FROM Department;
+
+DESCRIBE Department;
+
+DESCRIBE library;
+
+ALTER TABLE `appwrk`.`library` ADD FOREIGN KEY (`RegID`) REFERENCES `appwrk`.`Department`(`RegID`);
+
+DESCRIBE library;
+
+INSERT INTO `Department`(`RegID`, `Name`, `Department`) VALUES ("1", "Akash Sharma", "Development");
+INSERT INTO `Department`(`RegID`, `Name`, `Department`) VALUES ("2", "Akash Sharma", "Development"), ("3", "Anmol Jha", "Development"), ("4", "Anmol Jha", "Development"), ("5", "Sharanjeet Kaur", "Design");
+INSERT INTO `Department` VALUES ("6", "Shubham Sharma", "Business Development");
+
+INSERT INTO `library` (`RegID` ,`BookName`) VALUES("1", "IMeUs");
+INSERT INTO `library` (`RegID` ,`BookName`) VALUES("2", "Entrepreneurialship");
+
+SELECT * FROM library;
+DELETE FROM  Department

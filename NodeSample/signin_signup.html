@@ -1,0 +1,219 @@
+<html class="no-js">
+
+<head>
+    <title>Sign UP/ Sign IN Form</title>
+    <style>
+        body {
+            padding-top: 10vh;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+            width: 30%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .signin_form,
+        .signup_form {
+            text-align: center;
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 10px;
+            background-color: #f0f2f5;
+        }
+
+        input[type=text],
+        [type=email],
+        [type=password],
+        select {
+            width: 15vw;
+            padding: 12px 20px;
+            /* margin: 1px 0; */
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+
+        input[type=button] {
+            font-size: 12px;
+            height: 5vh;
+            width: 15vw;
+            border: 2px solid balck;
+            background-color: #42b72a;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=button]:hover {
+            background-color: white;
+            color: #42b72a;
+            border-color: #42b72a;
+            transform: scale(1.1);
+            transition: 1s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div id="signup_form" class="signup_form">
+        <form>
+            <h1> ADD DOCUMENTS IN DATA BASE</h1>
+            <p>
+                <label for="user_name_signup_label" class="user_name_signup_label"> Your Name</label><br>
+                <input id="user_name_signup" name="user_name_signup" required="required" type="text"
+                    placeholder="Akash Sharma" />
+            </p>
+            <p>
+                <label for="user_id_signup_label" class="user_id_signup_label">Your Id</label><br>
+                <input id="user_id_signup" name="user_id_signup" required="required" type="number" placeholder="3" />
+            </p>
+            <p>
+                <label for="user_age_signup_label" class="user_age_signup_label">Your Age</label><br>
+                <input id="user_age_signup" name="user_age_signup" required="required" type="number"
+                    placeholder="eg. 21" />
+            </p>
+            <p class="signup_button">
+                <input type="submit" value="Submit" onclick="register()" />
+            </p>
+            <p class="list_button">
+                <input type="submit" value="Get List" onclick="getlist()" />
+            </p>
+        </form>
+    </div> -->
+    <!-- <table border="1px" id="displaydata" style="display: none;">
+        <tbody>
+            <tr>
+                <th>UserName</th>
+                <th>ID</th>
+                <th>Age</th>
+            </tr>
+        </tbody>
+    </table> -->
+
+
+    <div id="signin_form" class="signin_form">
+        <form>
+            <h1>SIGN IN</h1>
+            <p>
+                <label for="email_label" class="email_label"> Your Email </label><br>
+                <input id="email" name="email" type="email" placeholder="abc@gmail.com" required="required" />
+            </p>
+            <p>
+                <label for="password_label" class="password_label"> Your Password </label><br>
+                <input id="password" name="password" type="password" placeholder="951753" required="required" />
+            </p>
+            <p class="signin_button">
+                <input type="button" value="SignIN" onclick="signin()">
+            </p>
+            <p class="create_new_account_button">
+                <input type="button" value="Create Account" id="new_account" onclick="hide()" />
+            </p>
+        </form>
+    </div>
+
+    <div id="signup_form" class="signup_form" style="display: none;">
+        <form>
+            <h1>SIGN UP</h1>
+            <p>
+                <label for="usernamesignup_label" class="usernamesignup_label">Your Username</label><br>
+                <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="iakash" />
+            </p>
+            <p>
+                <label for="emailsignup_label" class="emailsignup_label"> Your Email</label><br>
+                <input id="emailsignup" name="emailsignup" required="required" type="email"
+                    placeholder="xyz@mail.com" />
+            </p>
+            <p>
+                <label for="passwordsignup_label" class="passwordsignup_label">Your Password</label><br>
+                <input id="passwordsignup" name="passwordsignup" required="required" type="password"
+                    placeholder="eg. 951753" />
+            </p>
+            <p>
+                <label for="useroption_label" class="useroption_label">Select Your Category</label><br>
+                <select name="user_type" id="user_type">
+                    <option value="false">Normal User</option>
+                    <option value="true">Admin</option>
+                </select>
+            </p>
+            <p class="signup_button">
+                <input type="button" value="Register"  onclick="register()" />
+            </p>
+            <!-- <p class="clear_button">
+                <input type="button" onclick="clearlocalstorage()" value="Delete All Users" />
+            </p> -->
+
+        </form>
+    </div>
+    <script>
+        // HIDE FORM
+        function hide() {
+            var a = document.getElementById("signin_form");
+            a.style.display = 'none';
+            document.getElementById("signup_form").style.display = "block";
+        }
+
+        // FUNCTION FOR ESTABLISHING CONNECTION
+        function register() {
+            var name = document.getElementById("usernamesignup").value;
+            var mail = document.getElementById("emailsignup").value;
+            var pas = document.getElementById("passwordsignup").value;
+            var type = document.getElementById("user_type").value;
+            var data = { usernamesignup: name, emailsignup: mail, passwordsignup: pas, user_type: type };
+
+            fetch("http://localhost:1000/regis", {
+                method: "POST", // or 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
+        // SIGN IN FUNCTION
+
+        function signin() {
+            var email1 = document.getElementById("email").value;
+            var password1 = document.getElementById("password").value;
+            var obj = { emailsignup: email1, passwordsignup: password1 };
+            fetch("http://localhost:1000/signin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj),
+            })
+                .then((response) => { return response.json() })
+                .then((data) => {
+                    console.log(data);
+                    if (data.user_type == "true") {
+                        alert("WELCOME TO ADMIN VIEW");
+                        localStorage.setItem("firewall", "1");
+                        window.open("admin_dashboard.html");
+                    }
+                    else if (data.user_type == "false") {
+                        alert("WELCOME TO USER VIEW");
+                        localStorage.setItem("firewall2", "1");
+                        window.open("user_dashboard.html");
+                    }
+                    else {
+                        alert("Enter CORRECT CREDENTIAL");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error :", error);
+                });
+        }
+    </script>
+</body>
+
+</html>

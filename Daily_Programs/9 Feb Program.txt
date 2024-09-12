@@ -1,0 +1,17 @@
+var n = prompt("Enter the Number");
+var arr = [];
+for(var i = 0;i<n;i++)
+{
+arr[i] = prompt("Number");
+}
+var flag = 1;
+for(var i = 0;i<n;i++)
+{
+if(arr.indexOf(arr[i])==arr.lastIndexOf(arr[i]))
+{
+document.write(arr[i]+" ");
+flag = 0;
+}
+}
+if(flag == 1)
+document.write("No Unique Element");
